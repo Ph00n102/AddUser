@@ -1,0 +1,55 @@
+﻿@using System.Security.Claims
+@using HosxpUi.Services
+@inherits LayoutComponentBase
+@inject StateContainer StateContainer
+@* <div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4">
+            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div> *@
+
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudAppBar Color="Color.Primary">
+        
+        @* <MudLink Color="Color.Inherit" Underline="Underline.None" Href="/">Home</MudLink> *@
+        <AuthorizeView>
+            <Authorized>
+                <span>@UserDisplyaName(context.User.Claims.ToList())</span>
+                @* <MudLink Color="Color.Inherit" Underline="Underline.None" Class="ml-2" Href="/">Home</MudLink> *@
+            </Authorized>
+            <NotAuthorized>
+                <MudLink Color="Color.Inherit" Underline="Underline.None" Class="ml-2" Href="/login">Login</MudLink>
+            </NotAuthorized>
+        </AuthorizeView>
+        <MudSpacer/>
+    </MudAppBar>
+    <MudMainContent>
+        @Body
+    </MudMainContent>
+</MudLayout>
+@code{
+    private string LoginName;
+    private string UserDisplyaName(List<Claim> claims)
+    {
+        var LoginName = claims.Where(_ => _.Type == "LoginName").Select(_ => _.Value).FirstOrDefault();
+
+        // Set the value in the state container
+        StateContainer.LoginName = LoginName;
+
+        return $"ยินดีต้อนรับ {LoginName}";
+    }
+}

@@ -1,0 +1,23 @@
+﻿@page "/"
+@using HosxpUi.Services
+@inject StateContainer StateContainer
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+<h3>Welcome to the Home page, @StateContainer.LoginName</h3>
+
+@code {
+    // Subscribe to state changes to update the page when LoginName changes
+    protected override void OnInitialized()
+    {
+        StateContainer.OnChange += StateHasChanged;
+    }
+
+    // Unsubscribe when component is disposed
+    public void Dispose()
+    {
+        StateContainer.OnChange -= StateHasChanged;
+    }
+}
