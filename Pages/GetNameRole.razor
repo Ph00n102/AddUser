@@ -1,0 +1,20 @@
+@page "/getnamerole"
+@using HosxpUi.Services
+@inject StateContainer StateContainer
+
+<PageTitle>Getnamerole</PageTitle>
+<h3>Welcome, @StateContainer.LoginName (@StateContainer.Role)</h3>
+
+@code {
+    // Subscribe to state changes to update the page when LoginName changes
+    protected override void OnInitialized()
+    {
+        StateContainer.OnChange += StateHasChanged;
+    }
+
+    // Unsubscribe when component is disposed
+    public void Dispose()
+    {
+        StateContainer.OnChange -= StateHasChanged;
+    }
+}

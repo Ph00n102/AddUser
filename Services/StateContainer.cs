@@ -3,6 +3,7 @@ namespace HosxpUi.Services
     public class StateContainer
     {
         private string _loginName;
+        private string _role;
 
         // Event to notify when LoginName changes
         public event Action OnChange;
@@ -15,6 +16,19 @@ namespace HosxpUi.Services
                 if (_loginName != value)
                 {
                     _loginName = value;
+                    NotifyStateChanged();
+                }
+            }
+        }
+
+        public string Role
+        {
+            get => _role;
+            set
+            {
+                if (_role != value)
+                {
+                    _role = value;
                     NotifyStateChanged();
                 }
             }

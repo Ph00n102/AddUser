@@ -1,0 +1,28 @@
+@page "/admin"
+@using Microsoft.AspNetCore.Authorization
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager _navigationManager;
+@attribute [Authorize]
+
+<PageTitle>Admin Page</PageTitle>
+
+<h3>Admin content goes here</h3>
+
+@code {
+    private bool IsAdmin { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        // Check if the user has the "Admin" role
+        IsAdmin = user.IsInRole("Admin");
+
+        // If the user is not an admin, redirect to AccessDenied page
+        if (!IsAdmin)
+        {
+            _navigationManager.NavigateTo("/accessdenied");
+        }
+    }
+}

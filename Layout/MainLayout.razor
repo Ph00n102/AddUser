@@ -1,22 +1,14 @@
 ﻿@using System.Security.Claims
+@using HosxpUi.Layout.Providers
 @using HosxpUi.Services
 @inherits LayoutComponentBase
 @inject StateContainer StateContainer
-@* <div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
-
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
-
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div> *@
+@using Microsoft.AspNetCore.Components.Authorization
+@using Blazored.LocalStorage
+@inject AuthenticationStateProvider CustomAuthProvider
+@inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider _authStateProvider;
+@inject ILocalStorageService _localStorageService;
 
 <MudThemeProvider />
 <MudDialogProvider />
@@ -24,32 +16,55 @@
 
 <MudLayout>
     <MudAppBar Color="Color.Primary">
-        
-        @* <MudLink Color="Color.Inherit" Underline="Underline.None" Href="/">Home</MudLink> *@
         <AuthorizeView>
             <Authorized>
-                <span>@UserDisplyaName(context.User.Claims.ToList())</span>
-                @* <MudLink Color="Color.Inherit" Underline="Underline.None" Class="ml-2" Href="/">Home</MudLink> *@
+                <MudText Color="Color.Inherit" Class="mr-2">
+                    ยินดีต้อนรับ
+                </MudText>
+                <MudSpacer/>
+                <MudLink Color="Color.Inherit" Underline="Underline.None" class="mr-2" OnClick="LogoutAsync">Logout</MudLink>
             </Authorized>
             <NotAuthorized>
-                <MudLink Color="Color.Inherit" Underline="Underline.None" Class="ml-2" Href="/login">Login</MudLink>
+                <MudLink Color="Color.Inherit" Underline="Underline.None" Class="mr-2" Href="/">สำนักงานดิจิทัลทางการแพทย์</MudLink>
+                <MudSpacer/>
+                <MudLink Color="Color.Inherit" Underline="Underline.None" Class="mr-2" Href="/login">Login</MudLink>
             </NotAuthorized>
         </AuthorizeView>
-        <MudSpacer/>
     </MudAppBar>
     <MudMainContent>
         @Body
     </MudMainContent>
 </MudLayout>
 @code{
-    private string LoginName;
-    private string UserDisplyaName(List<Claim> claims)
+    private string LoginName { get; set; }
+    private string Role { get; set; }
+
+    protected override async Task OnInitializedAsync()
     {
-        var LoginName = claims.Where(_ => _.Type == "LoginName").Select(_ => _.Value).FirstOrDefault();
+        var authState = await _authStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        // Extract the LoginName and Role from the user's claims
+        LoginName = user?.FindFirst(c => c.Type == "LoginName")?.Value;
+        Role = user?.FindFirst(c => c.Type == ClaimTypes.Role)?.Value;
 
         // Set the value in the state container
         StateContainer.LoginName = LoginName;
-
-        return $"ยินดีต้อนรับ {LoginName}";
+        StateContainer.Role = Role;
     }
+     private async Task LogoutAsync()
+    {
+        // Clear the JWT token from local storage
+        await _localStorageService.RemoveItemAsync("jwt-access-token");
+
+        // Notify the authentication state provider to update the auth state
+        if (_authStateProvider is CustomAuthProvider customAuthProvider)
+        {
+            customAuthProvider.NotifyAuthState();
+        }
+
+        // Redirect the user to the login page or home page
+        NavigationManager.NavigateTo("/login");
+    }
+
 }
