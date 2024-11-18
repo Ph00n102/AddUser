@@ -13,7 +13,6 @@
 <MudThemeProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
-
 <MudLayout>
     <MudAppBar Color="Color.Primary">
         <AuthorizeView>
@@ -36,6 +35,7 @@
     </MudMainContent>
 </MudLayout>
 @code{
+    private bool drawerOpen = true; // You can control the drawer open/close state here
     private string LoginName { get; set; }
     private string Role { get; set; }
 
