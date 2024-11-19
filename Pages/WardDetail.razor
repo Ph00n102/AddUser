@@ -1,0 +1,84 @@
+@page "/warddetail"
+@page "/warddetail/{wardno}"
+@using HosxpUi.Controllers
+@using HosxpUi.Models
+@inject IHttpClientFactory _httpClientFactory;
+
+<PageTitle>Patient Ward</PageTitle>
+@* <table class="table">
+    <thead>
+        <tr>
+            <th>BedNumber</th>
+            <th>HN</th>
+            <th>AN</th>
+            <th>VN</th>
+            <th>Image</th>
+            <th>pname</th>
+            <th>fname</th>
+            <th>lname</th>
+            <th>age</th>
+            <th>รายการเลือก</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ipts)
+        {
+            <tr>
+                <td>@item.bedno</td>
+                <td>@item.hn</td>
+                <td>@item.an</td>
+                <td>@item.vn</td>
+                <td><img width="100" height="120" src="data:image/jpeg;base64,@item.image" /></td>
+                <td>@item.pname</td>
+                <td>@item.fname</td>
+                <td>@item.lname</td>
+                <td>@item.age13</td>
+                <td> <a href="/opdvisit/@item.vn" target="_blank">ดูประวัติ OPD</a> <br /> <a href="/laborder/@item.hn" target="_blank">รายการ lab IPD</a> <br />
+                <a href="http://localhost:9090/?QueryMode=PID&Value=@item.hn" target="_blank">ดู x-ray</a> <br />
+                <a href="http://172.16.1.104/Emr2398_link/index.jsp?queryhn=@item.hn&user=50239&no_ax=true" target="_blank">ดูประวัติ binary</a>
+                    <br /> <a href="/notephoto/@item.hn" target="_blank">Note Photo</a> <br /> <a href="/drugprofile/@item.an" target="_blank">ยา continue</a> <br /> </td>
+            </tr>
+        }
+    </tbody>
+</table> *@
+<div class="flex-column">
+    <MudDataGrid Items="@patients" Filterable="true" FilterMode="@_filterMode" FilterCaseSensitivity="@_caseSensitivity">
+    <Columns>
+        <PropertyColumn Property="x => x.bedno" Title="BedNo"/>
+        <PropertyColumn Property="x => x.indate" Title="AdmitDate"/>
+        <PropertyColumn Property="x => x.an" Title="AN"/>
+        <PropertyColumn Property="x => x.vn" Title="VN"/>
+         <!-- Add the MudImage column -->
+            @* <TemplateColumn Title="Image">
+                <Template>
+                    <MudImage Src=@($"data:image/jpeg;base64,{context.Item.image}") Width="100px" Height="120px" />
+                </Template>
+            </TemplateColumn> *@
+        <PropertyColumn Property="x => x.pname" Title="คำนำหน้า"/>
+        <PropertyColumn Property="x => x.fname" Title="ชื่อ"/>
+        <PropertyColumn Property="x => x.lname" Title="นามสกุล"/>
+        <PropertyColumn Property="x => x.ageY" Title="อายุ"/>
+    </Columns>
+    <PagerContent>
+        <MudDataGridPager T="WardPatient" />
+    </PagerContent>
+    </MudDataGrid>
+</div>
+
+@code {
+    [Parameter]
+    public string wardno { get; set; }
+
+    public record WardPatient(string bedno, string indate, string an, string vn, string pname, string fname, string lname, int ageY, string image);
+    
+    IEnumerable<WardPatient> patients = new List<WardPatient>();
+    DataGridFilterMode _filterMode = DataGridFilterMode.Simple;
+    DataGridFilterCaseSensitivity _caseSensitivity = DataGridFilterCaseSensitivity.CaseInsensitive;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
+        patients = await httpClient.GetFromJsonAsync<List<WardPatient>>($"api/Ipd/getpatient?_wardno={wardno}");
+    } 
+}

@@ -11,6 +11,7 @@
 @inject ILocalStorageService _localStorageService;
 
 <MudThemeProvider />
+<MudPopoverProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
 <MudLayout>
@@ -35,7 +36,6 @@
     </MudMainContent>
 </MudLayout>
 @code{
-    private bool drawerOpen = true; // You can control the drawer open/close state here
     private string LoginName { get; set; }
     private string Role { get; set; }
 

@@ -49,8 +49,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/HosxpUi/Pages/IpdWard.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSXBkV2FyZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/HosxpUi/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HosxpUi/Pages/WardDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2FyZERldGFpbC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/HosxpUi/_Imports.razor]
