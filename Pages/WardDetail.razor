@@ -3,6 +3,7 @@
 @using HosxpUi.Controllers
 @using HosxpUi.Models
 @inject IHttpClientFactory _httpClientFactory;
+@using MudBlazor
 
 <PageTitle>Patient Ward</PageTitle>
 @* <table class="table">
@@ -46,18 +47,20 @@
     <Columns>
         <PropertyColumn Property="x => x.bedno" Title="BedNo"/>
         <PropertyColumn Property="x => x.indate" Title="AdmitDate"/>
+        <PropertyColumn Property="x => x.hn" Title="HN"/>
         <PropertyColumn Property="x => x.an" Title="AN"/>
         <PropertyColumn Property="x => x.vn" Title="VN"/>
-         <!-- Add the MudImage column -->
-            @* <TemplateColumn Title="Image">
-                <Template>
-                    <MudImage Src=@($"data:image/jpeg;base64,{context.Item.image}") Width="100px" Height="120px" />
-                </Template>
-            </TemplateColumn> *@
         <PropertyColumn Property="x => x.pname" Title="คำนำหน้า"/>
         <PropertyColumn Property="x => x.fname" Title="ชื่อ"/>
         <PropertyColumn Property="x => x.lname" Title="นามสกุล"/>
         <PropertyColumn Property="x => x.ageY" Title="อายุ"/>
+        <TemplateColumn CellClass="d-flex justify-end">
+            <CellTemplate>
+                <MudStack Row>
+                    <MudButton Size="@Size.Small" Variant="@Variant.Filled" Color="@Color.Primary" Href="@($"/patient/{context.Item.hn}")">ดูรายละเอียด</MudButton>
+                </MudStack>
+            </CellTemplate>
+        </TemplateColumn>
     </Columns>
     <PagerContent>
         <MudDataGridPager T="WardPatient" />
@@ -69,7 +72,7 @@
     [Parameter]
     public string wardno { get; set; }
 
-    public record WardPatient(string bedno, string indate, string an, string vn, string pname, string fname, string lname, int ageY, string image);
+    public record WardPatient(string bedno, string indate, string hn, string an, string vn, string pname, string fname, string lname, int ageY, string image);
     
     IEnumerable<WardPatient> patients = new List<WardPatient>();
     DataGridFilterMode _filterMode = DataGridFilterMode.Simple;
@@ -81,4 +84,5 @@
         var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
         patients = await httpClient.GetFromJsonAsync<List<WardPatient>>($"api/Ipd/getpatient?_wardno={wardno}");
     } 
+
 }

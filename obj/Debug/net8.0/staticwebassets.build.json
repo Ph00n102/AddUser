@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "770gcVSdCHkRUt1D+jx+zLFdWqJUN3wPDAUd5kH296I=",
+  "Hash": "PrQAUxR+/jP1P3+iNgNdejxD/auASO6ylYdpAZMNxlg=",
   "Source": "HosxpUi",
   "BasePath": "/",
   "Mode": "Root",
@@ -9344,6 +9344,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\icon-192.png"
+    },
+    {
+      "Identity": "D:\\HosxpUi\\wwwroot\\images\\mony.jpg",
+      "SourceId": "HosxpUi",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HosxpUi\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "images/mony.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\mony.jpg"
     },
     {
       "Identity": "D:\\HosxpUi\\wwwroot\\index.html",

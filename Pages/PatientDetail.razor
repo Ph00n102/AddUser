@@ -1,0 +1,47 @@
+@page "/patient"
+@page "/patient/{hn}"
+@using HosxpUi.Models
+@using Microsoft.AspNetCore.Authorization
+@inject IHttpClientFactory _httpClientFactory;
+@inject NavigationManager Navigation;
+@attribute [Authorize(Roles = "Admin,User,Nurse,Doctor")]
+
+<PageTitle>Patient Detail</PageTitle>
+<table class="table">
+    <tbody>
+        @foreach (var item in ptDetails){
+        <tr>
+            <td>
+                <img width="100" height="120" src="data:image/jpeg;base64,@item.image" />
+            </td>
+            <td>
+                <p><strong>ชื่อ</strong> @item.pname@item.fname @item.lname</p>
+                <p><strong>HN</strong> @item.hn</p>
+                <p><strong>AN</strong> @item.an</p>
+                <p><strong>สิทธิการรักษา</strong> @item.name</p>
+            </td>
+            <td>
+                <button class="btn btn-warning"><a href="http://172.16.1.104/Emr2398_link/index.jsp?queryhn=@item.hn&user=50239&no_ax=true" target="blank">ดูประวัติ binary</a></button>
+                <button class="btn btn-success"> <a href="http://localhost:9090/?QueryMode=PID&Value=@item.hn" target="_blank">ดู x-ray</a></button>
+                <button class="btn btn-info"><a href="/labchem/@item.hn" target="_blank">ผล lab chem</a></button>
+                <button class="btn btn-info"><a href="/labhem/@item.hn" target="_blank">ผล lab hemato</a></button>
+                <button class="btn btn-info"><a href="/olab/@item.hn" target="_blank">ผล outlab</a></button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    [Parameter]
+    public string hn {get; set;}
+
+    public List<WardPatient> ptDetails = new();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
+        ptDetails = await httpClient.GetFromJsonAsync<List<WardPatient>>($"api/Ipd/getpatientbyhn?_hn={hn}");
+    }
+}

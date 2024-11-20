@@ -1,0 +1,39 @@
+@page "/olabd"
+@page "/olabd/{labno}"
+@using HosxpUi.Models
+@using Microsoft.AspNetCore.Authorization
+@inject IHttpClientFactory _httpClientFactory;
+@inject NavigationManager Navigation;
+@attribute [Authorize(Roles = "Admin,User,Nurse,Doctor")]
+
+<PageTitle>Lab Detail</PageTitle>
+ @if (olabdetails == null || !olabdetails.Any()) // Check if the list is null or empty
+{
+    <p class='text-center'><strong>ไม่พบข้อมูล</strong></p>
+}
+else
+{
+    
+            @foreach (var item in olabdetails)
+            {
+                <img src="data:image/jpeg;base64,@item.image1" />
+                <img src="data:image/jpeg;base64,@item.image2" />
+                <img src="data:image/jpeg;base64,@item.image3" />
+                <img src="data:image/jpeg;base64,@item.image4" />
+                <img src="data:image/jpeg;base64,@item.image5" />
+            }
+}
+
+@code {
+    [Parameter]
+    public string labno {get; set;}
+
+    public List<OutLabDetail> olabdetails = new();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
+        olabdetails = await httpClient.GetFromJsonAsync<List<OutLabDetail>>($"api/Lab/getoutlabimage?_laborderno={labno}");
+    }
+}

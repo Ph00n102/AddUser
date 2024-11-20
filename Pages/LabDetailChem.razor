@@ -1,0 +1,77 @@
+@page "/labchem"
+@page "/labchem/{hn}"
+@using HosxpUi.Models
+@using Microsoft.AspNetCore.Authorization
+@inject IHttpClientFactory _httpClientFactory;
+@inject NavigationManager Navigation;
+@attribute [Authorize(Roles = "Admin,User,Nurse,Doctor")]
+
+<PageTitle>Lab Detail</PageTitle>
+<table class="table">
+    <thead>
+        <tr>
+            <th>วันที่</th>
+            <th>เวลา</th>
+            <th>BUN</th>
+            <th>Cr</th>
+            <th>eGFR</th>
+            <th>Na</th>
+            <th>K</th>
+            <th>Cl</th>
+            <th>CO2</th>
+            <th>FBS</th>
+            <th>HbA1C</th>
+            <th>Ca</th>
+            <th>Mg</th>
+            <th>P</th>
+            <th>TB</th>
+            <th>DB</th>
+            <th>AST</th>
+            <th>ALT</th>
+            <th>ALP</th>
+            <th>Alb</th>
+            <th>Glob</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in labChemDetails)
+        {
+            <tr>
+                <td>@item.orderDate</td>
+                <td>@item.reportTime</td>
+                <td>@item.bun</td>
+                <td>@item.cr</td>
+                <td>@item.eGFR</td>
+                <td>@item.na</td>
+                <td>@item.k</td>
+                <td>@item.cl</td>
+                <td>@item.cO2</td>
+                <td>@item.fbs</td>
+                <td>@item.hbA1C</td>
+                <td>@item.ca</td>
+                <td>@item.mg</td>
+                <td>@item.p</td>
+                <td>@item.tb</td>
+                <td>@item.db</td>
+                <td>@item.ast</td>
+                <td>@item.alt</td>
+                <td>@item.alp</td>
+                <td>@item.alb</td>
+                <td>@item.glob</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    [Parameter]
+    public string hn {get; set;}
+
+    public List<LabChem> labChemDetails = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
+        labChemDetails = await httpClient.GetFromJsonAsync<List<LabChem>>($"api/Lab/getlabChem?_hn={hn}");
+    }
+}    

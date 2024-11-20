@@ -1,0 +1,59 @@
+@page "/labhem"
+@page "/labhem/{hn}"
+@using HosxpUi.Models
+@using Microsoft.AspNetCore.Authorization
+@inject IHttpClientFactory _httpClientFactory;
+@inject NavigationManager Navigation;
+@attribute [Authorize(Roles = "Admin,User,Nurse,Doctor")]
+
+<PageTitle>Lab Detail</PageTitle>
+<table class="table">
+    <thead>
+        <tr>
+            <th>วันที่</th>
+            <th>เวลา</th>
+            <th>Hb</th>
+            <th>Hct</th>
+            <th>MCV</th>
+            <th>Plt</th>
+            <th>WBC</th>
+            <th>N%</th>
+            <th>L%</th>
+            <th>PT</th>
+            <th>aPTT</th>
+            <th>INR</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in labHemDetails)
+        {
+            <tr>
+                <td>@item.orderDate</td>
+                <td>@item.reportTime</td>
+                <td>@item.hb</td>
+                <td>@item.hct</td>
+                <td>@item.mcv</td>
+                <td>@item.plt</td>
+                <td>@item.wbc</td>
+                <td>@item.neu</td>
+                <td>@item.lym</td>
+                <td>@item.pt</td>
+                <td>@item.aPTT</td>
+                <td>@item.inr</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    [Parameter]
+    public string hn {get; set;}
+
+    public List<LabHem> labHemDetails = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
+        labHemDetails = await httpClient.GetFromJsonAsync<List<LabHem>>($"api/Lab/getlabHem?_hn={hn}");
+    }
+}    

@@ -1,0 +1,49 @@
+@page "/olab"
+@page "/olab/{hn}"
+@using HosxpUi.Models
+@using Microsoft.AspNetCore.Authorization
+@inject IHttpClientFactory _httpClientFactory;
+@inject NavigationManager Navigation;
+@attribute [Authorize(Roles = "Admin,User,Nurse,Doctor")]
+
+<PageTitle>Lab Detail</PageTitle>
+ @if (olabLists == null || !olabLists.Any()) // Check if the list is null or empty
+{
+    <p class='text-center'><strong>ไม่พบข้อมูล</strong></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>วันที่</th>
+                <th>เวลา</th>
+                <th>รายการ</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in olabLists)
+            {
+                <tr>
+                    <td>@item.orderDate</td>
+                    <td>@item.reportTime</td>
+                    <td><a href="/olabd/@item.labOrderNumber" target="blank">@item.formName</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    [Parameter]
+    public string hn {get; set;}
+
+    public List<OutLab> olabLists = new();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
+        olabLists = await httpClient.GetFromJsonAsync<List<OutLab>>($"api/Lab/getoutlablist?_Hn={hn}");
+    }
+}

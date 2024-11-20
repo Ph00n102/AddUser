@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\icon-192.png"
     },
     {
+      "Id": "D:\\HosxpUi\\wwwroot\\images\\mony.jpg",
+      "PackagePath": "staticwebassets\\images\\mony.jpg"
+    },
+    {
       "Id": "D:\\HosxpUi\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
