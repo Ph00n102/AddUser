@@ -1,0 +1,51 @@
+@page "/opd"
+@page "/opd/{hn}"
+@using HosxpUi.Models
+@using Microsoft.AspNetCore.Authorization
+@inject IHttpClientFactory _httpClientFactory;
+@inject NavigationManager Navigation;
+@attribute [Authorize(Roles = "Admin,User,Nurse,Doctor")]
+
+<PageTitle>Patient Detail (OPD)</PageTitle>
+<table class="table">
+    <tbody>
+        <tr>
+            <td>
+                <img width="100" height="120" src="data:image/jpeg;base64,xxxxx" />
+            </td>
+            <td>
+                <p><strong>ชื่อ</strong> xxxxxx</p>
+                <p><strong>HN</strong> xxxxxx</p>
+                <p><strong>AN</strong> xxxxxx</p>
+                <p><strong>สิทธิการรักษา</strong> xxxxxx</p>
+                
+            </td>
+            <td>
+                <button class="btn btn-warning"><a href="http://172.16.1.104/Emr2398_link/index.jsp?queryhn=xxxx&user=50239&no_ax=true" target="blank">ดูประวัติ binary</a></button>
+                <button class="btn btn-success"> <a href="http://localhost:9090/?QueryMode=PID&Value=xxxxx" target="_blank">ดู x-ray</a></button>
+                <button class="btn btn-info"><a href="/labchem/xxxxx" target="_blank">ผล lab chem</a></button>
+                <button class="btn btn-info"><a href="/labhem/xxxxx" target="_blank">ผล lab hemato</a></button>
+                <button class="btn btn-info"><a href="/labua/xxxxx" target="_blank">ผล lab UA</a></button>
+                <button class="btn btn-info"><a href="/olab/xxxxx" target="_blank">ผล outlab</a></button>
+                <button class="btn btn-info"><a href="/othlab/xxxxx" target="_blank">ผล lab อืนๆ</a></button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <div>
+        <input value="@hn" @onchange="((ChangeEventArgs __e) => hn = __e?.Value?.ToString())" style="background-color: gray; color: white; height:35px ;">
+        <button class="btn btn-primary" @onclick="Click" >ค้นหา HN</button>
+    </div>
+</div>
+
+
+@code {
+    [Parameter]
+    public string hn {get; set;}
+
+    private async void Click()
+    {
+
+    }
+}

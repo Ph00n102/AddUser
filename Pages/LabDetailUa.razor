@@ -1,0 +1,97 @@
+@page "/labua"
+@page "/labua/{hn}"
+@using HosxpUi.Models
+@using Microsoft.AspNetCore.Authorization
+@inject IHttpClientFactory _httpClientFactory;
+@inject NavigationManager Navigation;
+@attribute [Authorize(Roles = "Admin,User,Nurse,Doctor")]
+
+<PageTitle>Lab Detail</PageTitle>
+<table class="table">
+    <thead>
+        <tr>
+            <th>วันที่</th>
+            <th>เวลา</th>
+            <th>Urine spec</th>
+            <th>pH</th>
+            <th>color</th>
+            <th>appearance</th>
+            <th>epithelial_cell</th>
+            <th>sqaumous_cell</th>
+            <th>renal_cell</th>
+            <th>mucous</th>
+            <th>wbc</th>
+            <th>bacteria</th>
+            <th>nitrite</th>
+            <th>yeast</th>
+            <th>pseudohyphae</th>
+            <th>rbc</th>
+            <th>rbc2</th>
+            <th>dysm_rbc</th>
+            <th>ghost_rbc</th>
+            <th>blood</th>
+            <th>sugar</th>
+            <th>ketone</th>
+            <th>bilirubin</th>
+            <th>urobilirubin</th>
+            <th>protein</th>
+            <th>cast</th>
+            <th>crystal</th>
+            <th>amorphous</th>
+            <th>blad_cell</th>
+            <th>caudate_cell</th>
+            <th>ammonium_biurates</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in labUaDetails)
+        {
+            <tr>
+                <td>@item.orderDate</td>
+                <td>@item.reportTime</td>
+                <td>@item.spgr</td>
+                <td>@item.pH</td>
+                <td>@item.color</td>
+                <td>@item.appearance</td>
+                <td>@item.epith_cell</td>
+                <td>@item.sqaum_cell</td>
+                <td>@item.renal_cell</td>
+                <td>@item.mucous</td>
+                <td>@item.wbc</td>
+                <td>@item.bacteria</td>
+                <td>@item.nitrite</td>
+                <td>@item.yeast</td>
+                <td>@item.pseudohyphae</td>
+                <td>@item.rbc</td>
+                <td>@item.rbc2</td>
+                <td>@item.dysm_rbc</td>
+                <td>@item.ghost_rbc</td>
+                <td>@item.blood</td>
+                <td>@item.sugar</td>
+                <td>@item.ketone</td>
+                <td>@item.bilirubin</td>
+                <td>@item.urobilirubin</td>
+                <td>@item.protein</td>
+                <td>@item.cast</td>
+                <td>@item.crystal</td>
+                <td>@item.amorphous</td>
+                <td>@item.blad_cell</td>
+                <td>@item.caudate_cell</td>
+                <td>@item.ammonium_biurates</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    [Parameter]
+    public string hn {get; set;}
+
+    public List<LabUa> labUaDetails = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
+        labUaDetails = await httpClient.GetFromJsonAsync<List<LabUa>>($"api/Lab/getlabUa?_Hn={hn}");
+    }
+}    

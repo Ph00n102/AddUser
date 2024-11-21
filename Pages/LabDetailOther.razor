@@ -1,0 +1,41 @@
+@page "/laboth"
+@page "/laboth/{labno}"
+@using HosxpUi.Models
+@using Microsoft.AspNetCore.Authorization
+@inject IHttpClientFactory _httpClientFactory;
+@inject NavigationManager Navigation;
+@attribute [Authorize(Roles = "Admin,User,Nurse,Doctor")]
+
+<PageTitle>Lab Detail</PageTitle>
+<table class="table">
+    <thead>
+        <tr>
+            <th>รายการ</th>
+            <th>ผล</th>
+            <th>ค่าปกติ</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in laborderDetails)
+        {
+            <tr>
+                <td>@item.labItemsNameRef</td>
+                <td>@item.labOrderResult</td>
+                <td>@item.labItemsNormalValueRef</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    [Parameter]
+    public string labno {get; set;}
+
+    public List<LabOrderDetail> laborderDetails = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
+        laborderDetails = await httpClient.GetFromJsonAsync<List<LabOrderDetail>>($"api/Lab/getlabdetail?_orderno={labno}");
+    }
+}    
