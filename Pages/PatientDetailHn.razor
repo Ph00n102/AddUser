@@ -11,23 +11,22 @@
     <tbody>
         <tr>
             <td>
-                <img width="100" height="120" src="data:image/jpeg;base64,xxxxx" />
+                <img width="100" height="120" src="data:image/jpeg;base64,@ptDetails.image" />
             </td>
             <td>
-                <p><strong>ชื่อ</strong> xxxxxx</p>
-                <p><strong>HN</strong> xxxxxx</p>
-                <p><strong>AN</strong> xxxxxx</p>
-                <p><strong>สิทธิการรักษา</strong> xxxxxx</p>
+                <p><strong>ชื่อ</strong> @ptDetails.pname @ptDetails.fname @ptDetails.lname </p>
+                <p><strong>HN</strong> @ptDetails.hn</p>
+                <p><strong>สิทธิการรักษา</strong> @ptDetails.name</p>
                 
             </td>
             <td>
-                <button class="btn btn-warning"><a href="http://172.16.1.104/Emr2398_link/index.jsp?queryhn=xxxx&user=50239&no_ax=true" target="blank">ดูประวัติ binary</a></button>
+                <button class="btn btn-warning"><a href="http://172.16.1.104/Emr2398_link/index.jsp?queryhn=@ptDetails.hn&user=50239&no_ax=true" target="blank">ดูประวัติ binary</a></button>
                 <button class="btn btn-success"> <a href="http://localhost:9090/?QueryMode=PID&Value=xxxxx" target="_blank">ดู x-ray</a></button>
-                <button class="btn btn-info"><a href="/labchem/xxxxx" target="_blank">ผล lab chem</a></button>
-                <button class="btn btn-info"><a href="/labhem/xxxxx" target="_blank">ผล lab hemato</a></button>
-                <button class="btn btn-info"><a href="/labua/xxxxx" target="_blank">ผล lab UA</a></button>
-                <button class="btn btn-info"><a href="/olab/xxxxx" target="_blank">ผล outlab</a></button>
-                <button class="btn btn-info"><a href="/othlab/xxxxx" target="_blank">ผล lab อืนๆ</a></button>
+                <button class="btn btn-info"><a href="/labchem/@ptDetails.hn" target="_blank">ผล lab chem</a></button>
+                <button class="btn btn-info"><a href="/labhem/@ptDetails.hn" target="_blank">ผล lab hemato</a></button>
+                <button class="btn btn-info"><a href="/labua/@ptDetails.hn" target="_blank">ผล lab UA</a></button>
+                <button class="btn btn-info"><a href="/olab/@ptDetails.hn" target="_blank">ผล outlab</a></button>
+                <button class="btn btn-info"><a href="/othlab/@ptDetails.hn" target="_blank">ผล lab อืนๆ</a></button>
             </td>
         </tr>
     </tbody>
@@ -38,14 +37,36 @@
         <button class="btn btn-primary" @onclick="Click" >ค้นหา HN</button>
     </div>
 </div>
+<table class="table">
+    <tbody>
+        @foreach (var item in visitList){
+        <tr>
+            <td>
+                <p><strong>วันที่</strong> @item.vstdate <strong>เวลา</strong> @item.vsttime <strong>แผนก</strong> @item.department </p> 
+                <p><strong>แพทย์</strong> @item.doctorName</p>
+            </td>
+            <td>
+                <p><strong>อาการสำคัญ</strong> @item.cc</p>
+                <p><strong>น้ำหนัก</strong> @item.bw kg <strong>ส่วนสูง</strong> @item.height ซม.</p>
+                <p><strong>T</strong> @item.temperature C <strong>P</strong> @item.pulse /min <strong>RR</strong> @item.pulse /min <strong>BP</strong> @item.bps/@item.bpd mmHg</p>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
 
 
 @code {
     [Parameter]
     public string hn {get; set;}
+    public WardPatient ptDetails = new();
 
-    private async void Click()
+    public List<OpdVisit> visitList = new();
+
+    private async Task Click()
     {
-
+        var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
+        ptDetails = await httpClient.GetFromJsonAsync<WardPatient>($"api/Opd/getpatientbyhn?_hn={hn}");
+        visitList = await httpClient.GetFromJsonAsync<List<OpdVisit>>($"api/Opd/getvndepartmentbyhn?_hn={hn}");
     }
 }
