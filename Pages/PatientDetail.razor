@@ -1,5 +1,5 @@
 @page "/patient"
-@page "/patient/{hn}"
+@page "/patient/{hn}/{an}"
 @using HosxpUi.Models
 @using Microsoft.AspNetCore.Authorization
 @inject IHttpClientFactory _httpClientFactory;
@@ -34,7 +34,7 @@
         }
     </tbody>
 </table>
-<table class="table">
+@* <table class="table">
     <thead>
         <tr>
             <td>วันที่/แผนก/แพทย์</td>
@@ -67,18 +67,53 @@
         </tr>
         }
     </tbody>
-</table>
+</table> *@
+<table class="table">
+    <thead>
+        <tr>
+            <td>Order Oneday</td>
+            <td>Order Continuous</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        @foreach (var item in orderDetails)
+        {
+            <td>
+                @* @foreach (var drug in item.oneday) 
+                {
+                    <tr>
+                        <p>@drug.icode @drug.orderItemDetail</p>
+                    </tr>
+                } *@
+            </td>
+            <td>
+                @foreach (var drug in item.continuous) 
+                {
+                    <tr>
+                        <p>@drug.icode @drug.orderItemDetail</p>
+                    </tr>
+                }
+            </td>     
+        }
+        </tr>
+    </tbody>
+</table> 
 
 @code {
     [Parameter]
     public string hn {get; set;}
+    [Parameter]
+    public string an {get; set;}
 
     public List<WardPatient> ptDetails = new();
     public List<OpdVisit> visitList = new();
+    public List<OrderDetail> orderDetails = new();
     protected override async Task OnInitializedAsync()
     {
         var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
         ptDetails = await httpClient.GetFromJsonAsync<List<WardPatient>>($"api/Ipd/getpatientbyhn?_hn={hn}");
-        visitList = await httpClient.GetFromJsonAsync<List<OpdVisit>>($"api/Opd/getopddatabyhn?_hn={hn}");
+        //visitList = await httpClient.GetFromJsonAsync<List<OpdVisit>>($"api/Opd/getopddatabyhn?_hn={hn}");
+        orderDetails = await httpClient.GetFromJsonAsync<List<OrderDetail>>($"api/Drug/GetDrugIpd?_An={an}");
     }
 }
