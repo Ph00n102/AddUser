@@ -1,0 +1,80 @@
+@page "/ptnote"
+@page "/ptnote/{hn}"
+@using HosxpUi.Models
+@using Microsoft.AspNetCore.Authorization
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject IHttpClientFactory _httpClientFactory;
+@inject NavigationManager Navigation;
+@attribute [Authorize]
+
+<PageTitle>Note Photo</PageTitle>
+
+ @if (ptNoteLists == null || !ptNoteLists.Any()) // Check if the list is null or empty
+{
+    <p class='text-center'><strong>ไม่พบข้อมูล</strong></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>วันที่</th>
+                <th>รายละเอียด</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ptNoteLists)
+            {
+                <tr>
+                    <td>@item.noteDatetime</td>
+                    <td>@ProcessPlainText(item.plainText)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    [Parameter]
+    public string hn {get; set;}
+    private string modifiedText;
+
+    public List<PtNote> ptNoteLists = new();
+
+    private bool isAuthorized = false;
+    protected override async Task OnInitializedAsync()
+    {
+        // Check if the user is authorized (has the required roles)
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        // Check if the user is in the required role
+        if (user != null && user.IsInRole("Admin") || user.IsInRole("Pharmacist"))
+        {
+            isAuthorized = true;
+
+            var httpClient = _httpClientFactory.CreateClient("HosxpApi");
+            ptNoteLists = await httpClient.GetFromJsonAsync<List<PtNote>>($"api/PtNote/GetPtnoteByHn?hn={hn}");
+        }
+        else
+        {
+            isAuthorized = false;
+            // Navigate to another page or show a custom access denied message
+            Navigation.NavigateTo("/accessdenied");
+        }
+        @* var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
+        ptNoteLists = await httpClient.GetFromJsonAsync<List<PtNote>>($"api/PtNote/GetPtnoteByHn?hn={hn}"); *@
+    }
+
+    // Method to process plainText by removing newlines and replacing multiple whitespaces with newlines
+    private string ProcessPlainText(string plainText)
+    {
+        // Replace multiple consecutive spaces with a newline
+        string modifiedText = System.Text.RegularExpressions.Regex.Replace(plainText, @"\s{2,}", "\n");
+
+        // Remove any \r\n characters
+        modifiedText = modifiedText.Replace("\r\n", " ").Trim();
+
+        return modifiedText;
+    }
+}

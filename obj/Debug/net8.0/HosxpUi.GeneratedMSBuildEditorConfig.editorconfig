@@ -93,6 +93,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGF0aWVudERldGFpbEhuLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/HosxpUi/Pages/PtNoteList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHROb3RlTGlzdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/HosxpUi/Pages/WardDetail.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2FyZERldGFpbC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
