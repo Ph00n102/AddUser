@@ -7,41 +7,41 @@ public class ServiceHelpers
     //private static Uri DataBaseAddress { get; set; } = new Uri("http://183.89.226.246:88");
     private static Uri DataBaseAddress { get; set; } = new Uri("http://172.16.200.202:8899");
 
-    public async static Task<List<Ward>> GetWardName()
-    {
-        var param = new Dictionary<string, string>();
-        //param.Add("Paramiter_HN", tempx);
-        var content = new FormUrlEncodedContent(param);
-        var client = new HttpClient();
-        client.BaseAddress = DataBaseAddress;
-        //var clientData = GetClientData();
-        var response = await client.PostAsync("api/Ward/GetWardName", content);
-        if (response.StatusCode == System.Net.HttpStatusCode.OK)
-        {
-            var json = await response.Content.ReadAsStringAsync();
+    // public async static Task<List<Ward>> GetWardName()
+    // {
+    //     var param = new Dictionary<string, string>();
+    //     //param.Add("Paramiter_HN", tempx);
+    //     var content = new FormUrlEncodedContent(param);
+    //     var client = new HttpClient();
+    //     client.BaseAddress = DataBaseAddress;
+    //     //var clientData = GetClientData();
+    //     var response = await client.PostAsync("api/Ward/GetWardName", content);
+    //     if (response.StatusCode == System.Net.HttpStatusCode.OK)
+    //     {
+    //         var json = await response.Content.ReadAsStringAsync();
 
-            return JArray.Parse(json).ToObject<List<Ward>>();
+    //         return JArray.Parse(json).ToObject<List<Ward>>();
 
-        }
-        else return new List<Ward>();
-    }
+    //     }
+    //     else return new List<Ward>();
+    // }
 
-    public async static Task<List<Ipt>> GetIpts(string _wordnumber)
-    {
-        var param = new Dictionary<string, string>();
-        param.Add("_wordnumber", _wordnumber);
-        var content = new FormUrlEncodedContent(param);
-        var client = new HttpClient();
-        client.BaseAddress = DataBaseAddress;
-        var response = await client.PostAsync("api/Ward/GetWordDetail", content);
-        if (response.StatusCode == System.Net.HttpStatusCode.OK)
-        {
-            var json = await response.Content.ReadAsStringAsync();
+    // public async static Task<List<Ipt>> GetIpts(string _wordnumber)
+    // {
+    //     var param = new Dictionary<string, string>();
+    //     param.Add("_wordnumber", _wordnumber);
+    //     var content = new FormUrlEncodedContent(param);
+    //     var client = new HttpClient();
+    //     client.BaseAddress = DataBaseAddress;
+    //     var response = await client.PostAsync("api/Ward/GetWordDetail", content);
+    //     if (response.StatusCode == System.Net.HttpStatusCode.OK)
+    //     {
+    //         var json = await response.Content.ReadAsStringAsync();
 
-            return JArray.Parse(json).ToObject<List<Ipt>>();
-        }
-        else return new List<Ipt>();
-    }
+    //         return JArray.Parse(json).ToObject<List<Ipt>>();
+    //     }
+    //     else return new List<Ipt>();
+    // }
 
 //     public async static Task<List<LabInPatient>> Get_LabInNumberPatient(string paraAn)
 //     {

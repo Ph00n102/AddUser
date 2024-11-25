@@ -17,5 +17,7 @@ namespace HosxpUi.Models
         public object bpd { get; set; }
         public object bw { get; set; }
         public object height { get; set; }
+
+        public List<DrugInfo> drugInfo { get; set; }
     }
 }
