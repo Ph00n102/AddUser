@@ -34,69 +34,56 @@
         }
     </tbody>
 </table>
-@* <table class="table">
-    <thead>
-        <tr>
-            <td>วันที่/แผนก/แพทย์</td>
-            <td>ประวัติ/ตรวจร่างกาย</td>
-            <td>ประวัติสั่งยา</td>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in visitList){
-        <tr>
-            <td>
-                <p><strong>วันที่</strong> @item.vstdate <strong>เวลา</strong> @item.vsttime <strong>แผนก</strong> @item.department </p> 
-                <p><strong>แพทย์</strong> @item.doctorName</p>
-            </td>
-            <td>
-                <p><strong>อาการสำคัญ</strong> @item.cc</p>
-                <p><strong>น้ำหนัก</strong> @item.bw kg <strong>ส่วนสูง</strong> @item.height ซม.</p>
-                <p><strong>T</strong> @item.temperature C <strong>P</strong> @item.pulse /min <strong>RR</strong> @item.pulse /min <strong>BP</strong> @item.bps/@item.bpd mmHg</p>
-            </td>
-            <td>
-                @foreach (var drug in item.drugInfo) 
-                {
-                    <table>
-                        <tr>
-                            <p>@drug.drugName @drug.strength @drug.drugUsageName1 @drug.drugUsageName2 @drug.drugUsageName3 @drug.spName1 @drug.spName2 @drug.spName3 @drug.qty @drug.dosageForm</p>
-                        </tr>
-                    </table>
-                }
-            </td>
-        </tr>
-        }
-    </tbody>
-</table> *@
 <table class="table">
     <thead>
         <tr>
+            <td>Order Date</td>
             <td>Order Oneday</td>
             <td>Order Continuous</td>
         </tr>
     </thead>
     <tbody>
-        <tr>
         @foreach (var item in orderDetails)
         {
+            <tr>
             <td>
-                @* @foreach (var drug in item.oneday) 
-                {
-                    <tr>
-                        <p>@drug.icode @drug.orderItemDetail</p>
-                    </tr>
-                } *@
-            </td>
+                    @if (item.orderDate != null && item.orderDate.Any())
+                    {
+                        <p>@item.orderDate</p>
+                    }
+                    else
+                    {
+                        <p>No Order Dates</p>
+                    }
+                </td>
             <td>
-                @foreach (var drug in item.continuous) 
-                {
-                    <tr>
-                        <p>@drug.icode @drug.orderItemDetail</p>
-                    </tr>
-                }
-            </td>     
+                    @if (item.oneday != null && item.oneday.Any())
+                    {
+                        @foreach (var drug in item.oneday)
+                        {
+                            <p>@drug.drugName @drug.orderItemDetail</p>
+                        }
+                    }
+                    else
+                    {
+                        <p>No Oneday Orders</p>
+                    }
+                </td>
+                <td>
+                    @if (item.continuous != null && item.continuous.Any())
+                    {
+                        @foreach (var drug in item.continuous)
+                        {
+                            <p>@drug.drugName @drug.orderItemDetail</p>
+                        }
+                    }
+                    else
+                    {
+                        <p>No Continuous Orders</p>
+                    }
+                </td>  
+            </tr> 
         }
-        </tr>
     </tbody>
 </table> 
 
@@ -114,6 +101,6 @@
         var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
         ptDetails = await httpClient.GetFromJsonAsync<List<WardPatient>>($"api/Ipd/getpatientbyhn?_hn={hn}");
         //visitList = await httpClient.GetFromJsonAsync<List<OpdVisit>>($"api/Opd/getopddatabyhn?_hn={hn}");
-        orderDetails = await httpClient.GetFromJsonAsync<List<OrderDetail>>($"api/Drug/GetDrugIpd?_An={an}");
+        orderDetails = await httpClient.GetFromJsonAsync<List<OrderDetail>>($"api/Drug/GetDrugIpdAll?_An={an}");
     }
 }
