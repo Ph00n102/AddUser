@@ -54,6 +54,6 @@
     protected override async Task OnInitializedAsync()
     {
         var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
-        labHemDetails = await httpClient.GetFromJsonAsync<List<LabHem>>($"api/Lab/getlabHem?_hn={hn}");
+        labHemDetails = await httpClient.GetFromJsonAsync<List<LabHem>>($"api/Lab/getlabHem?_Hn={hn}");
     }
 }    

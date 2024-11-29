@@ -22,10 +22,12 @@
             </td>
             <td>
                 <button class="btn btn-warning"><a href="http://172.16.1.104/Emr2398_link/index.jsp?queryhn=@item.hn&user=50239&no_ax=true" target="blank">ดูประวัติ binary</a></button>
+                <button class="btn btn-warning"><a href="/opdvisit/@item.hn" target="_blank">Visit note</a></button>
                 <button class="btn btn-success"> <a href="http://localhost:9090/?QueryMode=PID&Value=@item.hn" target="_blank">ดู x-ray</a></button>
                 <button class="btn btn-info"><a href="/labchem/@item.hn" target="_blank">ผล lab chem</a></button>
                 <button class="btn btn-info"><a href="/labhem/@item.hn" target="_blank">ผล lab hemato</a></button>
                 <button class="btn btn-info"><a href="/labua/@item.hn" target="_blank">ผล lab UA</a></button>
+                <button class="btn btn-info"><a href="/labim/@item.hn" target="_blank">ผล lab immune</a></button>
                 <button class="btn btn-info"><a href="/olab/@item.hn" target="_blank">ผล outlab</a></button>
                 <button class="btn btn-info"><a href="/othlab/@item.hn" target="_blank">ผล lab อืนๆ</a></button>
                 <button class="btn btn-primary"><a href="/ptnote/@item.hn" target="_blank">Note Photo</a></button>
@@ -61,7 +63,9 @@
                     {
                         @foreach (var drug in item.oneday)
                         {
-                            <p>@drug.drugName @drug.orderItemDetail</p>
+                            <p>
+                                @drug.drugName @drug.orderItemDetail @(drug.offOrderItemId != null ? $"off {drug.offOrderName} {drug.offOrderDetail}" : "")
+                            </p>
                         }
                     }
                     else
@@ -74,7 +78,9 @@
                     {
                         @foreach (var drug in item.continuous)
                         {
-                            <p>@drug.drugName @drug.orderItemDetail</p>
+                            <p>
+                                @drug.drugName @drug.orderItemDetail @(drug.offOrderItemId != null ? $"off {drug.offOrderName} {drug.offOrderDetail}" : "")
+                            </p>
                         }
                     }
                     else
@@ -92,6 +98,7 @@
     public string hn {get; set;}
     [Parameter]
     public string an {get; set;}
+    public string orderItemId {get; set;}
 
     public List<WardPatient> ptDetails = new();
     public List<OpdVisit> visitList = new();
@@ -103,4 +110,5 @@
         //visitList = await httpClient.GetFromJsonAsync<List<OpdVisit>>($"api/Opd/getopddatabyhn?_hn={hn}");
         orderDetails = await httpClient.GetFromJsonAsync<List<OrderDetail>>($"api/Drug/GetDrugIpdAll?_An={an}");
     }
+
 }

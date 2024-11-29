@@ -1,0 +1,45 @@
+@page "/labim"
+@page "/labim/{hn}"
+@using HosxpUi.Models
+@using Microsoft.AspNetCore.Authorization
+@inject IHttpClientFactory _httpClientFactory;
+@inject NavigationManager Navigation;
+@attribute [Authorize(Roles = "Admin,User,Nurse,Doctor")]
+
+<PageTitle>Lab Detail</PageTitle>
+<table class="table">
+    <thead>
+        <tr>
+            <th>วันที่</th>
+            <th>เวลา</th>
+            <th>TSH</th>
+            <th>f3</th>
+            <th>f4</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in labImDetails)
+        {
+            <tr>
+                <td>@item.orderDate</td>
+                <td>@item.reportTime</td>
+                <td>@item.tsh</td>
+                <td>@item.f3</td>
+                <td>@item.f4</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    [Parameter]
+    public string hn {get; set;}
+
+    public List<LabIm> labImDetails = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
+        labImDetails = await httpClient.GetFromJsonAsync<List<LabIm>>($"api/Lab/getlabImmu?_Hn={hn}");
+    }
+}   

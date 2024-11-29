@@ -12,6 +12,8 @@ namespace HosxpUi.Models
         public string orderItemType { get; set; }
         public string orderItemDetail { get; set; }
         public object offOrderItemId { get; set; }
+        public string offOrderName { get; set; }
+        public string offOrderDetail { get; set; }
         public string drugName { get; set; }
     }
 }

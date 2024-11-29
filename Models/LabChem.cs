@@ -15,6 +15,10 @@ namespace HosxpUi.Models
         public string cO2 { get; set; }
         public object fbs { get; set; }
         public object hbA1C { get; set; }
+        public string chol { get; set; }
+        public string tg { get; set; }
+        public string hdl { get; set; }
+        public string ldl { get; set; }
         public object ca { get; set; }
         public object mg { get; set; }
         public object p { get; set; }

@@ -1,0 +1,55 @@
+@page "/opdvisit"
+@page "/opdvisit/{hn}"
+@using HosxpUi.Models
+@using Microsoft.AspNetCore.Authorization
+@inject IHttpClientFactory _httpClientFactory;
+@inject NavigationManager Navigation;
+@attribute [Authorize(Roles = "Admin,User,Nurse,Doctor")]
+
+<PageTitle>Patient Detail Visit</PageTitle>
+<table class="table">
+    <thead>
+        <tr>
+            <td>วันที่/แผนก/แพทย์</td>
+            <td>ประวัติ/ตรวจร่างกาย</td>
+            <td>ประวัติสั่งยา</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in visitList){
+        <tr>
+            <td>
+                <p><strong>วันที่</strong> @item.vstdate <strong>เวลา</strong> @item.vsttime <strong>แผนก</strong> @item.department </p> 
+                <p><strong>แพทย์</strong> @item.doctorName</p>
+            </td>
+            <td>
+                <p><strong>อาการสำคัญ</strong> @item.cc</p>
+                <p><strong>น้ำหนัก</strong> @item.bw kg <strong>ส่วนสูง</strong> @item.height ซม.</p>
+                <p><strong>T</strong> @item.temperature C <strong>P</strong> @item.pulse /min <strong>RR</strong> @item.pulse /min <strong>BP</strong> @item.bps/@item.bpd mmHg</p>
+            </td>
+            <td>
+                @foreach (var drug in item.drugInfo) 
+                {
+                    <table>
+                        <tr>
+                            <p>@drug.drugName @drug.strength @drug.drugUsageName1 @drug.drugUsageName2 @drug.drugUsageName3 @drug.spName1 @drug.spName2 @drug.spName3 @drug.qty @drug.dosageForm</p>
+                        </tr>
+                    </table>
+                }
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    [Parameter]
+    public string hn {get; set;}
+    public List<OpdVisit> visitList = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
+        visitList = await httpClient.GetFromJsonAsync<List<OpdVisit>>($"api/Opd/getopddatabyhn?_hn={hn}");
+    }
+}

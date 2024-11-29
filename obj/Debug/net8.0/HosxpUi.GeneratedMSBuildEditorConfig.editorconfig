@@ -61,6 +61,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGFiRGV0YWlsSGVtLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/HosxpUi/Pages/LabDetailImmu.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGFiRGV0YWlsSW1tdS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/HosxpUi/Pages/LabDetailOther.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGFiRGV0YWlsT3RoZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -91,6 +95,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/HosxpUi/Pages/PatientDetailHn.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGF0aWVudERldGFpbEhuLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HosxpUi/Pages/PatientDetailIpdHn.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGF0aWVudERldGFpbElwZEhuLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/HosxpUi/Pages/PtNoteList.razor]
