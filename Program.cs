@@ -18,8 +18,8 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddHttpClient("HosxpApi", options =>
 {
-    //options.BaseAddress = new Uri("http://localhost:5094/");
-    options.BaseAddress = new Uri("http://172.16.200.202:8089/");
+    options.BaseAddress = new Uri("http://localhost:5094/");
+    //options.BaseAddress = new Uri("http://172.16.200.202:8089/");
 }).AddHttpMessageHandler<CustomHttpHandler>();
 
 

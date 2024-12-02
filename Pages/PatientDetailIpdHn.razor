@@ -7,6 +7,30 @@
 @attribute [Authorize(Roles = "Admin,User,Nurse,Doctor")]
 
 <PageTitle>Patient Detail Visit</PageTitle>
+<h5>คิวนัดครั้งหน้า</h5>
+<table class="table">
+    <thead>
+        <tr>
+            <td>วันที่</td>
+            <td>เวลา</td>
+            <td>แผนก</td>
+            <td>แพทย์</td>
+            <td>Note</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in appointList){
+        <tr>
+            <td>@item.nextdate</td>
+            <td>@item.nexttime</td>
+            <td>@item.nameclinic</td>
+            <td>@item.namedoctor</td>
+            <td>@item.note</td>
+        </tr>
+        }
+    </tbody>
+</table>
+<h5>รายการ visit OPD</h5>
 <table class="table">
     <thead>
         <tr>
@@ -46,10 +70,12 @@
     [Parameter]
     public string hn {get; set;}
     public List<OpdVisit> visitList = new();
+    public List<AppointList> appointList = new();
 
     protected override async Task OnInitializedAsync()
     {
         var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
         visitList = await httpClient.GetFromJsonAsync<List<OpdVisit>>($"api/Opd/getopddatabyhn?_hn={hn}");
+        appointList = await httpClient.GetFromJsonAsync<List<AppointList>>($"api/Appointment/GetAppointments?_Number={hn}");
     }
 }

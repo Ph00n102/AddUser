@@ -42,6 +42,7 @@
             <td>Order Date</td>
             <td>Order Oneday</td>
             <td>Order Continuous</td>
+            <td>Progress Note</td>
         </tr>
     </thead>
     <tbody>
@@ -88,6 +89,23 @@
                         <p>No Continuous Orders</p>
                     }
                 </td>  
+                <td>
+                    @foreach (var item2 in progressNoteDetails)
+                    {
+                        @if (item2.progressNoteDate == item.orderDate)
+                        {
+                            @foreach (var progress in item2.createUser) 
+                            {
+                                @foreach (var detail in progress.progressNoteList)
+                                {
+                                    <p>@detail.progressNoteItemDetail</p>
+                                    <p>@detail.progressNoteItemDetail2</p>
+                                }
+                                <p><strong>@progress.createUser @progress.progressNoteDate @progress.progressNoteTime</strong></p>
+                            }
+                        }
+                    }
+                </td>
             </tr> 
         }
     </tbody>
@@ -103,12 +121,14 @@
     public List<WardPatient> ptDetails = new();
     public List<OpdVisit> visitList = new();
     public List<OrderDetail> orderDetails = new();
+    public List<ProgressNote> progressNoteDetails = new();
     protected override async Task OnInitializedAsync()
     {
         var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
         ptDetails = await httpClient.GetFromJsonAsync<List<WardPatient>>($"api/Ipd/getpatientbyhn?_hn={hn}");
         //visitList = await httpClient.GetFromJsonAsync<List<OpdVisit>>($"api/Opd/getopddatabyhn?_hn={hn}");
         orderDetails = await httpClient.GetFromJsonAsync<List<OrderDetail>>($"api/Drug/GetDrugIpdAll?_An={an}");
+        progressNoteDetails = await httpClient.GetFromJsonAsync<List<ProgressNote>>($"api/ProgressNote/GetProgressNoteIpdAll?_An={an}");
     }
 
 }
