@@ -12,15 +12,15 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-// builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:5094/") });
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:5094/") });
 
 
 
-builder.Services.AddHttpClient("HosxpApi", options =>
-{
-    options.BaseAddress = new Uri("http://localhost:5094/");
-    //options.BaseAddress = new Uri("http://172.16.200.202:8089/");
-}).AddHttpMessageHandler<CustomHttpHandler>();
+// builder.Services.AddHttpClient("HosxpApi", options =>
+// {
+//     options.BaseAddress = new Uri("http://localhost:5094/");
+//     //options.BaseAddress = new Uri("http://172.16.200.202:8089/");
+// }).AddHttpMessageHandler<CustomHttpHandler>();
 
 
 builder.Services.AddSingleton<StateContainer>();

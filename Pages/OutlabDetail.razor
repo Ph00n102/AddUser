@@ -2,7 +2,8 @@
 @page "/olabd/{labno}"
 @using HosxpUi.Models
 @using Microsoft.AspNetCore.Authorization
-@inject IHttpClientFactory _httpClientFactory;
+@* @inject IHttpClientFactory _httpClientFactory; *@
+@inject HttpClient _http 
 @inject NavigationManager Navigation;
 @attribute [Authorize(Roles = "Admin,User,Nurse,Doctor")]
 
@@ -33,7 +34,8 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
-        olabdetails = await httpClient.GetFromJsonAsync<List<OutLabDetail>>($"api/Lab/getoutlabimage?_laborderno={labno}");
+        @* var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
+        olabdetails = await httpClient.GetFromJsonAsync<List<OutLabDetail>>($"api/Lab/getoutlabimage?_laborderno={labno}"); *@
+        olabdetails = await _http.GetFromJsonAsync<List<OutLabDetail>>($"api/Lab/getoutlabimage?_laborderno={labno}");
     }
 }

@@ -2,7 +2,8 @@
 @page "/opdvisit/{hn}"
 @using HosxpUi.Models
 @using Microsoft.AspNetCore.Authorization
-@inject IHttpClientFactory _httpClientFactory;
+@* @inject IHttpClientFactory _httpClientFactory; *@
+@inject HttpClient _http 
 @inject NavigationManager Navigation;
 @attribute [Authorize(Roles = "Admin,User,Nurse,Doctor")]
 
@@ -30,6 +31,27 @@
         }
     </tbody>
 </table>
+<h5>รายการ discharge IPD</h5>
+<table class="table">
+    <thead>
+        <tr>
+            <td>วันที่ D/C</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in dcDrugList){
+        <tr>
+            <td>
+                <p><strong>@item.dchdate</strong></p>
+                @foreach (var drug in item.drugInfo2)
+                {
+                    <p>@drug.drugName @drug.strength @drug.usageName1 @drug.usageName2 @drug.usageName3 @drug.spUsageName1 @drug.spUsageName2 @drug.spUsageName3 @drug.qty @drug.dosageform</p>
+                }
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
 <h5>รายการ visit OPD</h5>
 <table class="table">
     <thead>
@@ -52,6 +74,10 @@
                 <p><strong>T</strong> @item.temperature C <strong>P</strong> @item.pulse /min <strong>RR</strong> @item.pulse /min <strong>BP</strong> @item.bps/@item.bpd mmHg</p>
             </td>
             <td>
+                @if (item.an != null)
+                {
+                    <button class="btn btn-warning"><a href="/patient/@item.hn/@item.an" target="_blank">Admit</a></button>
+                }
                 @foreach (var drug in item.drugInfo) 
                 {
                     <table>
@@ -71,11 +97,16 @@
     public string hn {get; set;}
     public List<OpdVisit> visitList = new();
     public List<AppointList> appointList = new();
+    public List<OpdDcDrug> dcDrugList = new();
 
     protected override async Task OnInitializedAsync()
     {
-        var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
+        @* var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
         visitList = await httpClient.GetFromJsonAsync<List<OpdVisit>>($"api/Opd/getopddatabyhn?_hn={hn}");
         appointList = await httpClient.GetFromJsonAsync<List<AppointList>>($"api/Appointment/GetAppointments?_Number={hn}");
+        dcDrugList = await httpClient.GetFromJsonAsync<List<OpdDcDrug>>($"api/Drug/GetDrugIpdDc?hn={hn}"); *@
+        visitList = await _http.GetFromJsonAsync<List<OpdVisit>>($"api/Opd/getopddatabyhn?_hn={hn}");
+        appointList = await _http.GetFromJsonAsync<List<AppointList>>($"api/Appointment/GetAppointments?_Number={hn}");
+        dcDrugList = await _http.GetFromJsonAsync<List<OpdDcDrug>>($"api/Drug/GetDrugIpdDc?hn={hn}");        
     }
 }

@@ -3,7 +3,7 @@ namespace HosxpUi.Models
     public class OpdDcDrug
     {
         public string dchdate { get; set; }
-        public List<DrugInfo2> drugInfo { get; set; }
+        public List<DrugInfo2> drugInfo2 { get; set; }
     }
 
     public class DrugInfo2

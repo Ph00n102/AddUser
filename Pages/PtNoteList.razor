@@ -3,7 +3,8 @@
 @using HosxpUi.Models
 @using Microsoft.AspNetCore.Authorization
 @inject AuthenticationStateProvider AuthenticationStateProvider
-@inject IHttpClientFactory _httpClientFactory;
+@* @inject IHttpClientFactory _httpClientFactory; *@
+@inject HttpClient _http 
 @inject NavigationManager Navigation;
 @attribute [Authorize]
 
@@ -53,8 +54,9 @@ else
         {
             isAuthorized = true;
 
-            var httpClient = _httpClientFactory.CreateClient("HosxpApi");
-            ptNoteLists = await httpClient.GetFromJsonAsync<List<PtNote>>($"api/PtNote/GetPtnoteByHn?hn={hn}");
+            @* var httpClient = _httpClientFactory.CreateClient("HosxpApi");
+            ptNoteLists = await httpClient.GetFromJsonAsync<List<PtNote>>($"api/PtNote/GetPtnoteByHn?hn={hn}"); *@
+            ptNoteLists = await _http.GetFromJsonAsync<List<PtNote>>($"api/PtNote/GetPtnoteByHn?hn={hn}");
         }
         else
         {

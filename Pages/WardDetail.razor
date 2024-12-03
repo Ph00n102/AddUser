@@ -1,8 +1,8 @@
 @page "/warddetail"
 @page "/warddetail/{wardno}"
-@using HosxpUi.Controllers
 @using HosxpUi.Models
-@inject IHttpClientFactory _httpClientFactory;
+@* @inject IHttpClientFactory _httpClientFactory; *@
+@inject HttpClient _http 
 @using MudBlazor
 
 <PageTitle>Patient Ward</PageTitle>
@@ -81,8 +81,9 @@
 
     protected override async Task OnInitializedAsync()
     {
-        var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
-        patients = await httpClient.GetFromJsonAsync<List<WardPatient>>($"api/Ipd/getpatient?_wardno={wardno}");
+        @* var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
+        patients = await httpClient.GetFromJsonAsync<List<WardPatient>>($"api/Ipd/getpatient?_wardno={wardno}"); *@
+        patients = await _http.GetFromJsonAsync<List<WardPatient>>($"api/Ipd/getpatient?_wardno={wardno}");
     } 
 
 }

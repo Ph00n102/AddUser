@@ -2,7 +2,8 @@
 @page "/labhem/{hn}"
 @using HosxpUi.Models
 @using Microsoft.AspNetCore.Authorization
-@inject IHttpClientFactory _httpClientFactory;
+@* @inject IHttpClientFactory _httpClientFactory; *@
+@inject HttpClient _http 
 @inject NavigationManager Navigation;
 @attribute [Authorize(Roles = "Admin,User,Nurse,Doctor")]
 
@@ -53,7 +54,8 @@
 
     protected override async Task OnInitializedAsync()
     {
-        var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
-        labHemDetails = await httpClient.GetFromJsonAsync<List<LabHem>>($"api/Lab/getlabHem?_Hn={hn}");
+        //var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
+        //labHemDetails = await httpClient.GetFromJsonAsync<List<LabHem>>($"api/Lab/getlabHem?_Hn={hn}");
+        labHemDetails = await _http.GetFromJsonAsync<List<LabHem>>($"api/Lab/getlabHem?_Hn={hn}");
     }
 }    
