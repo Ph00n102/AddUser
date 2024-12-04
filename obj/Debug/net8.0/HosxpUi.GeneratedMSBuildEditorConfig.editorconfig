@@ -37,6 +37,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/HosxpUi/Pages/AuthenAppointList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVuQXBwb2ludExpc3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HosxpUi/Pages/AuthenHome.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVuSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HosxpUi/Pages/AuthenOpenVisit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVuT3BlblZpc2l0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/HosxpUi/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -107,6 +119,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/HosxpUi/Pages/WardDetail.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2FyZERldGFpbC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HosxpUi/Shared/Alert.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEFsZXJ0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/HosxpUi/Shared/SurveyPrompt.razor]

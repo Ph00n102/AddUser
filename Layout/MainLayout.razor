@@ -69,6 +69,32 @@
                         </MudMenu>
                     </MudMenuItem> *@
                 </MudMenu>
+                <MudMenu Label="Authen" Variant="Variant.Filled" Color="Color.Primary" AnchorOrigin="Origin.CenterCenter" TransformOrigin="Origin.TopLeft" Dense>
+                    <MudMenuItem>
+                        <MudMenu ActivationEvent="MouseEvent.MouseOver" AnchorOrigin="Origin.TopRight" TransformOrigin="Origin.TopLeft" Dense>
+                            <ActivatorContent>
+                                <MudMenuItem Href="/authenho">เปิด authen</MudMenuItem>
+                            </ActivatorContent>
+
+                            <ChildContent>
+                                @* <MudMenuItem Href="/ward" Target="_blank">รายชื่อ ward2 </MudMenuItem> *@
+                                @* <MudMenuItem Href="/" Disabled="true"> Disabled Item 1.2 with navigation </MudMenuItem> *@
+                            </ChildContent>
+                        </MudMenu>
+                    </MudMenuItem>
+
+                    @* <MudMenuItem>
+                        <MudMenu ActivationEvent="MouseEvent.MouseOver" AnchorOrigin="Origin.TopRight" TransformOrigin="Origin.TopLeft" Dense>
+                            <ActivatorContent>
+                                <MudMenuItem Href="/">Item 2</MudMenuItem>
+                            </ActivatorContent>
+
+                            <ChildContent>
+                                <MudMenuItem Href="/ward" Target="_blank">รายชื่อ ward2 </MudMenuItem>
+                            </ChildContent>
+                        </MudMenu>
+                    </MudMenuItem> *@
+                </MudMenu>
                 <MudSpacer/>
                 <MudLink Color="Color.Inherit" Underline="Underline.None" class="mr-2" OnClick="LogoutAsync">Logout</MudLink>
             </Authorized>

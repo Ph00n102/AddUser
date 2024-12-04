@@ -1,0 +1,211 @@
+@page "/authenappoint"
+@using HosxpUi.Models
+@using HosxpUi.Services
+@using Microsoft.AspNetCore.Authorization
+@using HosxpUi.Shared
+@inject HttpClient _http 
+@inject HttpClient http 
+@inject NavigationManager NavigationManager
+@attribute [Authorize]
+
+<PageTitle>รายการนัดล่วงหนา</PageTitle>
+@if (Patients == null || Cid2 == null)
+{
+    <h1 class="text-center1 mb-3">โรงพยาบาลสมุทรสาคร ยินดีต้อนรับ !!</h1>
+    <p class="text-center2">กรุณาเสียบบัตรประชาชน เพื่อตรวจสอบสิทธิการรักษา</p>
+}
+else
+{
+    // Check if there's only one item in Patients
+    if (Patients.Count == 1)
+    {
+        // Navigate to another page if only one record exists
+        NavigationManager.NavigateTo($"/authen/{Patients.First().Clinic}");
+    }
+    else
+    {
+    
+     @if (!Patients.Any(p => p.VisitVn == null))  
+        {
+            <p class="text-center2">คุณตรวจตามนัดครบทุกแผนกเรียบร้อยแล้ว</p>
+            <p class="text-center3">กรุณานำบัตรประชาชนออกจากเครื่องอ่าน</p>
+            NavigationManager.NavigateTo("/");
+            
+
+        }
+        else
+        {
+            <h1 class="text-center1">กรุณาเลือกแผนกที่ต้องการตรวจ</h1>
+            <br>
+            <br>
+            <br>
+            <div class="department-container">
+                @foreach (var appoint in Patients.Where(p => p.VisitVn == null)) 
+                {
+                    @* string iconClass = appoint.Department switch
+                    {
+                        "Cardiology" => "fas fa-heart",
+                        "Neurology" => "fas fa-brain",
+                        "Orthopedics" => "fas fa-bone",
+                        _ => "fas fa-hospital"
+                    }; *@
+                    
+                    <div class="department-item beautiful-btn:hover beautiful-btn:focus">
+                        <a class="beautiful-btn" href="/authen/@appoint.Clinic">@appoint.Department</a>
+                    </div>
+                }
+            </div>
+        }
+    }
+}
+
+@code {
+    private List<Patient>? Patients;
+    private string Id { set; get; }
+    private Cid2 Cid2 = new Cid2(); // Default instance of Cid2
+    private Timer _timer; // Timer for auto-reload
+    DateOnly dateToday = DateOnly.FromDateTime(DateTime.Now);
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Load data initially
+        await LoadData();
+
+        // Set up timer for periodic data refresh
+        _timer = new Timer(async _ =>
+        {
+            await LoadData();
+            // Use InvokeAsync to marshal the UI update to the UI thread
+            await InvokeAsync(StateHasChanged);  // Forces the component to re-render after data is loaded
+        }, null, TimeSpan.Zero, TimeSpan.FromSeconds(6)); // Check every 5 seconds
+    }
+
+    private async Task LoadData()
+    {
+        try
+        {
+            // Fetch Cid2 data first
+            Cid2 = await http.GetFromJsonAsync<Cid2>("http://localhost:8189/api/smartcard/read?readImageFlag=false");
+
+            if (Cid2 != null)
+            {
+                Id = Cid2.pid; // Assuming Cid2 contains a property 'pid'
+
+                // Fetch Patients data using the Id obtained from Cid2
+                Patients = await _http.GetFromJsonAsync<List<Patient>>($"/appoint/{Id}");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
+        }
+    }
+
+     // Dispose the timer when the component is disposed
+    public void Dispose()
+    {
+        _timer?.Dispose();
+    }
+}
+
+<style>
+
+.department-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line if needed */
+    justify-content: center; /* Centers the department items horizontally */
+    gap: 20px; /* Adds space between the items */
+}
+
+.department-item {
+    display: flex;
+    justify-content: center; /* Centers content inside each item */
+}
+    /* Style for Beautiful Button */
+.beautiful-btn {
+    background-image: linear-gradient(180deg, rgb(71, 159, 218) 0%, #8451e4 70%);
+    border: none; /* Remove border */
+    color: white; /* White text */
+    padding: 15px 32px; /* Padding */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: flex; /* Inline block element */
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow */
+    cursor: pointer; /* Change cursor on hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    display: inline-block;
+    width: 100%; height: auto; /* Use percentage width for responsiveness */
+    max-width: 10cm; height: auto; /* Ensure the button doesn't grow too large */
+    font-size: 2rem; /* Adjust font size to fit */
+    white-space: normal; /* Allow text wrapping */
+    word-wrap: break-word; /* Ensure long words break */
+    overflow-wrap: break-word; /* Support word breaking */
+    padding: 10px; /* Padding for better spacing around the text */
+    box-sizing: border-box;"> <!-- box-sizing to ensure padding doesn't overflow -->
+}
+
+/* Hover Effect */
+.beautiful-btn:hover {
+    transform: scale(1.05); /* Scale button on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow */
+    background-color: #169eb6; 
+}
+
+/* Focus effect */
+.beautiful-btn:focus {
+    outline: none; /* Remove focus outline */
+    border: 2px solid #169eb6; /* Green outline on focus */
+}
+
+.text-center1 {
+    text-align: center; /* Center text */
+    font-family: 'Poppins', sans-serif; /* Use a modern, clean font */
+    font-size: 3rem; /* Large font size for emphasis */
+    font-weight: bold; /* Make the text bold */
+    color: #4274be; /* Text color */
+    background: linear-gradient(90deg, #f2c94c, #56CCF2); /* Gradient background color */
+    background-clip: text; /* Apply gradient to text itself */
+    -webkit-background-clip: text; /* For Safari */
+    text-shadow: 2px 2px 5px rgba(8, 8, 8, 0.2); /* Soft shadow to make the text pop */
+    letter-spacing: 2px; /* Increase spacing between letters */
+    padding: 20px; /* Add padding around the text */
+    margin-top: 20px; /* Add some space at the top */
+    animation: slideIn 2s ease-out; /* Animation to make the text come in from the side */
+}
+
+.text-center2 {
+    text-align: center; /* Center text */
+    font-family: 'Poppins', sans-serif; /* Use a modern, clean font */
+    font-size: 3rem; /* Large font size for emphasis */
+    font-weight: bold; /* Make the text bold */
+    color: #834dc9; /* Text color */
+    background: linear-gradient(90deg, #f2c94c, #56CCF2); /* Gradient background color */
+    background-clip: text; /* Apply gradient to text itself */
+    -webkit-background-clip: text; /* For Safari */
+    text-shadow: 2px 2px 5px rgba(8, 8, 8, 0.2); /* Soft shadow to make the text pop */
+    letter-spacing: 2px; /* Increase spacing between letters */
+    padding: 20px; /* Add padding around the text */
+    margin-top: 20px; /* Add some space at the top */
+    animation: slideIn 2s ease-out; /* Animation to make the text come in from the side */
+}
+
+.text-center3 {
+    text-align: center; /* Center text */
+    font-family: 'Poppins', sans-serif; /* Use a modern, clean font */
+    font-size: 3rem; /* Large font size for emphasis */
+    font-weight: bold; /* Make the text bold */
+    color: #bb486b; /* Text color */
+    background: linear-gradient(90deg, #f2c94c, #56CCF2); /* Gradient background color */
+    background-clip: text; /* Apply gradient to text itself */
+    -webkit-background-clip: text; /* For Safari */
+    text-shadow: 2px 2px 5px rgba(8, 8, 8, 0.2); /* Soft shadow to make the text pop */
+    letter-spacing: 2px; /* Increase spacing between letters */
+    padding: 20px; /* Add padding around the text */
+    margin-top: 20px; /* Add some space at the top */
+    animation: slideIn 2s ease-out; /* Animation to make the text come in from the side */
+}
+
+</style>

@@ -1,0 +1,136 @@
+@page "/authenho"
+@using Microsoft.AspNetCore.Authorization
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager _navigationManager;
+@attribute [Authorize]
+
+<PageTitle>เปิด authen</PageTitle>
+
+<h1 class="text-center1 mb-3">โรงพยาบาลสมุทรสาคร ยินดีต้อนรับ !!</h1>
+<p class="text-center2">กรุณาเลือกประเภทการให้บริการ</p>
+<br>
+<br>
+<div class="department-container">
+    <div class="department-item beautiful-btn:hover beautiful-btn:focus">
+        <a class="beautiful-btn" href="/authenappoint">
+            มาตามนัดหมาย (Appointment)
+        </a>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<div class="department-container">
+    <div class="department-item beautiful-btn:hover beautiful-btn:focus">
+        <a class="beautiful-btn" href="/walk-in">
+            ไม่ได้นัดหมาย (Walk-In)
+        </a>
+    </div>
+</div>
+
+
+<style>
+
+.department-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line if needed */
+    justify-content: center; /* Centers the department items horizontally */
+    gap: 20px; /* Adds space between the items */
+}
+
+.department-item {
+    display: flex;
+    justify-content: center; /* Centers content inside each item */
+}
+    /* Style for Beautiful Button */
+.beautiful-btn {
+    background-image: linear-gradient(180deg, rgb(71, 159, 218) 0%, #8451e4 70%);
+    border: none; /* Remove border */
+    color: white; /* White text */
+    padding: 15px 32px; /* Padding */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: flex; /* Inline block element */
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow */
+    cursor: pointer; /* Change cursor on hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    display: inline-block;
+    width: 8cm;  /* Adjust button size for smaller screens */
+    height: 4cm;
+    max-width: 10cm; height: auto; /* Ensure the button doesn't grow too large */
+    font-size: 2.5rem; /* Adjust font size to fit */
+    white-space: normal; /* Allow text wrapping */
+    word-wrap: break-word; /* Ensure long words break */
+    overflow-wrap: break-word; /* Support word breaking */
+    padding: 10px; /* Padding for better spacing around the text */
+    box-sizing: border-box;"> <!-- box-sizing to ensure padding doesn't overflow -->
+}
+
+/* Hover Effect */
+.beautiful-btn:hover {
+    transform: scale(1.05); /* Scale button on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow */
+    background-color: #169eb6; 
+}
+
+/* Focus effect */
+.beautiful-btn:focus {
+    outline: none; /* Remove focus outline */
+    border: 2px solid #169eb6; /* Green outline on focus */
+}
+
+.text-center1 {
+    text-align: center; /* Center text */
+    font-family: 'Poppins', sans-serif; /* Use a modern, clean font */
+    font-size: 3rem; /* Large font size for emphasis */
+    font-weight: bold; /* Make the text bold */
+    color: #4274be; /* Text color */
+    background: linear-gradient(90deg, #f2c94c, #56CCF2); /* Gradient background color */
+    background-clip: text; /* Apply gradient to text itself */
+    -webkit-background-clip: text; /* For Safari */
+    text-shadow: 2px 2px 5px rgba(8, 8, 8, 0.2); /* Soft shadow to make the text pop */
+    letter-spacing: 2px; /* Increase spacing between letters */
+    padding: 20px; /* Add padding around the text */
+    margin-top: 20px; /* Add some space at the top */
+    animation: slideIn 2s ease-out; /* Animation to make the text come in from the side */
+}
+
+.text-center2 {
+    text-align: center; /* Center text */
+    font-family: 'Poppins', sans-serif; /* Use a modern, clean font */
+    font-size: 2rem; /* Large font size for emphasis */
+    font-weight: bold; /* Make the text bold */
+    color: #834dc9; /* Text color */
+    background: linear-gradient(90deg, #f2c94c, #56CCF2); /* Gradient background color */
+    background-clip: text; /* Apply gradient to text itself */
+    -webkit-background-clip: text; /* For Safari */
+    text-shadow: 2px 2px 5px rgba(8, 8, 8, 0.2); /* Soft shadow to make the text pop */
+    letter-spacing: 2px; /* Increase spacing between letters */
+    padding: 20px; /* Add padding around the text */
+    margin-top: 20px; /* Add some space at the top */
+    animation: slideIn 2s ease-out; /* Animation to make the text come in from the side */
+}
+
+</style>
+
+@code {
+    @* private bool IsAdmin { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        // Check if the user has the "Admin" role
+        //IsAdmin = user.IsInRole("Admin");
+
+        // If the user is not an admin, redirect to AccessDenied page
+        @* if (!IsAdmin)
+        {
+            _navigationManager.NavigateTo("/accessdenied");
+        } 
+    } *@
+}
