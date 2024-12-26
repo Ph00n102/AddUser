@@ -5,10 +5,6 @@
       "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
     },
     {
-      "Id": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\wimpfzijrn.gz",
-      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
-    },
-    {
       "Id": "D:\\HosxpUi\\obj\\Debug\\net8.0\\scopedcss\\bundle\\HosxpUi.styles.css",
       "PackagePath": "staticwebassets\\HosxpUi.styles.css"
     },
@@ -41,8 +37,16 @@
       "PackagePath": "staticwebassets\\index.html"
     },
     {
+      "Id": "D:\\HosxpUi\\wwwroot\\js\\CheckAll.js",
+      "PackagePath": "staticwebassets\\js\\CheckAll.js"
+    },
+    {
       "Id": "D:\\HosxpUi\\wwwroot\\sample-data\\weather.json",
       "PackagePath": "staticwebassets\\sample-data\\weather.json"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.HosxpUi.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.HosxpUi.Microsoft.AspNetCore.StaticWebAssets.props",
