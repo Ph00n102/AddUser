@@ -16,133 +16,133 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = HosxpUi
 build_property.RootNamespace = HosxpUi
-build_property.ProjectDir = D:\HosxpUi\
+build_property.ProjectDir = C:\Users\Admin\Desktop\HosxpUi\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = false
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\HosxpUi
+build_property.MSBuildProjectDirectory = C:\Users\Admin\Desktop\HosxpUi
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/HosxpUi/App.razor]
+[C:/Users/Admin/Desktop/HosxpUi/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/AbsentOpenVisit.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Pages/AbsentOpenVisit.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJzZW50T3BlblZpc2l0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/AccessDenied.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Pages/AccessDenied.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjZXNzRGVuaWVkLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/Admin.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Pages/Admin.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/AuthenAppointList.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Pages/AuthenAppointList.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVuQXBwb2ludExpc3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/AuthenHome.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Pages/AuthenHome.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVuSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/AuthenOpenVisit.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Pages/AuthenOpenVisit.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVuT3BlblZpc2l0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/Counter.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/GetNameRole.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Pages/GetNameRole.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2V0TmFtZVJvbGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/Home.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/IpdWard.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Pages/IpdWard.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSXBkV2FyZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/LabDetailChem.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Pages/LabDetailChem.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGFiRGV0YWlsQ2hlbS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/LabDetailHem.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Pages/LabDetailHem.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGFiRGV0YWlsSGVtLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/LabDetailImmu.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Pages/LabDetailImmu.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGFiRGV0YWlsSW1tdS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/LabDetailOther.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Pages/LabDetailOther.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGFiRGV0YWlsT3RoZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/LabDetailUa.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Pages/LabDetailUa.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGFiRGV0YWlsVWEucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/Login.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/OtherlabList.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Pages/OtherlabList.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3RoZXJsYWJMaXN0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/OutlabDetail.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Pages/OutlabDetail.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3V0bGFiRGV0YWlsLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/OutlabList.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Pages/OutlabList.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3V0bGFiTGlzdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/PatientDetail.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Pages/PatientDetail.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGF0aWVudERldGFpbC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/PatientDetailHn.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Pages/PatientDetailHn.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGF0aWVudERldGFpbEhuLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/PatientDetailIpdHn.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Pages/PatientDetailIpdHn.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGF0aWVudERldGFpbElwZEhuLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/PtNoteList.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Pages/PtNoteList.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHROb3RlTGlzdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/WardDetail.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Pages/WardDetail.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2FyZERldGFpbC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Shared/Alert.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Shared/Alert.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEFsZXJ0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Shared/SurveyPrompt.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/_Imports.razor]
+[C:/Users/Admin/Desktop/HosxpUi/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Layout/MainLayout.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-1hb3bevp03
 
-[D:/HosxpUi/Layout/NavMenu.razor]
+[C:/Users/Admin/Desktop/HosxpUi/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-hv4bsiaka9
