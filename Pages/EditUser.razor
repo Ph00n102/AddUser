@@ -1,0 +1,151 @@
+@page "/edituser/{id:int}"
+@using HosxpUi.Models
+@inject HttpClient _http
+@inject NavigationManager navManager
+
+
+
+@* <input class="form-control" @bind="userDto.LoginName" type="text" />
+<input class="form-control" @bind="userDto.Role" type="text" />
+<button class="btn--btn-primary" @onclick="UpdateUser" type="submit">Edit</button> *@
+
+<div class="background-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-1">
+            @* <img width="100" height="120" src="data:image/jpeg;base64,@ClaimData.image" /> *@
+            </div>
+            <div class="col-lg-10">
+                <div class="card shadow mb-4">
+                    <div class="card-body">
+                        <div class="row py-1">
+                            <div class="col-md-1 text-md-right" >
+                                
+                            </div>
+                            <div class="col-md-8" >
+                                
+                                <div class="row md-3 py-1">
+                                    <div class="text-md-right" style="width:40px;"></div>
+                                    <div class="col-md-4 text-md-right" style="width:200px;"><p><b>LoginName :</b></p></div>
+                                    <div class="col-md-7">
+                                        <input class="form-control" @bind="userDto.loginName" type="text" />
+                                    </div>
+                                </div>
+                                <div class="row md-3 py-1">
+                                    <div class="text-md-right" style="width:40px;"></div>
+                                    <div class="col-md-4 text-md-right" style="width:200px;"><p><b>Role :</b></p></div>
+                                    <div class="col-md-7">
+                                        <input class="form-control" @bind="userDto.role" type="text" />
+                                    </div>
+                                </div>
+                                <div class="row md-3 py-1">
+                                    <div class="text-md-right" style="width:40px;"></div>
+                                    <div class="col-md-5 text-md-right" style="width:200px;" > 
+                                        <button class="btn beautiful-btn " @onclick="UpdateUser" type="submit" style="font-size: 2rem;">Edit</button>
+                                    </div>
+                                    <div class="col-md-5 "style="width:200px;">
+                                        <a class="btn beautiful-btn " href="/admin" style="font-size: 2rem;">ยกเลิก</a>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-2 text-md-right" >
+                                <div class="row-2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-1">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- inject HttpClient Http
+@* @code { *@
+    private Product product { get; set; } = new();
+
+    private async Task AddProduct()
+    {
+        var response = await Http.PostAsJsonAsync("/api/TestControllers", product);
+        
+        navManager.NavigateTo("/");
+    }
+
+
+} -->
+<style>
+    .background-container {
+        /*background-color: #f0f0f0;*/
+        /*background-image: linear-gradient(180deg, #e1d3ff 0%, #ae89ff 70%);*/
+        /*background-image: linear-gradient(to bottom right, #7a53fc,#7a53fc, #fc6dab, #f7f6c5, #f3fae1);*/
+        background-image: linear-gradient(to bottom right, #7a53fc, #f3fae1, #f3fae1, #fc6dab);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh; /* ให้ div มีความสูงขั้นต่ำเต็มหน้าจอ */
+    }
+    .beautiful-btn {
+        background-image: linear-gradient(180deg, #7a53fc 0%, #967af9 70%);
+        border: none; /* Remove border */
+        color: white; /* White text */
+        padding: 15px 20px; /* Padding */
+        text-align: center; /* Center text */
+        text-decoration: none; /* Remove underline */
+        display: flex; /* Inline block element */
+        align-items: center; /* Vertically center the content */
+        justify-content: center; /* Horizontally center the content */
+        border-radius: 12px; /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow */
+        cursor: pointer; /* Change cursor on hover */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+        display: inline-block;
+        width: 180px;  /* Adjust button size for smaller screens */
+        height: 110px;
+        max-width: 10cm; height: auto; /* Ensure the button doesn't grow too large */
+        font-size: 2.5rem; /* Adjust font size to fit */
+        white-space: normal; /* Allow text wrapping */
+        word-wrap: break-word; /* Ensure long words break */
+        overflow-wrap: break-word; /* Support word breaking */
+        padding: 10px; /* Padding for better spacing around the text */
+        box-sizing: border-box;"> <!-- box-sizing to ensure padding doesn't overflow -->
+    }
+</style>
+
+
+
+@code {
+    [Parameter]
+    public int id { set; get; }
+    public User? user = null;
+    private UserDto userDto { get; set; } = new();
+
+
+
+    protected override async Task OnParametersSetAsync()
+    {
+    
+            user = await _http.GetFromJsonAsync<User>($"api/User/User/{id}" );
+            userDto.id = user.id;
+            userDto.loginName = user?.loginName ?? "";
+            userDto.role = user.role;
+           
+    }
+
+    private async Task UpdateUser()
+    {
+            var response = await _http.PutAsJsonAsync($"api/User/UpdateUser/{id}", userDto);
+
+            if (response.IsSuccessStatusCode)
+            {
+                navManager.NavigateTo("/admin");
+            }
+            else
+            {
+                 Console.WriteLine($"Error: {response.StatusCode} - อัปโหลดไม่สำเร็จ!");
+            }
+        }
+
+    }

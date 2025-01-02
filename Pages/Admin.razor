@@ -1,28 +1,127 @@
 @page "/admin"
 @using Microsoft.AspNetCore.Authorization
+@using HosxpUi.Models
+@inject HttpClient _http 
+@inject IJSRuntime JS
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject NavigationManager _navigationManager;
-@attribute [Authorize]
+@attribute [Authorize(Roles = "Admin")]
 
 <PageTitle>Admin Page</PageTitle>
 
-<h3>Admin content goes here</h3>
-
+@if (userdb == null)
+{
+    <p><em>Loading..</em></p>
+}
+else
+{
+<table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Role</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in userdb)
+            {
+                <tr>
+                    <td>@i.id</td>
+                    <td>@i.loginName</td>
+                    <td>@i.role</td>
+                    <td><button @onclick="() => ConfirmDeleteUser(i.id)" type="submit" class="btn btn-danger btn-sm" style="font-size: 2rem;">Delete</button></td>
+                    <td ><a class="btn btn-primary btn-sm" href="/edituser/@i.id" style="font-size: 2rem;">Edit</a></td>  
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+    <a class="btn beautiful-btn " href="/adduser" style="font-size: 2rem;">Add</a>
+<style>
+    .background-container {
+        /*background-color: #f0f0f0;*/
+        /*background-image: linear-gradient(180deg, #e1d3ff 0%, #ae89ff 70%);*/
+        /*background-image: linear-gradient(to bottom right, #7a53fc,#7a53fc, #fc6dab, #f7f6c5, #f3fae1);*/
+        background-image: linear-gradient(to bottom right, #7a53fc, #f3fae1, #f3fae1, #fc6dab);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh; /* ให้ div มีความสูงขั้นต่ำเต็มหน้าจอ */
+    }
+    .beautiful-btn {
+        background-image: linear-gradient(180deg, #7a53fc 0%, #967af9 70%);
+        border: none; /* Remove border */
+        color: white; /* White text */
+        padding: 15px 20px; /* Padding */
+        text-align: center; /* Center text */
+        text-decoration: none; /* Remove underline */
+        display: flex; /* Inline block element */
+        align-items: center; /* Vertically center the content */
+        justify-content: center; /* Horizontally center the content */
+        border-radius: 12px; /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow */
+        cursor: pointer; /* Change cursor on hover */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+        display: inline-block;
+        width: 180px;  /* Adjust button size for smaller screens */
+        height: 110px;
+        max-width: 10cm; height: auto; /* Ensure the button doesn't grow too large */
+        font-size: 2.5rem; /* Adjust font size to fit */
+        white-space: normal; /* Allow text wrapping */
+        word-wrap: break-word; /* Ensure long words break */
+        overflow-wrap: break-word; /* Support word breaking */
+        padding: 10px; /* Padding for better spacing around the text */
+        box-sizing: border-box;"> <!-- box-sizing to ensure padding doesn't overflow -->
+    }
+</style>
 @code {
     private bool IsAdmin { get; set; }
+    private List<User>? userdb;
 
     protected override async Task OnInitializedAsync()
     {
-        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        var user = authState.User;
+        userdb = await _http.GetFromJsonAsync<List<User>>("api/User/User");
+    }
+     // ฟังก์ชันสำหรับยืนยันการลบ
+    private async Task ConfirmDeleteUser(int id)
+    {
+        // ใช้ JavaScript Confirm dialog เพื่อถามผู้ใช้ว่าแน่ใจหรือไม่ที่จะลบ
+        bool isConfirmed = await JS.InvokeAsync<bool>("confirm", "คุณแน่ใจหรือไม่ว่าต้องการลบสินค้านี้?");
 
-        // Check if the user has the "Admin" role
-        IsAdmin = user.IsInRole("Admin");
-
-        // If the user is not an admin, redirect to AccessDenied page
-        if (!IsAdmin)
+        if (isConfirmed)
         {
-            _navigationManager.NavigateTo("/accessdenied");
+            // ถ้ายืนยันการลบ, ทำการลบสินค้า
+            await DeleteUser(id);
         }
     }
+    private async Task DeleteUser(int id)
+    {
+        try
+        {
+            // ส่งคำขอ DELETE ไปยัง API โดยส่ง ID ของสินค้าใน URL
+            var response = await _http.DeleteAsync($"api/User/DeleteUser/{id}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                // หากการลบสำเร็จ ให้เปลี่ยนเส้นทางไปยังหน้าหลักหรือหน้ารายการสินค้าหลังจากลบ
+                userdb = await _http.GetFromJsonAsync<List<User>>("/api/User/User");
+                StateHasChanged();
+                @* navManager.NavigateTo("/admin");  *@
+            }
+            else
+            {
+                Console.WriteLine($"Error: {response.StatusCode} - ลบสินค้าไม่สำเร็จ!");
+            }
+        }
+        catch (Exception ex)
+        {
+            // จัดการข้อผิดพลาดหากมีปัญหาในการทำคำขอ
+            Console.WriteLine($"เกิดข้อผิดพลาด: {ex.Message}");
+        }
+    }
+
 }
