@@ -1,46 +1,1078 @@
-@page "/authen"
-@* @page "/authen/{Clinic}" *@
+@page "/authenwalkin"
+@using System.Text.Json.Nodes
+@using System.Text.Json
+@using System.Globalization
 @using HosxpUi.Models
 @using HosxpUi.Shared
-@using Microsoft.AspNetCore.Authorization
-@inject AuthenticationStateProvider AuthenticationStateProvider
-@inject NavigationManager _navigationManager;
-@inject HttpClient _http 
-@inject HttpClient http 
-@attribute [Authorize]
+@inject HttpClient _http
+@inject IHttpClientFactory _httpClientFactory;
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JS
 
-<button @onclick="SendPostRequest">Send</button>
-
-
-
-@code {
-    protected async Task SendPostRequest()
-    {
-        var requestData = new Ovst
+@* <div class="row"> *@
+    <div class="background-container">
+        @* <h1 class="mb-5">Authen</h1> *@
+        <Alert @ref="alert" />
+        @if (Patient == null)
         {
-            Hn = "0020000"
-        };
+            <br/>
+            <p><em><h4>&nbsp;&nbsp;&nbsp;&nbsp;Loading...</h4></em></p>
+        }
+        else
+        {
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-1">
+                    @* <img width="100" height="120" src="data:image/jpeg;base64,@ClaimData.image" /> *@
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                @if (alert.IsVisible == false)
+                                {
+                                <h1 class="m-0 font-weight-bold text-dark">ยืนยันตัวตน</h1>
+                                }
+                                else
+                                {
+                                <h1 class="m-0 font-weight-bold text-success">ยืนยันตัวตนเรียบร้อย</h1>
+                                }
+                            </div>
+                            <div class="card-body">
+                                <div class="row py-1">
+                                    <div class="col-md-1 text-md-right" >
+                                        
+                                    </div>
+                                    <div class="col-md-8" >
+                                        <div class="row md-3 py-1 red-box">
+                                            <div class="text-md-right" style="width:40px;"></div>
+                                            <div class="col-md-4 text-md-right" style="width:200px;"><p><b>นัดรับบริการที่ :</b></p></div>
+                                            <div class="col-md-7">
+                                                @* <input type="text" class="form-control " style="font-weight: bold; color: red;" @bind="PatientDto.Department" readonly> *@
+                                                <select @bind="selectedItemId" class="form-control " style="font-weight: bold; color: red;">
+                                                    <option value="">-- Select Item --</option>
+                                                    @foreach (var i in Kskdepartments)
+                                                    {
+                                                        <option value="@i.Depcode">@i.Department</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row py-1">
+                                            <div class="text-md-right" style="width:40px;"> </div>
+                                            <div class="col-md-4 text-md-right" style="width:200px;"><p><b>วันที่รับบริการ :</b></p></div>
+                                            <div class="col-md-7">
+                                                <div class="row">
+                                                    <div  style="width:200px;">
+                                                        <input type="text" class="form-control" @bind="PatientDto.DateOnly" readonly>
+                                                    </div>
+                                                    <div style="width:70px;">
+                                                        <p><b>เวลา :</b></p>
+                                                    </div>
+                                                    <div  style="width:90px;">
+                                                        <input type="text" class="form-control"  @bind="PatientDto.TimeOnly" readonly>
+                                                    </div>
+                                                    <div style="width:40px">
+                                                        <p><b>น.</b></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row md-3 py-1">
+                                            <div class="text-md-right" style="width:40px;"></div>
+                                            <div class="col-md-4 text-md-right" style="width:200px;"><p><b>HN :</b></p></div>
+                                            <div class="col-md-7">
+                                                <input type="text" class="form-control" @bind="claim.hn" readonly>
+                                            </div>
+                                        </div>
+                                    
+                                        @* <div class="row md-3 py-1">
+                                            <div class="text-md-right" style="width:40px;"></div>
+                                            <div class="col-md-4 text-md-right" style="width:200px;"><p><b>QN :</b></p></div>
+                                            <div class="col-md-7">
+                                                <input type="text" class="form-control" @bind="PatientDto.Oqueue">
+                                            </div>
+                                        </div> *@
+                                        <div class="row md-3 py-1">
+                                            <div class="text-md-right" style="width:40px;"></div>
+                                            <div class="col-md-4 text-md-right" style="width:200px;"><p><b>ชื่อ-สกุล :</b></p></div>
+                                            <div class="col-md-7">
+                                                <div class="row">
+                                                    <div  style="width:215px; ">
+                                                        <input type="text" class="form-control" @bind="PatientDto.Fname" readonly>
+                                                    </div>
+                                                    <div style="width:64px;">
+                                                        <p><b>อายุ :</b></p>
+                                                    </div>
+                                                    <div  style="width:70px;">
+                                                        <input type="text" class="form-control" @bind="PatientDto.Age" readonly>
+                                                    </div>
+                                                    <div style="width:50px">
+                                                        <p><b>ปี</b></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row md-3 py-1">
+                                            <div class="text-md-right" style="width:40px;"></div>
+                                            <div class="col-md-4 text-md-right" style="width:200px;"><p><b>เบอร์โทรศัพท์ :</b></p></div>
+                                            <div class="col-md-7">
+                                                <input type="text" class="form-control" @bind="claim.mobile" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="row md-3 py-1">
+                                            <div class="text-md-right" style="width:40px;"></div>
+                                            <div class="col-md-4 text-md-right" style="width:200px;"><p><b>เลขประจำตัวประชาชน :</b></p></div>
+                                            <div class="col-md-7">
+                                                <input type="text" class="form-control" @bind="claim.pid" readonly>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="row md-3 py-1">
+                                            <div class="text-md-right" style="width:40px;"></div>
+                                            <div class="col-md-4 text-md-right" style="width:200px;"><p><b>แพทย์ผู้นัด :</b></p></div>
+                                            <div class="col-md-7">
+                                                <input type="text" class="form-control" @bind="PatientDto.Name" readonly>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row md-3 py-1">
+                                            <div class="text-md-right" style="width:40px;"></div>
+                                            <div class="col-md-4 text-md-right" style="width:200px;"><p><b>สิทธิการรักษา :</b></p></div>
+                                            <div class="col-md-7">
+                                                @* <input type="text" class="form-control" @bind="PttypenoDto.Name"> *@
+                                                <input type="text" class="form-control"  @bind="claim.mainInscl" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="row md-3 py-1">
+                                            <div class="text-md-right" style="width:40px;"></div>
+                                            <div class="col-md-4 text-md-right" style="width:200px;"><p><b>โรงพยาบาลหลัก :</b></p></div>
+                                            <div class="col-md-7">
+                                                <input type="text" class="form-control"  @bind="Patient.HosName" readonly>
+                                            </div>
+                                        </div>
+                            
+                                        <div class="row md-3 py-1">
+                                            <div class="text-md-right" style="width:40px;"></div>
+                                            <div class="col-md-5 text-md-right" style="width:200px;" > 
+                                                <button class="btn beautiful-btn " @onclick="SaveClaim" style="font-size: 2rem;">ยืนยัน</button>
+                                            </div>
+                                            <div class="col-md-5 text-md-right" style="width:200px;"> 
+                                                <button class="btn beautiful-btn " @onclick="GeneratePdf" style="font-size: 2rem;">Print</button>
+                                            </div>
+                                            <div class="col-md-5 "style="width:200px;">
+                                                <a class="btn beautiful-btn " href="/index" style="font-size: 2rem;">ยกเลิก</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 text-md-right" >
+                                        <div class="row-2">
+                                            <img width="100" height="120" src="data:image/jpeg;base64,@PatientDto.Image" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+ 
+@code {
 
+    [Parameter]
+    public string Clinic { get; set; }
+    public string Hn { set; get; } 
+    public string Id { set; get; } 
+    public int? OappId { set; get; } 
+    public Patient? Patient { get; set; }
+    public PatientDto PatientDto { set; get; } = new();
+    public ClinicVisit ClinicVisit { set; get; } = new();
+    public Claim claim { set; get; } = new();
+    public AuthenClaim? AuthenClaim { get; set; }
+    public AuthenClaimDto AuthenClaimDto { set; get; } = new();
+    public string selectedItemId ;
+    private List<Kskdepartment> Kskdepartments = new List<Kskdepartment>();
+    private Kskdepart? Kskdepart  { get; set; }
+    public Pttypeno? Pttypeno { get; set; }
+    public PttypenoDto PttypenoDto { set; get; } = new();
+    public OvstDto OvstDto { set; get; } = new();
+    public Ovst Ovst { set; get; } = new();
+    
+    public JsonNode Errors { set; get;} = new JsonObject();
+    private Cid2 Cid2 = new Cid2();
+    private OvstKey OvstKey = new OvstKey();
+    
+    private Alert alert;
+
+    protected override async Task OnInitializedAsync()
+    {
         try
         {
-            // Send POST request
-            var response = await http.PostAsJsonAsync("http://localhost:5094/api/Hos/OpenVisitWithKey", requestData);
-
-            if (response.IsSuccessStatusCode)
+            // Fetch correlation ID and patient details
+            var httpClient = _httpClientFactory.CreateClient("NHSO");
+            Cid2 = await httpClient.GetFromJsonAsync<Cid2>("api/smartcard/read?readImageFlag=false");
+            claim.pid = Cid2.pid;
+            claim.correlationId = Cid2.correlationId;
+            claim.claimType = "PG0060001";
+            claim.mainInscl = Cid2.mainInscl;
+            Id = Cid2.pid;
+            if (Cid2.hospMain == null)
             {
-                // Parse response
-                var responseData = await response.Content.ReadFromJsonAsync<ResponseModel>();
-                Console.WriteLine($"Success: {responseData.Status}, Message: {responseData.Message}");
+                 Cid2.hospMain = new HospMain
+                {
+                    hcode = "10734",
+                    hname = "รพ.สมุทรสาคร"
+                };
+            }
+
+            // Fetch patient details
+            Console.WriteLine($"Clinic: {Clinic}");
+            Patient = await _http.GetFromJsonAsync<Patient>($"appointDetailNo/{Id}");
+            @* Patient = await http.GetFromJsonAsync<Patient>($"http://localhost:5094/Walkin/{Id}"); *@
+
+            // Assign patient and claim data
+            PatientDto.Pname = Patient?.Pname ?? ""; 
+            PatientDto.Lname = Patient?.Fname ?? ""; 
+            PatientDto.Fname = Patient.Pname+Patient.Fname+" "+Patient.Lname;
+            PatientDto.Vstdate = Patient?.Vstdate;
+            PatientDto.NextDate = Patient?.NextDate;
+            PatientDto.NextTime = Patient?.NextTime;
+            PatientDto.Department = Patient?.Department ?? "";
+            PatientDto.Name = Patient?.Fname ?? "";
+            PatientDto.Vn = Patient?.Vn ?? "";
+            PatientDto.Age = Patient?.Age ?? 0;
+            PatientDto.Oqueue = Patient?.Oqueue ?? 0;
+            PatientDto.Image = Patient?.Image ?? "";
+            
+            @* PatientDto.Clinic = Patient?.Clinic ?? ""; *@
+        
+            
+            claim.mobile = Patient?.Hometel ?? "";
+            claim.hn = Patient?.Hn ?? "";
+            claim.hcode = Patient?.Hcode ?? "";
+            Hn = Patient?.Hn ?? "";
+
+            // Handle patient type info
+            PttypenoDto.Pttype = Patient?.Pttype ?? "";
+            PttypenoDto.Name = Patient?.PtName ?? "";
+            PttypenoDto.Begindate = Patient?.Begindate;
+            PttypenoDto.Expiredate = Patient?.Expiredate;
+            PttypenoDto.Name = Patient?.PtName ?? "";
+
+            
+            //Ovst
+            var TransformPt = TransformPttype(Cid2);
+            var TransformCl = TransformClinic(Patient);
+            OvstDto.hn = Patient?.Hn ?? "";
+            OvstDto.doctor = Patient?.Doctor ?? "";
+            OvstDto.hospsub = Patient?.Hcode ?? "";
+            OvstDto.hospmain = Patient?.Hcode ?? "";
+            OvstDto.ovstist = "02";
+            OvstDto.ovstost = "00";
+            OvstDto.pttype = TransformPt;
+            OvstDto.pttypeno = Patient?.Pttypeno1 ?? "";
+            OvstDto.rfrocs = "";
+            OvstDto.spclty = Patient?.Spclty?? "";
+            OvstDto.curDep = TransformCl;
+            OvstDto.lastDep = "052";
+            OvstDto.mainDep = TransformCl;
+            OvstDto.nodeId = "";
+            OvstDto.hasInsurance =  "";
+            OvstDto.staff = "";
+
+            //oappId
+            OappId = Patient?.OappId;
+
+            //ClinicVisit
+            ClinicVisit.Hn = Patient?.Hn ?? "";
+            ClinicVisit.Clinic = Patient?.Clinic ?? "";
+            ClinicVisit.Vn = "";
+            ClinicVisit.VisitType = null;
+            ClinicVisit.HosGuid = null;
+            ClinicVisit.AfbCheck = null;
+            ClinicVisit.AfbMonthNumber = null;
+            ClinicVisit.HosGuidExt = null;
+            ClinicVisit.SkhInsert = null;
+
+            Kskdepartments = await http.GetFromJsonAsync<List<Kskdepartment>>("http://localhost:5094/api/Hos/Kskdepartment");
+
+        }
+         catch (HttpRequestException ex) when (ex.StatusCode == System.Net.HttpStatusCode.InternalServerError)
+        {
+            PatientDto.Fname = ""; 
+            PatientDto.Lname = "";
+            PatientDto.Vstdate = null;
+            PatientDto.NextDate = null;
+            PatientDto.NextTime = null;
+            PatientDto.Department =  "";
+            PatientDto.Name = "";
+            PatientDto.Vn = "";
+            PatientDto.Age =  0;
+            PatientDto.Oqueue =  0;
+            PatientDto.Image ="";
+        
+            
+            claim.mobile = "";
+            claim.hn = "";
+            claim.hcode = "";
+            Hn = "";
+
+            // Handle patient type info
+            PttypenoDto.Pttype = "";
+            PttypenoDto.Name = "";
+            PttypenoDto.Begindate = null;
+            PttypenoDto.Expiredate = null;
+            PttypenoDto.Name = "";
+            //Ovst
+            OvstDto.hn =  "";
+            OvstDto.doctor = "";
+            OvstDto.hospsub =  "";
+            OvstDto.hospmain =  "";
+            OvstDto.ovstist = "";
+            OvstDto.ovstost = "";
+            OvstDto.pttype = "";
+            OvstDto.pttypeno = "";
+            OvstDto.rfrocs = "";
+            OvstDto.spclty = "";
+            OvstDto.curDep = "";
+            OvstDto.lastDep = "";
+            OvstDto.ptSubtype = 0;
+            OvstDto.mainDep = "";
+            @* OvstDto.visitType = ""; *@
+            OvstDto.nodeId = "";
+            OvstDto.hasInsurance =  "";
+            OvstDto.staff = "";
+            
+            
+            
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error occurred during initialization: {ex.Message}");
+            alert.ShowFailed("กรุณาติดต่อเจ้าหน้าที่ห้องบัตร");
+        }
+    }
+
+
+
+    protected async Task SaveClaim()
+    {
+        try
+        {
+            // Send claim and patient data to the backend
+            var response = await http.PostAsJsonAsync("http://localhost:8189/api/nhso-service/confirm-save", claim);
+            @* var response2 = await http.PostAsJsonAsync("http://localhost:5200/api/Hos/CreateOpenVisitByCondition", OvstDto); *@
+            var response2 = await http.PostAsJsonAsync("http://localhost:5094/api/Hos", OvstDto);
+            var response3 = await http.PutAsJsonAsync($"http://localhost:5094/api/Hos/{OappId}", new { });
+            var response4 = await http.PostAsJsonAsync("http://localhost:5094/api/Hos/AddClinicVisit", ClinicVisit );
+            
+
+            if (response.IsSuccessStatusCode && response2.IsSuccessStatusCode)
+            {
+                var checkClaimCode = await http.GetFromJsonAsync<AuthenClaim>($"http://localhost:8189/api/nhso-service/latest-authen-code/{Cid2.pid}");
+                var checkClaimCode2 = await http.GetFromJsonAsync<Ovst>($"http://localhost:5094/Ovst/{Hn}");
+
+                alert.ShowSuccess($"Claim Code: {checkClaimCode?.ClaimCode} and Q: {checkClaimCode2?.Oqueue}");
+                await Task.Delay(4000);
+               // NavigationManager.NavigateTo("home3");
+                NavigationManager.NavigateTo("authenwalkin");
+                return;
+                
+                
             }
             else
             {
-                Console.WriteLine($"Error: {response.StatusCode}");
+                var errorResponse = await response.Content.ReadAsStringAsync();
+                Console.WriteLine("Error Response: " + errorResponse);
+                alert.ShowFailed("กรุณาติดต่อเจ้าหน้าที่ห้องบัตร");
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Exception occurred: {ex.Message}");
+            Console.WriteLine("Error during claim saving: " + ex.Message);
+            alert.ShowFailed("กรุณาติดต่อเจ้าหน้าที่ห้องบัตร");
         }
+        
+    }
+
+
+    
+
+
+    private string TransformPttype(Cid2 Cid2)
+    {
+        switch ((Cid2.mainInscl, Cid2.subInscl, Cid2.hospMain.hcode))
+        {
+            case ("(SSS) สิทธิประกันสังคม", "(S1) สิทธิเบิกกองทุนประกันสังคม (ผู้ประกันตน)", "10734"):
+                return "34"; // If all three conditions match
+            case ("(WEL) สิทธิหลักประกันสุขภาพแห่งชาติ", "ช่วงอายุ 12-59 ปี", "10734"):
+                return "11";
+            case ("(WEL) สิทธิหลักประกันสุขภาพแห่งชาติ (ยกเว้นการร่วมจ่ายค่าบริการ 30 บาท)", "ผู้ที่มีอายุเกิน 60 ปี บริบูรณ์", "10734"):
+                return "77";
+            case ("(WEL) สิทธิหลักประกันสุขภาพแห่งชาติ (ยกเว้นการร่วมจ่ายค่าบริการ 30 บาท)", "(71) เด็กอายุไม่เกิน 12 ปีบริบูรณ์", "10734"):
+                return "71";
+            case ("(OFC) สิทธิข้าราชการ/สิทธิหน่วยงานรัฐ", "(O1) สิทธิเบิกกรมบัญชีกลาง (ข้าราชการ)", var hcode) when string.IsNullOrEmpty(hcode):
+                return "23";
+            default:
+                return "10"; // Default case
         }
+    }
+
+    private string TransformClinic(Patient Patient)
+    {
+        switch (Patient.Clinic)
+         {
+            case "001":
+                return "020"; 
+            case "002":
+                return "021"; 
+            case "003":
+                return "345"; 
+            case "004":
+                return "037"; 
+            case "006":
+                return "027"; 
+            case "007":
+                return "030"; 
+            case "008":
+                return "014"; 
+            case "009":
+                return "090"; 
+            case "010":
+                return "038"; 
+            case "011":
+                return "025"; 
+            case "012":
+                return "018"; 
+            case "013":
+                return "064"; 
+            case "015":
+                return "370"; 
+            case "016":
+                return "082"; 
+            case "017":
+                return "231"; 
+            case "019":
+                return "093";
+            case "020":
+                return "152";
+            case "021":
+                return "016";
+            case "022":
+                return "018";
+            case "023":
+                return "083";
+            case "024":
+                return "094";
+            case "025":
+                return "010";
+            case "026":
+                return "035";
+            case "027":
+                return "054";
+            case "028":
+                return "047";
+            case "029":
+                return "008";
+            case "030":
+                return "076";
+            case "031":
+                return "001";
+            case "032":
+                return "003";
+            case "033":
+                return "005";
+            case "034":
+                return "011";
+            case "035":
+                return "011";
+            case "036":
+                return "013";
+            case "037":
+                return "014";
+            case "039":
+                return "018";
+            case "041":
+                return "081";
+            case "042":
+                return "023";
+            case "043":
+                return "024";
+            case "044":
+                return "027";
+            case "045":
+                return "032";
+            case "046":
+                return "035";
+            case "047":
+                return "037";
+            case "048":
+                return "038";
+            case "049":
+                return "471";
+            case "050":
+                return "043";
+            case "051":
+                return "081";
+            case "053":
+                return "049";
+            case "054":
+                return "053";
+            case "056":
+                return "052";
+            case "057":
+                return "071";
+            case "058":
+                return "090";
+            case "059":
+                return "074";
+            case "060":
+                return "036";
+            case "061":
+                return "030";
+            case "062":
+                return "030";
+            case "063":
+                return "022";
+            case "064":
+                return "115";
+            case "065":
+                return "044";
+            case "066":
+                return "094";
+            case "067":
+                return "087";
+            case "068":
+                return "091";
+            case "069":
+                return "083";
+            case "070":
+                return "155";
+            case "071":
+                return "018";
+            case "072":
+                return "158";
+            case "073":
+                return "164";
+            case "074":
+                return "219";
+            case "075":
+                return "352";
+            case "076":
+                return "022";
+            case "077":
+                return "236";
+            case "078":
+                return "152";
+            case "079":
+                return "079";
+            case "080":
+                return "181";
+            case "081":
+                return "319";
+            case "082":
+                return "081";
+            case "083":
+                return "215";
+            case "084":
+                return "207";
+            case "085":
+                return "215";
+            case "086":
+                return "010"; 
+            case "087":
+                return "001";
+            case "088":
+                return "001";
+            case "089":
+                return "001";
+            case "090":
+                return "001";
+            case "091":
+                return "081";
+            case "092":
+                return "081";
+            case "093":
+                return "222";
+            case "094":
+                return "183";
+            case "095":
+                return "238";
+            case "096":
+                return "216";
+            case "097":
+                return "030";
+            case "098":
+                return "284";
+            case "099":
+                return "285";
+            case "100":
+                return "283";
+            case "101":
+                return "018";
+            case "102":
+                return "018";
+            case "103":
+                return "368";
+            case "104":
+                return "233";
+            case "105":
+                return "030";
+            case "106":
+                return "030";
+            case "107":
+                return "018";
+            case "108":
+                return "280";
+            case "109":
+                return "018";
+            case "110":
+                return "018";
+            case "111":
+                return "018";
+            case "112":
+                return "018";
+            case "113":
+                return "018";
+            case "114":
+                return "018";
+            case "115":
+                return "288";
+            case "116":
+                return "291";
+            case "117":
+                return "310";
+            case "118":
+                return "300";
+            case "119":
+                return "301";
+            case "120":
+                return "302";
+            case "121":
+                return "304";
+            case "122":
+                return "030";
+            case "123":
+                return "298";
+            case "124":
+                return "043";
+            case "125":
+                return "018";
+            case "126":
+                return "292";
+            case "127":
+                return "294";
+            case "128":
+                return "183";
+            case "129":
+                return "183";
+            case "130":
+                return "183";
+            case "131":
+                return "316";
+            case "132":
+                return "197";
+            case "133":
+                return "190";
+            case "134":
+                return "214";
+            case "135":
+                return "213";
+            case "136":
+                return "182";
+            case "137":
+                return "194";
+            case "138":
+                return "181";
+            case "139":
+                return "187";
+            case "140":
+                return "071";
+            case "141":
+                return "071";
+            case "142":
+                return "071";
+            case "143":
+                return "071";
+            case "144":
+                return "071";
+            case "145":
+                return "328";
+            case "146":
+                return "235";
+            case "147":
+                return "054";
+            case "148":
+                return "291";
+            case "149":
+                return "030";
+            case "150":
+                return "331";
+            case "152":
+                return "334";
+            case "153":
+                return "156";
+            case "154":
+                return "342";
+            case "155":
+                return "071";
+            case "156":
+                return "345";
+            case "157":
+                return "353";
+            case "158":
+                return "358";
+            case "159":
+                return "003";
+            case "160":
+                return "367";
+            case "161":
+                return "369";
+            case "162":
+                return "330";
+            case "163":
+                return "084";
+            case "164":
+                return "074";
+            case "165":
+                return "030";
+            case "166":
+                return "370";
+            case "167":
+                return "174";
+            case "168":
+                return "378";
+            case "169":
+                return "378";
+            case "170":
+                return "378";
+            case "171":
+                return "378";
+            case "172":
+                return "384";
+            case "173":
+                return "387";
+            case "174":
+                return "389";
+            case "175":
+                return "390";
+            case "176":
+                return "073";
+            case "177":
+                return "417";
+            case "178":
+                return "018";
+            case "179":
+                return "030";
+            case "180":
+                return "155";
+            case "181":
+                return "155";
+            case "182":
+                return "018";
+            case "183":
+                return "461";
+            case "184":
+                return "461";
+            case "185":
+                return "461";
+            case "186":
+                return "461";
+            case "187":
+                return "461";
+            case "188":
+                return "461";
+            case "189":
+                return "461";
+            case "190":
+                return "461";
+            case "191":
+                return "461";
+            case "192":
+                return "461";
+            case "193":
+                return "461";
+            case "194":
+                return "008";
+            case "195":
+                return "507";
+            case "196":
+                return "008";
+            case "197":
+                return "461";
+            case "198":
+                return "519";
+            case "199":
+                return "520";
+            case "200":
+                return "461";
+            case "201":
+                return "377";
+            case "202":
+                return "470";
+            case "203":
+                return "030";
+            case "204":
+                return "404";
+            case "205":
+                return "474";
+            case "206":
+                return "494";
+            case "207":
+                return "481";
+            case "208":
+                return "461";
+            case "209":
+                return "461";
+            case "210":
+                return "493";
+            case "211":
+                return "020";
+            case "212":
+                return "035";
+            case "213":
+                return "071";
+            case "214":
+                return "027";
+            case "215":
+                return "152";
+            case "216":
+                return "043";
+            case "217":
+                return "461";
+            case "218":
+                return "030";
+            case "219":
+                return "330";
+            case "220":
+                return "498";
+            case "221":
+                return "500";
+            case "222":
+                return "233";
+            case "223":
+                return "503";
+            case "224":
+                return "504";
+            case "225":
+                return "074";
+            case "226":
+                return "510";
+            case "227":
+                return "493";
+            case "228":
+                return "030";
+            case "229":
+                return "512";
+            case "230":
+                return "018";
+            case "231":
+                return "514";
+            case "232":
+                return "461";
+            case "233":
+                return "516";
+            case "234":
+                return "518";
+            case "236":
+                return "519";
+            case "237":
+                return "520";
+            case "238":
+                return "003";
+            case "239":
+                return "005";
+            case "240":
+                return "471";
+            case "241":
+                return "526";
+            case "242":
+                return "025";
+            case "243":
+                return "527";
+            case "244":
+                return "528";
+            case "245":
+                return "461";
+            default:
+                 return "010";
+        }
+    }
+
+    private string title = "ยืนยันการเข้ารับบริการระบบนัด";
+    private async Task GeneratePdf()
+    {
+        // Serialize the persons list into JSON
+        @* var personsJson = JsonSerializer.Serialize(persons); *@
+
+        Cid2 = await http.GetFromJsonAsync<Cid2>("http://localhost:8189/api/smartcard/read?readImageFlag=false");
+        claim.pid = Cid2.pid;
+        claim.mainInscl = Cid2.mainInscl;
+        Id = Cid2.pid;
+        var checkClaimCode = await http.GetFromJsonAsync<AuthenClaim>($"http://localhost:8189/api/nhso-service/latest-authen-code/{Cid2.pid}");
+        //Patient = await http.GetFromJsonAsync<Patient>("http://localhost:5200/appointDetail/" + Id + "/" + OappId );
+        Patient = await http.GetFromJsonAsync<Patient>($"http://localhost:5094/PrintVisit/" + Id  );
+       // Kskdepart = await http.GetFromJsonAsync<Kskdepart>($"http://localhost:5094/api/Hos/Kskdepartment/" + selectedItemId  );
+        // Assign patient and claim data
+        PatientDto.Fname = Patient.Pname+Patient.Fname+" "+Patient.Lname;
+        string namefl = "ชื่อ "+PatientDto.Fname ;
+        PatientDto.NextDate = Patient?.NextDate;
+        PatientDto.NextTime = Patient?.NextTime;
+        string date = "วันที่ "+PatientDto.DateOnly+" เวลา "+PatientDto.TimeOnly+" น." ;
+        PatientDto.Oqueue = Patient?.Oqueue;
+        string qn = "QN "+PatientDto.Oqueue ;
+        string claimid = "Claimid ";
+       // PatientDto.Department = Patient?.Department ;
+        //string department = "แผนกที่นัด "+PatientDto.Department ;
+        string department = "แผนกที่นัด "+ selectedItemId ;
+        claim.hn = Patient?.Hn;
+        string hn = "HN "+claim.hn ;
+        //PttypenoDto.ptName = Patient?.ptName;
+        string ptName = "สิทธิ "+claim.mainInscl  ;
+        @* string name = "ชื่อ" ; *@
+
+
+
+
+        // Call JavaScript function to generate the PDF with custom font
+        await JS.InvokeVoidAsync("generatePdfWithFont", title, claimid, qn, date, namefl, department, hn, ptName);
+       // await JS.InvokeVoidAsync("eval", "location.reload()");
+        // เรียก JavaScript เพื่อให้ทำการ Navigate ไปยังหน้าใหม่
+        // ใช้ NavigationManager.Uri เพื่อดึง URL ปัจจุบัน
+        //string currentUrl = NavigationManager.Uri;
+        //string targetUrl = "/";  // หรือ URL ที่ต้องการ
+       // await JS.InvokeVoidAsync("navigateToPage", targetUrl); // เรียกฟังก์ชันใน JavaScript *@
+    }
 
 }
+
+
+<style>
+/* Red Box Styling */
+.red-box {
+    border: 2px solid rgb(181, 148, 252); /* Red border */
+    @* padding: 10px; /* Padding for better appearance */ *@
+    @* border-radius: 5px; /* Optional: to round the corners */ *@
+     /*background-color: rgb(181, 148, 252); Light red background to highlight */
+    background-image: linear-gradient(180deg, #7a53fc 0%, #967af9 70%);
+    color: rgb(4, 0, 10); 
+    border-radius: 12px;
+    
+}
+
+/* Optional: add some hover effect */
+.red-box:focus {
+    border-color: darkred; /* Darker red when the input is focused */
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.6); /* Light red shadow on focus */
+}
+
+.decorated-button {
+    width: 4cm;               /* Button width */
+    height: 2cm;              /* Button height */
+    background: linear-gradient(145deg, #4e73df,rgb(71, 139, 241)); /* Gradient background */
+    border: none;             /* Remove default border */
+    color: whitesmoke;             /* Text color */
+    font-size: 16px;          /* Font size */
+    font-weight: bold;        /* Bold text */
+    border-radius: 12px;      /* Rounded corners */
+    text-align: center;       /* Center text */
+    padding: 0;               /* Remove default padding to allow centering */
+    display: flex;            /* Use flexbox for centering */
+    justify-content: center;  /* Center horizontally */
+    align-items: center;      /* Center vertically */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    cursor: pointer;         /* Pointer on hover */
+    text-decoration: none;    /* Remove underline from */
+}
+
+/* Hover effect */
+.decorated-button:hover {
+    transform: scale(1.05);             /* Slightly increase button size on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+    background: linear-gradient(145deg, #1c3d6d, #4e73df); /* Inverted gradient */
+}
+
+/* Focus effect for accessibility */
+.decorated-button:focus {
+    outline: none;                      /* Remove outline */
+    border: 2px solid #0d2e56;          /* Add a blue border on focus */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Light shadow */
+}
+
+.modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+.modal-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        width: 300px;
+        text-align: center;
+}
+    .background-container {
+        /*background-color: #f0f0f0;*/
+        /*background-image: linear-gradient(180deg, #e1d3ff 0%, #ae89ff 70%);*/
+        /*background-image: linear-gradient(to bottom right, #7a53fc,#7a53fc, #fc6dab, #f7f6c5, #f3fae1);*/
+        background-image: linear-gradient(to bottom right, #7a53fc, #f3fae1, #f3fae1, #fc6dab);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh; /* ให้ div มีความสูงขั้นต่ำเต็มหน้าจอ */
+    }
+    .backgroundbtn {
+        background-color: #b594fc;
+    }
+    .beautiful-btn {
+        background-image: linear-gradient(180deg, #7a53fc 0%, #967af9 70%);
+        border: none; /* Remove border */
+        color: white; /* White text */
+        padding: 15px 32px; /* Padding */
+        text-align: center; /* Center text */
+        text-decoration: none; /* Remove underline */
+        display: flex; /* Inline block element */
+        align-items: center; /* Vertically center the content */
+        justify-content: center; /* Horizontally center the content */
+        border-radius: 12px; /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow */
+        cursor: pointer; /* Change cursor on hover */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+        display: inline-block;
+        width: 180px;  /* Adjust button size for smaller screens */
+        height: 110px;
+        max-width: 10cm; height: auto; /* Ensure the button doesn't grow too large */
+        font-size: 2.5rem; /* Adjust font size to fit */
+        white-space: normal; /* Allow text wrapping */
+        word-wrap: break-word; /* Ensure long words break */
+        overflow-wrap: break-word; /* Support word breaking */
+        padding: 10px; /* Padding for better spacing around the text */
+        box-sizing: border-box;"> <!-- box-sizing to ensure padding doesn't overflow -->
+    }
+
+    /* Hover Effect */
+    .beautiful-btn:hover {
+        transform: scale(1.05); /* Scale button on hover */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow */
+        background-color: #169eb6; 
+    }
+
+    /* Focus effect */
+    .beautiful-btn:focus {
+        outline: none; /* Remove focus outline */
+        border: 2px solid #169eb6; /* Green outline on focus */
+    }
+
+</style>

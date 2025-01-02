@@ -5,7 +5,7 @@
 @inject HttpClient _http 
 @inject IJSRuntime JS
 @inject NavigationManager navManager
-@attribute [Authorize(Roles = "Admin")]
+@attribute [Authorize(Roles = "Admin, Card")]
 
 <PageTitle>รายการเปิด Visit ที่คนไข้ไม่ได้มา</PageTitle>
 @if (visitData == null)

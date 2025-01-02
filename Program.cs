@@ -15,7 +15,11 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:5094/") });
 //builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://172.16.200.202:8089/") });
 
-
+// Add multiple HttpClient instances with different base URLs
+builder.Services.AddHttpClient("NHSO", client =>
+{
+    client.BaseAddress = new Uri("http://localhost:8189/");
+});
 
 // builder.Services.AddHttpClient("HosxpApi", options =>
 // {
