@@ -12,8 +12,8 @@
 @* <div class="row"> *@
     <div class="background-container">
         @* <h1 class="mb-5">Authen</h1> *@
-        <Alert @ref="alert" />
-        @if (Patient == null)
+        <Alert @ref="alert" /> 
+        @if (Cid2 == null)
         {
             <br/>
             <p><em><h4>&nbsp;&nbsp;&nbsp;&nbsp;Loading...</h4></em></p>
@@ -27,16 +27,6 @@
                     </div>
                     <div class="col-lg-10">
                         <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                @if (alert.IsVisible == false)
-                                {
-                                <h1 class="m-0 font-weight-bold text-dark">ยืนยันตัวตน</h1>
-                                }
-                                else
-                                {
-                                <h1 class="m-0 font-weight-bold text-success">ยืนยันตัวตนเรียบร้อย</h1>
-                                }
-                            </div>
                             <div class="card-body">
                                 <div class="row py-1">
                                     <div class="col-md-1 text-md-right" >
@@ -47,12 +37,11 @@
                                             <div class="text-md-right" style="width:40px;"></div>
                                             <div class="col-md-4 text-md-right" style="width:200px;"><p><b>นัดรับบริการที่ :</b></p></div>
                                             <div class="col-md-7">
-                                                @* <input type="text" class="form-control " style="font-weight: bold; color: red;" @bind="PatientDto.Department" readonly> *@
-                                                <select @bind="selectedItemId" class="form-control " style="font-weight: bold; color: red;">
+                                                <select @onchange="OnDepartmentSelected" class="form-control " style="font-weight: bold; color: red;">
                                                     <option value="">-- Select Item --</option>
                                                     @foreach (var i in Kskdepartments)
                                                     {
-                                                        <option value="@i.Depcode">@i.Department</option>
+                                                        <option value="@i.depcode">@i.department</option>
                                                     }
                                                 </select>
                                             </div>
@@ -60,23 +49,6 @@
                                         
                                         <div class="row py-1">
                                             <div class="text-md-right" style="width:40px;"> </div>
-                                            <div class="col-md-4 text-md-right" style="width:200px;"><p><b>วันที่รับบริการ :</b></p></div>
-                                            <div class="col-md-7">
-                                                <div class="row">
-                                                    <div  style="width:200px;">
-                                                        <input type="text" class="form-control" @bind="PatientDto.DateOnly" readonly>
-                                                    </div>
-                                                    <div style="width:70px;">
-                                                        <p><b>เวลา :</b></p>
-                                                    </div>
-                                                    <div  style="width:90px;">
-                                                        <input type="text" class="form-control"  @bind="PatientDto.TimeOnly" readonly>
-                                                    </div>
-                                                    <div style="width:40px">
-                                                        <p><b>น.</b></p>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                         <div class="row md-3 py-1">
                                             <div class="text-md-right" style="width:40px;"></div>
@@ -85,27 +57,19 @@
                                                 <input type="text" class="form-control" @bind="claim.hn" readonly>
                                             </div>
                                         </div>
-                                    
-                                        @* <div class="row md-3 py-1">
-                                            <div class="text-md-right" style="width:40px;"></div>
-                                            <div class="col-md-4 text-md-right" style="width:200px;"><p><b>QN :</b></p></div>
-                                            <div class="col-md-7">
-                                                <input type="text" class="form-control" @bind="PatientDto.Oqueue">
-                                            </div>
-                                        </div> *@
                                         <div class="row md-3 py-1">
                                             <div class="text-md-right" style="width:40px;"></div>
                                             <div class="col-md-4 text-md-right" style="width:200px;"><p><b>ชื่อ-สกุล :</b></p></div>
                                             <div class="col-md-7">
                                                 <div class="row">
                                                     <div  style="width:215px; ">
-                                                        <input type="text" class="form-control" @bind="PatientDto.Fname" readonly>
+                                                        <input type="text" class="form-control" value="@Cid2.fname @Cid2.lname" readonly>
                                                     </div>
                                                     <div style="width:64px;">
                                                         <p><b>อายุ :</b></p>
                                                     </div>
                                                     <div  style="width:70px;">
-                                                        <input type="text" class="form-control" @bind="PatientDto.Age" readonly>
+                                                        <input type="text" class="form-control" @bind="Cid2.age" readonly>
                                                     </div>
                                                     <div style="width:50px">
                                                         <p><b>ปี</b></p>
@@ -128,19 +92,11 @@
                                             </div>
                                         </div>
                                     
-                                        <div class="row md-3 py-1">
-                                            <div class="text-md-right" style="width:40px;"></div>
-                                            <div class="col-md-4 text-md-right" style="width:200px;"><p><b>แพทย์ผู้นัด :</b></p></div>
-                                            <div class="col-md-7">
-                                                <input type="text" class="form-control" @bind="PatientDto.Name" readonly>
-                                            </div>
-                                        </div>
                                         
                                         <div class="row md-3 py-1">
                                             <div class="text-md-right" style="width:40px;"></div>
                                             <div class="col-md-4 text-md-right" style="width:200px;"><p><b>สิทธิการรักษา :</b></p></div>
                                             <div class="col-md-7">
-                                                @* <input type="text" class="form-control" @bind="PttypenoDto.Name"> *@
                                                 <input type="text" class="form-control"  @bind="claim.mainInscl" readonly>
                                             </div>
                                         </div>
@@ -148,7 +104,7 @@
                                             <div class="text-md-right" style="width:40px;"></div>
                                             <div class="col-md-4 text-md-right" style="width:200px;"><p><b>โรงพยาบาลหลัก :</b></p></div>
                                             <div class="col-md-7">
-                                                <input type="text" class="form-control"  @bind="Patient.HosName" readonly>
+                                                <input type="text" class="form-control"  @bind="claim.hcode" readonly>
                                             </div>
                                         </div>
                             
@@ -157,9 +113,9 @@
                                             <div class="col-md-5 text-md-right" style="width:200px;" > 
                                                 <button class="btn beautiful-btn " @onclick="SaveClaim" style="font-size: 2rem;">ยืนยัน</button>
                                             </div>
-                                            <div class="col-md-5 text-md-right" style="width:200px;"> 
+                                            @* <div class="col-md-5 text-md-right" style="width:200px;"> 
                                                 <button class="btn beautiful-btn " @onclick="GeneratePdf" style="font-size: 2rem;">Print</button>
-                                            </div>
+                                            </div> *@
                                             <div class="col-md-5 "style="width:200px;">
                                                 <a class="btn beautiful-btn " href="/index" style="font-size: 2rem;">ยกเลิก</a>
                                             </div>
@@ -167,9 +123,17 @@
                                     </div>
                                     <div class="col-md-2 text-md-right" >
                                         <div class="row-2">
-                                            <img width="100" height="120" src="data:image/jpeg;base64,@PatientDto.Image" />
+                                            @if(PatientDto.Image == null)
+                                            {
+                                                <img width="100" height="120" src="../images/p1.jpg" />
+                                            }
+                                            else
+                                            {
+                                                <img width="100" height="120" src="data:image/jpeg;base64,@patientHnImage.pImage" />
+                                            }
                                         </div>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -189,13 +153,14 @@
     public string Id { set; get; } 
     public int? OappId { set; get; } 
     public Patient? Patient { get; set; }
+    public PatientHnImage? patientHnImage {get; set;} 
     public PatientDto PatientDto { set; get; } = new();
     public ClinicVisit ClinicVisit { set; get; } = new();
     public Claim claim { set; get; } = new();
     public AuthenClaim? AuthenClaim { get; set; }
     public AuthenClaimDto AuthenClaimDto { set; get; } = new();
     public string selectedItemId ;
-    private List<Kskdepartment> Kskdepartments = new List<Kskdepartment>();
+    private List<Kskdepart> Kskdepartments = new();
     private Kskdepart? Kskdepart  { get; set; }
     public Pttypeno? Pttypeno { get; set; }
     public PttypenoDto PttypenoDto { set; get; } = new();
@@ -213,13 +178,17 @@
         try
         {
             // Fetch correlation ID and patient details
+            Kskdepartments = await _http.GetFromJsonAsync<List<Kskdepart>>("api/HosVisit/Kskdepartment"); // Ensure initialization if null; *@
             var httpClient = _httpClientFactory.CreateClient("NHSO");
             Cid2 = await httpClient.GetFromJsonAsync<Cid2>("api/smartcard/read?readImageFlag=false");
+            patientHnImage = await _http.GetFromJsonAsync<PatientHnImage>($"api/Hos/getpatienthnimage?_cid={Cid2.pid}"); 
             claim.pid = Cid2.pid;
             claim.correlationId = Cid2.correlationId;
             claim.claimType = "PG0060001";
             claim.mainInscl = Cid2.mainInscl;
-            Id = Cid2.pid;
+            claim.mobile = "034429333";
+            claim.hn = patientHnImage.hn;
+            claim.hcode = Cid2.hospMain?.hcode ?? "10734";
             if (Cid2.hospMain == null)
             {
                  Cid2.hospMain = new HospMain
@@ -228,133 +197,22 @@
                     hname = "รพ.สมุทรสาคร"
                 };
             }
+            OvstDto.hn = patientHnImage.hn;
 
-            // Fetch patient details
-            Console.WriteLine($"Clinic: {Clinic}");
-            Patient = await _http.GetFromJsonAsync<Patient>($"appointDetailNo/{Id}");
-            @* Patient = await http.GetFromJsonAsync<Patient>($"http://localhost:5094/Walkin/{Id}"); *@
-
-            // Assign patient and claim data
-            PatientDto.Pname = Patient?.Pname ?? ""; 
-            PatientDto.Lname = Patient?.Fname ?? ""; 
-            PatientDto.Fname = Patient.Pname+Patient.Fname+" "+Patient.Lname;
-            PatientDto.Vstdate = Patient?.Vstdate;
-            PatientDto.NextDate = Patient?.NextDate;
-            PatientDto.NextTime = Patient?.NextTime;
-            PatientDto.Department = Patient?.Department ?? "";
-            PatientDto.Name = Patient?.Fname ?? "";
-            PatientDto.Vn = Patient?.Vn ?? "";
-            PatientDto.Age = Patient?.Age ?? 0;
-            PatientDto.Oqueue = Patient?.Oqueue ?? 0;
-            PatientDto.Image = Patient?.Image ?? "";
-            
-            @* PatientDto.Clinic = Patient?.Clinic ?? ""; *@
-        
-            
-            claim.mobile = Patient?.Hometel ?? "";
-            claim.hn = Patient?.Hn ?? "";
-            claim.hcode = Patient?.Hcode ?? "";
-            Hn = Patient?.Hn ?? "";
-
-            // Handle patient type info
-            PttypenoDto.Pttype = Patient?.Pttype ?? "";
-            PttypenoDto.Name = Patient?.PtName ?? "";
-            PttypenoDto.Begindate = Patient?.Begindate;
-            PttypenoDto.Expiredate = Patient?.Expiredate;
-            PttypenoDto.Name = Patient?.PtName ?? "";
-
-            
-            //Ovst
-            var TransformPt = TransformPttype(Cid2);
-            var TransformCl = TransformClinic(Patient);
-            OvstDto.hn = Patient?.Hn ?? "";
-            OvstDto.doctor = Patient?.Doctor ?? "";
-            OvstDto.hospsub = Patient?.Hcode ?? "";
-            OvstDto.hospmain = Patient?.Hcode ?? "";
-            OvstDto.ovstist = "02";
-            OvstDto.ovstost = "00";
-            OvstDto.pttype = TransformPt;
-            OvstDto.pttypeno = Patient?.Pttypeno1 ?? "";
-            OvstDto.rfrocs = "";
-            OvstDto.spclty = Patient?.Spclty?? "";
-            OvstDto.curDep = TransformCl;
-            OvstDto.lastDep = "052";
-            OvstDto.mainDep = TransformCl;
-            OvstDto.nodeId = "";
-            OvstDto.hasInsurance =  "";
-            OvstDto.staff = "";
-
-            //oappId
-            OappId = Patient?.OappId;
-
-            //ClinicVisit
-            ClinicVisit.Hn = Patient?.Hn ?? "";
-            ClinicVisit.Clinic = Patient?.Clinic ?? "";
-            ClinicVisit.Vn = "";
-            ClinicVisit.VisitType = null;
-            ClinicVisit.HosGuid = null;
-            ClinicVisit.AfbCheck = null;
-            ClinicVisit.AfbMonthNumber = null;
-            ClinicVisit.HosGuidExt = null;
-            ClinicVisit.SkhInsert = null;
-
-            Kskdepartments = await http.GetFromJsonAsync<List<Kskdepartment>>("http://localhost:5094/api/Hos/Kskdepartment");
-
-        }
-         catch (HttpRequestException ex) when (ex.StatusCode == System.Net.HttpStatusCode.InternalServerError)
-        {
-            PatientDto.Fname = ""; 
-            PatientDto.Lname = "";
-            PatientDto.Vstdate = null;
-            PatientDto.NextDate = null;
-            PatientDto.NextTime = null;
-            PatientDto.Department =  "";
-            PatientDto.Name = "";
-            PatientDto.Vn = "";
-            PatientDto.Age =  0;
-            PatientDto.Oqueue =  0;
-            PatientDto.Image ="";
-        
-            
-            claim.mobile = "";
-            claim.hn = "";
-            claim.hcode = "";
-            Hn = "";
-
-            // Handle patient type info
-            PttypenoDto.Pttype = "";
-            PttypenoDto.Name = "";
-            PttypenoDto.Begindate = null;
-            PttypenoDto.Expiredate = null;
-            PttypenoDto.Name = "";
-            //Ovst
-            OvstDto.hn =  "";
-            OvstDto.doctor = "";
-            OvstDto.hospsub =  "";
-            OvstDto.hospmain =  "";
-            OvstDto.ovstist = "";
-            OvstDto.ovstost = "";
-            OvstDto.pttype = "";
-            OvstDto.pttypeno = "";
-            OvstDto.rfrocs = "";
-            OvstDto.spclty = "";
-            OvstDto.curDep = "";
-            OvstDto.lastDep = "";
-            OvstDto.ptSubtype = 0;
-            OvstDto.mainDep = "";
-            @* OvstDto.visitType = ""; *@
-            OvstDto.nodeId = "";
-            OvstDto.hasInsurance =  "";
-            OvstDto.staff = "";
-            
-            
-            
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error occurred during initialization: {ex.Message}");
-            alert.ShowFailed("กรุณาติดต่อเจ้าหน้าที่ห้องบัตร");
+            // Handle any errors (optional)
+            Console.Error.WriteLine($"Error fetching departments: {ex.Message}");
         }
+    }
+
+     // Optionally, handle selection change
+    private void OnDepartmentSelected(ChangeEventArgs e)
+    {
+        selectedItemId = e.Value?.ToString();
+        OvstDto.mainDep = selectedItemId;
+        Console.WriteLine($"Selected Department Code: {selectedItemId}");
     }
 
 
@@ -364,22 +222,22 @@
         try
         {
             // Send claim and patient data to the backend
-            var response = await http.PostAsJsonAsync("http://localhost:8189/api/nhso-service/confirm-save", claim);
-            @* var response2 = await http.PostAsJsonAsync("http://localhost:5200/api/Hos/CreateOpenVisitByCondition", OvstDto); *@
-            var response2 = await http.PostAsJsonAsync("http://localhost:5094/api/Hos", OvstDto);
-            var response3 = await http.PutAsJsonAsync($"http://localhost:5094/api/Hos/{OappId}", new { });
-            var response4 = await http.PostAsJsonAsync("http://localhost:5094/api/Hos/AddClinicVisit", ClinicVisit );
+            var httpClient = _httpClientFactory.CreateClient("NHSO");
+            var response = await httpClient.PostAsJsonAsync("api/nhso-service/confirm-save", claim);
+            var response2 = await _http.PostAsJsonAsync("api/Hos/OpenVisitWithKey", OvstDto);
+            @* var response3 = await _http.PutAsJsonAsync($"api/Hos/{OappId}", new { });
+            var response4 = await _http.PostAsJsonAsync("api/Hos/AddClinicVisit", ClinicVisit ); *@
             
 
             if (response.IsSuccessStatusCode && response2.IsSuccessStatusCode)
             {
-                var checkClaimCode = await http.GetFromJsonAsync<AuthenClaim>($"http://localhost:8189/api/nhso-service/latest-authen-code/{Cid2.pid}");
-                var checkClaimCode2 = await http.GetFromJsonAsync<Ovst>($"http://localhost:5094/Ovst/{Hn}");
+                var checkClaimCode = await httpClient.GetFromJsonAsync<AuthenClaim>($"api/nhso-service/latest-authen-code/{Cid2.pid}");
+                var checkClaimCode2 = await _http.GetFromJsonAsync<Ovst>($"Ovst/{patientHnImage.hn}");
 
                 alert.ShowSuccess($"Claim Code: {checkClaimCode?.ClaimCode} and Q: {checkClaimCode2?.Oqueue}");
                 await Task.Delay(4000);
                // NavigationManager.NavigateTo("home3");
-                NavigationManager.NavigateTo("authenwalkin");
+                NavigationManager.NavigateTo("/authenho");
                 return;
                 
                 
@@ -908,14 +766,14 @@
     {
         // Serialize the persons list into JSON
         @* var personsJson = JsonSerializer.Serialize(persons); *@
-
-        Cid2 = await http.GetFromJsonAsync<Cid2>("http://localhost:8189/api/smartcard/read?readImageFlag=false");
+        var httpClient = _httpClientFactory.CreateClient("NHSO");
+        Cid2 = await httpClient.GetFromJsonAsync<Cid2>("api/smartcard/read?readImageFlag=false");
         claim.pid = Cid2.pid;
         claim.mainInscl = Cid2.mainInscl;
         Id = Cid2.pid;
-        var checkClaimCode = await http.GetFromJsonAsync<AuthenClaim>($"http://localhost:8189/api/nhso-service/latest-authen-code/{Cid2.pid}");
+        var checkClaimCode = await httpClient.GetFromJsonAsync<AuthenClaim>($"api/nhso-service/latest-authen-code/{Cid2.pid}");
         //Patient = await http.GetFromJsonAsync<Patient>("http://localhost:5200/appointDetail/" + Id + "/" + OappId );
-        Patient = await http.GetFromJsonAsync<Patient>($"http://localhost:5094/PrintVisit/" + Id  );
+        Patient = await _http.GetFromJsonAsync<Patient>($"PrintVisit/" + Id  );
        // Kskdepart = await http.GetFromJsonAsync<Kskdepart>($"http://localhost:5094/api/Hos/Kskdepartment/" + selectedItemId  );
         // Assign patient and claim data
         PatientDto.Fname = Patient.Pname+Patient.Fname+" "+Patient.Lname;
