@@ -45,6 +45,10 @@
       "PackagePath": "staticwebassets\\js\\CheckAll.js"
     },
     {
+      "Id": "D:\\HosxpUi\\wwwroot\\js\\chart.js",
+      "PackagePath": "staticwebassets\\js\\chart.js"
+    },
+    {
       "Id": "D:\\HosxpUi\\wwwroot\\sample-data\\weather.json",
       "PackagePath": "staticwebassets\\sample-data\\weather.json"
     },

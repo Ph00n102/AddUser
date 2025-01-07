@@ -1,0 +1,131 @@
+@page "/dashboard"
+@using HosxpUi.Models
+@using HosxpUi.Services
+@using Microsoft.AspNetCore.Authorization
+@using HosxpUi.Shared
+@using MudBlazor.Charts
+@inject HttpClient _http 
+@inject IJSRuntime JS
+@attribute [Authorize]
+
+<PageTitle>Dashboard</PageTitle>
+
+<MudContainer>
+    <MudGrid>
+        <!-- Left Column: Chart -->
+        <MudItem xs="12" sm="6">
+            <MudText Typo="Typo.h6">ตัวอย่างการดึงข้อมูล real time</MudText>
+            <MudPaper Class="pa-4">
+                <MudChart ChartType="ChartType.Pie" 
+                          InputData="@data.ToArray()" 
+                          InputLabels="@labels.ToArray()" 
+                          @bind-SelectedIndex="Index" 
+                          Width="300px" 
+                          Height="300px" />
+            </MudPaper>
+        </MudItem>
+
+        <!-- Right Column: Table -->
+        <MudItem xs="12" sm="6">
+            <MudPaper Class="pa-4">
+                <MudTable Items="@counts" Dense="true">
+                    <HeaderContent>
+                        <MudTh>แผนก</MudTh>
+                        <MudTh>จำนวน</MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                        <MudTd>@context.department</MudTd>
+                        <MudTd>@context.count</MudTd>
+                    </RowTemplate>
+                </MudTable>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+</MudContainer>
+
+<div style="display: flex; gap: 20px;">
+    <!-- Left Column: Chart -->
+    <div style="flex: 1; padding: 10px;">
+        <canvas id="departmentChart" width="400" height="200"></canvas>
+    </div>
+
+    <!-- Right Column: Table -->
+    <div style="flex: 1; padding: 10px;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>แผนก</th>
+                    <th>จำนวน</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in counts)
+                {
+                    <tr>
+                        <td>@item.department</td>
+                        <td>@item.count</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@code {
+    private List<DepartmentCount> counts = new();
+    private List<string> labels = new();
+    private List<double> data = new();
+    private int Index = -1; // Default value cannot be 0 to ensure first SelectedIndex is 0
+
+    private Timer? _timer;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadDepartmentCountsAsync();
+        await InitializeChart();
+
+        // Set up a timer to refresh the data every second
+        _timer = new Timer(async _ => await RefreshUI(), null, 0, 1000);
+    }
+
+    private async Task LoadDepartmentCountsAsync()
+    {
+        try
+        {
+            counts = await _http.GetFromJsonAsync<List<DepartmentCount>>("api/Dashboard/GetDepartmentCounts") ?? new List<DepartmentCount>();
+            labels = counts.Select(c => c.department).ToList();
+            data = counts.Select(c => (double)c.count).ToList();
+        }
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine($"Error loading department counts: {ex.Message}");
+        }
+    }
+
+     private async Task InitializeChart()
+    {
+        var labels = counts.Select(c => c.department).ToList();
+        var data = counts.Select(c => c.count).ToList();
+
+        await JS.InvokeVoidAsync("initializeChart", "departmentChart", labels, data);
+    }
+
+    private async Task RefreshUI()
+    {
+        await InvokeAsync(async () =>
+        {
+            await LoadDepartmentCountsAsync();
+            var labels = counts.Select(c => c.department).ToList();
+            var data = counts.Select(c => c.count).ToList(); 
+
+            await JS.InvokeVoidAsync("updateChart", "departmentChart", labels, data);
+            StateHasChanged(); // Trigger UI refresh
+        });
+    }
+
+    public void Dispose()
+    {
+        _timer?.Dispose();
+    }
+
+}

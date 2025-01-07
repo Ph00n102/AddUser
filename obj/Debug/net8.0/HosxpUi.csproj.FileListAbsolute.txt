@@ -1219,6 +1219,6 @@ D:\HosxpUi\obj\Debug\net8.0\compressed\i9zqack7z4-lfu7j35m59.gz
 D:\HosxpUi\obj\Debug\net8.0\compressed\fwbm1p9612-oyz0vx2fzb.gz
 D:\HosxpUi\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 D:\HosxpUi\obj\Debug\net8.0\staticwebassets\msbuild.HosxpUi.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-D:\HosxpUi\obj\Debug\net8.0\compressed\8om7xnnctu-6dyrufr6km.gz
-D:\HosxpUi\obj\Debug\net8.0\compressed\g3pheblppr-a3pqpxpa3x.gz
-D:\HosxpUi\obj\Debug\net8.0\compressed\1wjanlyice-wwqnb28osz.gz
+D:\HosxpUi\obj\Debug\net8.0\compressed\8om7xnnctu-2lhene8oox.gz
+D:\HosxpUi\obj\Debug\net8.0\compressed\g3pheblppr-fpzglznasd.gz
+D:\HosxpUi\obj\Debug\net8.0\compressed\1wjanlyice-p9e0bltydo.gz
