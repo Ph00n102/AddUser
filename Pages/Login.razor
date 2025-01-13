@@ -49,35 +49,56 @@
 }
 else if (ShowOtpInput == false && IsLoggedIn == true)
     {
-        <div class="ma-6 d-flex justify-center">
-            <MudPaper Class="pa-4">
-                <MudText Typo="Typo.h6">เลข OTP ของท่านจะส่งมาทาง line หมอพร้อม</MudText>
-                <MudTextField @bind-Value="CidInput" Label="กรุณากรอกเลขบัตรประชาชน" Variant="Variant.Filled" />
-                <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto" OnClick="SendOtpAsync">
-                    Send OTP
-                </MudButton>
-            </MudPaper>
-        </div>
-        
+    @* <div class="ma-6 d-flex justify-center">
+        <label for="cids" class="form-label">กรอกเลขบัตรประชาชน:</label>
+        <input id="cids" class="form-control" @bind="CidInput" />
+        <button class="btn btn-primary mt-3" @onclick="SendOtpAsync">Send OTP</button>
+    </div>    *@
+    <div class="ma-6 d-flex justify-center">
+    <MudCard Width="350px">
+        <MudCardContent>
+        <MudItem>
+            <MudText Typo="Typo.h6">กรอกเลขบัตรประชาชน:</MudText>
+            <MudTextField @bind-Value="CidInput" Label="CID 13 หลัก (ไม่ต้องมีขีดคั่นเลข)" Variant="Variant.Filled" />
+        </MudItem>
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto" OnClick="SendOtpAsync">Send OTP</MudButton>
+        </MudCardActions>
+    </MudCard>    
+    </div>
     }
 else
 {
+    @* <div class="ma-6 d-flex justify-center">
+        <div>
+            <label for="otp" class="form-label">กรอกเลข OTP</label>
+            <input id="otp" class="form-control" @bind="OtpInput" placeholder="Enter OTP" />
+        </div>
+
+        <div>
+            <p>Time remaining: @Countdown seconds</p>
+        </div>
+
+        <button class="btn btn-primary mt-3" @onclick="SubmitOtpAsync" disabled="@IsSubmitDisabled">Submit OTP</button>
+    </div> *@
     <div class="ma-6 d-flex justify-center">
-        <MudPaper Class="pa-4">
-        <MudText Typo="Typo.h6">กรอกเลข OTP:</MudText>
-        <MudTextField @bind-Value="OtpInput" Label="Enter OTP" Variant="Variant.Filled" Placeholder="Enter OTP" />
-
-        <MudText Typo="Typo.body2" Class="mt-2">
-            Time remaining: @Countdown seconds
-        </MudText>
-
-        <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto" OnClick="SubmitOtpAsync" Disabled="@IsSubmitDisabled">
-            Submit OTP
-        </MudButton>
-    </MudPaper>
+    <MudCard Width="350px">
+        <MudCardContent>
+        <MudItem>
+            <MudText Typo="Typo.h6">กรอกเลข OTP</MudText>
+            <MudTextField @bind-Value="OtpInput" Label="Enter OTP" Variant="Variant.Filled" />
+            <MudText Typo="Typo.body1">Time remaining: @Countdown seconds</MudText>
+        </MudItem>
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto" OnClick="SubmitOtpAsync" Disabled="@IsSubmitDisabled">
+                Submit OTP
+            </MudButton>
+        </MudCardActions>
+    </MudCard>
     </div>
-    
-}
+} 
 
 
 @code {
@@ -329,8 +350,11 @@ else
                 {
                     Message = "OTP verified successfully!";
 
+                    var jsonPayload = JsonSerializer.Serialize(loginModel);
+                    var requestContent = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+
                     // Call the backend API to get an access token for the user
-                    var authResponse = await _http.PostAsJsonAsync("/api/User/AuthorizeOtp", new { Cid = CidInput, Otp = OtpInput });
+                    var authResponse = await _http.PostAsync("api/User/login", requestContent);
 
                     if (authResponse.IsSuccessStatusCode)
                     {
