@@ -21,6 +21,8 @@ else
                 <th>ID</th>
                 <th>Name</th>
                 <th>Role</th>
+                <th>Cid</th>
+                
                 <th></th>
                 <th></th>
             </tr>
@@ -32,6 +34,7 @@ else
                     <td>@i.id</td>
                     <td>@i.loginName</td>
                     <td>@i.role</td>
+                    <td>@i.cid</td>
                     <td><button @onclick="() => ConfirmDeleteUser(i.id)" type="submit" class="btn btn-danger btn-sm" style="font-size: 2rem;">Delete</button></td>
                     <td ><a class="btn btn-primary btn-sm" href="/edituser/@i.id" style="font-size: 2rem;">Edit</a></td>  
                     

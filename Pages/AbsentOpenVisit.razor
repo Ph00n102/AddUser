@@ -36,7 +36,8 @@ else
             <td>@item.vsttime</td>
             <td>
                 <button @onclick="() => ConfirmDeleteVisit(item.hosGuid)" type="submit" class="btn btn-danger btn-sm">ลบ</button>
-                <input type="checkbox" @onchange="(e) => UpdateSelectedIds(item.hosGuid, e.Value)" />
+                @* <input type="checkbox" @onchange="(e) => UpdateSelectedIds(item.hosGuid, e.Value)" /> *@
+                <input type="checkbox" @onchange="(e) => UpdateSelectedIds(item.hosGuid, e.Value)" checked="@selectedIds.Contains(item.hosGuid)" />
             </td>
         </tr>
         }
@@ -168,8 +169,10 @@ else
 
             // Clear selectedIds after deletion
             selectedIds.Clear();
-            navManager.NavigateTo("/absentvisit");
-            @* StateHasChanged(); // Refresh the UI to clear checkboxes *@
+            @* navManager.NavigateTo("/absentvisit"); *@
+            // Refresh the visitData list
+            visitData = await _http.GetFromJsonAsync<List<AbsentVisit>>("api/MedRecord/GetMedRecords");
+            StateHasChanged(); // Refresh the UI to clear checkboxes
         }
         else if (!selectedIds.Any())
         {
