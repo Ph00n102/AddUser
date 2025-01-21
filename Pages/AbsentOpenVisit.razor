@@ -2,9 +2,11 @@
 @using HosxpUi.Models
 @using Microsoft.AspNetCore.Authorization
 @using System.Text
+@using Blazored.LocalStorage
 @inject HttpClient _http 
 @inject IJSRuntime JS
 @inject NavigationManager navManager
+@inject ILocalStorageService _localStorageService;
 @attribute [Authorize(Roles = "Admin, Card")]
 
 <PageTitle>รายการเปิด Visit ที่คนไข้ไม่ได้มา</PageTitle>
@@ -92,6 +94,8 @@ else
     {
         try
         {
+            var token = await _localStorageService.GetItemAsync<string>("jwt-access-token");
+            _http.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
             var response = await _http.DeleteAsync($"/api/MedRecord/DeleteNotComeOvst/{id}");
 
             if (response.IsSuccessStatusCode)
@@ -112,7 +116,7 @@ else
         }
     }
 
-    private async Task DeleteAbsentVisit2(List<string> ids)
+    @* private async Task DeleteAbsentVisit2(List<string> ids)
     {
          try
         {
@@ -129,7 +133,6 @@ else
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Delete,
-                @* RequestUri = new Uri("http://localhost:5156/api/MedRecord/DeleteNotComeOvst"), *@
                 RequestUri = new Uri("api/MedRecord/DeleteNotComeOvsts", UriKind.Relative), // Relative URI
                 Content = new StringContent(jsonPayload, Encoding.UTF8, "application/json")
             };
@@ -157,7 +160,59 @@ else
             // Handle exceptions
             Console.WriteLine($"An error occurred: {ex.Message}");
         }
+    } *@
+    private async Task DeleteAbsentVisit2(List<string> ids)
+    {
+        try
+        {
+            if (ids == null || !ids.Any())
+            {
+                Console.WriteLine("No IDs provided for deletion.");
+                return;
+            }
+
+            // Retrieve the token from local storage
+            var token = await _localStorageService.GetItemAsync<string>("jwt-access-token");
+            if (string.IsNullOrEmpty(token))
+            {
+                Console.WriteLine("Authorization token is missing.");
+                return;
+            }
+
+            // Add the token to the authorization header
+            _http.DefaultRequestHeaders.Authorization = 
+                new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+            // Iterate over the list of IDs and delete each individually
+            foreach (var id in ids)
+            {
+                // Perform a DELETE request for each ID
+                var response = await _http.DeleteAsync($"/api/MedRecord/DeleteNotComeOvst/{id}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Console.WriteLine($"Successfully deleted record with ID: {id}");
+                }
+                else
+                {
+                    Console.WriteLine($"Error deleting record with ID: {id}. Status: {response.StatusCode}");
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Error Details: {errorContent}");
+                }
+            }
+
+            // Refresh the data after deletions
+            visitData = await _http.GetFromJsonAsync<List<AbsentVisit>>("api/MedRecord/GetMedRecords");
+            Console.WriteLine("Deleted records successfully.");
+            StateHasChanged();
+        }
+        catch (Exception ex)
+        {
+            // Handle exceptions
+            Console.WriteLine($"An error occurred: {ex.Message}");
+        }
     }
+
 
     private async Task DeleteSelectedOvsts()
     {

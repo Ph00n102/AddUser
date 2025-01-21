@@ -1,10 +1,12 @@
 @page "/opd"
 @page "/opd/{hn}"
+@using Blazored.LocalStorage
 @using HosxpUi.Models
 @using Microsoft.AspNetCore.Authorization
 @* @inject IHttpClientFactory _httpClientFactory; *@
 @inject HttpClient _http 
 @inject NavigationManager Navigation;
+@inject ILocalStorageService _localStorageService;
 @attribute [Authorize(Roles = "Admin,User,Nurse,Doctor")]
 
 <PageTitle>Patient Detail (OPD)</PageTitle>
@@ -143,6 +145,8 @@
         appointList = await httpClient.GetFromJsonAsync<List<AppointList>>($"api/Appointment/GetAppointments?_Number={hn}");
         dcDrugList = await httpClient.GetFromJsonAsync<List<OpdDcDrug>>($"api/Drug/GetDrugIpdDc?hn={hn}");    
         visitList = await httpClient.GetFromJsonAsync<List<OpdVisit>>($"api/Opd/getopddatabyhn?_hn={hn}"); *@
+        var token = await _localStorageService.GetItemAsync<string>("jwt-access-token");
+        _http.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
         ptDetails = await _http.GetFromJsonAsync<WardPatient>($"api/Opd/getpatientbyhn?_hn={hn}");
         appointList = await _http.GetFromJsonAsync<List<AppointList>>($"api/Appointment/GetAppointments?_Number={hn}");
         dcDrugList = await _http.GetFromJsonAsync<List<OpdDcDrug>>($"api/Drug/GetDrugIpdDc?hn={hn}");    
