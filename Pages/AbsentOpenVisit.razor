@@ -10,6 +10,7 @@
 @attribute [Authorize(Roles = "Admin, Card")]
 
 <PageTitle>รายการเปิด Visit ที่คนไข้ไม่ได้มา</PageTitle>
+<button @onclick="DeleteSelectedOvsts" class="btn btn-danger btn-sm">ลบหลาย record</button>
 @if (visitData == null)
 {
     <p><em>Loading..</em></p>
@@ -44,7 +45,6 @@ else
         </tr>
         }
     </tbody>
-    <button @onclick="DeleteSelectedOvsts" class="btn btn-danger btn-sm">ลบหลาย record</button>
 </table>
 }
 
