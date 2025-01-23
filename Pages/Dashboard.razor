@@ -78,22 +78,26 @@
     private int Index = -1; // Default value cannot be 0 to ensure first SelectedIndex is 0
 
     private Timer? _timer;
+    [Inject] private NavigationManager NavigationManager { get; set; } = default!;
+    private string _currentUri = string.Empty;
 
     protected override async Task OnInitializedAsync()
     {
+        _currentUri = NavigationManager.Uri; // Track the current URI
+        NavigationManager.LocationChanged += HandleLocationChanged; // Subscribe to location changes
+
         await LoadDepartmentCountsAsync();
         await InitializeChart();
 
         // Set up a timer to refresh the data every second
         _timer = new Timer(async _ => await RefreshUI(), null, 0, 1000);
     }
-    
 
     private async Task LoadDepartmentCountsAsync()
     {
         try
         {
-            counts = await _http.GetFromJsonAsync<List<DepartmentCount>>("api/Dashboard/GetDepartmentCounts") ?? new List<DepartmentCount>();
+            counts = await _http.GetFromJsonAsync<List<DepartmentCount>>("api/Dashboard/GetDepartmentCountsRedis") ?? new List<DepartmentCount>();
             labels = counts.Select(c => c.department).ToList();
             data = counts.Select(c => (double)c.count).ToList();
         }
@@ -103,7 +107,7 @@
         }
     }
 
-     private async Task InitializeChart()
+    private async Task InitializeChart()
     {
         var labels = counts.Select(c => c.department).ToList();
         var data = counts.Select(c => c.count).ToList();
@@ -123,10 +127,19 @@
             StateHasChanged(); // Trigger UI refresh
         });
     }
-   
+
+    private void HandleLocationChanged(object? sender, Microsoft.AspNetCore.Components.Routing.LocationChangedEventArgs e)
+    {
+        // If the URI changes, stop the timer
+        if (e.Location != _currentUri)
+        {
+            Dispose();
+        }
+    }
+
     public void Dispose()
     {
         _timer?.Dispose();
+        NavigationManager.LocationChanged -= HandleLocationChanged; // Unsubscribe from location changes
     }
-
 }

@@ -56,7 +56,8 @@ else
             try
             {
                 // Fetch data from the API
-                visitData = await _http.GetFromJsonAsync<List<AbsentVisit>>("api/MedRecord/GetMedRecords");
+                //visitData = await _http.GetFromJsonAsync<List<AbsentVisit>>("api/MedRecord/GetMedRecords");
+                visitData = await _http.GetFromJsonAsync<List<AbsentVisit>>("api/MedRecord/GetMedRecordsRedis");
 
                 // Debugging output
                 if (visitData == null)
@@ -100,7 +101,8 @@ else
 
             if (response.IsSuccessStatusCode)
             {
-                visitData = await _http.GetFromJsonAsync<List<AbsentVisit>>("api/MedRecord/GetMedRecords");
+                //visitData = await _http.GetFromJsonAsync<List<AbsentVisit>>("api/MedRecord/GetMedRecords");
+                visitData = await _http.GetFromJsonAsync<List<AbsentVisit>>("api/MedRecord/GetMedRecordsRedis");
                 StateHasChanged();
                 
             }
@@ -116,51 +118,6 @@ else
         }
     }
 
-    @* private async Task DeleteAbsentVisit2(List<string> ids)
-    {
-         try
-        {
-            if (ids == null || !ids.Any())
-            {
-                Console.WriteLine("No IDs provided for deletion.");
-                return;
-            }
-
-            // Serialize the list of IDs to JSON
-            string jsonPayload = System.Text.Json.JsonSerializer.Serialize(ids);
-
-            // Create an HttpRequestMessage for the DELETE request
-            var request = new HttpRequestMessage
-            {
-                Method = HttpMethod.Delete,
-                RequestUri = new Uri("api/MedRecord/DeleteNotComeOvsts", UriKind.Relative), // Relative URI
-                Content = new StringContent(jsonPayload, Encoding.UTF8, "application/json")
-            };
-
-            // Send the request
-            var response = await _http.SendAsync(request);
-
-            if (response.IsSuccessStatusCode)
-            {
-                // If successful, refresh the video games list
-                visitData = await _http.GetFromJsonAsync<List<AbsentVisit>>("api/MedRecord/GetMedRecords");
-                Console.WriteLine("Deleted records successfully.");
-                StateHasChanged();
-            }
-            else
-            {
-                // Handle errors
-                Console.WriteLine($"Error: {response.StatusCode} - Unable to delete records.");
-                var errorContent = await response.Content.ReadAsStringAsync();
-                Console.WriteLine($"Error Details: {errorContent}");
-            }
-        }
-        catch (Exception ex)
-        {
-            // Handle exceptions
-            Console.WriteLine($"An error occurred: {ex.Message}");
-        }
-    } *@
     private async Task DeleteAbsentVisit2(List<string> ids)
     {
         try
@@ -202,7 +159,8 @@ else
             }
 
             // Refresh the data after deletions
-            visitData = await _http.GetFromJsonAsync<List<AbsentVisit>>("api/MedRecord/GetMedRecords");
+            //visitData = await _http.GetFromJsonAsync<List<AbsentVisit>>("api/MedRecord/GetMedRecords");
+            visitData = await _http.GetFromJsonAsync<List<AbsentVisit>>("api/MedRecord/GetMedRecordsRedis");
             Console.WriteLine("Deleted records successfully.");
             StateHasChanged();
         }
@@ -226,7 +184,8 @@ else
             selectedIds.Clear();
             @* navManager.NavigateTo("/absentvisit"); *@
             // Refresh the visitData list
-            visitData = await _http.GetFromJsonAsync<List<AbsentVisit>>("api/MedRecord/GetMedRecords");
+            //visitData = await _http.GetFromJsonAsync<List<AbsentVisit>>("api/MedRecord/GetMedRecords");
+            visitData = await _http.GetFromJsonAsync<List<AbsentVisit>>("api/MedRecord/GetMedRecordsRedis");
             StateHasChanged(); // Refresh the UI to clear checkboxes
         }
         else if (!selectedIds.Any())
