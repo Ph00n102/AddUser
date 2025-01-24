@@ -19,15 +19,43 @@ namespace HosxpUi.Layout.Providers
             _navigationManager = navigationManager;
         }
 
+        // public override async Task<AuthenticationState> GetAuthenticationStateAsync()
+        // {
+        //     var jwtToken = await _localStorageService.GetItemAsync<string>("jwt-access-token");
+        //     if (string.IsNullOrEmpty(jwtToken) || IsTokenExpired(jwtToken))
+        //     {
+        //         // Token is either missing or expired, navigate to the login page
+        //         _navigationManager.NavigateTo("/login", false);  // true forces a reload of the page
+        //         return new AuthenticationState(
+        //             new ClaimsPrincipal(new ClaimsIdentity()));
+        //     }
+
+        //     return new AuthenticationState(new ClaimsPrincipal(
+        //         new ClaimsIdentity(ParseClaimsFromJwt(jwtToken), "JwtAuth")));
+        // }
         public override async Task<AuthenticationState> GetAuthenticationStateAsync()
         {
+            var currentUri = new Uri(_navigationManager.Uri).AbsolutePath; // Get the current URL path
             var jwtToken = await _localStorageService.GetItemAsync<string>("jwt-access-token");
+
+            if (currentUri.Equals("/loginwithoutotp", StringComparison.OrdinalIgnoreCase))
+            {
+                // Check if there's a valid JWT token after login
+                if (!string.IsNullOrEmpty(jwtToken) && !IsTokenExpired(jwtToken))
+                {
+                    return new AuthenticationState(new ClaimsPrincipal(
+                        new ClaimsIdentity(ParseClaimsFromJwt(jwtToken), "JwtAuth")));
+                }
+
+                // If no valid token, return an empty authentication state
+                return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity()));
+            }
+
             if (string.IsNullOrEmpty(jwtToken) || IsTokenExpired(jwtToken))
             {
                 // Token is either missing or expired, navigate to the login page
-                _navigationManager.NavigateTo("/login", false);  // true forces a reload of the page
-                return new AuthenticationState(
-                    new ClaimsPrincipal(new ClaimsIdentity()));
+                _navigationManager.NavigateTo("/login", false); // true forces a reload of the page
+                return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity()));
             }
 
             return new AuthenticationState(new ClaimsPrincipal(
