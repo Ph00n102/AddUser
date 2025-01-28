@@ -1219,6 +1219,6 @@ D:\HosxpUi\obj\Debug\net8.0\HosxpUi.dll
 D:\HosxpUi\obj\Debug\net8.0\refint\HosxpUi.dll
 D:\HosxpUi\obj\Debug\net8.0\HosxpUi.pdb
 D:\HosxpUi\obj\Debug\net8.0\ref\HosxpUi.dll
-D:\HosxpUi\obj\Debug\net8.0\compressed\8om7xnnctu-6lcynxo3zg.gz
-D:\HosxpUi\obj\Debug\net8.0\compressed\g3pheblppr-ykib70k8tb.gz
-D:\HosxpUi\obj\Debug\net8.0\compressed\1wjanlyice-oc4bk0r5nz.gz
+D:\HosxpUi\obj\Debug\net8.0\compressed\8om7xnnctu-yh3yu2gwi5.gz
+D:\HosxpUi\obj\Debug\net8.0\compressed\g3pheblppr-z8izs3ucxe.gz
+D:\HosxpUi\obj\Debug\net8.0\compressed\1wjanlyice-3mcg7rsq24.gz

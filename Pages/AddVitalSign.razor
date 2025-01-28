@@ -1,0 +1,102 @@
+﻿@page "/addvs"
+@inject HttpClient Http
+@using HosxpUi.ViewModels
+@using Microsoft.AspNetCore.Authorization
+@inject IHttpClientFactory _httpClientFactory
+@inject NavigationManager navManager
+@attribute [Authorize(Roles = "Admin")]
+
+<h3>Post Data to API</h3>
+
+<EditForm Model="IpdVsVitalSign" OnValidSubmit="HandleSubmit">
+ <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    @* <div>
+        <label for="bt">HN:</label>
+        <input class="form-control" @bind="IpdVsVitalSign.hn" type="text" placeholder="bt"/>
+    </div> *@
+
+    <div>
+        <label for="bt">BT:</label>
+        <input class="form-control" @bind="IpdVsVitalSign.bt" type="text" placeholder="bt"/>
+    </div>
+
+    <div>
+        <label for="pr">PR:</label>
+        <input class="form-control" @bind="IpdVsVitalSign.pr" type="text" placeholder="pr"/>
+    </div>
+
+    <div>
+        <label for="sbp">SBP:</label>
+        <input class="form-control" @bind="IpdVsVitalSign.sbp" type="text" placeholder="sbp"/>
+    </div>
+
+    <div>
+        <label for="dbp">DBP:</label>
+        <input class="form-control" @bind="IpdVsVitalSign.dbp" type="text" placeholder="dbp"/>
+    </div>
+
+    <div>
+        <label for="map">MAP:</label>
+        <input class="form-control" @bind="IpdVsVitalSign.map" type="text" placeholder="map"/>
+    </div>
+
+    <div>
+        <label for="sat">SAT:</label>
+        <input class="form-control" @bind="IpdVsVitalSign.sat" type="text" placeholder="sat"/>
+    </div>
+
+    @* <button type="submit">Submit</button> *@
+    <button class="btn btn-primary"type="submit">Add IpdVsVitalSign</button>
+</EditForm>
+
+
+@* <button @onclick="OnSearchClick" class="btn btn-primary mt-2">Add IpdVsVitalSign</button> *@
+
+@code {
+  
+    @* private IpdVsVitalSign IpdVsVitalSign = new IpdVsVitalSign(); *@
+    private IpdVsVitalSign IpdVsVitalSign { get; set; } = new();
+    private string responseMessage;
+     @* private string vsDatetime; *@
+
+    // Handle form submit
+     private async Task HandleSubmit()
+    {
+            var httpClient = _httpClientFactory.CreateClient("Dot8Api");
+            // ส่งข้อมูลไปที่ API ผ่าน POST
+            @* var response = await httpClient.PostAsJsonAsync($"http://localhost:5212/"); *@
+            var response = await httpClient.PostAsJsonAsync($"api/IpdVs/AddIpdVsVitalSign", IpdVsVitalSign);
+            @* http://localhost:5212/api/Kphis/AddIpdVsVitalSign/IpdVsVitalSign *@
+                if (response.IsSuccessStatusCode)
+                {
+                    navManager.NavigateTo("/");
+                }
+                else
+                {
+                    Console.WriteLine($"Error: {response.StatusCode} - Something went wrong!");
+                }
+        
+    }
+
+     protected override void OnInitialized()
+    {
+        // กำหนดวันที่ปัจจุบันและเวลาปัจจุบัน
+         @* vsDatetime = DateTime.Now.ToString("dd MMMM yyyy HH:mm:ss");  *@
+    }
+
+
+
+ 
+
+    @* private async Task OnSearchClick(MouseEventArgs args)
+    { 
+            @* var httpClient = _httpClientFactory.CreateClient("API5212"); *@
+            @* var response = await httpClient.PostAsJsonAsync($"http://localhost:5212/");  *@
+            @* var response = await Http.PostAsJsonAsync("/api/Kphis/AddIpdVsVitalSign/IpdVsVitalSign", IpdVsVitalSign); *@
+
+     
+    @* }  *@
+}
+

@@ -43,6 +43,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkVXNlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/HosxpUi/Pages/AddVitalSign.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkVml0YWxTaWduLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/HosxpUi/Pages/Admin.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

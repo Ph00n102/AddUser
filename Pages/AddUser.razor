@@ -1,8 +1,9 @@
 @page "/adduser"
 @using HosxpUi.Models
+@using Microsoft.AspNetCore.Authorization
 @inject HttpClient _http 
 @inject NavigationManager navManager
-
+@attribute [Authorize(Roles = "Admin")]
 
 
 @* <input class="form-control" @bind="user.LoginName"  type="text" />
