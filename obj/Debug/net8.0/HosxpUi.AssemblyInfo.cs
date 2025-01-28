@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HosxpUi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+22e45692f64b10f42fb8b7760076c6a55e76b549")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c04d76b5e8d608e4cf4378b6847f5483c9960a8d")]
 [assembly: System.Reflection.AssemblyProductAttribute("HosxpUi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HosxpUi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

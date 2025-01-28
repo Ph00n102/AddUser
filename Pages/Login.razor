@@ -436,6 +436,7 @@ else
 
                         // Save the JWT token in local storage
                         await _localStorageService.SetItemAsync("jwt-access-token", tokenResponse.AccessToken);
+                        await _localStorageService.SetItemAsync("refresh-token", tokenResponse.RefreshToken);
 
                         // Notify authentication state provider to update the user's authentication status
                         (_authStateProvider as CustomAuthProvider).NotifyAuthState();

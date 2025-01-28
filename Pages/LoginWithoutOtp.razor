@@ -137,6 +137,7 @@
                 //_navigationManager.NavigateTo("/registration-confirmation");
                 var tokenResponse = await response.Content.ReadFromJsonAsync<JwtTokenResponseVm>();
                 await _localStorageService.SetItemAsync<string>("jwt-access-token", tokenResponse.AccessToken);
+                await _localStorageService.SetItemAsync("refresh-token", tokenResponse.RefreshToken);
                 (_authStateProvider as CustomAuthProvider).NotifyAuthState();
                 _navigationManager.NavigateTo("/");
             }

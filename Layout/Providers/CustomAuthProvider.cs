@@ -44,7 +44,8 @@ namespace HosxpUi.Layout.Providers
                 if (!string.IsNullOrEmpty(jwtToken) && !IsTokenExpired(jwtToken))
                 {
                     return new AuthenticationState(new ClaimsPrincipal(
-                        new ClaimsIdentity(ParseClaimsFromJwt(jwtToken), "JwtAuth")));
+                        //new ClaimsIdentity(ParseClaimsFromJwt(jwtToken), "JwtAuth")));
+                        new ClaimsIdentity(Utility.ParseClaimsFromJwt(jwtToken), "JwtAuth")));
                 }
 
                 // If no valid token, return an empty authentication state
@@ -59,7 +60,8 @@ namespace HosxpUi.Layout.Providers
             }
 
             return new AuthenticationState(new ClaimsPrincipal(
-                new ClaimsIdentity(ParseClaimsFromJwt(jwtToken), "JwtAuth")));
+                //new ClaimsIdentity(ParseClaimsFromJwt(jwtToken), "JwtAuth")));
+                new ClaimsIdentity(Utility.ParseClaimsFromJwt(jwtToken), "JwtAuth")));
         }
 
         private bool IsTokenExpired(string token)
@@ -74,50 +76,50 @@ namespace HosxpUi.Layout.Providers
             return expirationDate < DateTimeOffset.UtcNow;
         }
 
-        private static IEnumerable<Claim> ParseClaimsFromJwt(string jwt)
-        {
-            var payload = jwt.Split('.')[1];
-            var jsonBytes = ParseBase64WithoutPadding(payload);
-            var keyValuePairs = JsonSerializer.Deserialize<Dictionary<string, object>>(jsonBytes);
+        // private static IEnumerable<Claim> ParseClaimsFromJwt(string jwt)
+        // {
+        //     var payload = jwt.Split('.')[1];
+        //     var jsonBytes = ParseBase64WithoutPadding(payload);
+        //     var keyValuePairs = JsonSerializer.Deserialize<Dictionary<string, object>>(jsonBytes);
 
-             // Check for the "LoginName" claim
-            if (keyValuePairs.ContainsKey("LoginName"))
-            {
-                var loginName = keyValuePairs["LoginName"].ToString();
-                // Create a claim for LoginName if needed
-                yield return new Claim("LoginName", loginName);
-            }
+        //      // Check for the "LoginName" claim
+        //     if (keyValuePairs.ContainsKey("LoginName"))
+        //     {
+        //         var loginName = keyValuePairs["LoginName"].ToString();
+        //         // Create a claim for LoginName if needed
+        //         yield return new Claim("LoginName", loginName);
+        //     }
 
-            // Check for the "Role" claim and handle it separately
-            if (keyValuePairs.ContainsKey("Role"))
-            {
-                var roles = keyValuePairs["Role"].ToString();
-                // Handle multiple roles if they're comma-separated or a list
-                var roleClaims = roles.Split(',')
-                                    .Select(role => new Claim(ClaimTypes.Role, role.Trim()));
-                // Return role claims along with other claims (excluding "Role" here)
-                foreach (var roleClaim in roleClaims)
-                {
-                    yield return roleClaim;
-                }
-            }
+        //     // Check for the "Role" claim and handle it separately
+        //     if (keyValuePairs.ContainsKey("Role"))
+        //     {
+        //         var roles = keyValuePairs["Role"].ToString();
+        //         // Handle multiple roles if they're comma-separated or a list
+        //         var roleClaims = roles.Split(',')
+        //                             .Select(role => new Claim(ClaimTypes.Role, role.Trim()));
+        //         // Return role claims along with other claims (excluding "Role" here)
+        //         foreach (var roleClaim in roleClaims)
+        //         {
+        //             yield return roleClaim;
+        //         }
+        //     }
 
-            // Return all other claims
-            foreach (var kvp in keyValuePairs.Where(kvp => kvp.Key != "LoginName" && kvp.Key != "Role"))
-            {
-                yield return new Claim(kvp.Key, kvp.Value.ToString());
-            }
-        }
+        //     // Return all other claims
+        //     foreach (var kvp in keyValuePairs.Where(kvp => kvp.Key != "LoginName" && kvp.Key != "Role"))
+        //     {
+        //         yield return new Claim(kvp.Key, kvp.Value.ToString());
+        //     }
+        // }
 
-        private static byte[] ParseBase64WithoutPadding(string base64)
-        {
-            switch (base64.Length % 4)
-            {
-                case 2: base64 += "=="; break;
-                case 3: base64 += "="; break;
-            }
-            return Convert.FromBase64String(base64);
-        }
+        // private static byte[] ParseBase64WithoutPadding(string base64)
+        // {
+        //     switch (base64.Length % 4)
+        //     {
+        //         case 2: base64 += "=="; break;
+        //         case 3: base64 += "="; break;
+        //     }
+        //     return Convert.FromBase64String(base64);
+        // }
 
 
         public void NotifyAuthState()

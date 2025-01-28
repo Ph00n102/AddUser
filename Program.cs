@@ -21,6 +21,10 @@ builder.Services.AddHttpClient("NHSO", client =>
     client.BaseAddress = new Uri("http://localhost:8189/");
 });
 
+builder.Services.AddHttpClient("Dot8Api", client =>
+{
+    client.BaseAddress = new Uri("http://localhost:5094/");
+});
 // builder.Services.AddHttpClient("HosxpApi", options =>
 // {
 //     options.BaseAddress = new Uri("http://localhost:5094/");
