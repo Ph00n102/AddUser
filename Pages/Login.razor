@@ -402,7 +402,7 @@ else
         }
     } *@
 
-    private async Task SubmitOtpAsync()
+    @* private async Task SubmitOtpAsync()
     {
         if (string.IsNullOrWhiteSpace(CidInput) || string.IsNullOrWhiteSpace(OtpInput))
         {
@@ -470,5 +470,84 @@ else
         {
             Message = $"An error occurred: {ex.Message}";
         }
+    } *@
+    private async Task SubmitOtpAsync()
+    {
+        if (string.IsNullOrWhiteSpace(CidInput) || string.IsNullOrWhiteSpace(OtpInput))
+        {
+            Message = "Please enter both CID and OTP.";
+            return;
+        }
+
+        using var cts = new CancellationTokenSource(TimeSpan.FromMinutes(10));
+        try
+        {
+            var requestTask = _http.GetAsync($"/api/Moph/UserOtpInRedis/{CidInput}", cts.Token);
+            var completedTask = await Task.WhenAny(requestTask, Task.Delay(TimeSpan.FromSeconds(10), cts.Token));
+
+            if (completedTask != requestTask)
+            {
+                // Timeout occurred
+                Message = "OTP validation took too long. Redirecting...";
+                _navigationManager.NavigateTo("/loginwithoutotp");
+                return;
+            }
+
+            var response = await requestTask;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var otpCid = await response.Content.ReadFromJsonAsync<OtpCid>();
+
+                if (otpCid != null && otpCid.Cid == CidInput && otpCid.Otp == OtpInput)
+                {
+                    Message = "OTP verified successfully!";
+                    var jsonPayload = JsonSerializer.Serialize(loginModel);
+                    var requestContent = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+
+                    var authResponse = await _http.PostAsync("api/User/login", requestContent);
+
+                    if (authResponse.IsSuccessStatusCode)
+                    {
+                        var tokenResponse = await authResponse.Content.ReadFromJsonAsync<JwtTokenResponseVm>();
+
+                        await _localStorageService.SetItemAsync("jwt-access-token", tokenResponse.AccessToken);
+                        await _localStorageService.SetItemAsync("refresh-token", tokenResponse.RefreshToken);
+
+                        (_authStateProvider as CustomAuthProvider).NotifyAuthState();
+
+                        _navigationManager.NavigateTo("/");
+                        return;
+                    }
+                    else
+                    {
+                        Message = "Failed to authorize OTP. Please try again.";
+                    }
+                }
+                else
+                {
+                    Message = "รหัส OTP ไม่ถูกต้อง กรุณากรอกอีกครั้ง";
+                }
+            }
+            else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                Message = "No OTP found for the given CID.";
+            }
+            else
+            {
+                var error = await response.Content.ReadAsStringAsync();
+                Message = $"Error: {response.StatusCode} - {error}";
+            }
+        }
+        catch (TaskCanceledException)
+        {
+            Message = "OTP verification timed out. Redirecting...";
+            _navigationManager.NavigateTo("/loginwithoutotp");
+        }
+        catch (Exception ex)
+        {
+            Message = $"An error occurred: {ex.Message}";
+        }
     }
+
 }

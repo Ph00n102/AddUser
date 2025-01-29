@@ -6,12 +6,11 @@
 @inject NavigationManager navManager
 @attribute [Authorize(Roles = "Admin")]
 
-<h3>Post Data to API</h3>
-
 <EditForm Model="IpdVsVitalSign" OnValidSubmit="HandleSubmit">
  <DataAnnotationsValidator />
     <ValidationSummary />
 
+    <p>สำหรับทดสอบเพิ่มข้อมูลใน HN 0000057 AN 650041124</p>
     @* <div>
         <label for="bt">HN:</label>
         <input class="form-control" @bind="IpdVsVitalSign.hn" type="text" placeholder="bt"/>
@@ -51,20 +50,81 @@
     <button class="btn btn-primary"type="submit">Add IpdVsVitalSign</button>
 </EditForm>
 
+<h3>Enter HN to Fetch Patient Data</h3>
 
-@* <button @onclick="OnSearchClick" class="btn btn-primary mt-2">Add IpdVsVitalSign</button> *@
+<input class="form-control" @bind="hn" @bind:event="oninput" placeholder="Enter HN" />
+<button class="btn btn-primary" @onclick="FetchPatientData">Search</button>
+
+@if (patient != null)
+{
+    
+    <p>AN: <input class="form-control" @bind="patient.an" disabled /></p>
+    <p>Name: <input class="form-control" @bind="fullName" disabled /></p>
+    <p>Age: <input class="form-control" @bind="patient.ageY" disabled /></p>
+    <p>Ward: <input class="form-control" @bind="patient.wardName" disabled /></p>
+}
+else
+{
+    <p>AN: <input class="form-control" disabled /></p>
+    <p>Name: <input class="form-control" disabled /></p>
+    <p>Age: <input class="form-control" disabled /></p>
+    <p>Ward: <input class="form-control" disabled /></p>
+}
+
+
 
 @code {
   
-    @* private IpdVsVitalSign IpdVsVitalSign = new IpdVsVitalSign(); *@
     private IpdVsVitalSign IpdVsVitalSign { get; set; } = new();
     private string responseMessage;
-     @* private string vsDatetime; *@
+
+    private string _hn = "";
+    @* private string hn
+    {
+        get => _hn;
+        set
+        {
+            _hn = value;
+            if (!string.IsNullOrWhiteSpace(_hn))
+            {
+                 Console.WriteLine($"hn changed: {_hn}"); // Log the updated value
+                _ = FetchPatientData(); // Auto-fetch patient data when HN changes
+            }
+            else
+            {
+                patient = null;
+                fullName = "";
+            }
+        }
+    } *@
+    private string hn
+    {
+        get => _hn;
+        set
+        {
+            if (_hn != value) // Only fetch if HN actually changes
+            {
+                _hn = value;
+                if (!string.IsNullOrWhiteSpace(_hn))
+                {
+                    Console.WriteLine($"hn changed: {_hn}"); // Log the updated value
+                    _ = FetchPatientData(); // Auto-fetch patient data when HN changes
+                }
+                else
+                {
+                    ClearPatientData();
+                }
+            }
+        }
+    }
+    private Patient? patient;
+    private string fullName = "";
+    private CancellationTokenSource? cts;
 
     // Handle form submit
      private async Task HandleSubmit()
     {
-            var httpClient = _httpClientFactory.CreateClient("Dot8Api");
+            var httpClient = _httpClientFactory.CreateClient("BackEnd");
             // ส่งข้อมูลไปที่ API ผ่าน POST
             @* var response = await httpClient.PostAsJsonAsync($"http://localhost:5212/"); *@
             var response = await httpClient.PostAsJsonAsync($"api/IpdVs/AddIpdVsVitalSign", IpdVsVitalSign);
@@ -80,23 +140,72 @@
         
     }
 
-     protected override void OnInitialized()
+     private async Task OnHnChanged(ChangeEventArgs e)
     {
-        // กำหนดวันที่ปัจจุบันและเวลาปัจจุบัน
-         @* vsDatetime = DateTime.Now.ToString("dd MMMM yyyy HH:mm:ss");  *@
+        hn = e.Value?.ToString() ?? "";
+        if (!string.IsNullOrWhiteSpace(hn))
+        {
+            await FetchPatientData();
+        }
+        else
+        {
+            patient = null;
+            fullName = "";
+        }
     }
 
+    private async Task FetchPatientData()
+    {
+        if (string.IsNullOrWhiteSpace(hn)) return;
 
+         // Trim and remove unnecessary characters to avoid formatting issues
+        _hn = hn.Trim();
 
- 
+        // Cancel previous request if still running
+        cts?.Cancel();
+        cts = new CancellationTokenSource();
 
-    @* private async Task OnSearchClick(MouseEventArgs args)
-    { 
-            @* var httpClient = _httpClientFactory.CreateClient("API5212"); *@
-            @* var response = await httpClient.PostAsJsonAsync($"http://localhost:5212/");  *@
-            @* var response = await Http.PostAsJsonAsync("/api/Kphis/AddIpdVsVitalSign/IpdVsVitalSign", IpdVsVitalSign); *@
+        try
+        {
+            var httpClient = _httpClientFactory.CreateClient("BackEnd");
+            patient = await httpClient.GetFromJsonAsync<Patient>($"api/Hos/getpatientanward?_hn={_hn}");
 
-     
-    @* }  *@
+            if (patient != null)
+            {
+                fullName = $"{patient.pname}{patient.fname} {patient.lname}";
+            }
+            else
+            {
+                // If HN is incorrect or not found, clear all bound fields
+                ClearPatientData();
+            }
+
+            StateHasChanged(); // Force UI to refresh
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching patient data: {ex.Message}");
+            ClearPatientData();
+        }
+    }
+
+    // Method to clear all patient-related bindings
+    private void ClearPatientData()
+    {
+        patient = null;
+        fullName = "";
+        IpdVsVitalSign = new(); // Reset the form model to clear input fields
+    }
+
+    public class Patient
+    {
+        public string hn { get; set; } = "";
+        public string an { get; set; } = "";
+        public string pname { get; set; } = "";
+        public string fname { get; set; } = "";
+        public string lname { get; set; } = "";
+        public int ageY { get; set; }
+        public string wardName { get; set; } = "";
+    } 
 }
 

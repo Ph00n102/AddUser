@@ -95,19 +95,15 @@
                         </ChildContent>
                     </MudMenu>
 
-                <MudMenu Label="Admin" Variant="Variant.Filled" Color="Color.Primary" AnchorOrigin="Origin.CenterCenter" TransformOrigin="Origin.TopLeft" Dense>
-                    <MudMenuItem>
-                        <MudMenu ActivationEvent="MouseEvent.MouseOver" AnchorOrigin="Origin.TopRight" TransformOrigin="Origin.TopLeft" Dense>
-                            <ActivatorContent>
-                                <MudMenuItem Href="/admin">เพิ่ม user</MudMenuItem>
-                            </ActivatorContent>
-
-                            <ChildContent>
-                                @* <MudMenuItem Href="/ward" Target="_blank">รายชื่อ ward2 </MudMenuItem> *@
-                                @* <MudMenuItem Href="/" Disabled="true"> Disabled Item 1.2 with navigation </MudMenuItem> *@
-                            </ChildContent>
-                        </MudMenu>
-                    </MudMenuItem>
+                    <MudMenu Label="Admin" Variant="Variant.Filled" Color="Color.Primary" AnchorOrigin="Origin.CenterCenter" TransformOrigin="Origin.TopLeft" Dense>
+                        <ActivatorContent>
+                            <MudChip T="string" Color="Color.Primary">Admin</MudChip>
+                        </ActivatorContent>
+                        <ChildContent>
+                            <MudMenuItem Href="/admin">เพิ่ม user</MudMenuItem>
+                            <MudMenuItem Href="/addvs">เพิ่ม V/S (KPHIS)</MudMenuItem>
+                        </ChildContent>
+                    </MudMenu>
 
                     @* <MudMenuItem>
                         <MudMenu ActivationEvent="MouseEvent.MouseOver" AnchorOrigin="Origin.TopRight" TransformOrigin="Origin.TopLeft" Dense>
@@ -120,7 +116,7 @@
                             </ChildContent>
                         </MudMenu>
                     </MudMenuItem> *@
-                </MudMenu>
+    
                 <MudLink Color="Color.Inherit" Underline="Underline.None" class="mr-2" Href="/dashboard">Dashboard</MudLink>
                 <MudSpacer/>
                 <MudLink Color="Color.Inherit" Underline="Underline.None" class="mr-2" OnClick="LogoutAsync">Logout</MudLink>
