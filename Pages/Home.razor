@@ -3,6 +3,9 @@
 @using HosxpUi.Services
 @using Microsoft.AspNetCore.Authorization
 @using HosxpUi.Shared
+@using Microsoft.AspNetCore.SignalR.Client
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
 @attribute [Authorize]
 
 <PageTitle>Home</PageTitle>
@@ -10,4 +13,104 @@
 <p class='text-center'><strong>SKNHIS Version 1.0</strong></p>
 
 <SurveyPrompt Title="เว็บไซต์นี้จัดทำขึ้นในนามสำนักงานดิจิทัลทางการแพทย์ หากท่านมีข้อเสนอแนะ สามารถเสนอแนะได้ที่เบอร์ภายใน 55319,8926" />
+
+@if (programs == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <p class='text-center'><strong>รายการโปรแกรมที่อัพเดตจนถึงปัจจุบัน</strong></p>
+    <table class='table'>
+        <thead>
+            <tr>
+                <th>รายการ</th>
+                <th>รายละเอียด</th>
+                <th>วันที่</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var program in programs)
+            {
+                <tr>
+                    <td>@program.VersionName</td>
+                    <td>@program.VersionDetail</td>
+                    <td>@program.VersionDate</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    VersionProgram[] programs;
+    private HubConnection hubConnection;
+    protected override async Task OnInitializedAsync()
+    {
+        // Get Base URL from HttpClient
+        var baseUrl = Http.BaseAddress?.ToString() ?? NavigationManager.BaseUri;
+        var hubUrl = $"{baseUrl}broadcastHub"; // Append the Hub route
+        
+        @* hubConnection = new HubConnectionBuilder()
+            .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost:5094/broadcastHub"))
+            .Build(); *@
+        
+        hubConnection = new HubConnectionBuilder()
+            .WithUrl(hubUrl)
+            .Build();
+
+
+        // Listen to "ReceiveProgram" event to add a new program version
+        hubConnection.On<VersionProgram>("ReceiveProgram", program =>
+        {
+            if (programs != null)
+            {
+                var programList = programs.ToList();
+                programList.Add(program); // Add the new book to the list
+                programs = programList.ToArray();
+                InvokeAsync(StateHasChanged);
+            }
+            else
+            {
+                // Reload the data if books are not yet loaded
+                CallLoadData();
+            }
+        });
+        
+        hubConnection.On("ReceiveMessage", () =>
+        {
+            CallLoadData();
+            StateHasChanged();
+        });
+
+        await hubConnection.StartAsync();
+
+        await LoadData();
+    }
+
+     private void CallLoadData()
+    {
+        Task.Run(async () =>
+        {
+            await LoadData();
+        });
+    }
+
+    protected async Task LoadData()
+    {
+        programs = await Http.GetFromJsonAsync<VersionProgram[]>("api/VersionProgram/Get");
+        StateHasChanged();
+    }
+
+    public bool IsConnected =>
+        hubConnection.State == HubConnectionState.Connected;
+
+    public void Dispose()
+    {
+        _ = hubConnection.DisposeAsync();
+    }
+}
+
+
+
 

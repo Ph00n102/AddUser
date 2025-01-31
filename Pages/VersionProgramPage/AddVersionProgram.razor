@@ -1,0 +1,77 @@
+﻿@page "/addversion"
+@using HosxpUi.Models
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.SignalR.Client
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@attribute [Authorize(Roles = "Admin")]
+
+<p><strong>เพิ่ม Version Program</strong></p>
+<hr />
+<form>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                <label for="VersionName" class="control-label">รายการ</label>
+                <input id="VersionName" class="form-control" @bind="@program.VersionName" />
+            </div>
+            <div class="form-group">
+                <label for="VersionDetail" class="control-label">รายละเอียด</label>
+                <input id="VersionDetail" class="form-control" @bind="@program.VersionDetail" />
+            </div>
+            <div class="form-group">
+                <label for="VersionDate" class="control-label">วันที่</label>
+                <input id="VersionDate" type="date" class="form-control" @bind="@program.VersionDate" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <input type="button" class="btn btn-primary" @onclick="@CreateVersionProgram" value="บันทึก" />
+                <input type="button" class="btn" @onclick="@Cancel" value="Cancel" />
+            </div>
+        </div>
+    </div>
+</form>
+
+@code {
+    private HubConnection hubConnection;
+    VersionProgram program = new VersionProgram();
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Get Base URL from HttpClient
+        var baseUrl = Http.BaseAddress?.ToString() ?? NavigationManager.BaseUri;
+        var hubUrl = $"{baseUrl}broadcastHub"; // Append the Hub route
+        
+        hubConnection = new HubConnectionBuilder()
+            .WithUrl(hubUrl)
+            .Build();
+
+        await hubConnection.StartAsync();
+    }
+
+    protected async Task CreateVersionProgram()
+    {
+        await Http.PostAsJsonAsync("api/VersionProgram/Post", program);
+        if (IsConnected) await SendMessage();
+        NavigationManager.NavigateTo("/allversion");
+    }
+
+    Task SendMessage() => hubConnection.SendAsync("SendMessage");
+
+    public bool IsConnected =>
+        hubConnection.State == HubConnectionState.Connected;
+
+    public void Dispose()
+    {
+        _ = hubConnection.DisposeAsync();
+    }
+
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("/allversion");
+    }
+    
+}

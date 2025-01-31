@@ -143,6 +143,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHROb3RlTGlzdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/HosxpUi/Pages/VersionProgramPage/AddVersionProgram.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVyc2lvblByb2dyYW1QYWdlXEFkZFZlcnNpb25Qcm9ncmFtLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HosxpUi/Pages/VersionProgramPage/AllVersionProgram.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVyc2lvblByb2dyYW1QYWdlXEFsbFZlcnNpb25Qcm9ncmFtLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HosxpUi/Pages/VersionProgramPage/EditVersionProgram.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVyc2lvblByb2dyYW1QYWdlXEVkaXRWZXJzaW9uUHJvZ3JhbS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/HosxpUi/Pages/WardDetail.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2FyZERldGFpbC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

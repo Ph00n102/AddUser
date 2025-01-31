@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "HosxpUi",
   "resources": {
-    "hash": "sha256-uMLNzTBfnVj9/yNENWfTHwmgcdd8tkv5H5M0ijoBWL8=",
+    "hash": "sha256-UtmcpBvHSRGSUtrrr64imgSRXKNV09nE2fQX+/SoKVk=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-VdKq87/z5NIxZKmuM+fv38XF+RcEb/bg3jVBwQSfwP4="
     },
@@ -30,6 +30,7 @@
       "Microsoft.AspNetCore.Components.Forms.wasm": "sha256-xdmm/nojXhCuTTDwhSWKmv9GQ/HGjW58Sxp2/m3FH8w=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-/zzHB7rnx0Gx4tbnqVwlEKZU2SvctKMEhndyH8nlgr4=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-6PDNWhWSc3nmVfcFJx8tpgDuK9uN5QvlKeQxO4E35pA=",
+      "Microsoft.AspNetCore.Connections.Abstractions.wasm": "sha256-PgCcfvxDTZqlX/kFZQZwxrrwVMDrJccFsFQCOsgJJGU=",
       "Microsoft.AspNetCore.Cryptography.Internal.wasm": "sha256-abgl3H5armBY5SbZm0CyAVp1gzz9wMlOJ13iS7qDc6g=",
       "Microsoft.AspNetCore.DataProtection.wasm": "sha256-YxRjwNKAYbhefHeXG3yUsautnvJ6rggb661Kh3cLY+Y=",
       "Microsoft.AspNetCore.DataProtection.Abstractions.wasm": "sha256-YQWgpkvnf6GHcVTIo57kH6ZMZeqP/suiwlYjKc5Cioc=",
@@ -37,9 +38,15 @@
       "Microsoft.AspNetCore.Hosting.Server.Abstractions.wasm": "sha256-kXXmQYSgFVJjERESUous5yPJZ42ElCtRVR8NJAILuXo=",
       "Microsoft.AspNetCore.Http.wasm": "sha256-855D2UXEHxRgf4uXmvBUbXCKxXaMBZVleCq1BElGwkQ=",
       "Microsoft.AspNetCore.Http.Abstractions.wasm": "sha256-aPjR8YQYZRQOCbPYFnx/tOBYEqSXaAF/F/Cd883tTH4=",
+      "Microsoft.AspNetCore.Http.Connections.Client.wasm": "sha256-d6wvBqrBgLOdhh+NlbE/1yO+0qSFZ1RLOrsPl665oQA=",
+      "Microsoft.AspNetCore.Http.Connections.Common.wasm": "sha256-GqEGik9XlZuFEjVvNOcyv/Vz1v2QI6x1dAVKXRkwTtE=",
       "Microsoft.AspNetCore.Http.Extensions.wasm": "sha256-WjtmQB8VQ3hRd/VWugfjN2UeetmLH9kht2ejKAdQrDY=",
       "Microsoft.AspNetCore.Http.Features.wasm": "sha256-hF86nD892lo0u26YKc0I78W2vbzPNsSJRdXv/fpfy60=",
       "Microsoft.AspNetCore.Metadata.wasm": "sha256-HTOKr4q1iKdV48HlVg7nfuuiWU2pxjXNpmm1pVHETko=",
+      "Microsoft.AspNetCore.SignalR.Client.wasm": "sha256-ygx4LgTB/kzc4ZqXz1mPCZxHUGc4XPr/MxWUQ/bYa0U=",
+      "Microsoft.AspNetCore.SignalR.Client.Core.wasm": "sha256-3Xn9n8APa4IyNWs1l62ZyPUgYOFwNVY+xcY+QQzWyKU=",
+      "Microsoft.AspNetCore.SignalR.Common.wasm": "sha256-1h5iEo+BEOLH3Twrmqsj9Hzdf/mf0obsyWvXhbX+Zv8=",
+      "Microsoft.AspNetCore.SignalR.Protocols.Json.wasm": "sha256-7eS1gIsmVeo7pTg7AhhdFqHuhTgyTGKN38uu0j5UTEQ=",
       "Microsoft.AspNetCore.WebUtilities.wasm": "sha256-q6l/6OJeP3P1Q4VK0HTLliBlxH58Fzcj7SS20UrCpe8=",
       "Microsoft.Extensions.Configuration.wasm": "sha256-UDGEQR7J3WTfzYMgOzxVIBwFQtKEeJvO8UgrWagypdE=",
       "Microsoft.Extensions.Configuration.Abstractions.wasm": "sha256-yNdqbqDWGiJo943D7LPak5xryCBEsNH0wtdiuU1R9VE=",
@@ -50,6 +57,7 @@
       "Microsoft.Extensions.DependencyInjection.Abstractions.wasm": "sha256-NICKEw2hjoBhl1lvxOBh8cxOIN8kkrGHz3pvV1eLLbY=",
       "Microsoft.Extensions.Diagnostics.wasm": "sha256-ocjYvUYaqVp/zqoZgO2Jz9xDvZzLM7qR2qkAidM5DsU=",
       "Microsoft.Extensions.Diagnostics.Abstractions.wasm": "sha256-zZcH54DRmcuIAi/NQWV5AKf4l8zFSHQ5r+ZK4gGwnrY=",
+      "Microsoft.Extensions.Features.wasm": "sha256-2nqmxpOd1JodEZrboRwHN4aDZx54Ibv+pY1tetMBzw8=",
       "Microsoft.Extensions.FileProviders.Abstractions.wasm": "sha256-IUopixuV8E09mP+TIgRp/lXEbeacXbUTW7cu0v5B9Tc=",
       "Microsoft.Extensions.FileProviders.Physical.wasm": "sha256-MS+zB0xkKhKk/QdE32ZwKtdlrLMLI/y2NAKPUWhcBVg=",
       "Microsoft.Extensions.FileSystemGlobbing.wasm": "sha256-AnWUKd0qJ8ZNKkRC0AFK2cjjszB7reXiP+bXdIi8bic=",
@@ -246,10 +254,10 @@
       "mscorlib.wasm": "sha256-04e4k5XU8HWGB/dq/2+j84xzzGPflTs0IYWI0OxogVc=",
       "netstandard.wasm": "sha256-gnGZURPnoSmjXuYNCOJi5tt8qn2LRImWgue1Ru3/TDQ=",
       "System.Private.CoreLib.wasm": "sha256-6w3jYr0arcp8jnt4aeqh+AmqrLA6q7jl9rQYAwLzE0M=",
-      "HosxpUi.wasm": "sha256-KJS6OKdClVGc7PqXCmpeFFjNs5m4sb3VdUmvqvRTwLc="
+      "HosxpUi.wasm": "sha256-kVnW6kpMLB5ku+pphgYxoao6kYZOThSHpL0sg3jH8Ls="
     },
     "pdb": {
-      "HosxpUi.pdb": "sha256-e+Hi9KV9FCTKk2Ga1jOqOC0M+Hk+x4zCpe/Qh1FQl3s="
+      "HosxpUi.pdb": "sha256-GpQ34/7i7fnSV3hihL4moqC2ZVkIkScgTg5NVQelfWQ="
     }
   },
   "cacheBootResources": true,
