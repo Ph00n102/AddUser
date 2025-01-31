@@ -1,11 +1,13 @@
 @page "/labchem"
 @page "/labchem/{hn}"
+@using Blazored.LocalStorage
 @using HosxpUi.Models
 @using Microsoft.AspNetCore.Authorization
 @* @inject IHttpClientFactory _httpClientFactory; *@
 @inject HttpClient _http 
 @inject NavigationManager Navigation;
-@attribute [Authorize(Roles = "Admin,User,Nurse,Doctor")]
+@inject ILocalStorageService _localStorageService;
+@attribute [Authorize(Roles = "Admin,Pharmacist,Doctor,Nurse")]
 
 <PageTitle>Lab Detail</PageTitle>
 <table class="table">
@@ -78,10 +80,113 @@
 
     public List<LabChem> labChemDetails = new();
 
-    protected override async Task OnInitializedAsync()
+    @* protected override async Task OnInitializedAsync()
     {
         //var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
         //labChemDetails = await httpClient.GetFromJsonAsync<List<LabChem>>($"api/Lab/getlabChem?_hn={hn}");
         labChemDetails = await _http.GetFromJsonAsync<List<LabChem>>($"api/Lab/getlabChem?_hn={hn}");
+    } *@
+
+    @* protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var token = await _localStorageService.GetItemAsync<string>("jwt-access-token");
+            _http.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+            var response = await _http.GetAsync($"api/Lab/getlabChem?_hn={hn}");
+
+            if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized || 
+                response.StatusCode == System.Net.HttpStatusCode.Forbidden)
+            {
+                // Redirect to access denied page if unauthorized
+                Navigation.NavigateTo("/accessdenied");
+                return;
+            }
+            else if (response.IsSuccessStatusCode)
+            {
+                labChemDetails = await response.Content.ReadFromJsonAsync<List<LabChem>>();
+            }
+            else
+            {
+                // Handle other status codes (e.g., server errors)
+                Console.WriteLine($"Error: {response.StatusCode}");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Exception: {ex.Message}");
+        }
+    } *@
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var token = await _localStorageService.GetItemAsync<string>("jwt-access-token");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                // If no token is found, user is not authenticated -> Redirect
+                Navigation.NavigateTo("/accessdenied");
+                return;
+            }
+
+            // Decode JWT and check roles before making API call
+            var userHasAccess = await UserHasRequiredRole(token);
+            if (!userHasAccess)
+            {
+                Navigation.NavigateTo("/accessdenied");
+                return;
+            }
+
+            // Attach token to API request
+            _http.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+            
+            var response = await _http.GetAsync($"api/Lab/getlabChem?_hn={hn}");
+
+            if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized ||
+                response.StatusCode == System.Net.HttpStatusCode.Forbidden)
+            {
+                Navigation.NavigateTo("/accessdenied");
+                return;
+            }
+            else if (response.IsSuccessStatusCode)
+            {
+                labChemDetails = await response.Content.ReadFromJsonAsync<List<LabChem>>();
+            }
+            else
+            {
+                Console.WriteLine($"Error: {response.StatusCode}");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Exception: {ex.Message}");
+        }
+    }
+
+    private async Task<bool> UserHasRequiredRole(string token)
+    {
+        try
+        {
+            var handler = new System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler();
+            var jsonToken = handler.ReadToken(token) as System.IdentityModel.Tokens.Jwt.JwtSecurityToken;
+
+            if (jsonToken == null)
+                return false;
+
+            var roles = jsonToken.Claims.Where(c => c.Type == "Role").Select(c => c.Value).ToList();
+
+            // Required roles that can access this page
+            var requiredRoles = new List<string> { "Admin", "Pharmacist", "Doctor", "Nurse" };
+
+            // Check if the user has at least one of the required roles
+            return roles.Any(role => requiredRoles.Contains(role));
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error decoding JWT: {ex.Message}");
+            return false;
+        }
     }
 }    

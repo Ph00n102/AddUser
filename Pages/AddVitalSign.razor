@@ -1,9 +1,12 @@
 ﻿@page "/addvs"
-@inject HttpClient Http
+@inject HttpClient _http
+@using Blazored.LocalStorage
 @using HosxpUi.ViewModels
 @using Microsoft.AspNetCore.Authorization
 @inject IHttpClientFactory _httpClientFactory
 @inject NavigationManager navManager
+@inject ILocalStorageService _localStorageService;
+@inject AuthenticationStateProvider _authStateProvider;
 @attribute [Authorize(Roles = "Admin")]
 
 <EditForm Model="IpdVsVitalSign" OnValidSubmit="HandleSubmit">
@@ -120,6 +123,7 @@ else
     private Patient? patient;
     private string fullName = "";
     private CancellationTokenSource? cts;
+
 
     // Handle form submit
      private async Task HandleSubmit()
