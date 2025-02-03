@@ -4,13 +4,15 @@
 @using Microsoft.AspNetCore.Authorization
 @using HosxpUi.Shared
 @using Microsoft.AspNetCore.SignalR.Client
+@using Microsoft.JSInterop
 @inject HttpClient Http
 @inject NavigationManager NavigationManager
+@inject IJSRuntime JS
 @attribute [Authorize]
 
 <PageTitle>Home</PageTitle>
 
-<p class='text-center'><strong>SKNHIS Version 1.0</strong></p>
+<p class='text-center'><strong>SKNHIS Version @version</strong></p>
 
 <SurveyPrompt Title="เว็บไซต์นี้จัดทำขึ้นในนามสำนักงานดิจิทัลทางการแพทย์ หากท่านมีข้อเสนอแนะ สามารถเสนอแนะได้ที่เบอร์ภายใน 55319,8926" />
 
@@ -34,7 +36,19 @@ else
             {
                 <tr>
                     <td>@program.VersionName</td>
-                    <td>@program.VersionDetail</td>
+                    @* <td>@program.VersionDetail</td> *@
+                    @* <td>
+                        <textarea class="form-control" rows="5" readonly>@program.VersionDetail</textarea>
+                    </td> *@
+                    <td>
+                        <button class="btn btn-link" @onclick="() => ToggleDetails(program.VersionName)">
+                            @(showDetails.ContainsKey(program.VersionName) && showDetails[program.VersionName] ? "ซ่อนรายละเอียด" : "แสดงรายละเอียด")
+                        </button>
+                        @if (showDetails.ContainsKey(program.VersionName) && showDetails[program.VersionName])
+                        {
+                            <textarea class="form-control" rows="5" readonly>@program.VersionDetail</textarea>
+                        }
+                    </td>
                     <td>@program.VersionDate</td>
                 </tr>
             }
@@ -45,6 +59,10 @@ else
 @code {
     VersionProgram[] programs;
     private HubConnection hubConnection;
+    private string version;
+    private Dictionary<string, bool> showDetails = new();
+    @* private Dictionary<string, ElementReference> textAreas = new(); *@
+
     protected override async Task OnInitializedAsync()
     {
         // Get Base URL from HttpClient
@@ -99,8 +117,38 @@ else
     protected async Task LoadData()
     {
         programs = await Http.GetFromJsonAsync<VersionProgram[]>("api/VersionProgram/Get");
+        version = await Http.GetStringAsync("api/VersionProgram/GetVersion");
+
+        if (programs != null)
+        {
+            foreach (var program in programs)
+            {
+                if (!showDetails.ContainsKey(program.VersionName))
+                {
+                    showDetails[program.VersionName] = false;
+                }
+            }
+        }
+
+
         StateHasChanged();
     }
+
+
+    private async Task ToggleDetails(string versionName)
+    {
+        if (showDetails.ContainsKey(versionName))
+        {
+            showDetails[versionName] = !showDetails[versionName];
+        }
+        else
+        {
+            showDetails[versionName] = true;
+        }
+
+        await InvokeAsync(StateHasChanged);
+    }
+
 
     public bool IsConnected =>
         hubConnection.State == HubConnectionState.Connected;

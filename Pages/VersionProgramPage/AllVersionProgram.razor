@@ -28,7 +28,10 @@ else
             {
                 <tr>
                     <td>@program.VersionName</td>
-                    <td>@program.VersionDetail</td>
+                    @* <td>@program.VersionDetail</td> *@
+                    <td>
+                        <textarea class="form-control" rows="5" readonly>@program.VersionDetail</textarea>
+                    </td>
                     <td>@program.VersionDate</td>
                     <td>
                         <button class="btn btn-warning"><a href="/editprogram/@program.Id">Edit</a></button>
