@@ -1,8 +1,10 @@
 ﻿@page "/editprogram/{id}"
 @using HosxpUi.Models
+@using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.SignalR.Client
 @inject HttpClient Http
 @inject NavigationManager NavigationManager
+@attribute [Authorize(Roles = "Admin")]
 
 <p><strong>แก้ไข Version Program</strong></p>
 <hr />

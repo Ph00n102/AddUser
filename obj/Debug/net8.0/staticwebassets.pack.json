@@ -49,10 +49,6 @@
       "PackagePath": "staticwebassets\\js\\chart.js"
     },
     {
-      "Id": "D:\\HosxpUi\\wwwroot\\js\\site.js",
-      "PackagePath": "staticwebassets\\js\\site.js"
-    },
-    {
       "Id": "D:\\HosxpUi\\wwwroot\\sample-data\\weather.json",
       "PackagePath": "staticwebassets\\sample-data\\weather.json"
     },

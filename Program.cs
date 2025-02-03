@@ -25,6 +25,10 @@ builder.Services.AddHttpClient("BackEnd", client =>
 {
     client.BaseAddress = new Uri("http://localhost:5094/");
 });
+// builder.Services.AddHttpClient("BackEnd", client =>
+// {
+//     client.BaseAddress = new Uri("http://172.16.200.202:8089/");
+// });
 // builder.Services.AddHttpClient("HosxpApi", options =>
 // {
 //     options.BaseAddress = new Uri("http://localhost:5094/");
