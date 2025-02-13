@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "HosxpUi",
   "resources": {
-    "hash": "sha256-4apJfYN9/U60GRh8Ipz2fTzf4h38gfOTctTJ4Z2MlNk=",
+    "hash": "sha256-5yKt9LGSdf/hqYCQXKe94jmzsfj1EtkY73eKQt7UcTY=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-VdKq87/z5NIxZKmuM+fv38XF+RcEb/bg3jVBwQSfwP4="
     },
@@ -254,10 +254,10 @@
       "mscorlib.wasm": "sha256-04e4k5XU8HWGB/dq/2+j84xzzGPflTs0IYWI0OxogVc=",
       "netstandard.wasm": "sha256-gnGZURPnoSmjXuYNCOJi5tt8qn2LRImWgue1Ru3/TDQ=",
       "System.Private.CoreLib.wasm": "sha256-6w3jYr0arcp8jnt4aeqh+AmqrLA6q7jl9rQYAwLzE0M=",
-      "HosxpUi.wasm": "sha256-u/vbh0rExnOl7nihZeuRHv2j1S12GXBVDq3urkcWJcA="
+      "HosxpUi.wasm": "sha256-7fegIb4SSVm6rVf6rzAdP/W10dOgW7gSLphwfjo0yZs="
     },
     "pdb": {
-      "HosxpUi.pdb": "sha256-GGXWNvg9blZhmNT7wQ9kbHmDLj0VXjBiDWNbcm6oCJU="
+      "HosxpUi.pdb": "sha256-WfWEDi4+kzaoWi4rNbVPfG8/kv+SAXIfYuAptEEIWCI="
     }
   },
   "cacheBootResources": true,

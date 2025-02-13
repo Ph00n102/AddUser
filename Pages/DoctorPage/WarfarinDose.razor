@@ -1,0 +1,166 @@
+﻿@page "/warfarindose"
+@using HosxpUi.Models
+@using Microsoft.AspNetCore.Authorization
+@inject HttpClient _http 
+@inject NavigationManager navManager
+@attribute [Authorize(Roles = "Admin,Doctor")]
+
+
+<h3>คำนวณ dose warfarin</h3>
+
+<div>
+    <label for="dose">Enter Warfarin Dose (mg/wk): </label>
+    <input type="number" id="dose" @bind="Dose" step="0.01" class="form-control" />
+</div>
+
+<div>
+    <button @onclick="IncreaseDose10" class="btn btn-primary mt-2">เพิ่ม dose 10%</button>
+    <button @onclick="IncreaseDose20" class="btn btn-success mt-2 ms-2">เพิ่ม dose 20%</button>
+    <button @onclick="DecreaseDose10" class="btn btn-warning ms-2">ลด dose 10%</button>
+    <button @onclick="DecreaseDose20" class="btn btn-danger ms-2">ลด dose 20%</button>
+</div>
+
+@if (NewDose > 0)
+{
+    <p class="mt-3"><strong>Updated Dose: </strong>@NewDose mg</p>
+
+    <h4>ขนาดยาที่ปรับได้</h4>
+    <ul>
+        @if (PillCombinations.Count > 0)
+        {
+            @foreach (var option in PillCombinations)
+            {
+                <li>@option</li>
+            }
+        }
+        else
+        {
+            <li>No valid combinations found.</li>
+        }
+    </ul>
+}
+
+@code {
+    private decimal Dose { get; set; } = 0;
+    private decimal NewDose { get; set; } = 0;
+    private List<string> PillCombinations { get; set; } = new();
+
+    private void IncreaseDose10()
+    {
+        NewDose = Math.Floor(Dose * 1.1M); // Increase by 10% and round down
+        CalculatePillCombinations();
+    }
+
+    private void IncreaseDose20()
+    {
+        NewDose = Math.Floor(Dose * 1.2M); // Increase by 20% and round down
+        CalculatePillCombinations();
+    }
+
+    private void DecreaseDose10()
+    {
+        NewDose = Math.Floor(Dose * 0.9M); // Decrease by 10% and round down
+        CalculatePillCombinations();
+    }
+
+    private void DecreaseDose20()
+    {
+        NewDose = Math.Floor(Dose * 0.8M); // Decrease by 20% and round down
+        CalculatePillCombinations();
+    }
+
+    private void CalculatePillCombinations()
+    {
+        PillCombinations.Clear();
+        if (NewDose <= 0) return;
+
+        decimal[] pillStrengths = { 5, 3, 2, 2.5M, 1.5M, 1 };
+        var validCombinations = new List<string>();
+
+        // Brute force approach to find valid pill combinations
+        for (int f = 0; f <= NewDose / pillStrengths[5]; f++) // 1 mg tablets
+        {
+            for (int e = 0; e <= NewDose / pillStrengths[4]; e++) // 1.5 mg tablets
+            {
+                for (int d = 0; d <= NewDose / pillStrengths[3]; d++) // 2 mg tablets
+                {
+                    for (int c = 0; c <= NewDose / pillStrengths[2]; c++) // 2.5 mg tablets
+                    {
+                        for (int b = 0; b <= NewDose / pillStrengths[1]; b++) // 3 mg tablets
+                        {
+                            for (int a = 0; a <= NewDose / pillStrengths[0]; a++) // 5 mg tablets
+                            {
+                                // Calculate the total pill count
+                                int totalPills = a + b + c + d + e + f;
+
+                                // Only consider combinations where total pills are less than 7
+                                if (totalPills >= 5 && totalPills <= 7)
+                                {
+                                    decimal sum = (a * 5) + (b * 3) + (c * 2) + (d * 2.5M) + (e * 1.5M) + (f * 1);
+
+                                    // If the sum matches NewDose, store the combination
+                                    if (sum == NewDose)
+                                    {
+                                        string combo = FormatPillCombination(a, b, c, d, e, f);
+
+                                        // Count the number of different pill strengths used
+                                        int typesUsed = CountPillTypes(a, b, c, d, e, f);
+
+                                        // Only store combinations that use 2 or fewer pill types
+                                        if (typesUsed <= 2)
+                                        {
+                                            validCombinations.Add(combo);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Sort the combinations by pill strength priority (5 mg > 3 mg > 2 mg)
+        PillCombinations = validCombinations.OrderByDescending(option =>
+            (option.Contains("warfarin 5 mg") ? 3 : 0) +
+            (option.Contains("warfarin 3 mg") ? 2 : 0) +
+            (option.Contains("warfarin 2 mg") ? 1 : 0)
+        ).ToList();
+
+        if (validCombinations.Count > 0)
+        {
+            PillCombinations = validCombinations;
+        }
+    }
+
+    private int CountPillTypes(int a, int b, int c, int d, int e, int f)
+    {
+        int count = 0;
+
+        if (a > 0) count++; // 5 mg
+        if (b > 0) count++; // 3 mg
+        if (c > 0) count++; // 2.5 mg
+        if (d > 0) count++; // 2 mg
+        if (e > 0) count++; // 1.5 mg
+        if (f > 0) count++; // 1 mg
+
+        return count;
+    }
+
+
+
+    private string FormatPillCombination(int a, int b, int c, int d, int e, int f)
+    {
+        List<string> parts = new List<string>();
+
+        if (a > 0) parts.Add($"(warfarin 5 mg x{a} วัน)");
+        if (b > 0) parts.Add($"(warfarin 3 mg x{b} วัน)");
+        if (c > 0) parts.Add($"(warfarin 2 mg x{c} วัน)");
+        if (d > 0) parts.Add($"(warfarin 5 mg ครึ่งเม็ด x{d} วัน)");
+        if (e > 0) parts.Add($"(warfarin 3 mg ครึ่งเม็ด x{e} วัน)");
+        if (f > 0) parts.Add($"(warfarin 2 mg ครึ่งเม็ด x{f} วัน)");
+
+
+        return string.Join(" + ", parts);
+    }
+}

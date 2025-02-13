@@ -5,9 +5,11 @@
 @using HosxpUi.Shared
 @using Microsoft.AspNetCore.SignalR.Client
 @using Microsoft.JSInterop
+@using Blazored.LocalStorage
 @inject HttpClient Http
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JS
+@inject ILocalStorageService _localStorageService;
 @attribute [Authorize]
 
 <PageTitle>Home</PageTitle>

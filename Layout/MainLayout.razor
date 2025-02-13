@@ -119,6 +119,15 @@
                     </MudMenuItem> *@
     
                 <MudLink Color="Color.Inherit" Underline="Underline.None" class="mr-2" Href="/dashboard">Dashboard</MudLink>
+                <MudMenu Label="โปรแกรมเสริม" Variant="Variant.Filled" Color="Color.Primary" AnchorOrigin="Origin.CenterCenter" TransformOrigin="Origin.TopLeft" Dense>
+                        <ActivatorContent>
+                            <MudChip T="string" Color="Color.Primary">โปรแกรมเสริม</MudChip>
+                        </ActivatorContent>
+                        <ChildContent>
+                            <MudMenuItem Href="/warfarindose">ปรับ dose warfarin</MudMenuItem>
+                        </ChildContent>
+                    </MudMenu>
+
                 <MudSpacer/>
                 <MudLink Color="Color.Inherit" Underline="Underline.None" class="mr-2" OnClick="LogoutAsync">Logout</MudLink>
             </Authorized>
