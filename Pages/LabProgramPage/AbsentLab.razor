@@ -1,0 +1,218 @@
+﻿@page "/absentlab"
+@using Blazored.LocalStorage
+@using HosxpUi.Models
+@inject IJSRuntime JS
+@inject ILocalStorageService _localStorageService;
+@inject HttpClient _http
+
+<h3>Lab Records</h3>
+<button @onclick="DeleteSelectedOvsts" class="btn btn-danger btn-sm">ลบหลาย record</button>
+
+@if (labRecords == null)
+{
+    <p><em>Loading...</em></p>
+}
+else if (!labRecords.Any())
+{
+    <p>No lab records found.</p>
+}
+else
+{
+    <p>Total records: @labRecords.Count</p> <!-- Display the count of records -->
+    <table class="table">
+        <thead>
+            <tr>
+                @* <th>Hospital GUID</th> *@
+                <th>HN</th>
+                <th>VN</th>
+                <th>Clinic Name</th>
+                <th>Patient Name</th>
+                <th>Lab Order Number</th>
+                <th>Lab Order List</th>
+                <th>Lab Confirm</th>
+                <th><input type="checkbox" onclick="checkUncheck(this)" /> เลือกทั้งหมด</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var record in labRecords)
+            {
+                @* @if (record != null && record.ClinicName == "เวชระเบียน")
+                { *@
+                    <tr>
+                    @* <td>@record.HosGuid</td> *@
+                    <td>@record.Hn</td>
+                    <td>@record.Vn</td>
+                    <td>@record.ClinicName</td>
+                    <td>@record.PatientName</td>
+                    <td>@record.LabOrderNumber</td>
+                    <td>@record.LabOrderList</td>
+                    <td>@record.LabConfirm</td>
+                    <td>
+                        <button @onclick="() => ConfirmDeleteVisit(record.HosGuid)" type="submit" class="btn btn-danger btn-sm">ลบ</button>
+                        <input type="checkbox" @onchange="(e) => UpdateSelectedIds(record.HosGuid, e.Value)" checked="@selectedIds.Contains(record.HosGuid)" />
+                    </td>
+                </tr>
+                @* } *@
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    @* private List<LabRecord> labRecords; *@
+    public List<LabRecord> labRecords = new();
+    private List<string> selectedIds = new List<string>();
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            // Make the API call directly
+            labRecords = await _http.GetFromJsonAsync<List<LabRecord>>("/api/MedRecord/GetLabRecords");
+
+                if (labRecords == null)
+                {
+                    Console.WriteLine("API returned null data.");
+                }
+
+                else
+                {
+
+                    Console.WriteLine($"Fetched {labRecords.Count} labs.");
+                }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching data: {ex.Message}");
+        }
+        StateHasChanged();
+    }
+
+    private async Task ConfirmDeleteVisit(string id)
+    {
+        // ใช้ JavaScript Confirm dialog เพื่อถามผู้ใช้ว่าแน่ใจหรือไม่ที่จะลบ
+        bool isConfirmed = await JS.InvokeAsync<bool>("confirm", "คุณแน่ใจหรือไม่ว่าต้องการลบ Lab คนไข้นี้ใช่ไหม?");
+
+        if (isConfirmed)
+        {
+            // ถ้ายืนยันการลบ, ทำการลบสินค้า
+            await DeleteAbsentVisit(id); 
+
+        }
+    }
+
+    private async Task DeleteAbsentVisit2(List<string> ids)
+    {
+        try
+        {
+            if (ids == null || !ids.Any())
+            {
+                Console.WriteLine("No IDs provided for deletion.");
+                return;
+            }
+
+            // Retrieve the token from local storage
+            var token = await _localStorageService.GetItemAsync<string>("jwt-access-token");
+            if (string.IsNullOrEmpty(token))
+            {
+                Console.WriteLine("Authorization token is missing.");
+                return;
+            }
+
+            // Add the token to the authorization header
+            _http.DefaultRequestHeaders.Authorization = 
+                new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+            // Iterate over the list of IDs and delete each individually
+            foreach (var id in ids)
+            {
+                // Perform a DELETE request for each ID
+                var response = await _http.DeleteAsync($"/api/MedRecord/DeleteLabRecords/{id}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Console.WriteLine($"Successfully deleted record with ID: {id}");
+                }
+                else
+                {
+                    Console.WriteLine($"Error deleting record with ID: {id}. Status: {response.StatusCode}");
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Error Details: {errorContent}");
+                }
+            }
+
+            // Refresh the data after deletions
+            
+            labRecords = await _http.GetFromJsonAsync<List<LabRecord>>("/api/MedRecord/GetLabRecords");
+
+            Console.WriteLine("Deleted records successfully.");
+            StateHasChanged();
+        }
+        catch (Exception ex)
+        {
+            // Handle exceptions
+            Console.WriteLine($"An error occurred: {ex.Message}");
+        }
+    }
+
+
+    private async Task DeleteSelectedOvsts()
+    {
+        bool isConfirmed = await JS.InvokeAsync<bool>("confirm", "คุณแน่ใจหรือไม่ว่าต้องการลบ lab คนไขนี้ใช่ไหม?");
+
+        if (isConfirmed && selectedIds.Any())
+        {
+            await DeleteAbsentVisit2(selectedIds);
+
+            // Clear selectedIds after deletion
+            selectedIds.Clear();
+            labRecords = await _http.GetFromJsonAsync<List<LabRecord>>("/api/MedRecord/GetLabRecords");
+            StateHasChanged(); // Refresh the UI to clear checkboxes
+        }
+        else if (!selectedIds.Any())
+        {
+            Console.WriteLine("No items selected for deletion.");
+        }
+    }
+
+    private void UpdateSelectedIds(string id, object isChecked)
+    {
+        if ((bool)isChecked)
+        {
+            if (!selectedIds.Contains(id))
+                selectedIds.Add(id);
+        }
+        else
+        {
+            selectedIds.Remove(id);
+        }
+    }
+
+    private async Task DeleteAbsentVisit(string id)
+    {
+        try
+        {
+            var token = await _localStorageService.GetItemAsync<string>("jwt-access-token");
+            _http.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+            var response = await _http.DeleteAsync($"/api/MedRecord/DeleteLabRecords/{id}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                labRecords = await _http.GetFromJsonAsync<List<LabRecord>>("/api/MedRecord/GetLabRecords");
+                StateHasChanged();
+
+            }
+            else
+            {
+                Console.WriteLine($"Error: {response.StatusCode} - ลบไม่สำเร็จ!");
+            }
+        }
+        catch (Exception ex)
+        {
+            // จัดการข้อผิดพลาดหากมีปัญหาในการทำคำขอ
+            Console.WriteLine($"เกิดข้อผิดพลาด: {ex.Message}");
+        }
+    }
+
+
+}

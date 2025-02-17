@@ -31,10 +31,6 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/AbsentOpenVisit.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJzZW50T3BlblZpc2l0LnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/HosxpUi/Pages/AccessDenied.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjZXNzRGVuaWVkLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -61,6 +57,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/HosxpUi/Pages/AuthenOpenVisit.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVuT3BlblZpc2l0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HosxpUi/Pages/CardProgramPage/AbsentOpenVisit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FyZFByb2dyYW1QYWdlXEFic2VudE9wZW5WaXNpdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/HosxpUi/Pages/Counter.razor]
@@ -109,6 +109,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/HosxpUi/Pages/LabDetailUa.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGFiRGV0YWlsVWEucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HosxpUi/Pages/LabProgramPage/AbsentLab.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGFiUHJvZ3JhbVBhZ2VcQWJzZW50TGFiLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/HosxpUi/Pages/Login.razor]

@@ -87,11 +87,20 @@
 
                     <MudMenu Label="งานห้องบัตร" Variant="Variant.Filled" Color="Color.Primary" AnchorOrigin="Origin.CenterCenter" TransformOrigin="Origin.TopLeft" Dense>
                         <ActivatorContent>
-                            <MudChip T="string" Color="Color.Primary">เวชระเบียน</MudChip>
+                            <MudChip T="string" Color="Color.Primary">งานห้องบัตร</MudChip>
                         </ActivatorContent>
                         <ChildContent>
                             <MudMenuItem Href="/authenho">เปิด visit คนไข้ </MudMenuItem>
                             <MudMenuItem Href="/absentvisit">ลบ visit คนไข้</MudMenuItem>
+                        </ChildContent>
+                    </MudMenu>
+
+                    <MudMenu Label="งานห้องแล็บ" Variant="Variant.Filled" Color="Color.Primary" AnchorOrigin="Origin.CenterCenter" TransformOrigin="Origin.TopLeft" Dense>
+                        <ActivatorContent>
+                            <MudChip T="string" Color="Color.Primary">งานห้องแล็บ</MudChip>
+                        </ActivatorContent>
+                        <ChildContent>
+                            <MudMenuItem Href="/absentlab">ลบ lab คนไข้</MudMenuItem>
                         </ChildContent>
                     </MudMenu>
 
