@@ -8,7 +8,7 @@
 @using HosxpUi.ViewModels.Accounts
 @using Microsoft.AspNetCore.Components.Authorization
 @using MudBlazor
-@* @inject IHttpClientFactory _httpClientFactory; *@
+@inject IHttpClientFactory _httpClientFactory;
 @inject HttpClient _http 
 @inject ILocalStorageService _localStorageService;
 @inject AuthenticationStateProvider _authStateProvider;
@@ -303,6 +303,8 @@ else
                     }
 
                     // Proceed with sending OTP only if the CID exists
+                    //var httpClient = _httpClientFactory.CreateClient("MophApi"); 
+                    //var response = await httpClient.PostAsJsonAsync("/api/Moph/SendOtpWithRedis2", cids);
                     var response = await _http.PostAsJsonAsync("/api/Moph/SendOtpWithRedis2", cids);
 
                     if (response.IsSuccessStatusCode)
