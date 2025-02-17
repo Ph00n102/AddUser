@@ -303,9 +303,9 @@ else
                     }
 
                     // Proceed with sending OTP only if the CID exists
-                    //var httpClient = _httpClientFactory.CreateClient("MophApi"); 
-                    //var response = await httpClient.PostAsJsonAsync("/api/Moph/SendOtpWithRedis2", cids);
-                    var response = await _http.PostAsJsonAsync("/api/Moph/SendOtpWithRedis2", cids);
+                    var httpClient = _httpClientFactory.CreateClient("MophApi"); 
+                    var response = await httpClient.PostAsJsonAsync("/api/Moph/SendOtpWithRedis2", cids); 
+                    @* var response = await _http.PostAsJsonAsync("/api/Moph/SendOtpWithRedis2", cids); *@
 
                     if (response.IsSuccessStatusCode)
                     {
@@ -484,7 +484,8 @@ else
         using var cts = new CancellationTokenSource(TimeSpan.FromMinutes(10));
         try
         {
-            var requestTask = _http.GetAsync($"/api/Moph/UserOtpInRedis/{CidInput}", cts.Token);
+            var httpClient = _httpClientFactory.CreateClient("MophApi"); 
+            var requestTask = httpClient.GetAsync($"/api/Moph/UserOtpInRedis/{CidInput}", cts.Token);
             var completedTask = await Task.WhenAny(requestTask, Task.Delay(TimeSpan.FromSeconds(10), cts.Token));
 
             if (completedTask != requestTask)

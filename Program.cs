@@ -12,7 +12,7 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-//builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:5094/") });
+// builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:5094/") });
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://172.16.200.202:8089/") });
 
 // Add multiple HttpClient instances with different base URLs
@@ -37,7 +37,7 @@ builder.Services.AddHttpClient("BackEnd", client =>
 
 builder.Services.AddHttpClient("MophApi", client =>
 {
-    client.BaseAddress = new Uri("http://172.16.200.202:8089/");
+    client.BaseAddress = new Uri("http://10.134.150.132:8000/");
 });
 
 builder.Services.AddSingleton<StateContainer>();

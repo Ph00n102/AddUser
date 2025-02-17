@@ -1,9 +1,11 @@
 ﻿@page "/absentlab"
 @using Blazored.LocalStorage
 @using HosxpUi.Models
+@using Microsoft.AspNetCore.Authorization
 @inject IJSRuntime JS
 @inject ILocalStorageService _localStorageService;
 @inject HttpClient _http
+@attribute [Authorize(Roles = "Admin, Lab")]
 
 <h3>Lab Records</h3>
 <button @onclick="DeleteSelectedOvsts" class="btn btn-danger btn-sm">ลบหลาย record</button>

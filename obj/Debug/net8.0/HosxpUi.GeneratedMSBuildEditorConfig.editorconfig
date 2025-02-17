@@ -47,20 +47,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/AuthenAppointList.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVuQXBwb2ludExpc3QucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/HosxpUi/Pages/AuthenHome.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVuSG9tZS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/HosxpUi/Pages/AuthenOpenVisit.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVuT3BlblZpc2l0LnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/HosxpUi/Pages/CardProgramPage/AbsentOpenVisit.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FyZFByb2dyYW1QYWdlXEFic2VudE9wZW5WaXNpdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HosxpUi/Pages/CardProgramPage/AuthenAppointList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FyZFByb2dyYW1QYWdlXEF1dGhlbkFwcG9pbnRMaXN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HosxpUi/Pages/CardProgramPage/AuthenHome.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FyZFByb2dyYW1QYWdlXEF1dGhlbkhvbWUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HosxpUi/Pages/CardProgramPage/AuthenOpenVisit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FyZFByb2dyYW1QYWdlXEF1dGhlbk9wZW5WaXNpdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/HosxpUi/Pages/Counter.razor]
