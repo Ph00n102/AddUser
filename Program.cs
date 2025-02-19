@@ -37,7 +37,7 @@ builder.Services.AddHttpClient("BackEnd", client =>
 
 builder.Services.AddHttpClient("MophApi", client =>
 {
-    client.BaseAddress = new Uri("http://10.134.150.132:8000/");
+    client.BaseAddress = new Uri("http://10.134.50.175:8000/");
 });
 
 builder.Services.AddSingleton<StateContainer>();
