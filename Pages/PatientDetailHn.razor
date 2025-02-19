@@ -7,7 +7,7 @@
 @inject HttpClient _http 
 @inject NavigationManager Navigation;
 @inject ILocalStorageService _localStorageService;
-@attribute [Authorize(Roles = "Admin,User,Pharmacist,Doctor,Card")]
+@attribute [Authorize(Roles = "Admin,Pharmacist,Doctor,Card,Nurse")]
 
 <PageTitle>Patient Detail (OPD)</PageTitle>
 <table class="table">

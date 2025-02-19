@@ -5,7 +5,7 @@
 @* @inject IHttpClientFactory _httpClientFactory; *@
 @inject HttpClient _http 
 @inject NavigationManager Navigation;
-@attribute [Authorize(Roles = "Admin,User,Nurse,Doctor")]
+@attribute [Authorize(Roles = "Admin,Pharmacist,Doctor,Card,Nurse")]
 
 <PageTitle>Patient Detail</PageTitle>
 <table class="table">
