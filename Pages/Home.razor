@@ -63,17 +63,12 @@ else
     private HubConnection hubConnection;
     private string version;
     private Dictionary<string, bool> showDetails = new();
-    @* private Dictionary<string, ElementReference> textAreas = new(); *@
 
     protected override async Task OnInitializedAsync()
     {
         // Get Base URL from HttpClient
         var baseUrl = Http.BaseAddress?.ToString() ?? NavigationManager.BaseUri;
         var hubUrl = $"{baseUrl}broadcastHub"; // Append the Hub route
-        
-        @* hubConnection = new HubConnectionBuilder()
-            .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost:5094/broadcastHub"))
-            .Build(); *@
         
         hubConnection = new HubConnectionBuilder()
             .WithUrl(hubUrl)

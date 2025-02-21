@@ -25,6 +25,26 @@
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
+      "Id": "D:\\HosxpUi\\wwwroot\\fonts\\NotoSans-Regular.ttf",
+      "PackagePath": "staticwebassets\\fonts\\NotoSans-Regular.ttf"
+    },
+    {
+      "Id": "D:\\HosxpUi\\wwwroot\\fonts\\THSarabunNew BoldItalic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\THSarabunNew BoldItalic.ttf"
+    },
+    {
+      "Id": "D:\\HosxpUi\\wwwroot\\fonts\\THSarabunNew Italic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\THSarabunNew Italic.ttf"
+    },
+    {
+      "Id": "D:\\HosxpUi\\wwwroot\\fonts\\THSarabunNew-Bold.ttf",
+      "PackagePath": "staticwebassets\\fonts\\THSarabunNew-Bold.ttf"
+    },
+    {
+      "Id": "D:\\HosxpUi\\wwwroot\\fonts\\THSarabunNew.ttf",
+      "PackagePath": "staticwebassets\\fonts\\THSarabunNew.ttf"
+    },
+    {
       "Id": "D:\\HosxpUi\\wwwroot\\icon-192.png",
       "PackagePath": "staticwebassets\\icon-192.png"
     },
@@ -47,6 +67,10 @@
     {
       "Id": "D:\\HosxpUi\\wwwroot\\js\\chart.js",
       "PackagePath": "staticwebassets\\js\\chart.js"
+    },
+    {
+      "Id": "D:\\HosxpUi\\wwwroot\\js\\pdf.js",
+      "PackagePath": "staticwebassets\\js\\pdf.js"
     },
     {
       "Id": "D:\\HosxpUi\\wwwroot\\sample-data\\weather.json",

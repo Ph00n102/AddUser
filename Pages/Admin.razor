@@ -37,13 +37,15 @@ else
                     <td>@i.cid</td>
                     <td><button @onclick="() => ConfirmDeleteUser(i.id)" type="submit" class="btn btn-danger btn-sm" style="font-size: 2rem;">Delete</button></td>
                     <td ><a class="btn btn-primary btn-sm" href="/edituser/@i.id" style="font-size: 2rem;">Edit</a></td>  
-                    
                 </tr>
             }
         </tbody>
     </table>
 }
     <a class="btn beautiful-btn " href="/adduser" style="font-size: 2rem;">Add</a>
+    <button @onclick="GeneratePDF" class="btn btn-success btn-sm" style="font-size: 2rem;">
+    Generate PDF
+    </button>
 <style>
     .background-container {
         /*background-color: #f0f0f0;*/
@@ -124,6 +126,15 @@ else
         {
             // จัดการข้อผิดพลาดหากมีปัญหาในการทำคำขอ
             Console.WriteLine($"เกิดข้อผิดพลาด: {ex.Message}");
+        }
+    }
+
+    private async Task GeneratePDF()
+    {
+        if (userdb != null)
+        {
+            // Call JavaScript function and pass user data
+            await JS.InvokeVoidAsync("generateUserPDF", userdb);
         }
     }
 
