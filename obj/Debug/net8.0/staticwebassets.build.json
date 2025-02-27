@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lg1b55yWuzfeKHj8fj/YbxZeXT67Z44Q2y9RnMnfKi0=",
+  "Hash": "WkcI7/N8JXlz55vUrPdpyelMkXTsK0cjbOVc7qxy08w=",
   "Source": "HosxpUi",
   "BasePath": "/",
   "Mode": "Root",
@@ -16,6 +16,48 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.2\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
+      "SourceId": "Microsoft.AspNetCore.Components.QuickGrid",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.2\\staticwebassets\\",
+      "BasePath": "_content/Microsoft.AspNetCore.Components.QuickGrid",
+      "RelativePath": "Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "Fingerprint": "25o87uqmvr",
+      "Integrity": "Nuu0BHvGBlwN6c5FSVjV9yxX0YPfwg3ufdOucRJCOz0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.2\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.2\\staticwebassets\\QuickGrid.razor.js",
+      "SourceId": "Microsoft.AspNetCore.Components.QuickGrid",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.2\\staticwebassets\\",
+      "BasePath": "_content/Microsoft.AspNetCore.Components.QuickGrid",
+      "RelativePath": "QuickGrid.razor.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "eu7w3d5g1a",
+      "Integrity": "tnamWuQ2F5I2J8hbtBt4/9i8Mb2y2o+9Tepj5tUrSdU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.2\\staticwebassets\\QuickGrid.razor.js"
+    },
     {
       "Identity": "C:\\Users\\HP\\.nuget\\packages\\mudblazor\\7.8.0\\staticwebassets\\MudBlazor.min.css",
       "SourceId": "MudBlazor",
@@ -73,8 +115,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "manifest",
-      "Fingerprint": "6db3g5bnrc",
-      "Integrity": "ShCabwuKf7MwomwJV3hN22J/RzFlSoa2cmgj/M+sGYE=",
+      "Fingerprint": "7ey3gyxu7t",
+      "Integrity": "3zju53U8ZFgZ8AUAw7f0xOIrVrh3t8Dk0dtnh7GGF3c=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Debug\\net8.0\\blazor.boot.json"
@@ -304,8 +346,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "symbol",
-      "Fingerprint": "wnqf5103rx",
-      "Integrity": "REKA113PtVedTshgCkh3abiFUSRTz3pojP9pdGts21c=",
+      "Fingerprint": "i1innazpy9",
+      "Integrity": "6vU9kQGk3VyYddo8KC1s+bFaB7c16jAaSoh9h9jsBlY=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Debug\\net8.0\\HosxpUi.pdb"
@@ -325,8 +367,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "runtime",
-      "Fingerprint": "2hgbdp5loy",
-      "Integrity": "Jukla7gYONYSSgCb4B1qMAA3Uz466v2ftVi3TgsHYeI=",
+      "Fingerprint": "3cwoti5ckd",
+      "Integrity": "s87GLlrG49gUYc+crv7kf9Qdf/zK24hbYqi+RVlDOUw=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\HosxpUi\\obj\\Debug\\net8.0\\webcil\\HosxpUi.wasm"
@@ -540,6 +582,27 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\HosxpUi\\obj\\Debug\\net8.0\\webcil\\Microsoft.AspNetCore.Components.Forms.wasm"
+    },
+    {
+      "Identity": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.QuickGrid.wasm",
+      "SourceId": "HosxpUi",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Components.QuickGrid.wasm",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "WasmResource",
+      "AssetTraitValue": "runtime",
+      "Fingerprint": "0zc56z4ao4",
+      "Integrity": "7MKE2HOaSbk8JnoOBS/IVqKeppULjXiO5RkfwpApF4U=",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "D:\\HosxpUi\\obj\\Debug\\net8.0\\webcil\\Microsoft.AspNetCore.Components.QuickGrid.wasm"
     },
     {
       "Identity": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.wasm",
@@ -5519,7 +5582,7 @@
       "OriginalItemSpec": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Private.DataContractSerialization.wasm"
     },
     {
-      "Identity": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\1wjanlyice-6db3g5bnrc.gz",
+      "Identity": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\1wjanlyice-7ey3gyxu7t.gz",
       "SourceId": "HosxpUi",
       "SourceType": "Computed",
       "ContentRoot": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\",
@@ -5533,8 +5596,8 @@
       "RelatedAsset": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.boot.json",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "b5yvwf0rtp",
-      "Integrity": "nzrsFfUdshsz3lckcH6jYmtYY+2a8tOcepH82oQa3SE=",
+      "Fingerprint": "1a7nja796n",
+      "Integrity": "Z3AiYllI5yCrKkmt0SnRoD6MPklHMAVktHssPwWn1nk=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.boot.json"
@@ -6296,7 +6359,7 @@
       "OriginalItemSpec": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Globalization.Extensions.wasm"
     },
     {
-      "Identity": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\8om7xnnctu-2hgbdp5loy.gz",
+      "Identity": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\8om7xnnctu-3cwoti5ckd.gz",
       "SourceId": "HosxpUi",
       "SourceType": "Computed",
       "ContentRoot": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\",
@@ -6310,8 +6373,8 @@
       "RelatedAsset": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\HosxpUi.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "wbskuup19b",
-      "Integrity": "bLKKcGtqRwgsC65YBVeLpdygdC4cfun1jLgv3Myzk80=",
+      "Fingerprint": "olk5i7gdzc",
+      "Integrity": "dPpGgIc+y/rURe/DCMuTl9TnbH4FTpgCpEDS8XFo9JY=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\HosxpUi.wasm"
@@ -6504,6 +6567,27 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Data.Common.wasm"
+    },
+    {
+      "Identity": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\a3hr2dyczd-0zc56z4ao4.gz",
+      "SourceId": "HosxpUi",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Components.QuickGrid.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.QuickGrid.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "muzhwuqp2s",
+      "Integrity": "QvjxXhIzd22eX3nf6/XSJ6vyiUe/YtxFexvXBwq3fMw=",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.QuickGrid.wasm"
     },
     {
       "Identity": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\a5d9evkojl-e4ovel0up8.gz",
@@ -7472,7 +7556,7 @@
       "OriginalItemSpec": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Runtime.InteropServices.wasm"
     },
     {
-      "Identity": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\g3pheblppr-wnqf5103rx.gz",
+      "Identity": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\g3pheblppr-i1innazpy9.gz",
       "SourceId": "HosxpUi",
       "SourceType": "Computed",
       "ContentRoot": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\",
@@ -7486,8 +7570,8 @@
       "RelatedAsset": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\HosxpUi.pdb",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "9hkeurlrtp",
-      "Integrity": "02b3ReDqKXXxixn89dBMzzufdZhptq4Z/Z27mVb9Nn8=",
+      "Fingerprint": "yp5muvvksn",
+      "Integrity": "dnCCSFbbif8qPcSkE2zvdXsuA01B3c+Faz9LWxNpJE0=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\HosxpUi.pdb"
@@ -10573,8 +10657,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "44x7sw3hav",
-      "Integrity": "ZC+NftyT4tEGCAEvChmIE8BSWzNm/gpsVa+S9eaTrdE=",
+      "Fingerprint": "dbn5xkqd8u",
+      "Integrity": "SXaHvP7WVbJDEUSkYBbXmAtOvHAw/cA75eHvPP3RUwg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\HosxpUi\\obj\\Debug\\net8.0\\scopedcss\\bundle\\HosxpUi.styles.css"
@@ -10615,8 +10699,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "swsybuv5hr",
-      "Integrity": "JOZWd9XYwDyrwjSB0PVTcc602GisYED21qQUCSMlGtI=",
+      "Fingerprint": "boue9685jf",
+      "Integrity": "y9N/7VnKihBgVHJi9pcuuduLbnpVWmYjKRGflLiW7N0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\app.css"
@@ -10811,6 +10895,27 @@
       "OriginalItemSpec": "wwwroot\\icon-192.png"
     },
     {
+      "Identity": "D:\\HosxpUi\\wwwroot\\icon-512.png",
+      "SourceId": "HosxpUi",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HosxpUi\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "icon-512#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "kjimucelzx",
+      "Integrity": "oEo6d+KqX5fjxTiZk/w9NB3Mi0+ycS5yLwCKwr4IkbA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\icon-512.png"
+    },
+    {
       "Identity": "D:\\HosxpUi\\wwwroot\\images\\mony.jpg",
       "SourceId": "HosxpUi",
       "SourceType": "Discovered",
@@ -10867,8 +10972,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "cxvaugol06",
-      "Integrity": "4GEQs9iWFv/YJARkKaWlfD5OwJjxbwuLYMcrYEU/Rfg=",
+      "Fingerprint": "xdv4cxvewv",
+      "Integrity": "5ZfshFq2dPdF+dxgHQkzAUtUTEeSvplXS2ZaUQ75muc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
@@ -10937,6 +11042,27 @@
       "OriginalItemSpec": "wwwroot\\js\\pdf.js"
     },
     {
+      "Identity": "D:\\HosxpUi\\wwwroot\\manifest.webmanifest",
+      "SourceId": "HosxpUi",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HosxpUi\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "manifest#[.{fingerprint}]?.webmanifest",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "xvo9vvokzl",
+      "Integrity": "PcE4GCywve0fngWmrtYgPsoaOjoFtP7Bc2A39JSM/aY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\manifest.webmanifest"
+    },
+    {
       "Identity": "D:\\HosxpUi\\wwwroot\\sample-data\\weather.json",
       "SourceId": "HosxpUi",
       "SourceType": "Discovered",
@@ -10956,9 +11082,125 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\sample-data\\weather.json"
+    },
+    {
+      "Identity": "D:\\HosxpUi\\wwwroot\\service-worker.js",
+      "SourceId": "HosxpUi",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HosxpUi\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "service-worker#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "p98v8wk21i",
+      "Integrity": "nYPaEVcq2mY3PmL/5mIxOczOsCPDhI3m6gdnTIBR6Bw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\service-worker.js"
+    },
+    {
+      "Identity": "D:\\HosxpUi\\wwwroot\\service-worker.published.js",
+      "SourceId": "HosxpUi",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HosxpUi\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "service-worker.published#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "6lav88ck8k",
+      "Integrity": "ptBtP28+HH7uiFaXeB+/CssnttVrjmJFkHxEJ9wYfOM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\service-worker.published.js"
     }
   ],
   "Endpoints": [
+    {
+      "Route": "_content/Microsoft.AspNetCore.Components.QuickGrid/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
+      "AssetFile": "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.2\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8251"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Nuu0BHvGBlwN6c5FSVjV9yxX0YPfwg3ufdOucRJCOz0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 18 Jan 2024 14:32:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Nuu0BHvGBlwN6c5FSVjV9yxX0YPfwg3ufdOucRJCOz0="
+        }
+      ]
+    },
+    {
+      "Route": "_content/Microsoft.AspNetCore.Components.QuickGrid/QuickGrid.razor.js",
+      "AssetFile": "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.2\\staticwebassets\\QuickGrid.razor.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2563"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tnamWuQ2F5I2J8hbtBt4/9i8Mb2y2o+9Tepj5tUrSdU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 18 Jan 2024 14:11:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tnamWuQ2F5I2J8hbtBt4/9i8Mb2y2o+9Tepj5tUrSdU="
+        }
+      ]
+    },
     {
       "Route": "_content/MudBlazor/MudBlazor.min.css",
       "AssetFile": "C:\\Users\\HP\\.nuget\\packages\\mudblazor\\7.8.0\\staticwebassets\\MudBlazor.min.css",
@@ -11034,6 +11276,51 @@
       ]
     },
     {
+      "Route": "css/app.boue9685jf.css",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\css\\app.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3786"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"y9N/7VnKihBgVHJi9pcuuduLbnpVWmYjKRGflLiW7N0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Feb 2025 09:12:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "boue9685jf"
+        },
+        {
+          "Name": "label",
+          "Value": "css/app.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-y9N/7VnKihBgVHJi9pcuuduLbnpVWmYjKRGflLiW7N0="
+        }
+      ]
+    },
+    {
       "Route": "css/app.css",
       "AssetFile": "D:\\HosxpUi\\wwwroot\\css\\app.css",
       "Selectors": [],
@@ -11044,7 +11331,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3782"
+          "Value": "3786"
         },
         {
           "Name": "Content-Type",
@@ -11052,11 +11339,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"JOZWd9XYwDyrwjSB0PVTcc602GisYED21qQUCSMlGtI=\""
+          "Value": "\"y9N/7VnKihBgVHJi9pcuuduLbnpVWmYjKRGflLiW7N0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 13 Nov 2024 02:46:54 GMT"
+          "Value": "Thu, 27 Feb 2025 09:12:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11066,52 +11353,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-JOZWd9XYwDyrwjSB0PVTcc602GisYED21qQUCSMlGtI="
-        }
-      ]
-    },
-    {
-      "Route": "css/app.swsybuv5hr.css",
-      "AssetFile": "D:\\HosxpUi\\wwwroot\\css\\app.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3782"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"JOZWd9XYwDyrwjSB0PVTcc602GisYED21qQUCSMlGtI=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 13 Nov 2024 02:46:54 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "swsybuv5hr"
-        },
-        {
-          "Name": "label",
-          "Value": "css/app.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-JOZWd9XYwDyrwjSB0PVTcc602GisYED21qQUCSMlGtI="
+          "Value": "sha256-y9N/7VnKihBgVHJi9pcuuduLbnpVWmYjKRGflLiW7N0="
         }
       ]
     },
@@ -11782,7 +12024,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "24408"
+          "Value": "24520"
         },
         {
           "Name": "Content-Type",
@@ -11790,11 +12032,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ShCabwuKf7MwomwJV3hN22J/RzFlSoa2cmgj/M+sGYE=\""
+          "Value": "\"3zju53U8ZFgZ8AUAw7f0xOIrVrh3t8Dk0dtnh7GGF3c=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 21 Feb 2025 07:16:08 GMT"
+          "Value": "Thu, 27 Feb 2025 10:04:14 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11804,18 +12046,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ShCabwuKf7MwomwJV3hN22J/RzFlSoa2cmgj/M+sGYE="
+          "Value": "sha256-3zju53U8ZFgZ8AUAw7f0xOIrVrh3t8Dk0dtnh7GGF3c="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json",
-      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\1wjanlyice-6db3g5bnrc.gz",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\1wjanlyice-7ey3gyxu7t.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000094930701"
+          "Quality": "0.000094473311"
         }
       ],
       "ResponseHeaders": [
@@ -11825,15 +12067,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "10533"
+          "Value": "10584"
         },
         {
           "Name": "ETag",
-          "Value": "\"nzrsFfUdshsz3lckcH6jYmtYY+2a8tOcepH82oQa3SE=\""
+          "Value": "\"Z3AiYllI5yCrKkmt0SnRoD6MPklHMAVktHssPwWn1nk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 21 Feb 2025 07:12:12 GMT"
+          "Value": "Thu, 27 Feb 2025 09:58:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11853,19 +12095,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"ShCabwuKf7MwomwJV3hN22J/RzFlSoa2cmgj/M+sGYE=\""
+          "Value": "W/\"3zju53U8ZFgZ8AUAw7f0xOIrVrh3t8Dk0dtnh7GGF3c=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ShCabwuKf7MwomwJV3hN22J/RzFlSoa2cmgj/M+sGYE="
+          "Value": "sha256-3zju53U8ZFgZ8AUAw7f0xOIrVrh3t8Dk0dtnh7GGF3c="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json.gz",
-      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\1wjanlyice-6db3g5bnrc.gz",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\1wjanlyice-7ey3gyxu7t.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -11874,7 +12116,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "10533"
+          "Value": "10584"
         },
         {
           "Name": "Content-Type",
@@ -11882,11 +12124,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"nzrsFfUdshsz3lckcH6jYmtYY+2a8tOcepH82oQa3SE=\""
+          "Value": "\"Z3AiYllI5yCrKkmt0SnRoD6MPklHMAVktHssPwWn1nk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 21 Feb 2025 07:12:12 GMT"
+          "Value": "Thu, 27 Feb 2025 09:58:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11904,7 +12146,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-nzrsFfUdshsz3lckcH6jYmtYY+2a8tOcepH82oQa3SE="
+          "Value": "sha256-Z3AiYllI5yCrKkmt0SnRoD6MPklHMAVktHssPwWn1nk="
         }
       ]
     },
@@ -13289,7 +13531,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "218416"
+          "Value": "219716"
         },
         {
           "Name": "Content-Type",
@@ -13297,11 +13539,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"REKA113PtVedTshgCkh3abiFUSRTz3pojP9pdGts21c=\""
+          "Value": "\"6vU9kQGk3VyYddo8KC1s+bFaB7c16jAaSoh9h9jsBlY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 21 Feb 2025 07:07:03 GMT"
+          "Value": "Thu, 27 Feb 2025 10:04:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13311,18 +13553,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-REKA113PtVedTshgCkh3abiFUSRTz3pojP9pdGts21c="
+          "Value": "sha256-6vU9kQGk3VyYddo8KC1s+bFaB7c16jAaSoh9h9jsBlY="
         }
       ]
     },
     {
       "Route": "_framework/HosxpUi.pdb",
-      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\g3pheblppr-wnqf5103rx.gz",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\g3pheblppr-i1innazpy9.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000006545231"
+          "Quality": "0.000006501486"
         }
       ],
       "ResponseHeaders": [
@@ -13332,15 +13574,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "152782"
+          "Value": "153810"
         },
         {
           "Name": "ETag",
-          "Value": "\"02b3ReDqKXXxixn89dBMzzufdZhptq4Z/Z27mVb9Nn8=\""
+          "Value": "\"dnCCSFbbif8qPcSkE2zvdXsuA01B3c+Faz9LWxNpJE0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 21 Feb 2025 07:07:03 GMT"
+          "Value": "Thu, 27 Feb 2025 09:58:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13360,19 +13602,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"REKA113PtVedTshgCkh3abiFUSRTz3pojP9pdGts21c=\""
+          "Value": "W/\"6vU9kQGk3VyYddo8KC1s+bFaB7c16jAaSoh9h9jsBlY=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-REKA113PtVedTshgCkh3abiFUSRTz3pojP9pdGts21c="
+          "Value": "sha256-6vU9kQGk3VyYddo8KC1s+bFaB7c16jAaSoh9h9jsBlY="
         }
       ]
     },
     {
       "Route": "_framework/HosxpUi.pdb.gz",
-      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\g3pheblppr-wnqf5103rx.gz",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\g3pheblppr-i1innazpy9.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -13381,7 +13623,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "152782"
+          "Value": "153810"
         },
         {
           "Name": "Content-Type",
@@ -13389,11 +13631,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"02b3ReDqKXXxixn89dBMzzufdZhptq4Z/Z27mVb9Nn8=\""
+          "Value": "\"dnCCSFbbif8qPcSkE2zvdXsuA01B3c+Faz9LWxNpJE0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 21 Feb 2025 07:07:03 GMT"
+          "Value": "Thu, 27 Feb 2025 09:58:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13411,7 +13653,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-02b3ReDqKXXxixn89dBMzzufdZhptq4Z/Z27mVb9Nn8="
+          "Value": "sha256-dnCCSFbbif8qPcSkE2zvdXsuA01B3c+Faz9LWxNpJE0="
         }
       ]
     },
@@ -13426,7 +13668,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "397077"
+          "Value": "400149"
         },
         {
           "Name": "Content-Type",
@@ -13434,11 +13676,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Jukla7gYONYSSgCb4B1qMAA3Uz466v2ftVi3TgsHYeI=\""
+          "Value": "\"s87GLlrG49gUYc+crv7kf9Qdf/zK24hbYqi+RVlDOUw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 21 Feb 2025 06:25:01 GMT"
+          "Value": "Thu, 27 Feb 2025 10:04:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13448,18 +13690,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Jukla7gYONYSSgCb4B1qMAA3Uz466v2ftVi3TgsHYeI="
+          "Value": "sha256-s87GLlrG49gUYc+crv7kf9Qdf/zK24hbYqi+RVlDOUw="
         }
       ]
     },
     {
       "Route": "_framework/HosxpUi.wasm",
-      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\8om7xnnctu-2hgbdp5loy.gz",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\8om7xnnctu-3cwoti5ckd.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000007593649"
+          "Quality": "0.000007501594"
         }
       ],
       "ResponseHeaders": [
@@ -13469,15 +13711,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "131688"
+          "Value": "133304"
         },
         {
           "Name": "ETag",
-          "Value": "\"bLKKcGtqRwgsC65YBVeLpdygdC4cfun1jLgv3Myzk80=\""
+          "Value": "\"dPpGgIc+y/rURe/DCMuTl9TnbH4FTpgCpEDS8XFo9JY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 21 Feb 2025 06:25:01 GMT"
+          "Value": "Thu, 27 Feb 2025 09:58:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13497,19 +13739,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"Jukla7gYONYSSgCb4B1qMAA3Uz466v2ftVi3TgsHYeI=\""
+          "Value": "W/\"s87GLlrG49gUYc+crv7kf9Qdf/zK24hbYqi+RVlDOUw=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Jukla7gYONYSSgCb4B1qMAA3Uz466v2ftVi3TgsHYeI="
+          "Value": "sha256-s87GLlrG49gUYc+crv7kf9Qdf/zK24hbYqi+RVlDOUw="
         }
       ]
     },
     {
       "Route": "_framework/HosxpUi.wasm.gz",
-      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\8om7xnnctu-2hgbdp5loy.gz",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\8om7xnnctu-3cwoti5ckd.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -13518,7 +13760,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "131688"
+          "Value": "133304"
         },
         {
           "Name": "Content-Type",
@@ -13526,11 +13768,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"bLKKcGtqRwgsC65YBVeLpdygdC4cfun1jLgv3Myzk80=\""
+          "Value": "\"dPpGgIc+y/rURe/DCMuTl9TnbH4FTpgCpEDS8XFo9JY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 21 Feb 2025 06:25:01 GMT"
+          "Value": "Thu, 27 Feb 2025 09:58:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13548,7 +13790,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-bLKKcGtqRwgsC65YBVeLpdygdC4cfun1jLgv3Myzk80="
+          "Value": "sha256-dPpGgIc+y/rURe/DCMuTl9TnbH4FTpgCpEDS8XFo9JY="
         }
       ]
     },
@@ -14919,6 +15161,143 @@
         {
           "Name": "integrity",
           "Value": "sha256-o+8pBlU+b7kE+KqLCjrFbcKtQ4Poe4Jr/geNHLr8NJc="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/Microsoft.AspNetCore.Components.QuickGrid.wasm",
+      "AssetFile": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.QuickGrid.wasm",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "54037"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7MKE2HOaSbk8JnoOBS/IVqKeppULjXiO5RkfwpApF4U=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Feb 2025 07:50:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7MKE2HOaSbk8JnoOBS/IVqKeppULjXiO5RkfwpApF4U="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/Microsoft.AspNetCore.Components.QuickGrid.wasm",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\a3hr2dyczd-0zc56z4ao4.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000041708375"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "23975"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QvjxXhIzd22eX3nf6/XSJ6vyiUe/YtxFexvXBwq3fMw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Feb 2025 07:50:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"7MKE2HOaSbk8JnoOBS/IVqKeppULjXiO5RkfwpApF4U=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7MKE2HOaSbk8JnoOBS/IVqKeppULjXiO5RkfwpApF4U="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/Microsoft.AspNetCore.Components.QuickGrid.wasm.gz",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\a3hr2dyczd-0zc56z4ao4.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "23975"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QvjxXhIzd22eX3nf6/XSJ6vyiUe/YtxFexvXBwq3fMw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Feb 2025 07:50:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QvjxXhIzd22eX3nf6/XSJ6vyiUe/YtxFexvXBwq3fMw="
         }
       ]
     },
@@ -46067,51 +46446,6 @@
       ]
     },
     {
-      "Route": "HosxpUi.44x7sw3hav.styles.css",
-      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\scopedcss\\bundle\\HosxpUi.styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4653"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ZC+NftyT4tEGCAEvChmIE8BSWzNm/gpsVa+S9eaTrdE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 20 Jan 2025 10:02:48 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "44x7sw3hav"
-        },
-        {
-          "Name": "label",
-          "Value": "HosxpUi.styles.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-ZC+NftyT4tEGCAEvChmIE8BSWzNm/gpsVa+S9eaTrdE="
-        }
-      ]
-    },
-    {
       "Route": "HosxpUi.bundle.scp.css",
       "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\HosxpUi.bundle.scp.css",
       "Selectors": [],
@@ -46149,6 +46483,55 @@
       ]
     },
     {
+      "Route": "HosxpUi.dbn5xkqd8u.styles.css",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\scopedcss\\bundle\\HosxpUi.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4775"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SXaHvP7WVbJDEUSkYBbXmAtOvHAw/cA75eHvPP3RUwg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Feb 2025 07:50:13 GMT"
+        },
+        {
+          "Name": "Link",
+          "Value": "<_content/Microsoft.AspNetCore.Components.QuickGrid/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css>; rel=\"preload\"; as=\"style\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dbn5xkqd8u"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SXaHvP7WVbJDEUSkYBbXmAtOvHAw/cA75eHvPP3RUwg="
+        },
+        {
+          "Name": "label",
+          "Value": "HosxpUi.styles.css"
+        }
+      ]
+    },
+    {
       "Route": "HosxpUi.styles.css",
       "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\scopedcss\\bundle\\HosxpUi.styles.css",
       "Selectors": [],
@@ -46158,8 +46541,12 @@
           "Value": "bytes"
         },
         {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
           "Name": "Content-Length",
-          "Value": "4653"
+          "Value": "4775"
         },
         {
           "Name": "Content-Type",
@@ -46167,21 +46554,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ZC+NftyT4tEGCAEvChmIE8BSWzNm/gpsVa+S9eaTrdE=\""
+          "Value": "\"SXaHvP7WVbJDEUSkYBbXmAtOvHAw/cA75eHvPP3RUwg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 20 Jan 2025 10:02:48 GMT"
+          "Value": "Thu, 27 Feb 2025 07:50:13 GMT"
         },
         {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
+          "Name": "Link",
+          "Value": "<_content/Microsoft.AspNetCore.Components.QuickGrid/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css>; rel=\"preload\"; as=\"style\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ZC+NftyT4tEGCAEvChmIE8BSWzNm/gpsVa+S9eaTrdE="
+          "Value": "sha256-SXaHvP7WVbJDEUSkYBbXmAtOvHAw/cA75eHvPP3RUwg="
         }
       ]
     },
@@ -46264,6 +46651,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-DbpQaq68ZSb5IoPosBErM1QWBfsbTxpJqhU0REi6wP4="
+        }
+      ]
+    },
+    {
+      "Route": "icon-512.kjimucelzx.png",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\icon-512.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6311"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"oEo6d+KqX5fjxTiZk/w9NB3Mi0+ycS5yLwCKwr4IkbA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 25 Feb 2025 02:01:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "kjimucelzx"
+        },
+        {
+          "Name": "label",
+          "Value": "icon-512.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-oEo6d+KqX5fjxTiZk/w9NB3Mi0+ycS5yLwCKwr4IkbA="
+        }
+      ]
+    },
+    {
+      "Route": "icon-512.png",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\icon-512.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6311"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"oEo6d+KqX5fjxTiZk/w9NB3Mi0+ycS5yLwCKwr4IkbA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 25 Feb 2025 02:01:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-oEo6d+KqX5fjxTiZk/w9NB3Mi0+ycS5yLwCKwr4IkbA="
         }
       ]
     },
@@ -46432,51 +46901,6 @@
       ]
     },
     {
-      "Route": "index.cxvaugol06.html",
-      "AssetFile": "D:\\HosxpUi\\wwwroot\\index.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1502"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"4GEQs9iWFv/YJARkKaWlfD5OwJjxbwuLYMcrYEU/Rfg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 21 Feb 2025 07:14:48 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "cxvaugol06"
-        },
-        {
-          "Name": "label",
-          "Value": "index.html"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-4GEQs9iWFv/YJARkKaWlfD5OwJjxbwuLYMcrYEU/Rfg="
-        }
-      ]
-    },
-    {
       "Route": "index.html",
       "AssetFile": "D:\\HosxpUi\\wwwroot\\index.html",
       "Selectors": [],
@@ -46487,7 +46911,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1502"
+          "Value": "1782"
         },
         {
           "Name": "Content-Type",
@@ -46495,11 +46919,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4GEQs9iWFv/YJARkKaWlfD5OwJjxbwuLYMcrYEU/Rfg=\""
+          "Value": "\"5ZfshFq2dPdF+dxgHQkzAUtUTEeSvplXS2ZaUQ75muc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 21 Feb 2025 07:14:48 GMT"
+          "Value": "Thu, 27 Feb 2025 06:47:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -46509,7 +46933,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4GEQs9iWFv/YJARkKaWlfD5OwJjxbwuLYMcrYEU/Rfg="
+          "Value": "sha256-5ZfshFq2dPdF+dxgHQkzAUtUTEeSvplXS2ZaUQ75muc="
+        }
+      ]
+    },
+    {
+      "Route": "index.xdv4cxvewv.html",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1782"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5ZfshFq2dPdF+dxgHQkzAUtUTEeSvplXS2ZaUQ75muc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Feb 2025 06:47:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xdv4cxvewv"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5ZfshFq2dPdF+dxgHQkzAUtUTEeSvplXS2ZaUQ75muc="
         }
       ]
     },
@@ -46760,6 +47229,88 @@
       ]
     },
     {
+      "Route": "manifest.webmanifest",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\manifest.webmanifest",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "433"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/manifest+json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"PcE4GCywve0fngWmrtYgPsoaOjoFtP7Bc2A39JSM/aY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Feb 2025 06:48:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-PcE4GCywve0fngWmrtYgPsoaOjoFtP7Bc2A39JSM/aY="
+        }
+      ]
+    },
+    {
+      "Route": "manifest.xvo9vvokzl.webmanifest",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\manifest.webmanifest",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "433"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/manifest+json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"PcE4GCywve0fngWmrtYgPsoaOjoFtP7Bc2A39JSM/aY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Feb 2025 06:48:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xvo9vvokzl"
+        },
+        {
+          "Name": "label",
+          "Value": "manifest.webmanifest"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-PcE4GCywve0fngWmrtYgPsoaOjoFtP7Bc2A39JSM/aY="
+        }
+      ]
+    },
+    {
       "Route": "sample-data/weather.iag0ou56lh.json",
       "AssetFile": "D:\\HosxpUi\\wwwroot\\sample-data\\weather.json",
       "Selectors": [],
@@ -46838,6 +47389,170 @@
         {
           "Name": "integrity",
           "Value": "sha256-enKgCMkYmCpfEcmg6Annbmc40VZ/A6aYYSQjZfVn2cU="
+        }
+      ]
+    },
+    {
+      "Route": "service-worker.js",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\service-worker.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "265"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nYPaEVcq2mY3PmL/5mIxOczOsCPDhI3m6gdnTIBR6Bw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Feb 2025 06:44:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-nYPaEVcq2mY3PmL/5mIxOczOsCPDhI3m6gdnTIBR6Bw="
+        }
+      ]
+    },
+    {
+      "Route": "service-worker.p98v8wk21i.js",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\service-worker.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "265"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nYPaEVcq2mY3PmL/5mIxOczOsCPDhI3m6gdnTIBR6Bw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Feb 2025 06:44:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "p98v8wk21i"
+        },
+        {
+          "Name": "label",
+          "Value": "service-worker.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-nYPaEVcq2mY3PmL/5mIxOczOsCPDhI3m6gdnTIBR6Bw="
+        }
+      ]
+    },
+    {
+      "Route": "service-worker.published.6lav88ck8k.js",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\service-worker.published.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2635"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ptBtP28+HH7uiFaXeB+/CssnttVrjmJFkHxEJ9wYfOM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Feb 2025 06:44:37 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6lav88ck8k"
+        },
+        {
+          "Name": "label",
+          "Value": "service-worker.published.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ptBtP28+HH7uiFaXeB+/CssnttVrjmJFkHxEJ9wYfOM="
+        }
+      ]
+    },
+    {
+      "Route": "service-worker.published.js",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\service-worker.published.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2635"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ptBtP28+HH7uiFaXeB+/CssnttVrjmJFkHxEJ9wYfOM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Feb 2025 06:44:37 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ptBtP28+HH7uiFaXeB+/CssnttVrjmJFkHxEJ9wYfOM="
         }
       ]
     }

@@ -3,6 +3,7 @@
 @using Microsoft.AspNetCore.Authorization
 @using System.Text
 @using Blazored.LocalStorage
+@using System.Text.Json
 @inject HttpClient _http 
 @inject IJSRuntime JS
 @inject NavigationManager navManager
@@ -25,6 +26,7 @@ else
             <td>ชื่อคนไข้</td>
             <td>วันที่มา</td>
             <td>เวลาที่มา</td>
+            <td>สถานะ</td>
             <th><input type="checkbox" onclick="checkUncheck(this)" /> เลือกทั้งหมด</th>
         </tr>
     </thead>
@@ -37,6 +39,11 @@ else
             <td>@item.patientName</td>
             <td>@item.vstDate</td>
             <td>@item.vsttime</td>
+            <td>
+                <span class="@GetStatusClass(item.StatusMessage)">
+                    @item.StatusMessage
+                </span>
+            </td>
             <td>
                 <button @onclick="() => ConfirmDeleteVisit(item.hosGuid)" type="submit" class="btn btn-danger btn-sm">ลบ</button>
                 @* <input type="checkbox" @onchange="(e) => UpdateSelectedIds(item.hosGuid, e.Value)" /> *@
@@ -51,32 +58,52 @@ else
 @code {
     public List<AbsentVisit> visitData = new();
     private List<string> selectedIds = new List<string>();
-    protected override async Task OnInitializedAsync()
+    @* protected override async Task OnInitializedAsync()
     {
-            try
-            {
-                // Fetch data from the API
-                //visitData = await _http.GetFromJsonAsync<List<AbsentVisit>>("api/MedRecord/GetMedRecords");
-                visitData = await _http.GetFromJsonAsync<List<AbsentVisit>>("api/MedRecord/GetMedRecordsRedis");
+        try
+        {
+            visitData = await _http.GetFromJsonAsync<List<AbsentVisit>>("api/MedRecord/GetMedRecordsRedis");
 
-                // Debugging output
-                if (visitData == null)
-                {
-                    Console.WriteLine("API returned null data.");
-                }
-    
-                else
-                {
-                    
-                    Console.WriteLine($"Fetched {visitData.Count} video games.");
-                }
-            }
-            catch (Exception ex)
+            if (visitData != null)
             {
-                Console.WriteLine($"Error fetching data: {ex.Message}");
+                foreach (var visit in visitData)
+                {
+                    visit.StatusMessage = await GetMedRecordStatus(visit.hn, visit.vn);
+                }
             }
             StateHasChanged();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching data: {ex.Message}");
+        }
+    } *@
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            visitData = await _http.GetFromJsonAsync<List<AbsentVisit>>("api/MedRecord/GetMedRecordsRedis");
+
+            if (visitData != null)
+            {
+                var tasks = visitData.Select(async visit =>
+                {
+                    visit.StatusMessage = await GetMedRecordStatus(visit.hn, visit.vn);
+                    StateHasChanged(); // Trigger UI update for each item
+                });
+
+                await Task.WhenAll(tasks); // Wait for all tasks to complete before continuing
+            }
+
+            StateHasChanged(); // Final state update to ensure all statuses are updated
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching data: {ex.Message}");
+        }
     }
+
+
 
     private async Task ConfirmDeleteVisit(string id)
     {
@@ -91,7 +118,7 @@ else
         }
     }
 
-    private async Task DeleteAbsentVisit(string id)
+    @* private async Task DeleteAbsentVisit(string id)
     {
         try
         {
@@ -116,9 +143,40 @@ else
             // จัดการข้อผิดพลาดหากมีปัญหาในการทำคำขอ
             Console.WriteLine($"เกิดข้อผิดพลาด: {ex.Message}");
         }
+    } *@
+    private async Task DeleteAbsentVisit(string id)
+    {
+        try
+        {
+            var token = await _localStorageService.GetItemAsync<string>("jwt-access-token");
+            _http.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+            var response = await _http.DeleteAsync($"/api/MedRecord/DeleteNotComeOvst/{id}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                // Remove the deleted item from the visitData list
+                var deletedVisit = visitData.FirstOrDefault(v => v.hosGuid == id);
+                if (deletedVisit != null)
+                {
+                    visitData.Remove(deletedVisit);
+                }
+
+                // Update only the affected elements
+                StateHasChanged();
+            }
+            else
+            {
+                Console.WriteLine($"Error: {response.StatusCode} - ลบไม่สำเร็จ!");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"เกิดข้อผิดพลาด: {ex.Message}");
+        }
     }
 
-    private async Task DeleteAbsentVisit2(List<string> ids)
+
+    @* private async Task DeleteAbsentVisit2(List<string> ids)
     {
         try
         {
@@ -169,7 +227,98 @@ else
             // Handle exceptions
             Console.WriteLine($"An error occurred: {ex.Message}");
         }
+    } *@
+
+    @* private async Task DeleteAbsentVisit2(List<string> ids)
+    {
+        try
+        {
+            if (ids == null || !ids.Any())
+            {
+                Console.WriteLine("No IDs provided for deletion.");
+                return;
+            }
+
+            var token = await _localStorageService.GetItemAsync<string>("jwt-access-token");
+            _http.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+            foreach (var id in ids)
+            {
+                var response = await _http.DeleteAsync($"/api/MedRecord/DeleteNotComeOvst/{id}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Console.WriteLine($"Successfully deleted record with ID: {id}");
+
+                    // Remove the deleted item from visitData
+                    var deletedVisit = visitData.FirstOrDefault(v => v.hosGuid == id);
+                    if (deletedVisit != null)
+                    {
+                        visitData.Remove(deletedVisit);
+                    }
+                    // Refresh only affected parts
+                    StateHasChanged();
+                }
+                else
+                {
+                    Console.WriteLine($"Error deleting record with ID: {id}. Status: {response.StatusCode}");
+                }
+            }
+
+            
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred: {ex.Message}");
+        }
+    } *@
+
+    private async Task DeleteAbsentVisit2(List<string> ids)
+    {
+        try
+        {
+            if (ids == null || !ids.Any())
+            {
+                Console.WriteLine("No IDs provided for deletion.");
+                return;
+            }
+
+            var token = await _localStorageService.GetItemAsync<string>("jwt-access-token");
+            _http.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+            // Create a list to store successfully deleted IDs
+            List<string> successfullyDeletedIds = new List<string>();
+
+            foreach (var id in ids)
+            {
+                var response = await _http.DeleteAsync($"/api/MedRecord/DeleteNotComeOvst/{id}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Console.WriteLine($"Successfully deleted record with ID: {id}");
+
+                    // Add to the list of deleted IDs
+                    successfullyDeletedIds.Add(id);
+                }
+                else
+                {
+                    Console.WriteLine($"Error deleting record with ID: {id}. Status: {response.StatusCode}");
+                }
+            }
+
+            // Remove only the deleted records from visitData
+            visitData.RemoveAll(v => successfullyDeletedIds.Contains(v.hosGuid));
+
+            // Refresh only affected parts
+            StateHasChanged();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred: {ex.Message}");
+        }
     }
+
+
 
 
     private async Task DeleteSelectedOvsts()
@@ -185,7 +334,7 @@ else
             @* navManager.NavigateTo("/absentvisit"); *@
             // Refresh the visitData list
             //visitData = await _http.GetFromJsonAsync<List<AbsentVisit>>("api/MedRecord/GetMedRecords");
-            visitData = await _http.GetFromJsonAsync<List<AbsentVisit>>("api/MedRecord/GetMedRecordsRedis");
+            //visitData = await _http.GetFromJsonAsync<List<AbsentVisit>>("api/MedRecord/GetMedRecordsRedis");
             StateHasChanged(); // Refresh the UI to clear checkboxes
         }
         else if (!selectedIds.Any())
@@ -207,6 +356,36 @@ else
             selectedIds.Remove(id);
         }
     }
+
+    private async Task<string> GetMedRecordStatus(string hn, string vn)
+    {
+        try
+        {
+            var response = await _http.GetFromJsonAsync<JsonElement>($"api/MedRecord/CheckMedRecord?hn={hn}&vn={vn}");
+
+            if (response.TryGetProperty("message", out JsonElement message))
+            {
+                return message.GetString() ?? "Unknown";
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching status for HN: {hn}, VN: {vn} - {ex.Message}");
+        }
+        return "Error";
+    }
+
+    private string GetStatusClass(string status)
+    {
+        return status switch
+        {
+            "พบข้อมูล" => "text-success fw-bold", // Green for found
+            "ไม่พบข้อมูล" => "text-danger fw-bold", // Red for not found
+            _ => "text-warning fw-bold" // Yellow for unknown or errors
+        };
+    }
+
+
 }
 
     

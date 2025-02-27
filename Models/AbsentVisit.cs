@@ -8,5 +8,8 @@ namespace HosxpUi.Models
         public string vstDate { get; set; }
         public string vsttime { get; set; }
         public string patientName { get; set; }
+
+        // New property for status
+        public string StatusMessage { get; set; } = "Loading...";
     }
 }

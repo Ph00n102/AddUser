@@ -49,6 +49,10 @@
       "PackagePath": "staticwebassets\\icon-192.png"
     },
     {
+      "Id": "D:\\HosxpUi\\wwwroot\\icon-512.png",
+      "PackagePath": "staticwebassets\\icon-512.png"
+    },
+    {
       "Id": "D:\\HosxpUi\\wwwroot\\images\\mony.jpg",
       "PackagePath": "staticwebassets\\images\\mony.jpg"
     },
@@ -73,8 +77,20 @@
       "PackagePath": "staticwebassets\\js\\pdf.js"
     },
     {
+      "Id": "D:\\HosxpUi\\wwwroot\\manifest.webmanifest",
+      "PackagePath": "staticwebassets\\manifest.webmanifest"
+    },
+    {
       "Id": "D:\\HosxpUi\\wwwroot\\sample-data\\weather.json",
       "PackagePath": "staticwebassets\\sample-data\\weather.json"
+    },
+    {
+      "Id": "D:\\HosxpUi\\wwwroot\\service-worker.js",
+      "PackagePath": "staticwebassets\\service-worker.js"
+    },
+    {
+      "Id": "D:\\HosxpUi\\wwwroot\\service-worker.published.js",
+      "PackagePath": "staticwebassets\\service-worker.published.js"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.HosxpUi.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

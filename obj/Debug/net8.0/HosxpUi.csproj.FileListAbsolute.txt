@@ -1259,6 +1259,11 @@ D:\HosxpUi\obj\Debug\net8.0\compressed\bfdd4cz7br-lywsgdok6u.gz
 D:\HosxpUi\obj\Debug\net8.0\compressed\1ejl40cicq-qw5dygib3t.gz
 D:\HosxpUi\obj\Debug\net8.0\compressed\qi83qtpmdc-liprrkmcjc.gz
 D:\HosxpUi\obj\Debug\net8.0\compressed\eqtcqyfwto-ej2cvtlebs.gz
-D:\HosxpUi\obj\Debug\net8.0\compressed\8om7xnnctu-2hgbdp5loy.gz
-D:\HosxpUi\obj\Debug\net8.0\compressed\g3pheblppr-wnqf5103rx.gz
-D:\HosxpUi\obj\Debug\net8.0\compressed\1wjanlyice-6db3g5bnrc.gz
+D:\HosxpUi\bin\Debug\net8.0\wwwroot\_framework\Microsoft.AspNetCore.Components.QuickGrid.wasm
+D:\HosxpUi\bin\Debug\net8.0\wwwroot\_framework\Microsoft.AspNetCore.Components.QuickGrid.wasm.gz
+D:\HosxpUi\bin\Debug\net8.0\Microsoft.AspNetCore.Components.QuickGrid.dll
+D:\HosxpUi\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Components.QuickGrid.wasm
+D:\HosxpUi\obj\Debug\net8.0\compressed\a3hr2dyczd-0zc56z4ao4.gz
+D:\HosxpUi\obj\Debug\net8.0\compressed\8om7xnnctu-3cwoti5ckd.gz
+D:\HosxpUi\obj\Debug\net8.0\compressed\g3pheblppr-i1innazpy9.gz
+D:\HosxpUi\obj\Debug\net8.0\compressed\1wjanlyice-7ey3gyxu7t.gz
