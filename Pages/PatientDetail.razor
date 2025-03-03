@@ -32,6 +32,7 @@
                 <button class="btn btn-info"><a href="/olab/@item.hn" target="_blank">ผล outlab</a></button>
                 <button class="btn btn-info"><a href="/othlab/@item.hn" target="_blank">ผล lab อืนๆ</a></button>
                 <button class="btn btn-primary"><a href="/ptnote/@item.hn" target="_blank">Note Photo</a></button>
+                <button class="btn btn-danger" @onclick="ToggleOrderInput">สั่ง order</button>
             </td>
         </tr>
         }
@@ -47,6 +48,47 @@
         </tr>
     </thead>
     <tbody>
+        <tr>
+            <td>
+                @currentDate
+            </td>
+            <td>
+                @if (showOrderInput)
+                {
+                    <div class="mt-2">
+                        @foreach (var order in newOrders.Select((value, index) => new { value, index }))
+                        {
+                            <div class="d-flex align-items-center mb-2">
+                                <input type="text" class="form-control me-2" @bind="@newOrders[order.index]" placeholder="Enter order oneday" />
+                                <button class="btn btn-danger" @onclick="() => RemoveOrderInput(order.index)">-</button>
+                            </div>
+                        }
+                        <button class="btn btn-success" @onclick="AddOrderInput">+</button>
+                    </div>
+                }
+            </td>
+            <td>
+                @if (showOrderInput)
+                {
+                    <div class="mt-2">
+                        @foreach (var order in newContinueOrders.Select((value, index) => new { value, index }))
+                        {
+                            <div class="d-flex align-items-center mb-2">
+                                <input type="text" class="form-control me-2" @bind="@newContinueOrders[order.index]" placeholder="Enter order continue" />
+                                <button class="btn btn-danger" @onclick="() => RemoveOrderInputContinue(order.index)">-</button>
+                            </div>
+                        }
+                        <button class="btn btn-success" @onclick="AddOrderInputContinue">+</button>
+                    </div>
+                }
+                @foreach (var order in orderContinueReview)
+                {
+                    <p>@order.drugName @order.orderItemDetail</p>
+                }
+            </td>
+            <td>
+            </td>
+        </tr>
         @foreach (var item in orderDetails)
         {
             <tr>
@@ -66,8 +108,10 @@
                         @foreach (var drug in item.oneday)
                         {
                             <p>
-                                @drug.drugName @drug.orderItemDetail @(drug.offOrderItemId != null ? $"off {drug.offOrderName} {drug.offOrderDetail}" : "")
+                               - @drug.drugName @drug.orderItemDetail @(drug.offOrderItemId != null ? $"off {drug.offOrderDrugName} {drug.offOrderItemDetail}" : "")
                             </p>
+                            <p><strong>@drug.doctorRole @drug.doctorName </strong></p>
+                            <p><strong>วันที่ @drug.orderDate เวลา @drug.orderTime </strong></p>
                         }
                     }
                     else
@@ -81,8 +125,10 @@
                         @foreach (var drug in item.continuous)
                         {
                             <p>
-                                @drug.drugName @drug.orderItemDetail @(drug.offOrderItemId != null ? $"off {drug.offOrderName} {drug.offOrderDetail}" : "")
+                                - @drug.drugName @drug.orderItemDetail @(drug.offOrderItemId != null ? $"off {drug.offOrderDrugName} {drug.offOrderItemDetail}" : "")
                             </p>
+                            <p><strong>@drug.doctorRole @drug.doctorName </strong></p>
+                            <p><strong>วันที่ @drug.orderDate เวลา @drug.orderTime </strong></p>
                         }
                     }
                     else
@@ -100,9 +146,9 @@
                                 @foreach (var detail in progress.progressNoteList)
                                 {
                                     <p>@detail.progressNoteItemDetail</p>
-                                    <p>@detail.progressNoteItemDetail2</p>
+                                    <p><strong>วันที่ @detail.progressNoteDate เวลา @detail.progressNoteTime น.</strong></p>
                                 }
-                                <p><strong>@progress.createUser @progress.progressNoteDate @progress.progressNoteTime</strong></p>
+                                <p><strong>@progress.createUser @progress.progressNoteDate</strong></p>
                             }
                         }
                     }
@@ -113,6 +159,7 @@
 </table> 
 
 @code {
+    private string currentDate = DateOnly.FromDateTime(DateTime.Now).ToString("yyyy-MM-dd");
     [Parameter]
     public string hn {get; set;}
     [Parameter]
@@ -122,7 +169,13 @@
     public List<WardPatient> ptDetails = new();
     public List<OpdVisit> visitList = new();
     public List<OrderDetail> orderDetails = new();
+    public List<ContinuosReview> orderContinueReview = new();
     public List<ProgressNote> progressNoteDetails = new();
+
+    private bool showOrderInput = false;
+    private bool showOrderContinueInput = false;
+    private List<string> newOrders = new();
+    private List<string> newContinueOrders = new();
     protected override async Task OnInitializedAsync()
     {
         @* var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
@@ -130,8 +183,51 @@
         orderDetails = await httpClient.GetFromJsonAsync<List<OrderDetail>>($"api/Drug/GetDrugIpdAll?_An={an}");
         progressNoteDetails = await httpClient.GetFromJsonAsync<List<ProgressNote>>($"api/ProgressNote/GetProgressNoteIpdAll?_An={an}"); *@
         ptDetails = await _http.GetFromJsonAsync<List<WardPatient>>($"api/Ipd/getpatientbyhn?_hn={hn}");
+        orderContinueReview = await _http.GetFromJsonAsync<List<ContinuosReview>>($"api/Drug/GetContinuousDrugOrders?_An={an}");
         orderDetails = await _http.GetFromJsonAsync<List<OrderDetail>>($"api/Drug/GetDrugIpdAll?_An={an}");
         progressNoteDetails = await _http.GetFromJsonAsync<List<ProgressNote>>($"api/ProgressNote/GetProgressNoteIpdAll?_An={an}");
+    }
+
+     private void ToggleOrderInput()
+    {
+        showOrderInput = !showOrderInput;
+        showOrderContinueInput = !showOrderContinueInput;
+    }
+
+    private void AddOrderInput()
+    {
+        newOrders.Add("");
+    }
+
+    private void AddOrderInputContinue()
+    {
+        newContinueOrders.Add("");
+    }
+
+    private void RemoveOrderInput(int index)
+    {
+        if (index >= 0 && index < newOrders.Count)
+        {
+            newOrders.RemoveAt(index);
+        }
+    }
+
+    private void RemoveOrderInputContinue(int index)
+    {
+        if (index >= 0 && index < newContinueOrders.Count)
+        {
+            newContinueOrders.RemoveAt(index);
+        }
+    }
+
+    private void UpdateOrder(int index, ChangeEventArgs e)
+    {
+        newOrders[index] = e.Value.ToString();
+    }
+
+     private void UpdateOrderContinue(int index, ChangeEventArgs e)
+    {
+        newContinueOrders[index] = e.Value.ToString();
     }
 
 }

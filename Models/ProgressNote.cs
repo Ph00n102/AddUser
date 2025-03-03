@@ -19,13 +19,11 @@ namespace HosxpUi.Models
         public int progressNoteId { get; set; }
         public string progressNoteDate { get; set; }
         public string progressNoteTime { get; set; }
-        public string createUser { get; set; }
         public string progressNoteOwnerType { get; set; }
         public int progressNoteItemId { get; set; }
         public string an { get; set; }
         public string progressNoteItemType { get; set; }
         public string progressNoteItemDetail { get; set; }
-        public string progressNoteItemDetail2 { get; set; }
     }
 
 }
