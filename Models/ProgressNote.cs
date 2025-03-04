@@ -9,8 +9,6 @@ namespace HosxpUi.Models
      public class CreateUser
     {
         public string createUser { get; set; }
-        public string progressNoteDate { get; set; }
-        public string progressNoteTime { get; set; }
         public List<ProgressNoteList> progressNoteList { get; set; }
     }
 
@@ -24,6 +22,7 @@ namespace HosxpUi.Models
         public string an { get; set; }
         public string progressNoteItemType { get; set; }
         public string progressNoteItemDetail { get; set; }
+        public string progressNoteItemDetail2 { get; set; }
     }
 
 }

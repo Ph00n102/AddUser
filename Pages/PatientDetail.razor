@@ -145,10 +145,13 @@
                             {
                                 @foreach (var detail in progress.progressNoteList)
                                 {
+                                    <p>@detail.progressNoteItemType</p>
                                     <p>@detail.progressNoteItemDetail</p>
+                                    <p>@detail.progressNoteItemDetail2</p>
                                     <p><strong>วันที่ @detail.progressNoteDate เวลา @detail.progressNoteTime น.</strong></p>
                                 }
-                                <p><strong>@progress.createUser @progress.progressNoteDate</strong></p>
+                                @* <p><strong>@GetNameFromLoginName(@progress.createUser)</strong></p> *@
+                                <p><strong>@(userNames.ContainsKey(progress.createUser) ? userNames[progress.createUser] : "")</strong></p>
                             }
                         }
                     }
@@ -176,6 +179,8 @@
     private bool showOrderContinueInput = false;
     private List<string> newOrders = new();
     private List<string> newContinueOrders = new();
+    private Dictionary<string, string> userNames = new();
+
     protected override async Task OnInitializedAsync()
     {
         @* var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
@@ -186,6 +191,20 @@
         orderContinueReview = await _http.GetFromJsonAsync<List<ContinuosReview>>($"api/Drug/GetContinuousDrugOrders?_An={an}");
         orderDetails = await _http.GetFromJsonAsync<List<OrderDetail>>($"api/Drug/GetDrugIpdAll?_An={an}");
         progressNoteDetails = await _http.GetFromJsonAsync<List<ProgressNote>>($"api/ProgressNote/GetProgressNoteIpdAll?_An={an}");
+
+        // Pre-fetch all unique user names
+        var uniqueUsers = progressNoteDetails
+            .SelectMany(p => p.createUser)
+            .Select(u => u.createUser)
+            .Distinct();
+
+        foreach (var user in uniqueUsers)
+        {
+            if (!string.IsNullOrEmpty(user) && !userNames.ContainsKey(user))
+            {
+                userNames[user] = await GetNameFromLoginName(user);
+            }
+        }
     }
 
      private void ToggleOrderInput()
@@ -228,6 +247,38 @@
      private void UpdateOrderContinue(int index, ChangeEventArgs e)
     {
         newContinueOrders[index] = e.Value.ToString();
+    }
+
+    @* private async Task<string> GetNameFromLoginName(string createUser)
+    {
+        try
+        {
+            // Fetching a string response instead of deserializing into ProgressNote
+            var response = await _http.GetStringAsync($"api/ProgressNote/GetNameFromLoginName?createUser={createUser}");
+            return response;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching name for createUser: {createUser} - {ex.Message}");
+        }
+        return "Error";
+    } *@
+    private async Task<string> GetNameFromLoginName(string createUser)
+    {
+        if (string.IsNullOrEmpty(createUser))
+        {
+            return "Unknown";
+        }
+
+        try
+        {
+            return await _http.GetStringAsync($"api/ProgressNote/GetNameFromLoginName?createUser={createUser}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching name for createUser: {createUser} - {ex.Message}");
+            return "Error";
+        }
     }
 
 }
