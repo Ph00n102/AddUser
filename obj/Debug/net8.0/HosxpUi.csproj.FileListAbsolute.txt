@@ -1264,6 +1264,6 @@ D:\HosxpUi\bin\Debug\net8.0\wwwroot\_framework\Microsoft.AspNetCore.Components.Q
 D:\HosxpUi\bin\Debug\net8.0\Microsoft.AspNetCore.Components.QuickGrid.dll
 D:\HosxpUi\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Components.QuickGrid.wasm
 D:\HosxpUi\obj\Debug\net8.0\compressed\a3hr2dyczd-0zc56z4ao4.gz
-D:\HosxpUi\obj\Debug\net8.0\compressed\8om7xnnctu-6i6yjifosw.gz
-D:\HosxpUi\obj\Debug\net8.0\compressed\g3pheblppr-fk8umwnew9.gz
-D:\HosxpUi\obj\Debug\net8.0\compressed\1wjanlyice-mtvz3j4oem.gz
+D:\HosxpUi\obj\Debug\net8.0\compressed\8om7xnnctu-0i4mtsgej2.gz
+D:\HosxpUi\obj\Debug\net8.0\compressed\g3pheblppr-q8z5xg910b.gz
+D:\HosxpUi\obj\Debug\net8.0\compressed\1wjanlyice-a1cl65nskt.gz
