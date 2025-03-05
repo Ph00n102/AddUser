@@ -1,0 +1,68 @@
+﻿@page "/getonedoctor"
+@using HosxpUi.Models
+@using Microsoft.AspNetCore.Authorization
+@inject HttpClient Http
+@attribute [Authorize(Roles = "Admin")]
+
+
+<input @bind="searchTerm" @oninput="OnInput" placeholder="Search..." />
+<ul>
+    @foreach (var item in items)
+    {
+        <li @onclick="() => SelectItem(item)">@item.name</li>
+    }
+</ul>
+
+@code {
+    private string searchTerm;
+    private List<Doctor> items = new();
+
+    private async Task OnInput(ChangeEventArgs e)
+    {
+        searchTerm = e.Value?.ToString();
+        items = await GetItemsAsync(searchTerm);
+    }
+
+    @* private async Task<List<Doctor>> GetItemsAsync(string query)
+    {
+        var response = await Http.GetAsync($"/api/Hos/GetDoctorBySearchName?name={query}");
+        response.EnsureSuccessStatusCode();
+
+        return await response.Content.ReadFromJsonAsync<List<Doctor>>();
+    } *@
+
+    private async Task<List<Doctor>> GetItemsAsync(string query)
+    {
+        try
+        {
+            var response = await Http.GetAsync($"/api/Hos/GetDoctorBySearchName?name={query}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var data = await response.Content.ReadFromJsonAsync<List<Doctor>>();
+                return data ?? new List<Doctor>(); // Return empty list if null
+            }
+            else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+            {
+                Console.WriteLine("No data found or invalid request.");
+                return new List<Doctor>(); // Return empty list to avoid UI crash
+            }
+            else
+            {
+                Console.WriteLine($"Unexpected error: {response.StatusCode}");
+                return new List<Doctor>();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching data: {ex.Message}");
+            return new List<Doctor>(); // Return empty list on exception
+        }
+    }
+
+    private void SelectItem(Doctor item)
+    {
+        searchTerm = item.name;
+        items.Clear();
+    }
+}

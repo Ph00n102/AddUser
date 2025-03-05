@@ -1,0 +1,69 @@
+﻿@page "/getdrugname"
+@using HosxpUi.Models
+@using Microsoft.AspNetCore.Authorization
+@inject HttpClient Http
+@attribute [Authorize(Roles = "Admin,Pharmacist,Doctor,Nurse")]
+
+<h3>ค้นหารายชื่อยาในระบบ Hosxp</h3>
+<input @bind="searchTerm" @oninput="OnInput" placeholder="Search..." style="background-color: gray; color: white; height:35px ;"/>
+<ul>
+    @foreach (var item in items)
+    {
+        <li @onclick="() => SelectItem(item)">@item.sksDfsText</li>
+    }
+</ul>
+
+@code {
+    private string searchTerm;
+    private List<DrugNameHosxp> items = new();
+
+    private async Task OnInput(ChangeEventArgs e)
+    {
+        searchTerm = e.Value?.ToString();
+        items = await GetItemsAsync(searchTerm);
+    }
+
+    @* private async Task<List<Doctor>> GetItemsAsync(string query)
+    {
+        var response = await Http.GetAsync($"/api/Hos/GetDoctorBySearchName?name={query}");
+        response.EnsureSuccessStatusCode();
+
+        return await response.Content.ReadFromJsonAsync<List<Doctor>>();
+    } *@
+
+    private async Task<List<DrugNameHosxp>> GetItemsAsync(string query)
+    {
+        try
+        {
+            var response = await Http.GetAsync($"/api/Drug/GetDrugNameFromDrugItem?name={query}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var data = await response.Content.ReadFromJsonAsync<List<DrugNameHosxp>>();
+                return data ?? new List<DrugNameHosxp>(); // Return empty list if null
+            }
+            else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+            {
+                Console.WriteLine("No data found or invalid request.");
+                return new List<DrugNameHosxp>(); // Return empty list to avoid UI crash
+            }
+            else
+            {
+                Console.WriteLine($"Unexpected error: {response.StatusCode}");
+                return new List<DrugNameHosxp>();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching data: {ex.Message}");
+            return new List<DrugNameHosxp>(); // Return empty list on exception
+        }
+    }
+
+    private void SelectItem(DrugNameHosxp item)
+    {
+        searchTerm = item.name;
+        items.Clear();
+    }
+}
+
