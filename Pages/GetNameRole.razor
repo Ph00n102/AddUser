@@ -1,15 +1,60 @@
 @page "/getnamerole"
+@using HosxpUi.Models
 @using HosxpUi.Services
+@using HosxpUi.Layout.Providers
+@using Blazored.LocalStorage
 @inject StateContainer StateContainer
+@inject HttpClient _http 
+@inject ILocalStorageService _localStorageService;
 
 <PageTitle>Getnamerole</PageTitle>
 <h3>Welcome, @StateContainer.LoginName (@StateContainer.Role)</h3>
+<p><strong>Doctor code:</strong> @displayName</p>
+
 
 @code {
-    // Subscribe to state changes to update the page when LoginName changes
-    protected override void OnInitialized()
+    private string displayName = "Loading...";
+    private string x = string.Empty;
+    @* protected override void OnInitialized()
     {
         StateContainer.OnChange += StateHasChanged;
+    } *@
+
+     protected override async Task OnInitializedAsync()
+    {
+        StateContainer.OnChange += StateHasChanged;
+        var token = await _localStorageService.GetItemAsync<string>("jwt-access-token");
+        
+        if (!string.IsNullOrEmpty(token))
+        {
+            var claims = JwtHelper.DecodeJwt(token);
+            
+            if (claims != null && claims.TryGetValue("LoginName", out var loginNameObj))
+            {
+                x = loginNameObj.ToString();
+            }
+
+            if (!string.IsNullOrEmpty(x))
+            {
+                displayName = await GetNameFromLoginName(x);
+            }
+            else
+            {
+                displayName = "Unknown";
+            }
+        }
+        else
+        {
+            displayName = "Unknown";
+        }
+        @* if (!string.IsNullOrEmpty(x))
+        {
+            displayName = await GetNameFromLoginName(x);
+        }
+        else
+        {
+            displayName = "Unknown";
+        } *@
     }
 
     // Unsubscribe when component is disposed
@@ -17,4 +62,26 @@
     {
         StateContainer.OnChange -= StateHasChanged;
     }
+
+
+    private async Task<string> GetNameFromLoginName(string createUser)
+    {
+        if (string.IsNullOrEmpty(createUser))
+        {
+            return "Unknown";
+        }
+
+        try
+        {
+            return await _http.GetStringAsync($"api/ProgressNote/GetDoctorCodeFromLoginName?createUser={createUser}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching name for createUser: {createUser} - {ex.Message}");
+            return "Error";
+        }
+    }
 }
+
+
+

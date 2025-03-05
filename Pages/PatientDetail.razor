@@ -34,7 +34,7 @@
                 <button class="btn btn-info"><a href="/olab/@item.hn" target="_blank">ผล outlab</a></button>
                 <button class="btn btn-info"><a href="/othlab/@item.hn" target="_blank">ผล lab อืนๆ</a></button>
                 <button class="btn btn-primary"><a href="/ptnote/@item.hn" target="_blank">Note Photo</a></button>
-                @if (StateContainer.Role == "Admin")
+                @if (StateContainer.Role == "Admin" || StateContainer.Role == "Doctor")
                 {
                     <button class="btn btn-danger" @onclick="ToggleOrderInput">สั่ง order</button>
                 }
@@ -55,7 +55,11 @@
     <tbody>
         <tr>
             <td>
-                @currentDate
+                @currentDate <br/>
+                @if (StateContainer.Role == "Admin" || StateContainer.Role == "Doctor")
+                {
+                    <button class="btn btn-danger" @onclick="ToggleOrderInput">สั่ง order</button>
+                }
             </td>
             <td>
                 @if (showOrderInput)
@@ -186,12 +190,8 @@
     private List<string> newContinueOrders = new();
     private Dictionary<string, string> userNames = new();
 
-    protected override async Task OnInitializedAsync()
+    @* protected override async Task OnInitializedAsync()
     {
-        @* var httpClient = _httpClientFactory.CreateClient("HosxpApi"); 
-        ptDetails = await httpClient.GetFromJsonAsync<List<WardPatient>>($"api/Ipd/getpatientbyhn?_hn={hn}");
-        orderDetails = await httpClient.GetFromJsonAsync<List<OrderDetail>>($"api/Drug/GetDrugIpdAll?_An={an}");
-        progressNoteDetails = await httpClient.GetFromJsonAsync<List<ProgressNote>>($"api/ProgressNote/GetProgressNoteIpdAll?_An={an}"); *@
         ptDetails = await _http.GetFromJsonAsync<List<WardPatient>>($"api/Ipd/getpatientbyhn?_hn={hn}");
         orderContinueReview = await _http.GetFromJsonAsync<List<ContinuosReview>>($"api/Drug/GetContinuousDrugOrders?_An={an}");
         orderDetails = await _http.GetFromJsonAsync<List<OrderDetail>>($"api/Drug/GetDrugIpdAll?_An={an}");
@@ -210,7 +210,72 @@
                 userNames[user] = await GetNameFromLoginName(user);
             }
         }
+    }  *@
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            ptDetails = await _http.GetFromJsonAsync<List<WardPatient>>($"api/Ipd/getpatientbyhn?_hn={hn}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching patient details: {ex.Message}");
+            await ShowAlert("มีความผิดพลาด กรุณาแจ้งสำนักงานดิจิทัลทางการแพทย์ 55319,8926");
+        }
+
+        try
+        {
+            orderContinueReview = await _http.GetFromJsonAsync<List<ContinuosReview>>($"api/Drug/GetContinuousDrugOrders?_An={an}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching continuous orders: {ex.Message}");
+            await ShowAlert("มีความผิดพลาด กรุณาแจ้งสำนักงานดิจิทัลทางการแพทย์ 55319,8926");
+        }
+
+        try
+        {
+            orderDetails = await _http.GetFromJsonAsync<List<OrderDetail>>($"api/Drug/GetDrugIpdAll?_An={an}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching drug orders: {ex.Message}");
+            await ShowAlert("มีความผิดพลาด กรุณาแจ้งสำนักงานดิจิทัลทางการแพทย์");
+        }
+
+        try
+        {
+            progressNoteDetails = await _http.GetFromJsonAsync<List<ProgressNote>>($"api/ProgressNote/GetProgressNoteIpdAll?_An={an}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching progress notes: {ex.Message}");
+            await ShowAlert("มีความผิดพลาด กรุณาแจ้งสำนักงานดิจิทัลทางการแพทย์ 55319,8926");
+        }
+
+        // Pre-fetch all unique user names
+        var uniqueUsers = progressNoteDetails
+            .SelectMany(p => p.createUser)
+            .Select(u => u.createUser)
+            .Distinct();
+
+        foreach (var user in uniqueUsers)
+        {
+            if (!string.IsNullOrEmpty(user) && !userNames.ContainsKey(user))
+            {
+                userNames[user] = await GetNameFromLoginName(user);
+            }
+        }
     }
+
+private async Task ShowAlert(string message)
+{
+    await Task.Run(() => 
+        Navigation.NavigateTo($"javascript:alert('{message}');", true)
+    );
+}
+
 
     protected override void OnInitialized()
     {

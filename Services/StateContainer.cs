@@ -2,11 +2,13 @@ namespace HosxpUi.Services
 {
     public class StateContainer
     {
+    
         private string _loginName;
         private string _role;
-
+    
         // Event to notify when LoginName changes
         public event Action OnChange;
+
 
         public string LoginName
         {
@@ -33,7 +35,8 @@ namespace HosxpUi.Services
                 }
             }
         }
-
+        
         private void NotifyStateChanged() => OnChange?.Invoke();
+
     }
 }
