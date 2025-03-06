@@ -56,10 +56,7 @@
         <tr>
             <td>
                 @currentDate <br/>
-                @if (StateContainer.Role == "Admin" || StateContainer.Role == "Doctor")
-                {
-                    <button class="btn btn-danger" @onclick="ToggleOrderInput">สั่ง order</button>
-                }
+                <button class="btn btn-danger" @onclick="ToggleOrderInput">สั่ง order</button>
             </td>
             <td>
                 @if (showOrderInput)
@@ -67,7 +64,7 @@
                     <div class="mt-2">
                         @foreach (var order in newOrders.Select((value, index) => new { value, index }))
                         {
-                            <div class="d-flex align-items-center mb-2">
+                            @* <div class="d-flex align-items-center mb-2">
                                 <input @bind="searchTerm" @oninput="OnInput" placeholder="Search..." style="background-color: gray; color: white; height:35px ;"/>
                                     <ul>
                                         @foreach (var item in items)
@@ -75,6 +72,20 @@
                                             <li @onclick="() => SelectItem(item)">@item.sksDfsText</li>
                                         }
                                     </ul>
+                                <input type="text" class="form-control me-2" @bind="@newOrders[order.index]" placeholder="Enter order oneday" />
+                                <button class="btn btn-danger" @onclick="() => RemoveOrderInput(order.index)">-</button>
+                            </div> *@
+                            <div class="dropdown">
+                                <input @bind="searchTerm" @oninput="OnInput" placeholder="Search..." class="form-control" />
+                                @if (items.Any())
+                                {
+                                    <ul class="dropdown-menu show">
+                                        @foreach (var item in items)
+                                        {
+                                            <li class="dropdown-item" @onclick="() => SelectItem(item)">@item.sksDfsText</li>
+                                        }
+                                    </ul>
+                                }
                                 <input type="text" class="form-control me-2" @bind="@newOrders[order.index]" placeholder="Enter order oneday" />
                                 <button class="btn btn-danger" @onclick="() => RemoveOrderInput(order.index)">-</button>
                             </div>
@@ -408,8 +419,10 @@ private async Task ShowAlert(string message)
 
     private void SelectItem(DrugNameHosxp item)
     {
-        searchTerm = item.name;
+        searchTerm = item.sksDfsText;
         items.Clear();
     }
+
+    
 
 }
