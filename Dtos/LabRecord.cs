@@ -1,6 +1,6 @@
 using System;
 
-namespace HosxpUi.Models;
+namespace HosxpUi.Dtos;
 
 public class LabRecord
 {
