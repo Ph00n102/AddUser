@@ -1,5 +1,4 @@
-@page "/patient"
-@page "/patient/{hn}/{an}"
+﻿@page "/ordertest"
 @using HosxpUi.Models
 @using HosxpUi.Services
 @using Microsoft.AspNetCore.Authorization
@@ -7,7 +6,7 @@
 @inject HttpClient _http 
 @inject NavigationManager Navigation;
 @inject StateContainer StateContainer
-@attribute [Authorize(Roles = "Admin,Pharmacist,Doctor,Card,Nurse")]
+@attribute [Authorize]
 
 <PageTitle>Patient Detail</PageTitle>
 <table class="table">
@@ -42,7 +41,9 @@
 <table class="table">
     <thead>
         <tr>
-            <td>Order Date</td>
+            <td>
+                Order Date
+            </td>
             <td>Order Oneday</td>
             <td>Order Continuous</td>
             <td>Progress Note</td>
@@ -52,14 +53,61 @@
         <tr>
             <td>
                 @currentDate
+                <div class="dropdown">
+                    <input @bind="searchTerm" @oninput="OnInput" placeholder="Search..." class="form-control" />
+                        @if (items.Any())
+                        {
+                            <ul class="dropdown-menu show">
+                                @foreach (var item in items)
+                                {
+                                    <li class="dropdown-item" @onclick="() => SelectItem(item)">@item.sksDfsText</li>
+                                }
+                            </ul>
+                        }
+                </div>
             </td>
             <td>
+                <div>
+                    <AuthorizeView Roles="Admin">
+                        <button type="button" class="btn btn-primary" @onclick="AddOneDayOrder">+</button>
+                    </AuthorizeView>
+                    <ul>
+                        @foreach (var order in orderRequest.OnedayOrders)
+                        {
+                            <li>
+                                <InputText class="form-control me-2" @bind-Value="order.OrderItemType" placeholder="Order Type" />
+                                <InputText class="form-control me-2" @bind-Value="order.OrderItemDetail" placeholder="Order Detail" />
+                                <button type="button" class="btn btn-danger" @onclick="() => RemoveOneDayOrder(order)">Remove</button>
+                            </li>
+                        }
+                    </ul>
+                </div>
             </td>
             <td>
+                <div>
+                    <AuthorizeView Roles="Admin">
+                        <button type="button" class="btn btn-primary" @onclick="AddOneDayOrder">+</button>
+                    </AuthorizeView>
+                    <ul>
+                        @foreach (var order in orderRequest.ContinuousOrders)
+                        {
+                            <li>
+                                <InputText class="form-control me-2" @bind-Value="order.OrderItemType" placeholder="Order Type" />
+                                <InputText class="form-control me-2" @bind-Value="order.OrderItemDetail" placeholder="Order Detail" />
+                                <button type="button" class="btn btn-danger" @onclick="() => RemoveContinueOrder(order)">Remove</button>
+                            </li>
+                        }
+                    </ul>
+                </div>
                 @foreach (var order in orderContinueReview)
                 {
                     <p>- @order.drugName @order.orderItemDetail</p>
                 }
+            </td>
+            <td>
+                <AuthorizeView Roles="Admin">
+                    <button class="btn btn-warning" @onclick="SaveOrder">ส่ง order</button>
+                </AuthorizeView>
             </td>
         </tr>
         @foreach (var item in orderDetails)
@@ -136,10 +184,10 @@
 
 @code {
     private string currentDate = DateOnly.FromDateTime(DateTime.Now).ToString("yyyy-MM-dd");
-    [Parameter]
-    public string hn {get; set;}
-    [Parameter]
-    public string an {get; set;}
+    public string hn = "0020000";
+    
+
+    public string an = "530027488";
     public string orderItemId {get; set;}
 
     public List<WardPatient> ptDetails = new();
@@ -148,11 +196,23 @@
     public List<ContinuosReview> orderContinueReview = new();
     public List<ProgressNote> progressNoteDetails = new();
 
+    private bool showOrderInput = false;
+    private bool showOrderContinueInput = false;
+    private List<string> newOrders = new();
+    private List<string> newContinueOrders = new();
     private Dictionary<string, string> userNames = new();
 
     private string searchTerm;
     private List<DrugNameHosxp> items = new();
 
+    public OrderRequest orderRequest = new OrderRequest 
+    {
+        An = "530027488",
+        LoginName = "50239",
+        OrderDoctor = "2005",
+        OnedayOrders = new List<OrderItem>(), 
+        ContinuousOrders = new List<OrderItem>()
+    };
 
     @* protected override async Task OnInitializedAsync()
     {
@@ -253,6 +313,7 @@ private async Task ShowAlert(string message)
     {
         StateContainer.OnChange -= StateHasChanged;
     }
+
      
     private async Task<string> GetNameFromLoginName(string createUser)
     {
@@ -313,5 +374,46 @@ private async Task ShowAlert(string message)
         items.Clear();
     }
 
+    protected async Task SaveOrder()
+    {
+        // Ensure the order request has the required fields
+        orderRequest.An = "530027488";  // Set AN dynamically from route parameter
+        orderRequest.LoginName = "50239";  // Hardcoded, adjust if necessary
+        orderRequest.OrderDoctor = "2005"; // Hardcoded, adjust if necessary
+        
+        var response = await _http.PostAsJsonAsync("api/Drug/AddIpdDrugOrder2", orderRequest);
+
+        if (response.IsSuccessStatusCode)
+        {
+            await ShowAlert("ท่านสั่ง order สำเร็จ");
+            Navigation.NavigateTo("/ordertest", true); 
+        }
+        else
+        {
+            string errorMessage = await response.Content.ReadAsStringAsync();
+            Console.WriteLine($"Error submitting order: {errorMessage}");
+            await ShowAlert("ท่านสั่ง order ไม่สำเร็จ กรุณาลองอีกครั้ง");
+        }
+    } 
+
+    private void AddOneDayOrder()
+    {
+        orderRequest.OnedayOrders.Add(new OrderItem());
+    }
+
+    private void RemoveOneDayOrder(OrderItem order)
+    {
+        orderRequest.OnedayOrders.Remove(order);
+    }
+
+    private void AddContinueOrder()
+    {
+        orderRequest.ContinuousOrders.Add(new OrderItem());
+    }
+
+    private void RemoveContinueOrder(OrderItem order)
+    {
+        orderRequest.ContinuousOrders.Remove(order);
+    }
 
 }

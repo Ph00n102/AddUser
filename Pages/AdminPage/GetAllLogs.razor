@@ -1,0 +1,114 @@
+﻿@* @page "/getlog"
+@using HosxpUi.Models
+@using Microsoft.AspNetCore.Authorization
+@using Blazored.LocalStorage
+@using HosxpUi.Shared
+@inject HttpClient _http
+@inject ILocalStorageService _localStorageService;
+@attribute [Authorize(Roles = "Admin")]
+
+<PageTitle>Log Detail (OPD)</PageTitle>
+<h2>คำแนะนำ</h2>
+<SurveyPrompt Title="หน้าจอเป็น log ที่เก็บในกรณีที่ใช้โปรแกรมลบของสำนักงานดิจิทัลทางการแพทย์ 
+ที่เก็บย้อนหลังในฐานข้อมูลไม่เกิน 7 วัน เนื่องจากความจุของ server ที่จำกัด หากท่านต้องการค้นหา log ที่เกินกว่า 7 วัน 
+ท่านจำเป็นต้องค้นหาด้วยตนเองที่ Nas สำนักงานดิจิทัลทางการแพทย์ IP ภายใน 172.16.200.207:5115 ส่วน IP ภายนอก 183.89.226.246:5115 โดยติดต่อขอเข้าใช้สิทธิ์ในเวลาราชการ 55319, 8926 ส่วนนอกเวลา add line: korawan_toei2" />
+<input value="@searchTerm" @onchange="((ChangeEventArgs __e) => searchTerm = __e?.Value?.ToString())" style="background-color: gray; color: white; height:35px ;">
+<button class="btn btn-primary" @onclick="Click" >ค้นหา HN</button>
+
+<ul>
+    @foreach (var log in logs)
+    {
+        <li>@log.message (@log.timestamp)</li>
+    }
+</ul>
+
+@code {
+    private string searchTerm;
+    private List<LogEntry> logs = new();
+
+    private async Task Click()
+    {
+        
+        var token = await _localStorageService.GetItemAsync<string>("jwt-access-token");
+        _http.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+        logs = await _http.GetFromJsonAsync<List<LogEntry>>($"/api/Log/GetLogsByHn?hn={searchTerm}");
+    }
+} *@
+
+
+@page "/getlog"
+@using HosxpUi.Models
+@using Microsoft.AspNetCore.Authorization
+@using Blazored.LocalStorage
+@using HosxpUi.Shared
+@inject HttpClient _http
+@inject ILocalStorageService _localStorageService;
+@attribute [Authorize(Roles = "Admin")]
+
+<PageTitle>Log Detail (OPD)</PageTitle>
+<h2>คำแนะนำ</h2>
+<SurveyPrompt Title="หน้าจอเป็น log ที่เก็บในกรณีที่ใช้โปรแกรมลบของสำนักงานดิจิทัลทางการแพทย์ 
+ที่เก็บย้อนหลังในฐานข้อมูลไม่เกิน 7 วัน เนื่องจากความจุของ server ที่จำกัด หากท่านต้องการค้นหา log ที่เกินกว่า 7 วัน 
+ท่านจำเป็นต้องค้นหาด้วยตนเองที่ Nas สำนักงานดิจิทัลทางการแพทย์ IP ภายใน 172.16.200.207:5115 ส่วน IP ภายนอก 183.89.226.246:5115 โดยติดต่อขอเข้าใช้สิทธิ์ในเวลาราชการ 55319, 8926 ส่วนนอกเวลา add line: korawan_toei2" />
+
+<input value="@searchTerm" @onchange="((ChangeEventArgs __e) => searchTerm = __e?.Value?.ToString())" style="background-color: gray; color: white; height:35px ;">
+<button class="btn btn-primary" @onclick="Click" >ค้นหา HN</button>
+
+@if (isLoading)
+{
+    <p><strong>Loading...</strong></p>
+}
+else if (logs.Count == 0 && !string.IsNullOrWhiteSpace(searchTerm))
+{
+    <p><strong>No logs found.</strong></p>
+}
+else
+{
+    <ul>
+        @foreach (var log in logs)
+        {
+            <li>@log.message (@log.timestamp)</li>
+        }
+    </ul>
+}
+
+@code {
+    private string searchTerm;
+    private List<LogEntry> logs = new();
+    private bool isLoading = false; // Loading state
+
+    private async Task Click()
+    {
+        if (string.IsNullOrWhiteSpace(searchTerm))
+            return;
+
+        isLoading = true; // Start loading
+        logs.Clear(); // Clear previous results
+
+        try
+        {
+            var token = await _localStorageService.GetItemAsync<string>("jwt-access-token");
+            _http.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+            var response = await _http.GetAsync($"/api/Log/GetLogsByHn?hn={searchTerm}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                logs = await response.Content.ReadFromJsonAsync<List<LogEntry>>() ?? new List<LogEntry>();
+            }
+            else
+            {
+                logs = new List<LogEntry>(); // Ensure UI doesn't break
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching logs: {ex.Message}");
+            logs = new List<LogEntry>();
+        }
+        finally
+        {
+            isLoading = false; // Stop loading
+        }
+    }
+}
