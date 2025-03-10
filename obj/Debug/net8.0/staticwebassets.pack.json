@@ -9,6 +9,42 @@
       "PackagePath": "staticwebassets\\HosxpUi.styles.css"
     },
     {
+      "Id": "D:\\HosxpUi\\wwwroot\\audio\\bass.mp3",
+      "PackagePath": "staticwebassets\\audio\\bass.mp3"
+    },
+    {
+      "Id": "D:\\HosxpUi\\wwwroot\\audio\\fx1.mp3",
+      "PackagePath": "staticwebassets\\audio\\fx1.mp3"
+    },
+    {
+      "Id": "D:\\HosxpUi\\wwwroot\\audio\\fx2.mp3",
+      "PackagePath": "staticwebassets\\audio\\fx2.mp3"
+    },
+    {
+      "Id": "D:\\HosxpUi\\wwwroot\\audio\\fx3.mp3",
+      "PackagePath": "staticwebassets\\audio\\fx3.mp3"
+    },
+    {
+      "Id": "D:\\HosxpUi\\wwwroot\\audio\\hihat.mp3",
+      "PackagePath": "staticwebassets\\audio\\hihat.mp3"
+    },
+    {
+      "Id": "D:\\HosxpUi\\wwwroot\\audio\\kick.mp3",
+      "PackagePath": "staticwebassets\\audio\\kick.mp3"
+    },
+    {
+      "Id": "D:\\HosxpUi\\wwwroot\\audio\\piano.mp3",
+      "PackagePath": "staticwebassets\\audio\\piano.mp3"
+    },
+    {
+      "Id": "D:\\HosxpUi\\wwwroot\\audio\\snare.mp3",
+      "PackagePath": "staticwebassets\\audio\\snare.mp3"
+    },
+    {
+      "Id": "D:\\HosxpUi\\wwwroot\\audio\\strings.mp3",
+      "PackagePath": "staticwebassets\\audio\\strings.mp3"
+    },
+    {
       "Id": "D:\\HosxpUi\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },
@@ -67,6 +103,10 @@
     {
       "Id": "D:\\HosxpUi\\wwwroot\\js\\CheckAll.js",
       "PackagePath": "staticwebassets\\js\\CheckAll.js"
+    },
+    {
+      "Id": "D:\\HosxpUi\\wwwroot\\js\\audioplayer.js",
+      "PackagePath": "staticwebassets\\js\\audioplayer.js"
     },
     {
       "Id": "D:\\HosxpUi\\wwwroot\\js\\chart.js",

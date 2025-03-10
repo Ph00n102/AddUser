@@ -7,6 +7,7 @@ using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Authorization;
 using HosxpUi.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using HosxpUi.Pages.MusicPad;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -46,6 +47,7 @@ builder.Services.AddBlazoredLocalStorage();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthProvider>();
 builder.Services.AddAuthorizationCore();
 builder.Services.AddScoped<CustomHttpHandler>();
+builder.Services.AddScoped<ISoundPlayer, SoundPlayer>();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options => 

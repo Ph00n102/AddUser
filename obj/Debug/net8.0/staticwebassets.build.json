@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dZ6TOMsJutOg62yjcLkACkLmCjOrw+Fy1LdQXQxSWQA=",
+  "Hash": "pRq5QnLdmCtDGtKvo5uEP8kO7t1GmavsSObVAADgrPI=",
   "Source": "HosxpUi",
   "BasePath": "/",
   "Mode": "Root",
@@ -115,8 +115,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "manifest",
-      "Fingerprint": "edfydj7zfp",
-      "Integrity": "rvTwNmCg6MHWB9PwxJOx5AdERF3C6eWxtn086f3WELo=",
+      "Fingerprint": "ophcc4m6c8",
+      "Integrity": "VB9sGeXIi2Du/s6wDYxmeK4TgusKrbVmbKLIeTDpJag=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Debug\\net8.0\\blazor.boot.json"
@@ -346,8 +346,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "symbol",
-      "Fingerprint": "mchs7je0j8",
-      "Integrity": "1rn3YwZ7A7A0XY2h/4LB3stDbfGBdM3jDvfd2t2RiPA=",
+      "Fingerprint": "7u4t45s7sp",
+      "Integrity": "v/V50W1XMihEzZgOQcfQSt3Bfd+lX3+5v6Jqxr3Z9a4=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Debug\\net8.0\\HosxpUi.pdb"
@@ -367,8 +367,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "runtime",
-      "Fingerprint": "f8hfr3zu9a",
-      "Integrity": "AWTVC/lV5FnS+YygJKB1SVd5GYGif6jXWAgNdZUnymA=",
+      "Fingerprint": "20667aqjfd",
+      "Integrity": "Hm10sVYmQPa0xk3BH43HFN742Hthzcsg/TiBpRC2ZEs=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\HosxpUi\\obj\\Debug\\net8.0\\webcil\\HosxpUi.wasm"
@@ -5582,7 +5582,7 @@
       "OriginalItemSpec": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Private.DataContractSerialization.wasm"
     },
     {
-      "Identity": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\1wjanlyice-edfydj7zfp.gz",
+      "Identity": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\1wjanlyice-ophcc4m6c8.gz",
       "SourceId": "HosxpUi",
       "SourceType": "Computed",
       "ContentRoot": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\",
@@ -5596,8 +5596,8 @@
       "RelatedAsset": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.boot.json",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "cuv28b44zt",
-      "Integrity": "TJ5f6ElkTm2CMzVawrXW7EUaxgPhFxOjNHXcOZ4c0WM=",
+      "Fingerprint": "ulv35ngpm6",
+      "Integrity": "wuOKXftOR0RWztoBQlo18f7qY6Q6Zp9qDHp2wkqxYL8=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.boot.json"
@@ -6359,7 +6359,7 @@
       "OriginalItemSpec": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Globalization.Extensions.wasm"
     },
     {
-      "Identity": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\8om7xnnctu-f8hfr3zu9a.gz",
+      "Identity": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\8om7xnnctu-20667aqjfd.gz",
       "SourceId": "HosxpUi",
       "SourceType": "Computed",
       "ContentRoot": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\",
@@ -6373,8 +6373,8 @@
       "RelatedAsset": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\HosxpUi.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "pjwtznrk3u",
-      "Integrity": "+0Ym4k1+d9/KpvKnauIm5h4PD7ql0wGExow9OJDkQr4=",
+      "Fingerprint": "umkvfrfi4l",
+      "Integrity": "NqXgy6qMJ6IrWw1+TJOBKAkHa4OHsHA/wJFKNNACVMY=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\HosxpUi.wasm"
@@ -7556,7 +7556,7 @@
       "OriginalItemSpec": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Runtime.InteropServices.wasm"
     },
     {
-      "Identity": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\g3pheblppr-mchs7je0j8.gz",
+      "Identity": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\g3pheblppr-7u4t45s7sp.gz",
       "SourceId": "HosxpUi",
       "SourceType": "Computed",
       "ContentRoot": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\",
@@ -7570,8 +7570,8 @@
       "RelatedAsset": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\HosxpUi.pdb",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "pye1lk36kn",
-      "Integrity": "AbfiOE1Q3AdUP12DtMybU0yoDIKA9G1R53O5LLsLjsU=",
+      "Fingerprint": "niw0cr83jc",
+      "Integrity": "YUMGkYCKn+eWMtMbc+56bWdSvODa7VWXNHZNaGO7SlE=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\HosxpUi.pdb"
@@ -10685,6 +10685,195 @@
       "OriginalItemSpec": "D:\\HosxpUi\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\HosxpUi.bundle.scp.css"
     },
     {
+      "Identity": "D:\\HosxpUi\\wwwroot\\audio\\bass.mp3",
+      "SourceId": "HosxpUi",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HosxpUi\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "audio/bass#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "2ml22xaedw",
+      "Integrity": "6l8fHLfEGHwaWJoL/FObuixOkwHz/S3gNSCTGJfC0BA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\audio\\bass.mp3"
+    },
+    {
+      "Identity": "D:\\HosxpUi\\wwwroot\\audio\\fx1.mp3",
+      "SourceId": "HosxpUi",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HosxpUi\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "audio/fx1#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "rrl6jgqinf",
+      "Integrity": "twbxu5IXg0ELf3o2MlKyAHWpBs9S6eWVz8PnaO+CJxY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\audio\\fx1.mp3"
+    },
+    {
+      "Identity": "D:\\HosxpUi\\wwwroot\\audio\\fx2.mp3",
+      "SourceId": "HosxpUi",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HosxpUi\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "audio/fx2#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "xkz3mpln6d",
+      "Integrity": "4cB+FT6tlx43sgmUElfV9g+Byf2UL/Z79+V482cBMZc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\audio\\fx2.mp3"
+    },
+    {
+      "Identity": "D:\\HosxpUi\\wwwroot\\audio\\fx3.mp3",
+      "SourceId": "HosxpUi",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HosxpUi\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "audio/fx3#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "1pvgd737l4",
+      "Integrity": "i2J2riAKdP/nXp4NfiyCjqoOMuqwl9npZ9A2x6BtW3E=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\audio\\fx3.mp3"
+    },
+    {
+      "Identity": "D:\\HosxpUi\\wwwroot\\audio\\hihat.mp3",
+      "SourceId": "HosxpUi",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HosxpUi\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "audio/hihat#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "744gc8lima",
+      "Integrity": "1/Tu8RwPJod9NowQ4xHeN1+lKFdZLS8m7HxeHNwtNYk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\audio\\hihat.mp3"
+    },
+    {
+      "Identity": "D:\\HosxpUi\\wwwroot\\audio\\kick.mp3",
+      "SourceId": "HosxpUi",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HosxpUi\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "audio/kick#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "irjiqt2rtx",
+      "Integrity": "cv2z3Lzu6Vq++jkdm6EFTHaUM2tXvl1wirQid8XUMhs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\audio\\kick.mp3"
+    },
+    {
+      "Identity": "D:\\HosxpUi\\wwwroot\\audio\\piano.mp3",
+      "SourceId": "HosxpUi",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HosxpUi\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "audio/piano#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "iw3ntezz5m",
+      "Integrity": "fmeE8p99uEOonvY69DJU8Apba8TguGp9/DP0OtmuhhM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\audio\\piano.mp3"
+    },
+    {
+      "Identity": "D:\\HosxpUi\\wwwroot\\audio\\snare.mp3",
+      "SourceId": "HosxpUi",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HosxpUi\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "audio/snare#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "h90448d7j1",
+      "Integrity": "q/FisakD19a1qBetw/BYmkhSPaHs9BTUP+M23T38w/g=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\audio\\snare.mp3"
+    },
+    {
+      "Identity": "D:\\HosxpUi\\wwwroot\\audio\\strings.mp3",
+      "SourceId": "HosxpUi",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HosxpUi\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "audio/strings#[.{fingerprint}]?.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "x1tahwbk9l",
+      "Integrity": "lZK/YE9NxMQ6gJfZzphNzd+vr1t2gTENnUpEXCL/UzQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\audio\\strings.mp3"
+    },
+    {
       "Identity": "D:\\HosxpUi\\wwwroot\\css\\app.css",
       "SourceId": "HosxpUi",
       "SourceType": "Discovered",
@@ -10972,11 +11161,32 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "xdv4cxvewv",
-      "Integrity": "5ZfshFq2dPdF+dxgHQkzAUtUTEeSvplXS2ZaUQ75muc=",
+      "Fingerprint": "07435mzr47",
+      "Integrity": "/GQMDY1wSNluLeRNQWVyefad9XBeRqJZbgFwufdb4zk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "D:\\HosxpUi\\wwwroot\\js\\audioplayer.js",
+      "SourceId": "HosxpUi",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HosxpUi\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "js/audioplayer#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ktf825fetn",
+      "Integrity": "6BcvwFUv6oy744X6VXxwn9J+iHW39S/uhgeJKIDCoOk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\audioplayer.js"
     },
     {
       "Identity": "D:\\HosxpUi\\wwwroot\\js\\chart.js",
@@ -11127,6 +11337,744 @@
     }
   ],
   "Endpoints": [
+    {
+      "Route": "audio/bass.2ml22xaedw.mp3",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\audio\\bass.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "258997"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6l8fHLfEGHwaWJoL/FObuixOkwHz/S3gNSCTGJfC0BA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 06:26:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2ml22xaedw"
+        },
+        {
+          "Name": "label",
+          "Value": "audio/bass.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-6l8fHLfEGHwaWJoL/FObuixOkwHz/S3gNSCTGJfC0BA="
+        }
+      ]
+    },
+    {
+      "Route": "audio/bass.mp3",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\audio\\bass.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "258997"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6l8fHLfEGHwaWJoL/FObuixOkwHz/S3gNSCTGJfC0BA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 06:26:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-6l8fHLfEGHwaWJoL/FObuixOkwHz/S3gNSCTGJfC0BA="
+        }
+      ]
+    },
+    {
+      "Route": "audio/fx1.mp3",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\audio\\fx1.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2759"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"twbxu5IXg0ELf3o2MlKyAHWpBs9S6eWVz8PnaO+CJxY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 06:27:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-twbxu5IXg0ELf3o2MlKyAHWpBs9S6eWVz8PnaO+CJxY="
+        }
+      ]
+    },
+    {
+      "Route": "audio/fx1.rrl6jgqinf.mp3",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\audio\\fx1.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2759"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"twbxu5IXg0ELf3o2MlKyAHWpBs9S6eWVz8PnaO+CJxY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 06:27:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rrl6jgqinf"
+        },
+        {
+          "Name": "label",
+          "Value": "audio/fx1.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-twbxu5IXg0ELf3o2MlKyAHWpBs9S6eWVz8PnaO+CJxY="
+        }
+      ]
+    },
+    {
+      "Route": "audio/fx2.mp3",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\audio\\fx2.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7357"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4cB+FT6tlx43sgmUElfV9g+Byf2UL/Z79+V482cBMZc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 06:27:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4cB+FT6tlx43sgmUElfV9g+Byf2UL/Z79+V482cBMZc="
+        }
+      ]
+    },
+    {
+      "Route": "audio/fx2.xkz3mpln6d.mp3",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\audio\\fx2.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7357"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4cB+FT6tlx43sgmUElfV9g+Byf2UL/Z79+V482cBMZc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 06:27:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xkz3mpln6d"
+        },
+        {
+          "Name": "label",
+          "Value": "audio/fx2.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4cB+FT6tlx43sgmUElfV9g+Byf2UL/Z79+V482cBMZc="
+        }
+      ]
+    },
+    {
+      "Route": "audio/fx3.1pvgd737l4.mp3",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\audio\\fx3.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "77219"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"i2J2riAKdP/nXp4NfiyCjqoOMuqwl9npZ9A2x6BtW3E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 06:27:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1pvgd737l4"
+        },
+        {
+          "Name": "label",
+          "Value": "audio/fx3.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-i2J2riAKdP/nXp4NfiyCjqoOMuqwl9npZ9A2x6BtW3E="
+        }
+      ]
+    },
+    {
+      "Route": "audio/fx3.mp3",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\audio\\fx3.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "77219"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"i2J2riAKdP/nXp4NfiyCjqoOMuqwl9npZ9A2x6BtW3E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 06:27:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-i2J2riAKdP/nXp4NfiyCjqoOMuqwl9npZ9A2x6BtW3E="
+        }
+      ]
+    },
+    {
+      "Route": "audio/hihat.744gc8lima.mp3",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\audio\\hihat.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2822"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1/Tu8RwPJod9NowQ4xHeN1+lKFdZLS8m7HxeHNwtNYk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 06:27:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "744gc8lima"
+        },
+        {
+          "Name": "label",
+          "Value": "audio/hihat.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-1/Tu8RwPJod9NowQ4xHeN1+lKFdZLS8m7HxeHNwtNYk="
+        }
+      ]
+    },
+    {
+      "Route": "audio/hihat.mp3",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\audio\\hihat.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2822"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1/Tu8RwPJod9NowQ4xHeN1+lKFdZLS8m7HxeHNwtNYk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 06:27:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-1/Tu8RwPJod9NowQ4xHeN1+lKFdZLS8m7HxeHNwtNYk="
+        }
+      ]
+    },
+    {
+      "Route": "audio/kick.irjiqt2rtx.mp3",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\audio\\kick.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4912"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cv2z3Lzu6Vq++jkdm6EFTHaUM2tXvl1wirQid8XUMhs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 06:27:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "irjiqt2rtx"
+        },
+        {
+          "Name": "label",
+          "Value": "audio/kick.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-cv2z3Lzu6Vq++jkdm6EFTHaUM2tXvl1wirQid8XUMhs="
+        }
+      ]
+    },
+    {
+      "Route": "audio/kick.mp3",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\audio\\kick.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4912"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cv2z3Lzu6Vq++jkdm6EFTHaUM2tXvl1wirQid8XUMhs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 06:27:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-cv2z3Lzu6Vq++jkdm6EFTHaUM2tXvl1wirQid8XUMhs="
+        }
+      ]
+    },
+    {
+      "Route": "audio/piano.iw3ntezz5m.mp3",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\audio\\piano.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "258998"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fmeE8p99uEOonvY69DJU8Apba8TguGp9/DP0OtmuhhM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 06:26:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "iw3ntezz5m"
+        },
+        {
+          "Name": "label",
+          "Value": "audio/piano.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-fmeE8p99uEOonvY69DJU8Apba8TguGp9/DP0OtmuhhM="
+        }
+      ]
+    },
+    {
+      "Route": "audio/piano.mp3",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\audio\\piano.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "258998"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fmeE8p99uEOonvY69DJU8Apba8TguGp9/DP0OtmuhhM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 06:26:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-fmeE8p99uEOonvY69DJU8Apba8TguGp9/DP0OtmuhhM="
+        }
+      ]
+    },
+    {
+      "Route": "audio/snare.h90448d7j1.mp3",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\audio\\snare.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2822"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"q/FisakD19a1qBetw/BYmkhSPaHs9BTUP+M23T38w/g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 06:27:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "h90448d7j1"
+        },
+        {
+          "Name": "label",
+          "Value": "audio/snare.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-q/FisakD19a1qBetw/BYmkhSPaHs9BTUP+M23T38w/g="
+        }
+      ]
+    },
+    {
+      "Route": "audio/snare.mp3",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\audio\\snare.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2822"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"q/FisakD19a1qBetw/BYmkhSPaHs9BTUP+M23T38w/g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 06:27:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-q/FisakD19a1qBetw/BYmkhSPaHs9BTUP+M23T38w/g="
+        }
+      ]
+    },
+    {
+      "Route": "audio/strings.mp3",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\audio\\strings.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "259000"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"lZK/YE9NxMQ6gJfZzphNzd+vr1t2gTENnUpEXCL/UzQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 06:26:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-lZK/YE9NxMQ6gJfZzphNzd+vr1t2gTENnUpEXCL/UzQ="
+        }
+      ]
+    },
+    {
+      "Route": "audio/strings.x1tahwbk9l.mp3",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\audio\\strings.mp3",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "259000"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "audio/mpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"lZK/YE9NxMQ6gJfZzphNzd+vr1t2gTENnUpEXCL/UzQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 06:26:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "x1tahwbk9l"
+        },
+        {
+          "Name": "label",
+          "Value": "audio/strings.mp3"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-lZK/YE9NxMQ6gJfZzphNzd+vr1t2gTENnUpEXCL/UzQ="
+        }
+      ]
+    },
     {
       "Route": "_content/Microsoft.AspNetCore.Components.QuickGrid/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
       "AssetFile": "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.2\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
@@ -12032,11 +12980,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"rvTwNmCg6MHWB9PwxJOx5AdERF3C6eWxtn086f3WELo=\""
+          "Value": "\"VB9sGeXIi2Du/s6wDYxmeK4TgusKrbVmbKLIeTDpJag=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 06:09:45 GMT"
+          "Value": "Mon, 10 Mar 2025 06:54:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12046,18 +12994,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-rvTwNmCg6MHWB9PwxJOx5AdERF3C6eWxtn086f3WELo="
+          "Value": "sha256-VB9sGeXIi2Du/s6wDYxmeK4TgusKrbVmbKLIeTDpJag="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json",
-      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\1wjanlyice-edfydj7zfp.gz",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\1wjanlyice-ophcc4m6c8.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000094455464"
+          "Quality": "0.000094491165"
         }
       ],
       "ResponseHeaders": [
@@ -12067,15 +13015,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "10586"
+          "Value": "10582"
         },
         {
           "Name": "ETag",
-          "Value": "\"TJ5f6ElkTm2CMzVawrXW7EUaxgPhFxOjNHXcOZ4c0WM=\""
+          "Value": "\"wuOKXftOR0RWztoBQlo18f7qY6Q6Zp9qDHp2wkqxYL8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 07 Mar 2025 09:22:17 GMT"
+          "Value": "Mon, 10 Mar 2025 06:50:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12095,19 +13043,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"rvTwNmCg6MHWB9PwxJOx5AdERF3C6eWxtn086f3WELo=\""
+          "Value": "W/\"VB9sGeXIi2Du/s6wDYxmeK4TgusKrbVmbKLIeTDpJag=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-rvTwNmCg6MHWB9PwxJOx5AdERF3C6eWxtn086f3WELo="
+          "Value": "sha256-VB9sGeXIi2Du/s6wDYxmeK4TgusKrbVmbKLIeTDpJag="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json.gz",
-      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\1wjanlyice-edfydj7zfp.gz",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\1wjanlyice-ophcc4m6c8.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -12116,7 +13064,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "10586"
+          "Value": "10582"
         },
         {
           "Name": "Content-Type",
@@ -12124,11 +13072,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"TJ5f6ElkTm2CMzVawrXW7EUaxgPhFxOjNHXcOZ4c0WM=\""
+          "Value": "\"wuOKXftOR0RWztoBQlo18f7qY6Q6Zp9qDHp2wkqxYL8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 07 Mar 2025 09:22:17 GMT"
+          "Value": "Mon, 10 Mar 2025 06:50:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12146,7 +13094,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-TJ5f6ElkTm2CMzVawrXW7EUaxgPhFxOjNHXcOZ4c0WM="
+          "Value": "sha256-wuOKXftOR0RWztoBQlo18f7qY6Q6Zp9qDHp2wkqxYL8="
         }
       ]
     },
@@ -13531,7 +14479,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "248608"
+          "Value": "254100"
         },
         {
           "Name": "Content-Type",
@@ -13539,11 +14487,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"1rn3YwZ7A7A0XY2h/4LB3stDbfGBdM3jDvfd2t2RiPA=\""
+          "Value": "\"v/V50W1XMihEzZgOQcfQSt3Bfd+lX3+5v6Jqxr3Z9a4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 06:09:38 GMT"
+          "Value": "Mon, 10 Mar 2025 06:53:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13553,18 +14501,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-1rn3YwZ7A7A0XY2h/4LB3stDbfGBdM3jDvfd2t2RiPA="
+          "Value": "sha256-v/V50W1XMihEzZgOQcfQSt3Bfd+lX3+5v6Jqxr3Z9a4="
         }
       ]
     },
     {
       "Route": "_framework/HosxpUi.pdb",
-      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\g3pheblppr-mchs7je0j8.gz",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\g3pheblppr-7u4t45s7sp.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000005734175"
+          "Quality": "0.000005599982"
         }
       ],
       "ResponseHeaders": [
@@ -13574,15 +14522,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "174392"
+          "Value": "178571"
         },
         {
           "Name": "ETag",
-          "Value": "\"AbfiOE1Q3AdUP12DtMybU0yoDIKA9G1R53O5LLsLjsU=\""
+          "Value": "\"YUMGkYCKn+eWMtMbc+56bWdSvODa7VWXNHZNaGO7SlE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 07 Mar 2025 09:22:15 GMT"
+          "Value": "Mon, 10 Mar 2025 06:50:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13602,19 +14550,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"1rn3YwZ7A7A0XY2h/4LB3stDbfGBdM3jDvfd2t2RiPA=\""
+          "Value": "W/\"v/V50W1XMihEzZgOQcfQSt3Bfd+lX3+5v6Jqxr3Z9a4=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-1rn3YwZ7A7A0XY2h/4LB3stDbfGBdM3jDvfd2t2RiPA="
+          "Value": "sha256-v/V50W1XMihEzZgOQcfQSt3Bfd+lX3+5v6Jqxr3Z9a4="
         }
       ]
     },
     {
       "Route": "_framework/HosxpUi.pdb.gz",
-      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\g3pheblppr-mchs7je0j8.gz",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\g3pheblppr-7u4t45s7sp.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -13623,7 +14571,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "174392"
+          "Value": "178571"
         },
         {
           "Name": "Content-Type",
@@ -13631,11 +14579,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"AbfiOE1Q3AdUP12DtMybU0yoDIKA9G1R53O5LLsLjsU=\""
+          "Value": "\"YUMGkYCKn+eWMtMbc+56bWdSvODa7VWXNHZNaGO7SlE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 07 Mar 2025 09:22:15 GMT"
+          "Value": "Mon, 10 Mar 2025 06:50:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13653,7 +14601,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-AbfiOE1Q3AdUP12DtMybU0yoDIKA9G1R53O5LLsLjsU="
+          "Value": "sha256-YUMGkYCKn+eWMtMbc+56bWdSvODa7VWXNHZNaGO7SlE="
         }
       ]
     },
@@ -13668,7 +14616,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "446741"
+          "Value": "455957"
         },
         {
           "Name": "Content-Type",
@@ -13676,11 +14624,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"AWTVC/lV5FnS+YygJKB1SVd5GYGif6jXWAgNdZUnymA=\""
+          "Value": "\"Hm10sVYmQPa0xk3BH43HFN742Hthzcsg/TiBpRC2ZEs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 06:09:40 GMT"
+          "Value": "Mon, 10 Mar 2025 06:54:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13690,18 +14638,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-AWTVC/lV5FnS+YygJKB1SVd5GYGif6jXWAgNdZUnymA="
+          "Value": "sha256-Hm10sVYmQPa0xk3BH43HFN742Hthzcsg/TiBpRC2ZEs="
         }
       ]
     },
     {
       "Route": "_framework/HosxpUi.wasm",
-      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\8om7xnnctu-f8hfr3zu9a.gz",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\8om7xnnctu-20667aqjfd.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000006715195"
+          "Quality": "0.000006575011"
         }
       ],
       "ResponseHeaders": [
@@ -13711,15 +14659,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "148915"
+          "Value": "152090"
         },
         {
           "Name": "ETag",
-          "Value": "\"+0Ym4k1+d9/KpvKnauIm5h4PD7ql0wGExow9OJDkQr4=\""
+          "Value": "\"NqXgy6qMJ6IrWw1+TJOBKAkHa4OHsHA/wJFKNNACVMY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 07 Mar 2025 09:22:16 GMT"
+          "Value": "Mon, 10 Mar 2025 06:50:23 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13739,19 +14687,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"AWTVC/lV5FnS+YygJKB1SVd5GYGif6jXWAgNdZUnymA=\""
+          "Value": "W/\"Hm10sVYmQPa0xk3BH43HFN742Hthzcsg/TiBpRC2ZEs=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-AWTVC/lV5FnS+YygJKB1SVd5GYGif6jXWAgNdZUnymA="
+          "Value": "sha256-Hm10sVYmQPa0xk3BH43HFN742Hthzcsg/TiBpRC2ZEs="
         }
       ]
     },
     {
       "Route": "_framework/HosxpUi.wasm.gz",
-      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\8om7xnnctu-f8hfr3zu9a.gz",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\8om7xnnctu-20667aqjfd.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -13760,7 +14708,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "148915"
+          "Value": "152090"
         },
         {
           "Name": "Content-Type",
@@ -13768,11 +14716,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"+0Ym4k1+d9/KpvKnauIm5h4PD7ql0wGExow9OJDkQr4=\""
+          "Value": "\"NqXgy6qMJ6IrWw1+TJOBKAkHa4OHsHA/wJFKNNACVMY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 07 Mar 2025 09:22:16 GMT"
+          "Value": "Mon, 10 Mar 2025 06:50:23 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13790,7 +14738,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-+0Ym4k1+d9/KpvKnauIm5h4PD7ql0wGExow9OJDkQr4="
+          "Value": "sha256-NqXgy6qMJ6IrWw1+TJOBKAkHa4OHsHA/wJFKNNACVMY="
         }
       ]
     },
@@ -46423,7 +47371,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 05 Mar 2025 01:32:02 GMT"
+          "Value": "Mon, 10 Mar 2025 06:54:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -46468,7 +47416,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 05 Mar 2025 01:32:02 GMT"
+          "Value": "Mon, 10 Mar 2025 06:54:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -46509,7 +47457,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 05 Mar 2025 01:32:02 GMT"
+          "Value": "Mon, 10 Mar 2025 06:54:00 GMT"
         },
         {
           "Name": "Link",
@@ -46558,7 +47506,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 05 Mar 2025 01:32:02 GMT"
+          "Value": "Mon, 10 Mar 2025 06:54:00 GMT"
         },
         {
           "Name": "Link",
@@ -46901,6 +47849,51 @@
       ]
     },
     {
+      "Route": "index.07435mzr47.html",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1829"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/GQMDY1wSNluLeRNQWVyefad9XBeRqJZbgFwufdb4zk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 06:37:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "07435mzr47"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-/GQMDY1wSNluLeRNQWVyefad9XBeRqJZbgFwufdb4zk="
+        }
+      ]
+    },
+    {
       "Route": "index.html",
       "AssetFile": "D:\\HosxpUi\\wwwroot\\index.html",
       "Selectors": [],
@@ -46911,7 +47904,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1782"
+          "Value": "1829"
         },
         {
           "Name": "Content-Type",
@@ -46919,11 +47912,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"5ZfshFq2dPdF+dxgHQkzAUtUTEeSvplXS2ZaUQ75muc=\""
+          "Value": "\"/GQMDY1wSNluLeRNQWVyefad9XBeRqJZbgFwufdb4zk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 27 Feb 2025 06:47:06 GMT"
+          "Value": "Mon, 10 Mar 2025 06:37:28 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -46933,13 +47926,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-5ZfshFq2dPdF+dxgHQkzAUtUTEeSvplXS2ZaUQ75muc="
+          "Value": "sha256-/GQMDY1wSNluLeRNQWVyefad9XBeRqJZbgFwufdb4zk="
         }
       ]
     },
     {
-      "Route": "index.xdv4cxvewv.html",
-      "AssetFile": "D:\\HosxpUi\\wwwroot\\index.html",
+      "Route": "js/audioplayer.js",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\js\\audioplayer.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -46948,19 +47941,56 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1782"
+          "Value": "388"
         },
         {
           "Name": "Content-Type",
-          "Value": "text/html"
+          "Value": "text/javascript"
         },
         {
           "Name": "ETag",
-          "Value": "\"5ZfshFq2dPdF+dxgHQkzAUtUTEeSvplXS2ZaUQ75muc=\""
+          "Value": "\"6BcvwFUv6oy744X6VXxwn9J+iHW39S/uhgeJKIDCoOk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 27 Feb 2025 06:47:06 GMT"
+          "Value": "Mon, 10 Mar 2025 06:36:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-6BcvwFUv6oy744X6VXxwn9J+iHW39S/uhgeJKIDCoOk="
+        }
+      ]
+    },
+    {
+      "Route": "js/audioplayer.ktf825fetn.js",
+      "AssetFile": "D:\\HosxpUi\\wwwroot\\js\\audioplayer.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "388"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6BcvwFUv6oy744X6VXxwn9J+iHW39S/uhgeJKIDCoOk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 06:36:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -46970,15 +48000,15 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "xdv4cxvewv"
+          "Value": "ktf825fetn"
         },
         {
           "Name": "label",
-          "Value": "index.html"
+          "Value": "js/audioplayer.js"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-5ZfshFq2dPdF+dxgHQkzAUtUTEeSvplXS2ZaUQ75muc="
+          "Value": "sha256-6BcvwFUv6oy744X6VXxwn9J+iHW39S/uhgeJKIDCoOk="
         }
       ]
     },
