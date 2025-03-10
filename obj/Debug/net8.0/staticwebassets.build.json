@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "HTbdquWdvyYzF7qz1mqPph7JIIxX6iMpb8t3wPWstVM=",
+  "Hash": "dZ6TOMsJutOg62yjcLkACkLmCjOrw+Fy1LdQXQxSWQA=",
   "Source": "HosxpUi",
   "BasePath": "/",
   "Mode": "Root",
@@ -115,8 +115,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "manifest",
-      "Fingerprint": "fshso0opsn",
-      "Integrity": "DyExE0afyERx5LjFIFUVMgWcbuXPAFXhczTJ1WF2M7A=",
+      "Fingerprint": "edfydj7zfp",
+      "Integrity": "rvTwNmCg6MHWB9PwxJOx5AdERF3C6eWxtn086f3WELo=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Debug\\net8.0\\blazor.boot.json"
@@ -346,8 +346,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "symbol",
-      "Fingerprint": "c0a2gsej11",
-      "Integrity": "LD8cBlyI7xYAL/l1m7SRW95iu0Hzx5AVXF89ldkInSc=",
+      "Fingerprint": "mchs7je0j8",
+      "Integrity": "1rn3YwZ7A7A0XY2h/4LB3stDbfGBdM3jDvfd2t2RiPA=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Debug\\net8.0\\HosxpUi.pdb"
@@ -367,8 +367,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "runtime",
-      "Fingerprint": "vhq0jg4mwj",
-      "Integrity": "3YbsPuSOHH2E34QhmRanjFmXgkcciYpxmmYH520ztwo=",
+      "Fingerprint": "f8hfr3zu9a",
+      "Integrity": "AWTVC/lV5FnS+YygJKB1SVd5GYGif6jXWAgNdZUnymA=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\HosxpUi\\obj\\Debug\\net8.0\\webcil\\HosxpUi.wasm"
@@ -5582,7 +5582,7 @@
       "OriginalItemSpec": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Private.DataContractSerialization.wasm"
     },
     {
-      "Identity": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\1wjanlyice-fshso0opsn.gz",
+      "Identity": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\1wjanlyice-edfydj7zfp.gz",
       "SourceId": "HosxpUi",
       "SourceType": "Computed",
       "ContentRoot": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\",
@@ -5596,8 +5596,8 @@
       "RelatedAsset": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.boot.json",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "nsp5yeavye",
-      "Integrity": "KTTFqgEmIKyIcR3cmmwJE/KMrahwvNh3CC3KIz2yHQ0=",
+      "Fingerprint": "cuv28b44zt",
+      "Integrity": "TJ5f6ElkTm2CMzVawrXW7EUaxgPhFxOjNHXcOZ4c0WM=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.boot.json"
@@ -6359,7 +6359,7 @@
       "OriginalItemSpec": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Globalization.Extensions.wasm"
     },
     {
-      "Identity": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\8om7xnnctu-vhq0jg4mwj.gz",
+      "Identity": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\8om7xnnctu-f8hfr3zu9a.gz",
       "SourceId": "HosxpUi",
       "SourceType": "Computed",
       "ContentRoot": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\",
@@ -6373,8 +6373,8 @@
       "RelatedAsset": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\HosxpUi.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "9dshuf360d",
-      "Integrity": "Iyx8meb6Mw/FOyQwAIptEUyzoKzrT/70y3OpMpkMXyY=",
+      "Fingerprint": "pjwtznrk3u",
+      "Integrity": "+0Ym4k1+d9/KpvKnauIm5h4PD7ql0wGExow9OJDkQr4=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\HosxpUi.wasm"
@@ -7556,7 +7556,7 @@
       "OriginalItemSpec": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Runtime.InteropServices.wasm"
     },
     {
-      "Identity": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\g3pheblppr-c0a2gsej11.gz",
+      "Identity": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\g3pheblppr-mchs7je0j8.gz",
       "SourceId": "HosxpUi",
       "SourceType": "Computed",
       "ContentRoot": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\",
@@ -7570,8 +7570,8 @@
       "RelatedAsset": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\HosxpUi.pdb",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "aoq49bl4g3",
-      "Integrity": "9prPeJgjMlK4vrC8T6GBg3fBJIG7dYvs3+Szsx+JlU8=",
+      "Fingerprint": "pye1lk36kn",
+      "Integrity": "AbfiOE1Q3AdUP12DtMybU0yoDIKA9G1R53O5LLsLjsU=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\HosxpUi.pdb"
@@ -12032,7 +12032,46 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"DyExE0afyERx5LjFIFUVMgWcbuXPAFXhczTJ1WF2M7A=\""
+          "Value": "\"rvTwNmCg6MHWB9PwxJOx5AdERF3C6eWxtn086f3WELo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 06:09:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-rvTwNmCg6MHWB9PwxJOx5AdERF3C6eWxtn086f3WELo="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/blazor.boot.json",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\1wjanlyice-edfydj7zfp.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000094455464"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10586"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"TJ5f6ElkTm2CMzVawrXW7EUaxgPhFxOjNHXcOZ4c0WM=\""
         },
         {
           "Name": "Last-Modified",
@@ -12041,45 +12080,6 @@
         {
           "Name": "Cache-Control",
           "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-DyExE0afyERx5LjFIFUVMgWcbuXPAFXhczTJ1WF2M7A="
-        }
-      ]
-    },
-    {
-      "Route": "_framework/blazor.boot.json",
-      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\1wjanlyice-fshso0opsn.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000094509026"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "10580"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"KTTFqgEmIKyIcR3cmmwJE/KMrahwvNh3CC3KIz2yHQ0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 07 Mar 2025 09:18:50 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -12095,19 +12095,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"DyExE0afyERx5LjFIFUVMgWcbuXPAFXhczTJ1WF2M7A=\""
+          "Value": "W/\"rvTwNmCg6MHWB9PwxJOx5AdERF3C6eWxtn086f3WELo=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-DyExE0afyERx5LjFIFUVMgWcbuXPAFXhczTJ1WF2M7A="
+          "Value": "sha256-rvTwNmCg6MHWB9PwxJOx5AdERF3C6eWxtn086f3WELo="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json.gz",
-      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\1wjanlyice-fshso0opsn.gz",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\1wjanlyice-edfydj7zfp.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -12116,7 +12116,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "10580"
+          "Value": "10586"
         },
         {
           "Name": "Content-Type",
@@ -12124,11 +12124,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"KTTFqgEmIKyIcR3cmmwJE/KMrahwvNh3CC3KIz2yHQ0=\""
+          "Value": "\"TJ5f6ElkTm2CMzVawrXW7EUaxgPhFxOjNHXcOZ4c0WM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 07 Mar 2025 09:18:50 GMT"
+          "Value": "Fri, 07 Mar 2025 09:22:17 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12146,7 +12146,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-KTTFqgEmIKyIcR3cmmwJE/KMrahwvNh3CC3KIz2yHQ0="
+          "Value": "sha256-TJ5f6ElkTm2CMzVawrXW7EUaxgPhFxOjNHXcOZ4c0WM="
         }
       ]
     },
@@ -13531,7 +13531,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "249060"
+          "Value": "248608"
         },
         {
           "Name": "Content-Type",
@@ -13539,11 +13539,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"LD8cBlyI7xYAL/l1m7SRW95iu0Hzx5AVXF89ldkInSc=\""
+          "Value": "\"1rn3YwZ7A7A0XY2h/4LB3stDbfGBdM3jDvfd2t2RiPA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 07 Mar 2025 09:22:15 GMT"
+          "Value": "Mon, 10 Mar 2025 06:09:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13553,13 +13553,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-LD8cBlyI7xYAL/l1m7SRW95iu0Hzx5AVXF89ldkInSc="
+          "Value": "sha256-1rn3YwZ7A7A0XY2h/4LB3stDbfGBdM3jDvfd2t2RiPA="
         }
       ]
     },
     {
       "Route": "_framework/HosxpUi.pdb",
-      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\g3pheblppr-c0a2gsej11.gz",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\g3pheblppr-mchs7je0j8.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -13578,11 +13578,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"9prPeJgjMlK4vrC8T6GBg3fBJIG7dYvs3+Szsx+JlU8=\""
+          "Value": "\"AbfiOE1Q3AdUP12DtMybU0yoDIKA9G1R53O5LLsLjsU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 07 Mar 2025 09:18:47 GMT"
+          "Value": "Fri, 07 Mar 2025 09:22:15 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13602,19 +13602,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"LD8cBlyI7xYAL/l1m7SRW95iu0Hzx5AVXF89ldkInSc=\""
+          "Value": "W/\"1rn3YwZ7A7A0XY2h/4LB3stDbfGBdM3jDvfd2t2RiPA=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-LD8cBlyI7xYAL/l1m7SRW95iu0Hzx5AVXF89ldkInSc="
+          "Value": "sha256-1rn3YwZ7A7A0XY2h/4LB3stDbfGBdM3jDvfd2t2RiPA="
         }
       ]
     },
     {
       "Route": "_framework/HosxpUi.pdb.gz",
-      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\g3pheblppr-c0a2gsej11.gz",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\g3pheblppr-mchs7je0j8.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -13631,11 +13631,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"9prPeJgjMlK4vrC8T6GBg3fBJIG7dYvs3+Szsx+JlU8=\""
+          "Value": "\"AbfiOE1Q3AdUP12DtMybU0yoDIKA9G1R53O5LLsLjsU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 07 Mar 2025 09:18:47 GMT"
+          "Value": "Fri, 07 Mar 2025 09:22:15 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13653,7 +13653,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-9prPeJgjMlK4vrC8T6GBg3fBJIG7dYvs3+Szsx+JlU8="
+          "Value": "sha256-AbfiOE1Q3AdUP12DtMybU0yoDIKA9G1R53O5LLsLjsU="
         }
       ]
     },
@@ -13668,7 +13668,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "447765"
+          "Value": "446741"
         },
         {
           "Name": "Content-Type",
@@ -13676,7 +13676,46 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"3YbsPuSOHH2E34QhmRanjFmXgkcciYpxmmYH520ztwo=\""
+          "Value": "\"AWTVC/lV5FnS+YygJKB1SVd5GYGif6jXWAgNdZUnymA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 10 Mar 2025 06:09:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-AWTVC/lV5FnS+YygJKB1SVd5GYGif6jXWAgNdZUnymA="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/HosxpUi.wasm",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\8om7xnnctu-f8hfr3zu9a.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000006715195"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "148915"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+0Ym4k1+d9/KpvKnauIm5h4PD7ql0wGExow9OJDkQr4=\""
         },
         {
           "Name": "Last-Modified",
@@ -13685,45 +13724,6 @@
         {
           "Name": "Cache-Control",
           "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-3YbsPuSOHH2E34QhmRanjFmXgkcciYpxmmYH520ztwo="
-        }
-      ]
-    },
-    {
-      "Route": "_framework/HosxpUi.wasm",
-      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\8om7xnnctu-vhq0jg4mwj.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000006714970"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "148920"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"Iyx8meb6Mw/FOyQwAIptEUyzoKzrT/70y3OpMpkMXyY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 07 Mar 2025 09:18:49 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -13739,19 +13739,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"3YbsPuSOHH2E34QhmRanjFmXgkcciYpxmmYH520ztwo=\""
+          "Value": "W/\"AWTVC/lV5FnS+YygJKB1SVd5GYGif6jXWAgNdZUnymA=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-3YbsPuSOHH2E34QhmRanjFmXgkcciYpxmmYH520ztwo="
+          "Value": "sha256-AWTVC/lV5FnS+YygJKB1SVd5GYGif6jXWAgNdZUnymA="
         }
       ]
     },
     {
       "Route": "_framework/HosxpUi.wasm.gz",
-      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\8om7xnnctu-vhq0jg4mwj.gz",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\8om7xnnctu-f8hfr3zu9a.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -13760,7 +13760,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "148920"
+          "Value": "148915"
         },
         {
           "Name": "Content-Type",
@@ -13768,11 +13768,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Iyx8meb6Mw/FOyQwAIptEUyzoKzrT/70y3OpMpkMXyY=\""
+          "Value": "\"+0Ym4k1+d9/KpvKnauIm5h4PD7ql0wGExow9OJDkQr4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 07 Mar 2025 09:18:49 GMT"
+          "Value": "Fri, 07 Mar 2025 09:22:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13790,7 +13790,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Iyx8meb6Mw/FOyQwAIptEUyzoKzrT/70y3OpMpkMXyY="
+          "Value": "sha256-+0Ym4k1+d9/KpvKnauIm5h4PD7ql0wGExow9OJDkQr4="
         }
       ]
     },
