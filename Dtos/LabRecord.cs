@@ -13,4 +13,6 @@ public class LabRecord
     public int LabOrderNumber { get; set; }
     public string LabOrderList { get; set; }
     public string LabConfirm { get; set; }
+    public TimeOnly? ReportTime { get; set; }
+    public string? LisOrderNo { get; set; }
 }

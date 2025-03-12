@@ -31,12 +31,14 @@ else
                 <th>Patient Name</th>
                 <th>Lab Order Number</th>
                 <th>Lab Order List</th>
+                <th>Report Time</th>
+                <th>Lis order Number</th>
                 <th>Lab Confirm</th>
                 <th><input type="checkbox" onclick="checkUncheck(this)" /> เลือกทั้งหมด</th>
             </tr>
         </thead>
         <tbody>
-
+            
             @foreach (var record in labRecords)
             {
                 @* @if (record != null && record.ClinicName == "เวชระเบียน")
@@ -49,6 +51,8 @@ else
                     <td>@record.PatientName</td>
                     <td>@record.LabOrderNumber</td>
                     <td>@record.LabOrderList</td>
+                    <td>@record.ReportTime</td>
+                    <td>@record.LisOrderNo</td>
                     <td>@record.LabConfirm</td>
                     <td>
                         <button @onclick="() => ConfirmDeleteVisit(record.HosGuid)" type="submit" class="btn btn-danger btn-sm">ลบ</button>
@@ -76,10 +80,10 @@ else
                 {
                     Console.WriteLine("API returned null data.");
                 }
-
+    
                 else
                 {
-
+                    
                     Console.WriteLine($"Fetched {labRecords.Count} labs.");
                 }
         }
@@ -99,7 +103,7 @@ else
         {
             // ถ้ายืนยันการลบ, ทำการลบสินค้า
             await DeleteAbsentVisit(id); 
-
+           
         }
     }
 
@@ -146,7 +150,7 @@ else
             // Refresh the data after deletions
             
             labRecords = await _http.GetFromJsonAsync<List<LabRecord>>("/api/MedRecord/GetLabRecords");
-
+            
             Console.WriteLine("Deleted records successfully.");
             StateHasChanged();
         }
@@ -202,7 +206,7 @@ else
             {
                 labRecords = await _http.GetFromJsonAsync<List<LabRecord>>("/api/MedRecord/GetLabRecords");
                 StateHasChanged();
-
+                
             }
             else
             {
@@ -215,6 +219,6 @@ else
             Console.WriteLine($"เกิดข้อผิดพลาด: {ex.Message}");
         }
     }
-
+ 
 
 }

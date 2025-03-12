@@ -1,0 +1,23 @@
+@page "/getaccesstoken"
+@page "/api/auth/getaccesstoken"
+@inject NavigationManager Navigation
+
+@if (!string.IsNullOrEmpty(Code))
+{
+    <p><strong>Code:</strong> @Code</p>
+}
+else
+{
+    <p>No code found in the URL.</p>
+}
+
+@code {
+    private string? Code { get; set; }
+
+    protected override void OnInitialized()
+    {
+        var uri = new Uri(Navigation.Uri);
+        var queryParams = System.Web.HttpUtility.ParseQueryString(uri.Query);
+        Code = queryParams["code"];
+    }
+}
