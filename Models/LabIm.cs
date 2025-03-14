@@ -9,5 +9,8 @@ namespace HosxpUi.Models
         public object tsh { get; set; }
         public object f3 { get; set; }
         public object f4 { get; set; }
+        public string afp { get; set; }
+        public string hcg { get; set; }
+        public string ldh { get; set; }
     }
 }
