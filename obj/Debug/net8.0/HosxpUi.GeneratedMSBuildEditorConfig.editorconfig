@@ -55,6 +55,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5QYWdlXEdldEFsbExvZ3MucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/HosxpUi/Pages/AdminPage/Register.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5QYWdlXFJlZ2lzdGVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/HosxpUi/Pages/CardProgramPage/AbsentOpenVisit.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FyZFByb2dyYW1QYWdlXEFic2VudE9wZW5WaXNpdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

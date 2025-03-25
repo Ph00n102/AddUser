@@ -1,4 +1,5 @@
 @page "/admin"
+@using HosxpUi.Dtos
 @using Microsoft.AspNetCore.Authorization
 @using HosxpUi.Models
 @inject HttpClient _http 
@@ -28,7 +29,7 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var i in userdb)
+            @* @foreach (var i in userdb)
             {
                 <tr>
                     <td>@i.id</td>
@@ -38,11 +39,24 @@ else
                     <td><button @onclick="() => ConfirmDeleteUser(i.id)" type="submit" class="btn btn-danger btn-sm" style="font-size: 2rem;">Delete</button></td>
                     <td ><a class="btn btn-primary btn-sm" href="/edituser/@i.id" style="font-size: 2rem;">Edit</a></td>  
                 </tr>
+            } *@
+            @foreach (var i in userdb)
+            {
+                <tr>
+                    <td>@i.LoginName</td>
+                    <td>@i.Role</td>
+                    <td>@i.Cid</td>
+                    <td>
+                        <button @onclick="() => ConfirmDeleteUser(i.Id, i.Source)" type="submit" class="btn btn-danger btn-sm" style="font-size: 2rem;">Delete</button>
+                        <a class="btn btn-primary btn-sm" href="/edituser/@i.Id?source=@i.Source" style="font-size: 2rem;">Edit</a>
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
 }
-    <a class="btn beautiful-btn " href="/adduser" style="font-size: 2rem;">Add</a>
+    <a class="btn beautiful-btn " href="/adduser" style="font-size: 2rem;">Add user แบบ login Hosxp</a>
+    <a class="btn beautiful-btn " href="/register" style="font-size: 2rem;">Add user แบบไม่มี login Hosxp</a>
     <button @onclick="GeneratePDF" class="btn btn-success btn-sm" style="font-size: 2rem;">
     Generate PDF
     </button>
@@ -85,14 +99,24 @@ else
 </style>
 @code {
     private bool IsAdmin { get; set; }
-    private List<User>? userdb;
+    private List<UserWithSource>? userdb;
+    @* private List<User>? userdb; *@
 
     protected override async Task OnInitializedAsync()
     {
-        userdb = await _http.GetFromJsonAsync<List<User>>("api/User/User");
+        @* userdb = await _http.GetFromJsonAsync<List<User>>("api/User/User"); *@
+        var userList1 = await _http.GetFromJsonAsync<List<User>>("api/User/User");
+        var userList2 = await _http.GetFromJsonAsync<List<User>>("api/User/User2");
+
+        // Add a new property `Source` to track the origin
+        var userList1WithSource = userList1.Select(u => new UserWithSource(u, "User")).ToList();
+        var userList2WithSource = userList2.Select(u => new UserWithSource(u, "User2")).ToList();
+
+        // Combine both lists without grouping to keep all records
+        userdb = userList1WithSource.Concat(userList2WithSource).ToList();
     }
      // ฟังก์ชันสำหรับยืนยันการลบ
-    private async Task ConfirmDeleteUser(int id)
+    @* private async Task ConfirmDeleteUser(int id)
     {
         // ใช้ JavaScript Confirm dialog เพื่อถามผู้ใช้ว่าแน่ใจหรือไม่ที่จะลบ
         bool isConfirmed = await JS.InvokeAsync<bool>("confirm", "คุณแน่ใจหรือไม่ว่าต้องการลบสินค้านี้?");
@@ -102,8 +126,19 @@ else
             // ถ้ายืนยันการลบ, ทำการลบสินค้า
             await DeleteUser(id);
         }
+    } *@
+
+    private async Task ConfirmDeleteUser(int id, string source)
+    {
+        bool isConfirmed = await JS.InvokeAsync<bool>("confirm", "คุณแน่ใจหรือไม่ว่าต้องการลบผู้ใช้นี้?");
+
+        if (isConfirmed)
+        {
+            await DeleteUser(id, source);
+        }
     }
-    private async Task DeleteUser(int id)
+
+    @* private async Task DeleteUser(int id)
     {
         try
         {
@@ -115,7 +150,7 @@ else
                 // หากการลบสำเร็จ ให้เปลี่ยนเส้นทางไปยังหน้าหลักหรือหน้ารายการสินค้าหลังจากลบ
                 userdb = await _http.GetFromJsonAsync<List<User>>("/api/User/User");
                 StateHasChanged();
-                @* navManager.NavigateTo("/admin");  *@
+                @* navManager.NavigateTo("/admin");  
             }
             else
             {
@@ -125,6 +160,30 @@ else
         catch (Exception ex)
         {
             // จัดการข้อผิดพลาดหากมีปัญหาในการทำคำขอ
+            Console.WriteLine($"เกิดข้อผิดพลาด: {ex.Message}");
+        }
+    } *@
+
+    private async Task DeleteUser(int id, string source)
+    {
+        try
+        {
+            string apiEndpoint = source == "User2" ? "api/User/DeleteUser2" : "api/User/DeleteUser";
+            var response = await _http.DeleteAsync($"{apiEndpoint}/{id}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                // Reload user list
+                await OnInitializedAsync();
+                StateHasChanged();
+            }
+            else
+            {
+                Console.WriteLine($"Error: {response.StatusCode} - ลบผู้ใช้ไม่สำเร็จ!");
+            }
+        }
+        catch (Exception ex)
+        {
             Console.WriteLine($"เกิดข้อผิดพลาด: {ex.Message}");
         }
     }

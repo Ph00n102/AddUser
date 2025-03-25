@@ -101,11 +101,11 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Authorization/8.0.10": {
+      "Microsoft.AspNetCore.Authorization/8.0.14": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Metadata": "8.0.10",
-          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.AspNetCore.Metadata": "8.0.14",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.3",
           "Microsoft.Extensions.Options": "8.0.2"
         },
         "compile": {
@@ -119,11 +119,11 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components/8.0.10": {
+      "Microsoft.AspNetCore.Components/8.0.14": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Authorization": "8.0.10",
-          "Microsoft.AspNetCore.Components.Analyzers": "8.0.10"
+          "Microsoft.AspNetCore.Authorization": "8.0.14",
+          "Microsoft.AspNetCore.Components.Analyzers": "8.0.14"
         },
         "compile": {
           "lib/net8.0/Microsoft.AspNetCore.Components.dll": {
@@ -136,7 +136,7 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components.Analyzers/8.0.10": {
+      "Microsoft.AspNetCore.Components.Analyzers/8.0.14": {
         "type": "package",
         "build": {
           "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets": {}
@@ -159,10 +159,10 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components.Forms/8.0.10": {
+      "Microsoft.AspNetCore.Components.Forms/8.0.14": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "8.0.10"
+          "Microsoft.AspNetCore.Components": "8.0.14"
         },
         "compile": {
           "lib/net8.0/Microsoft.AspNetCore.Components.Forms.dll": {
@@ -175,10 +175,10 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components.QuickGrid/8.0.2": {
+      "Microsoft.AspNetCore.Components.QuickGrid/8.0.14": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components.Web": "8.0.2"
+          "Microsoft.AspNetCore.Components.Web": "8.0.14"
         },
         "compile": {
           "lib/net8.0/Microsoft.AspNetCore.Components.QuickGrid.dll": {
@@ -197,14 +197,14 @@
           "buildMultiTargeting/Microsoft.AspNetCore.Components.QuickGrid.props": {}
         }
       },
-      "Microsoft.AspNetCore.Components.Web/8.0.10": {
+      "Microsoft.AspNetCore.Components.Web/8.0.14": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "8.0.10",
-          "Microsoft.AspNetCore.Components.Forms": "8.0.10",
+          "Microsoft.AspNetCore.Components": "8.0.14",
+          "Microsoft.AspNetCore.Components.Forms": "8.0.14",
           "Microsoft.Extensions.DependencyInjection": "8.0.1",
           "Microsoft.Extensions.Primitives": "8.0.0",
-          "Microsoft.JSInterop": "8.0.10",
+          "Microsoft.JSInterop": "8.0.14",
           "System.IO.Pipelines": "8.0.0"
         },
         "compile": {
@@ -455,7 +455,7 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Metadata/8.0.10": {
+      "Microsoft.AspNetCore.Metadata/8.0.14": {
         "type": "package",
         "compile": {
           "lib/net8.0/Microsoft.AspNetCore.Metadata.dll": {
@@ -900,7 +900,7 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "Microsoft.Extensions.Logging.Abstractions/8.0.2": {
+      "Microsoft.Extensions.Logging.Abstractions/8.0.3": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2"
@@ -1070,7 +1070,7 @@
           }
         }
       },
-      "Microsoft.JSInterop/8.0.10": {
+      "Microsoft.JSInterop/8.0.14": {
         "type": "package",
         "compile": {
           "lib/net8.0/Microsoft.JSInterop.dll": {
@@ -1500,11 +1500,11 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Authorization/8.0.10": {
+      "Microsoft.AspNetCore.Authorization/8.0.14": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Metadata": "8.0.10",
-          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.AspNetCore.Metadata": "8.0.14",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.3",
           "Microsoft.Extensions.Options": "8.0.2"
         },
         "compile": {
@@ -1518,11 +1518,11 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components/8.0.10": {
+      "Microsoft.AspNetCore.Components/8.0.14": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Authorization": "8.0.10",
-          "Microsoft.AspNetCore.Components.Analyzers": "8.0.10"
+          "Microsoft.AspNetCore.Authorization": "8.0.14",
+          "Microsoft.AspNetCore.Components.Analyzers": "8.0.14"
         },
         "compile": {
           "lib/net8.0/Microsoft.AspNetCore.Components.dll": {
@@ -1535,7 +1535,7 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components.Analyzers/8.0.10": {
+      "Microsoft.AspNetCore.Components.Analyzers/8.0.14": {
         "type": "package",
         "build": {
           "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets": {}
@@ -1558,10 +1558,10 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components.Forms/8.0.10": {
+      "Microsoft.AspNetCore.Components.Forms/8.0.14": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "8.0.10"
+          "Microsoft.AspNetCore.Components": "8.0.14"
         },
         "compile": {
           "lib/net8.0/Microsoft.AspNetCore.Components.Forms.dll": {
@@ -1574,10 +1574,10 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components.QuickGrid/8.0.2": {
+      "Microsoft.AspNetCore.Components.QuickGrid/8.0.14": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components.Web": "8.0.2"
+          "Microsoft.AspNetCore.Components.Web": "8.0.14"
         },
         "compile": {
           "lib/net8.0/Microsoft.AspNetCore.Components.QuickGrid.dll": {
@@ -1596,14 +1596,14 @@
           "buildMultiTargeting/Microsoft.AspNetCore.Components.QuickGrid.props": {}
         }
       },
-      "Microsoft.AspNetCore.Components.Web/8.0.10": {
+      "Microsoft.AspNetCore.Components.Web/8.0.14": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "8.0.10",
-          "Microsoft.AspNetCore.Components.Forms": "8.0.10",
+          "Microsoft.AspNetCore.Components": "8.0.14",
+          "Microsoft.AspNetCore.Components.Forms": "8.0.14",
           "Microsoft.Extensions.DependencyInjection": "8.0.1",
           "Microsoft.Extensions.Primitives": "8.0.0",
-          "Microsoft.JSInterop": "8.0.10",
+          "Microsoft.JSInterop": "8.0.14",
           "System.IO.Pipelines": "8.0.0"
         },
         "compile": {
@@ -1854,7 +1854,7 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Metadata/8.0.10": {
+      "Microsoft.AspNetCore.Metadata/8.0.14": {
         "type": "package",
         "compile": {
           "lib/net8.0/Microsoft.AspNetCore.Metadata.dll": {
@@ -2299,7 +2299,7 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "Microsoft.Extensions.Logging.Abstractions/8.0.2": {
+      "Microsoft.Extensions.Logging.Abstractions/8.0.3": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2"
@@ -2469,7 +2469,7 @@
           }
         }
       },
-      "Microsoft.JSInterop/8.0.10": {
+      "Microsoft.JSInterop/8.0.14": {
         "type": "package",
         "compile": {
           "lib/net8.0/Microsoft.JSInterop.dll": {
@@ -2856,10 +2856,10 @@
         "microsoft.aspnetcore.authentication.core.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Authorization/8.0.10": {
-      "sha512": "mENBehQP1H9oTB4Diu1l7vR1BeZrBNWA9sHZsln4l2oIs7D3qH3fokopU/8FWa9JSxQYNBT1MeYBCwguYOBjMQ==",
+    "Microsoft.AspNetCore.Authorization/8.0.14": {
+      "sha512": "lcKWEvzaJz+ahDj5J0zz05NGyv4vqEa2vLalBuBf69vL0qrWqqB/rwI4/zdyloun+fLTq1bCnsAwiplbFgQtAA==",
       "type": "package",
-      "path": "microsoft.aspnetcore.authorization/8.0.10",
+      "path": "microsoft.aspnetcore.authorization/8.0.14",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2871,14 +2871,14 @@
         "lib/net8.0/Microsoft.AspNetCore.Authorization.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.xml",
-        "microsoft.aspnetcore.authorization.8.0.10.nupkg.sha512",
+        "microsoft.aspnetcore.authorization.8.0.14.nupkg.sha512",
         "microsoft.aspnetcore.authorization.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components/8.0.10": {
-      "sha512": "qTsPBcK6Z2Yyt+A5GPub9CiUxfmSIrNQ22BT8efzXiz50Vx0KKTsE82pxbipgGU9XNXZhEtYSNTqQFuWyRlIRw==",
+    "Microsoft.AspNetCore.Components/8.0.14": {
+      "sha512": "b/6dwE/ESturk5VHHzq/GP15qkcxb196T+qxFs4wzUkeZtCx2OuK+1rPIHSgsOjthnHNOAhCY7/9n5uLqyenKA==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components/8.0.10",
+      "path": "microsoft.aspnetcore.components/8.0.14",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2886,14 +2886,14 @@
         "THIRD-PARTY-NOTICES.txt",
         "lib/net8.0/Microsoft.AspNetCore.Components.dll",
         "lib/net8.0/Microsoft.AspNetCore.Components.xml",
-        "microsoft.aspnetcore.components.8.0.10.nupkg.sha512",
+        "microsoft.aspnetcore.components.8.0.14.nupkg.sha512",
         "microsoft.aspnetcore.components.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components.Analyzers/8.0.10": {
-      "sha512": "czb81hXe2a+w1py/U2MrO3aSb0Ht0r1/I+4vJucjTZwbhHtGubneifS3h05DB6CakT8dgKyS0eypQaLuDKkWtQ==",
+    "Microsoft.AspNetCore.Components.Analyzers/8.0.14": {
+      "sha512": "pHPb1bqV2ECTfOw2QcGQzO1/fdpo8mwekY8Jbycm2UZ6yvqLtZRRPd+RVzL74oXR/HTakvqSh2Un1W1rIFTnoQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components.analyzers/8.0.10",
+      "path": "microsoft.aspnetcore.components.analyzers/8.0.14",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2902,7 +2902,7 @@
         "analyzers/dotnet/cs/Microsoft.AspNetCore.Components.Analyzers.dll",
         "build/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets",
         "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets",
-        "microsoft.aspnetcore.components.analyzers.8.0.10.nupkg.sha512",
+        "microsoft.aspnetcore.components.analyzers.8.0.14.nupkg.sha512",
         "microsoft.aspnetcore.components.analyzers.nuspec"
       ]
     },
@@ -2921,10 +2921,10 @@
         "microsoft.aspnetcore.components.authorization.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components.Forms/8.0.10": {
-      "sha512": "YOdsdG/da7xc5uA0dRIe8qUz1rVbbptnYA2CrsxPNka3Nv7Sbh3rArlACGWPBkST3qTRollCx4dLEXpwg/6eEw==",
+    "Microsoft.AspNetCore.Components.Forms/8.0.14": {
+      "sha512": "U83TX0obbdIh1DeIGCix62RILHRa4HC7h0fgEYrV9Gl8tz0wzv6AoYkU4PvnxXAqpYA2wPTMgNOuqt1X2XxCoQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components.forms/8.0.10",
+      "path": "microsoft.aspnetcore.components.forms/8.0.14",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2932,14 +2932,14 @@
         "THIRD-PARTY-NOTICES.txt",
         "lib/net8.0/Microsoft.AspNetCore.Components.Forms.dll",
         "lib/net8.0/Microsoft.AspNetCore.Components.Forms.xml",
-        "microsoft.aspnetcore.components.forms.8.0.10.nupkg.sha512",
+        "microsoft.aspnetcore.components.forms.8.0.14.nupkg.sha512",
         "microsoft.aspnetcore.components.forms.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components.QuickGrid/8.0.2": {
-      "sha512": "OppS7ZLEwgdScK7klYuD5lY0CojwlHRXSGTvaQnTDcktlLK1vPV+Tw2ZHpLl9B1Yh8SSSL+mkRm1eFjNsL3ccQ==",
+    "Microsoft.AspNetCore.Components.QuickGrid/8.0.14": {
+      "sha512": "Ecii2st9wPzoxKE+363KTW9ZIQzwf64R4boaKctTl29qC/vsq4z416rM9etRXkCKXD+3y5prZj7Ev1FuW0qEIw==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components.quickgrid/8.0.2",
+      "path": "microsoft.aspnetcore.components.quickgrid/8.0.14",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2951,16 +2951,16 @@
         "buildTransitive/Microsoft.AspNetCore.Components.QuickGrid.props",
         "lib/net8.0/Microsoft.AspNetCore.Components.QuickGrid.dll",
         "lib/net8.0/Microsoft.AspNetCore.Components.QuickGrid.xml",
-        "microsoft.aspnetcore.components.quickgrid.8.0.2.nupkg.sha512",
+        "microsoft.aspnetcore.components.quickgrid.8.0.14.nupkg.sha512",
         "microsoft.aspnetcore.components.quickgrid.nuspec",
         "staticwebassets/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
         "staticwebassets/QuickGrid.razor.js"
       ]
     },
-    "Microsoft.AspNetCore.Components.Web/8.0.10": {
-      "sha512": "gJa07Ni77Eoer/+3tocjnCzxfRcL0TJbKnzBP5auk/cxO5nxzJEHuTADX8gAzlyuLvdrnrtfqRAhR66MGkHmww==",
+    "Microsoft.AspNetCore.Components.Web/8.0.14": {
+      "sha512": "h/XSCAHmBywDF6San0FGPyXxK6PZh1g/xz4Ln9yeJNgSmKq5F1ehgVStDkJr4d6pWGr2RRkNxgGYMLRnULMnKw==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components.web/8.0.10",
+      "path": "microsoft.aspnetcore.components.web/8.0.14",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2968,7 +2968,7 @@
         "THIRD-PARTY-NOTICES.txt",
         "lib/net8.0/Microsoft.AspNetCore.Components.Web.dll",
         "lib/net8.0/Microsoft.AspNetCore.Components.Web.xml",
-        "microsoft.aspnetcore.components.web.8.0.10.nupkg.sha512",
+        "microsoft.aspnetcore.components.web.8.0.14.nupkg.sha512",
         "microsoft.aspnetcore.components.web.nuspec"
       ]
     },
@@ -3334,10 +3334,10 @@
         "microsoft.aspnetcore.http.features.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Metadata/8.0.10": {
-      "sha512": "E9YwEujZjXhMLi1hqJh+7iLk2DzNxa4dB9wYY8lHYpAzZdVqoGjaFsaaIzwCvSZZxd7S7Cds01Trlye2mTqeZA==",
+    "Microsoft.AspNetCore.Metadata/8.0.14": {
+      "sha512": "4dkb/7GoyaFtEggCEHStc/t05nKgnEr1QUJIP8QaDvxdZTXk9SebVeMMPBSR4zbj6dK2tUwBAOdHLA215lmOWg==",
       "type": "package",
-      "path": "microsoft.aspnetcore.metadata/8.0.10",
+      "path": "microsoft.aspnetcore.metadata/8.0.14",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3349,7 +3349,7 @@
         "lib/net8.0/Microsoft.AspNetCore.Metadata.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.xml",
-        "microsoft.aspnetcore.metadata.8.0.10.nupkg.sha512",
+        "microsoft.aspnetcore.metadata.8.0.14.nupkg.sha512",
         "microsoft.aspnetcore.metadata.nuspec"
       ]
     },
@@ -3949,10 +3949,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Logging.Abstractions/8.0.2": {
-      "sha512": "nroMDjS7hNBPtkZqVBbSiQaQjWRDxITI8Y7XnDs97rqG3EbzVTNLZQf7bIeUJcaHOV8bca47s1Uxq94+2oGdxA==",
+    "Microsoft.Extensions.Logging.Abstractions/8.0.3": {
+      "sha512": "dL0QGToTxggRLMYY4ZYX5AMwBb+byQBd/5dMiZE07Nv73o6I5Are3C7eQTh7K2+A4ct0PVISSr7TZANbiNb2yQ==",
       "type": "package",
-      "path": "microsoft.extensions.logging.abstractions/8.0.2",
+      "path": "microsoft.extensions.logging.abstractions/8.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4017,7 +4017,7 @@
         "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.xml",
-        "microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
+        "microsoft.extensions.logging.abstractions.8.0.3.nupkg.sha512",
         "microsoft.extensions.logging.abstractions.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -4251,10 +4251,10 @@
         "microsoft.identitymodel.tokens.nuspec"
       ]
     },
-    "Microsoft.JSInterop/8.0.10": {
-      "sha512": "VxiFlNValVtpRQomua6h1FOUBK0fiyQbNIh+PMRs9DMHczOHIZpLJmm5LO5h9voBXjW+V/cUE8aNH2GcWps40A==",
+    "Microsoft.JSInterop/8.0.14": {
+      "sha512": "eg5HYSshwlO1oOzOg4WdT2ZSPKOu3hv556zPkfNpKEi5qoLuQt49mE1tegsL4H7ENl1dL0vBLRv4+YAuLKt/nA==",
       "type": "package",
-      "path": "microsoft.jsinterop/8.0.10",
+      "path": "microsoft.jsinterop/8.0.14",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4262,7 +4262,7 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net8.0/Microsoft.JSInterop.dll",
         "lib/net8.0/Microsoft.JSInterop.xml",
-        "microsoft.jsinterop.8.0.10.nupkg.sha512",
+        "microsoft.jsinterop.8.0.14.nupkg.sha512",
         "microsoft.jsinterop.nuspec"
       ]
     },
@@ -4893,7 +4893,7 @@
       "Microsoft.AspNetCore.Authentication >= 2.2.0",
       "Microsoft.AspNetCore.Authentication.Cookies >= 2.2.0",
       "Microsoft.AspNetCore.Components.Authorization >= 8.0.8",
-      "Microsoft.AspNetCore.Components.QuickGrid >= 8.0.2",
+      "Microsoft.AspNetCore.Components.QuickGrid >= 8.0.14",
       "Microsoft.AspNetCore.Components.WebAssembly >= 8.0.10",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 8.0.10",
       "Microsoft.AspNetCore.SignalR.Client >= 8.0.0",
@@ -4970,7 +4970,7 @@
           },
           "Microsoft.AspNetCore.Components.QuickGrid": {
             "target": "Package",
-            "version": "[8.0.2, )"
+            "version": "[8.0.14, )"
           },
           "Microsoft.AspNetCore.Components.WebAssembly": {
             "target": "Package",

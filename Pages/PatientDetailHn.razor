@@ -20,7 +20,7 @@
                 <p><strong>ชื่อ</strong> @ptDetails.pname @ptDetails.fname @ptDetails.lname </p>
                 <p><strong>HN</strong> @ptDetails.hn</p>
                 <p><strong>สิทธิการรักษา</strong> @ptDetails.name</p>
-                
+
             </td>
             <td>
                 <button class="btn btn-warning"><a href="http://172.16.1.104/Emr2398_link/index.jsp?queryhn=@ptDetails.hn&user=50239&no_ax=true" target="blank">ดูประวัติ binary</a></button>
@@ -57,13 +57,13 @@
     </thead>
     <tbody>
         @foreach (var item in appointList){
-        <tr>
-            <td>@item.nextdate</td>
-            <td>@item.nexttime</td>
-            <td>@item.nameclinic</td>
-            <td>@item.namedoctor</td>
-            <td>@item.note</td>
-        </tr>
+            <tr>
+                <td>@item.nextdate</td>
+                <td>@item.nexttime</td>
+                <td>@item.nameclinic</td>
+                <td>@item.namedoctor</td>
+                <td>@item.note</td>
+            </tr>
         }
     </tbody>
 </table>
@@ -77,15 +77,15 @@
     </thead>
     <tbody>
         @foreach (var item in dcDrugList){
-        <tr>
-            <td>
-                <p><strong>@item.dchdate</strong></p>
-                @foreach (var drug in item.drugInfo2)
-                {
-                    <p>@drug.drugName @drug.strength @drug.usageName1 @drug.usageName2 @drug.usageName3 @drug.spUsageName1 @drug.spUsageName2 @drug.spUsageName3 @drug.qty @drug.dosageform</p>
-                }
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    <p><strong>@item.dchdate</strong></p>
+                    @foreach (var drug in item.drugInfo2)
+                    {
+                        <p>@drug.drugName @drug.strength @drug.usageName1 @drug.usageName2 @drug.usageName3 @drug.spUsageName1 @drug.spUsageName2 @drug.spUsageName3 @drug.qty @drug.dosageform</p>
+                    }
+                </td>
+            </tr>
         }
     </tbody>
 </table>
@@ -101,34 +101,36 @@
     </thead>
     <tbody>
         @foreach (var item in visitList){
-        <tr>
-            <td>
-                <p><strong>วันที่</strong> @item.vstdate <strong>เวลา</strong> @item.vsttime <strong>แผนก</strong> @item.department </p> 
-                <p><strong>แพทย์</strong> @item.doctorName</p>
-            </td>
-            <td>
-                <p><strong>อาการสำคัญ</strong> @item.cc</p>
-                <p><strong>น้ำหนัก</strong> @item.bw kg <strong>ส่วนสูง</strong> @item.height ซม.</p>
-                <p><strong>T</strong> @item.temperature C <strong>P</strong> @item.pulse /min <strong>RR</strong> @item.pulse /min <strong>BP</strong> @item.bps/@item.bpd mmHg</p>
-            </td>
-            <td>
-                @if (item.an != null)
-                {
-                    <button class="btn btn-warning"><a href="/patient/@item.hn/@item.an" target="_blank">Admit</a></button>
-                }
-                @foreach (var drug in item.drugInfo) 
-                {
-                    <table>
-                        <tr>
-                            <p>@drug.drugName @drug.strength @drug.drugUsageName1 @drug.drugUsageName2 @drug.drugUsageName3 @drug.spName1 @drug.spName2 @drug.spName3 @drug.qty @drug.dosageForm</p>
-                        </tr>
-                    </table>
-                }
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    <p><strong>วันที่</strong> @item.vstdate <strong>เวลา</strong> @item.vsttime <strong>แผนก</strong> @item.department </p> 
+                    <p><strong>แพทย์</strong> @item.doctorName</p>
+                </td>
+                <td>
+                    <p><strong>อาการสำคัญ</strong> @item.cc</p>
+                    <p><strong>น้ำหนัก</strong> @item.bw kg <strong>ส่วนสูง</strong> @item.height ซม.</p>
+                    <p><strong>T</strong> @item.temperature C <strong>P</strong> @item.pulse /min <strong>RR</strong> @item.pulse /min <strong>BP</strong> @item.bps/@item.bpd mmHg</p>
+                </td>
+                <td>
+                    @if (item.an != null)
+                    {
+                        <button class="btn btn-warning"><a href="/patient/@item.hn/@item.an" target="_blank">Admit</a></button>
+                    }
+                    @foreach (var drug in item.drugInfo) 
+                    {
+                        <table>
+                            <tr>
+                                <p>@drug.drugName @drug.strength @drug.drugUsageName1 @drug.drugUsageName2 @drug.drugUsageName3 @drug.spName1 @drug.spName2 @drug.spName3 @drug.qty @drug.dosageForm</p>
+                            </tr>
+                        </table>
+                    }
+                </td>
+            </tr>
         }
     </tbody>
 </table>
+
+
 
 
 @code {
@@ -138,6 +140,7 @@
     public List<AppointList> appointList = new();
     public List<OpdVisit> visitList = new();
     public List<OpdDcDrug> dcDrugList = new();
+
 
     private async Task Click()
     {

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Z0hWZ3je+g9O4jaBtrh+otIwavZklpBPE7tPsLRSRnY=",
+  "Hash": "MLz4Xjsy3zRBDNL8ObccPh/ntqHNo327ye0Ra2PCDpI=",
   "Source": "HosxpUi",
   "BasePath": "/",
   "Mode": "Root",
@@ -17,10 +17,10 @@
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.2\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.14\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
       "SourceId": "Microsoft.AspNetCore.Components.QuickGrid",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.2\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.14\\staticwebassets\\",
       "BasePath": "_content/Microsoft.AspNetCore.Components.QuickGrid",
       "RelativePath": "Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
       "AssetKind": "All",
@@ -35,13 +35,13 @@
       "Integrity": "Nuu0BHvGBlwN6c5FSVjV9yxX0YPfwg3ufdOucRJCOz0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.2\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.14\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.2\\staticwebassets\\QuickGrid.razor.js",
+      "Identity": "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.14\\staticwebassets\\QuickGrid.razor.js",
       "SourceId": "Microsoft.AspNetCore.Components.QuickGrid",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.2\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.14\\staticwebassets\\",
       "BasePath": "_content/Microsoft.AspNetCore.Components.QuickGrid",
       "RelativePath": "QuickGrid.razor.js",
       "AssetKind": "All",
@@ -56,7 +56,7 @@
       "Integrity": "tnamWuQ2F5I2J8hbtBt4/9i8Mb2y2o+9Tepj5tUrSdU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.2\\staticwebassets\\QuickGrid.razor.js"
+      "OriginalItemSpec": "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.14\\staticwebassets\\QuickGrid.razor.js"
     },
     {
       "Identity": "C:\\Users\\HP\\.nuget\\packages\\mudblazor\\7.8.0\\staticwebassets\\MudBlazor.min.css",
@@ -115,8 +115,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "manifest",
-      "Fingerprint": "5ilntgoe98",
-      "Integrity": "Y7Zz8zoEmimZdDRNPC4YLB1FmsAIzEus9Oh0c00xddE=",
+      "Fingerprint": "m3vtnmhkpn",
+      "Integrity": "suH+McPxPy1cRTKZ4dnvhEd5w9VVvZjivw3Kl1dFmJk=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Debug\\net8.0\\blazor.boot.json"
@@ -346,8 +346,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "symbol",
-      "Fingerprint": "cihgjgvii0",
-      "Integrity": "pF9S4amC3RNEwcrtr8wg9E6ALi5bIH1TQFxCNQ11+zU=",
+      "Fingerprint": "oav3sxloac",
+      "Integrity": "0C5E3Df1tiO1RpZb78xqlfhrsHZIf/FskQs4ymvXliQ=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Debug\\net8.0\\HosxpUi.pdb"
@@ -367,8 +367,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "runtime",
-      "Fingerprint": "rrjg7yc5eu",
-      "Integrity": "6QilfPoEubDs3Ip0jCN04iq+l+TWzCiz6jBZAFY8VM0=",
+      "Fingerprint": "e1otexyhia",
+      "Integrity": "Do+IUvN+eHKt2ww+1vFdnJoxvpXiTrvatXRvBzUOgGw=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\HosxpUi\\obj\\Debug\\net8.0\\webcil\\HosxpUi.wasm"
@@ -5582,7 +5582,7 @@
       "OriginalItemSpec": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Private.DataContractSerialization.wasm"
     },
     {
-      "Identity": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\1wjanlyice-5ilntgoe98.gz",
+      "Identity": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\1wjanlyice-m3vtnmhkpn.gz",
       "SourceId": "HosxpUi",
       "SourceType": "Computed",
       "ContentRoot": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\",
@@ -5596,8 +5596,8 @@
       "RelatedAsset": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.boot.json",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "7i3dgnnwbu",
-      "Integrity": "/47996AOYdA7ntZb98kvfreorE57OjSL1KT8lLgENXY=",
+      "Fingerprint": "c98bvr3jpv",
+      "Integrity": "cEbtKxkbwNbj91VQIkx5je2bLTKCKfZ2yAuKmHy+z9Q=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.boot.json"
@@ -6359,7 +6359,7 @@
       "OriginalItemSpec": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Globalization.Extensions.wasm"
     },
     {
-      "Identity": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\8om7xnnctu-rrjg7yc5eu.gz",
+      "Identity": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\8om7xnnctu-e1otexyhia.gz",
       "SourceId": "HosxpUi",
       "SourceType": "Computed",
       "ContentRoot": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\",
@@ -6373,8 +6373,8 @@
       "RelatedAsset": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\HosxpUi.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "xkrxcxqe04",
-      "Integrity": "4dlJ9Cqu4P0/4ARzzE6NDDVgXnCVT1PcJICWVXbYO4A=",
+      "Fingerprint": "fpn70abol4",
+      "Integrity": "w4tgwkfaiasYpSJBDYU047ZjEdczusM7f99HMsdwbfw=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\HosxpUi.wasm"
@@ -7556,7 +7556,7 @@
       "OriginalItemSpec": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Runtime.InteropServices.wasm"
     },
     {
-      "Identity": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\g3pheblppr-cihgjgvii0.gz",
+      "Identity": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\g3pheblppr-oav3sxloac.gz",
       "SourceId": "HosxpUi",
       "SourceType": "Computed",
       "ContentRoot": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\",
@@ -7570,8 +7570,8 @@
       "RelatedAsset": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\HosxpUi.pdb",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "m4wjwo53p6",
-      "Integrity": "ZrmoT4PSyeUBytr4ra2kbFzDAFgky5ScJYd8HlbX9h8=",
+      "Fingerprint": "kjh17eyvmi",
+      "Integrity": "8LH+NB68yL27vkmRZffvsWagnMhmvRPFyuzRVXr4wUI=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "D:\\HosxpUi\\bin\\Debug\\net8.0\\wwwroot\\_framework\\HosxpUi.pdb"
@@ -12098,7 +12098,7 @@
     },
     {
       "Route": "_content/Microsoft.AspNetCore.Components.QuickGrid/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
-      "AssetFile": "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.2\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
+      "AssetFile": "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.14\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -12119,7 +12119,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 18 Jan 2024 14:32:24 GMT"
+          "Value": "Thu, 13 Feb 2025 05:22:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12135,7 +12135,7 @@
     },
     {
       "Route": "_content/Microsoft.AspNetCore.Components.QuickGrid/QuickGrid.razor.js",
-      "AssetFile": "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.2\\staticwebassets\\QuickGrid.razor.js",
+      "AssetFile": "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.14\\staticwebassets\\QuickGrid.razor.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -12156,7 +12156,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 18 Jan 2024 14:11:58 GMT"
+          "Value": "Thu, 13 Feb 2025 04:55:02 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13001,11 +13001,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Y7Zz8zoEmimZdDRNPC4YLB1FmsAIzEus9Oh0c00xddE=\""
+          "Value": "\"suH+McPxPy1cRTKZ4dnvhEd5w9VVvZjivw3Kl1dFmJk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 25 Mar 2025 03:08:14 GMT"
+          "Value": "Tue, 25 Mar 2025 10:02:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13015,18 +13015,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Y7Zz8zoEmimZdDRNPC4YLB1FmsAIzEus9Oh0c00xddE="
+          "Value": "sha256-suH+McPxPy1cRTKZ4dnvhEd5w9VVvZjivw3Kl1dFmJk="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json",
-      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\1wjanlyice-5ilntgoe98.gz",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\1wjanlyice-m3vtnmhkpn.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000094482237"
+          "Quality": "0.000094473311"
         }
       ],
       "ResponseHeaders": [
@@ -13036,15 +13036,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "10583"
+          "Value": "10584"
         },
         {
           "Name": "ETag",
-          "Value": "\"/47996AOYdA7ntZb98kvfreorE57OjSL1KT8lLgENXY=\""
+          "Value": "\"cEbtKxkbwNbj91VQIkx5je2bLTKCKfZ2yAuKmHy+z9Q=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 25 Mar 2025 03:06:46 GMT"
+          "Value": "Tue, 25 Mar 2025 07:54:44 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13064,19 +13064,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"Y7Zz8zoEmimZdDRNPC4YLB1FmsAIzEus9Oh0c00xddE=\""
+          "Value": "W/\"suH+McPxPy1cRTKZ4dnvhEd5w9VVvZjivw3Kl1dFmJk=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Y7Zz8zoEmimZdDRNPC4YLB1FmsAIzEus9Oh0c00xddE="
+          "Value": "sha256-suH+McPxPy1cRTKZ4dnvhEd5w9VVvZjivw3Kl1dFmJk="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json.gz",
-      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\1wjanlyice-5ilntgoe98.gz",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\1wjanlyice-m3vtnmhkpn.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -13085,7 +13085,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "10583"
+          "Value": "10584"
         },
         {
           "Name": "Content-Type",
@@ -13093,11 +13093,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"/47996AOYdA7ntZb98kvfreorE57OjSL1KT8lLgENXY=\""
+          "Value": "\"cEbtKxkbwNbj91VQIkx5je2bLTKCKfZ2yAuKmHy+z9Q=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 25 Mar 2025 03:06:46 GMT"
+          "Value": "Tue, 25 Mar 2025 07:54:44 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13115,7 +13115,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-/47996AOYdA7ntZb98kvfreorE57OjSL1KT8lLgENXY="
+          "Value": "sha256-cEbtKxkbwNbj91VQIkx5je2bLTKCKfZ2yAuKmHy+z9Q="
         }
       ]
     },
@@ -14500,7 +14500,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "261872"
+          "Value": "266632"
         },
         {
           "Name": "Content-Type",
@@ -14508,11 +14508,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"pF9S4amC3RNEwcrtr8wg9E6ALi5bIH1TQFxCNQ11+zU=\""
+          "Value": "\"0C5E3Df1tiO1RpZb78xqlfhrsHZIf/FskQs4ymvXliQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 25 Mar 2025 03:08:13 GMT"
+          "Value": "Tue, 25 Mar 2025 10:02:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14522,18 +14522,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-pF9S4amC3RNEwcrtr8wg9E6ALi5bIH1TQFxCNQ11+zU="
+          "Value": "sha256-0C5E3Df1tiO1RpZb78xqlfhrsHZIf/FskQs4ymvXliQ="
         }
       ]
     },
     {
       "Route": "_framework/HosxpUi.pdb",
-      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\g3pheblppr-cihgjgvii0.gz",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\g3pheblppr-oav3sxloac.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000005411578"
+          "Quality": "0.000005313327"
         }
       ],
       "ResponseHeaders": [
@@ -14543,15 +14543,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "184788"
+          "Value": "188205"
         },
         {
           "Name": "ETag",
-          "Value": "\"ZrmoT4PSyeUBytr4ra2kbFzDAFgky5ScJYd8HlbX9h8=\""
+          "Value": "\"8LH+NB68yL27vkmRZffvsWagnMhmvRPFyuzRVXr4wUI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 25 Mar 2025 03:00:26 GMT"
+          "Value": "Tue, 25 Mar 2025 07:54:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14571,19 +14571,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"pF9S4amC3RNEwcrtr8wg9E6ALi5bIH1TQFxCNQ11+zU=\""
+          "Value": "W/\"0C5E3Df1tiO1RpZb78xqlfhrsHZIf/FskQs4ymvXliQ=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-pF9S4amC3RNEwcrtr8wg9E6ALi5bIH1TQFxCNQ11+zU="
+          "Value": "sha256-0C5E3Df1tiO1RpZb78xqlfhrsHZIf/FskQs4ymvXliQ="
         }
       ]
     },
     {
       "Route": "_framework/HosxpUi.pdb.gz",
-      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\g3pheblppr-cihgjgvii0.gz",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\g3pheblppr-oav3sxloac.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -14592,7 +14592,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "184788"
+          "Value": "188205"
         },
         {
           "Name": "Content-Type",
@@ -14600,11 +14600,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ZrmoT4PSyeUBytr4ra2kbFzDAFgky5ScJYd8HlbX9h8=\""
+          "Value": "\"8LH+NB68yL27vkmRZffvsWagnMhmvRPFyuzRVXr4wUI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 25 Mar 2025 03:00:26 GMT"
+          "Value": "Tue, 25 Mar 2025 07:54:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14622,7 +14622,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ZrmoT4PSyeUBytr4ra2kbFzDAFgky5ScJYd8HlbX9h8="
+          "Value": "sha256-8LH+NB68yL27vkmRZffvsWagnMhmvRPFyuzRVXr4wUI="
         }
       ]
     },
@@ -14637,7 +14637,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "465685"
+          "Value": "474901"
         },
         {
           "Name": "Content-Type",
@@ -14645,11 +14645,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"6QilfPoEubDs3Ip0jCN04iq+l+TWzCiz6jBZAFY8VM0=\""
+          "Value": "\"Do+IUvN+eHKt2ww+1vFdnJoxvpXiTrvatXRvBzUOgGw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 25 Mar 2025 03:08:14 GMT"
+          "Value": "Tue, 25 Mar 2025 10:02:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14659,18 +14659,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-6QilfPoEubDs3Ip0jCN04iq+l+TWzCiz6jBZAFY8VM0="
+          "Value": "sha256-Do+IUvN+eHKt2ww+1vFdnJoxvpXiTrvatXRvBzUOgGw="
         }
       ]
     },
     {
       "Route": "_framework/HosxpUi.wasm",
-      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\8om7xnnctu-rrjg7yc5eu.gz",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\8om7xnnctu-e1otexyhia.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000006482058"
+          "Quality": "0.000006407340"
         }
       ],
       "ResponseHeaders": [
@@ -14680,15 +14680,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "154271"
+          "Value": "156070"
         },
         {
           "Name": "ETag",
-          "Value": "\"4dlJ9Cqu4P0/4ARzzE6NDDVgXnCVT1PcJICWVXbYO4A=\""
+          "Value": "\"w4tgwkfaiasYpSJBDYU047ZjEdczusM7f99HMsdwbfw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 25 Mar 2025 03:00:27 GMT"
+          "Value": "Tue, 25 Mar 2025 07:54:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14708,19 +14708,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"6QilfPoEubDs3Ip0jCN04iq+l+TWzCiz6jBZAFY8VM0=\""
+          "Value": "W/\"Do+IUvN+eHKt2ww+1vFdnJoxvpXiTrvatXRvBzUOgGw=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-6QilfPoEubDs3Ip0jCN04iq+l+TWzCiz6jBZAFY8VM0="
+          "Value": "sha256-Do+IUvN+eHKt2ww+1vFdnJoxvpXiTrvatXRvBzUOgGw="
         }
       ]
     },
     {
       "Route": "_framework/HosxpUi.wasm.gz",
-      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\8om7xnnctu-rrjg7yc5eu.gz",
+      "AssetFile": "D:\\HosxpUi\\obj\\Debug\\net8.0\\compressed\\8om7xnnctu-e1otexyhia.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -14729,7 +14729,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "154271"
+          "Value": "156070"
         },
         {
           "Name": "Content-Type",
@@ -14737,11 +14737,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4dlJ9Cqu4P0/4ARzzE6NDDVgXnCVT1PcJICWVXbYO4A=\""
+          "Value": "\"w4tgwkfaiasYpSJBDYU047ZjEdczusM7f99HMsdwbfw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 25 Mar 2025 03:00:27 GMT"
+          "Value": "Tue, 25 Mar 2025 07:54:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14759,7 +14759,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4dlJ9Cqu4P0/4ARzzE6NDDVgXnCVT1PcJICWVXbYO4A="
+          "Value": "sha256-w4tgwkfaiasYpSJBDYU047ZjEdczusM7f99HMsdwbfw="
         }
       ]
     },
