@@ -82,7 +82,7 @@ else
     {
         try
         {
-            visitData = await _http.GetFromJsonAsync<List<AbsentVisit>>("api/MedRecord/GetMedRecordsRedis");
+            visitData = await _http.GetFromJsonAsync<List<AbsentVisit>>("api/MedRecord/GetMedRecords");
 
             if (visitData != null)
             {

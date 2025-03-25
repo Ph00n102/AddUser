@@ -1,0 +1,77 @@
+﻿@page "/xrayreport"
+@page "/xrayreport/{hn}"
+@using HosxpUi.Models
+@using Microsoft.AspNetCore.Authorization
+@* @inject IHttpClientFactory _httpClientFactory; *@
+@using Blazored.LocalStorage
+@inject ILocalStorageService _localStorageService;
+@inject HttpClient _http 
+@inject NavigationManager Navigation;
+@attribute [Authorize(Roles = "Admin,Doctor,Nurse")]
+
+
+<PageTitle>Note Photo</PageTitle>
+
+ @if (xraysReportLists == null || !xraysReportLists.Any()) // Check if the list is null or empty
+{
+    <p class='text-center'><strong>ไม่พบข้อมูล</strong></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>วันที่</th>
+                <th>เวลา</th>
+                <th>รายละเอียด</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in xraysReportLists)
+            {
+                <tr>
+                    <td>@item.examinedDate</td>
+                    <td>@item.examinedTime</td>
+                    <td>@ProcessPlainText(item.reportText)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<button class="btn btn-warning"> <a href="http://localhost:9090/?QueryMode=PID&Value=xxxxx" target="_blank">ดู x-ray</a></button>
+
+@code {
+    [Parameter]
+    public string hn {get; set;}
+    private string modifiedText;
+
+    public List<XrayData> xraysReportLists = new();
+
+    private bool isAuthorized = false;
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var token = await _localStorageService.GetItemAsync<string>("jwt-access-token");
+            _http.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+            // Fetch data with authenticated requests
+            xraysReportLists = await _http.GetFromJsonAsync<List<XrayData>>($"api/Xray/getxrayreport?_Hn={hn}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Exception: {ex.Message}");
+        }
+    }
+
+    // Method to process plainText by removing newlines and replacing multiple whitespaces with newlines
+    private string ProcessPlainText(string plainText)
+    {
+        // Replace multiple consecutive spaces with a newline
+        string modifiedText = System.Text.RegularExpressions.Regex.Replace(plainText, @"\s{2,}", "\n");
+
+        // Remove any \r\n characters
+        modifiedText = modifiedText.Replace("\r\n", " ").Trim();
+
+        return modifiedText;
+    }
+}

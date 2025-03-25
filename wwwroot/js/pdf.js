@@ -130,6 +130,7 @@ window.generateUserPDF = function (userData) {
     }).catch(error => console.error("Error loading fonts:", error));
 };
 
+
 // Helper function to convert ArrayBuffer to Base64
 function arrayBufferToBase64(buffer) {
     let binary = '';

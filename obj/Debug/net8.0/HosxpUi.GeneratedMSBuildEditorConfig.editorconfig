@@ -35,16 +35,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjZXNzRGVuaWVkLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/AddUser.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkVXNlci5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/HosxpUi/Pages/AddVitalSign.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkVml0YWxTaWduLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/Admin.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW4ucmF6b3I=
+[D:/HosxpUi/Pages/AdminPage/AddUser.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5QYWdlXEFkZFVzZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HosxpUi/Pages/AdminPage/Admin.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5QYWdlXEFkbWluLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HosxpUi/Pages/AdminPage/EditUser.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5QYWdlXEVkaXRVc2VyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/HosxpUi/Pages/AdminPage/GetAllLogs.razor]
@@ -87,10 +91,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRG9jdG9yUGFnZVxXYXJmYXJpbkRvc2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/EditUser.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFVzZXIucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/HosxpUi/Pages/GetNameRole.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2V0TmFtZVJvbGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -103,28 +103,40 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSXBkV2FyZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HosxpUi/Pages/LabDetailChem.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGFiRGV0YWlsQ2hlbS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/HosxpUi/Pages/LabDetailHem.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGFiRGV0YWlsSGVtLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/HosxpUi/Pages/LabDetailImmu.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGFiRGV0YWlsSW1tdS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/HosxpUi/Pages/LabDetailOther.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGFiRGV0YWlsT3RoZXIucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/HosxpUi/Pages/LabDetailUa.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGFiRGV0YWlsVWEucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/HosxpUi/Pages/LabProgramPage/AbsentLab.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGFiUHJvZ3JhbVBhZ2VcQWJzZW50TGFiLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HosxpUi/Pages/LabProgramPage/LabDetailChem.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGFiUHJvZ3JhbVBhZ2VcTGFiRGV0YWlsQ2hlbS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HosxpUi/Pages/LabProgramPage/LabDetailHem.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGFiUHJvZ3JhbVBhZ2VcTGFiRGV0YWlsSGVtLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HosxpUi/Pages/LabProgramPage/LabDetailImmu.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGFiUHJvZ3JhbVBhZ2VcTGFiRGV0YWlsSW1tdS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HosxpUi/Pages/LabProgramPage/LabDetailOther.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGFiUHJvZ3JhbVBhZ2VcTGFiRGV0YWlsT3RoZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HosxpUi/Pages/LabProgramPage/LabDetailUa.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGFiUHJvZ3JhbVBhZ2VcTGFiRGV0YWlsVWEucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HosxpUi/Pages/LabProgramPage/OtherlabList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGFiUHJvZ3JhbVBhZ2VcT3RoZXJsYWJMaXN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HosxpUi/Pages/LabProgramPage/OutlabDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGFiUHJvZ3JhbVBhZ2VcT3V0bGFiRGV0YWlsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HosxpUi/Pages/LabProgramPage/OutlabList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGFiUHJvZ3JhbVBhZ2VcT3V0bGFiTGlzdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/HosxpUi/Pages/Login.razor]
@@ -141,18 +153,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/HosxpUi/Pages/MusicPad/PadController.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXVzaWNQYWRcUGFkQ29udHJvbGxlci5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/HosxpUi/Pages/OtherlabList.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3RoZXJsYWJMaXN0LnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/HosxpUi/Pages/OutlabDetail.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3V0bGFiRGV0YWlsLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/HosxpUi/Pages/OutlabList.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3V0bGFiTGlzdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/HosxpUi/Pages/PatientDetail.razor]
@@ -197,6 +197,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/HosxpUi/Pages/Xray/HealthIdLogin.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcWHJheVxIZWFsdGhJZExvZ2luLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HosxpUi/Pages/Xray/XrayReport.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcWHJheVxYcmF5UmVwb3J0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/HosxpUi/Shared/Alert.razor]

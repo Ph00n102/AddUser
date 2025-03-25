@@ -152,7 +152,7 @@ else
         await base.OnInitializedAsync();
     }
 
-    @* private async Task LoginAsync()
+    private async Task LoginAsync()
     {
         await form.Validate();
         if (form.IsValid)
@@ -191,9 +191,9 @@ else
 
             }
         }
-    } *@
+    }
 
-    private async Task LoginAsync()
+    @* private async Task LoginAsync()
     {
         await form.Validate();
         if (form.IsValid)
@@ -229,7 +229,7 @@ else
                 APIErrorMessages = "Login Failed. Please try again later.";
             }
         }
-    }
+    } *@
 
     @* private async Task SendOtpAsync()
     {

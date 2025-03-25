@@ -117,6 +117,10 @@
       "PackagePath": "staticwebassets\\js\\pdf.js"
     },
     {
+      "Id": "D:\\HosxpUi\\wwwroot\\js\\pdf2.js",
+      "PackagePath": "staticwebassets\\js\\pdf2.js"
+    },
+    {
       "Id": "D:\\HosxpUi\\wwwroot\\manifest.webmanifest",
       "PackagePath": "staticwebassets\\manifest.webmanifest"
     },

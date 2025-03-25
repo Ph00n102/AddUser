@@ -9,6 +9,7 @@ namespace HosxpUi.Models
      public class CreateUser
     {
         public string createUser { get; set; }
+        public string createUserName { get; set; }
         public List<ProgressNoteList> progressNoteList { get; set; }
     }
 

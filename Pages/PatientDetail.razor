@@ -4,6 +4,7 @@
 @using HosxpUi.Services
 @using Microsoft.AspNetCore.Authorization
 @* @inject IHttpClientFactory _httpClientFactory; *@
+@inject IJSRuntime JS
 @inject HttpClient _http 
 @inject NavigationManager Navigation;
 @inject StateContainer StateContainer
@@ -33,7 +34,9 @@
                 <button class="btn btn-info"><a href="/labim/@item.hn" target="_blank">ผล lab immune</a></button>
                 <button class="btn btn-info"><a href="/olab/@item.hn" target="_blank">ผล outlab</a></button>
                 <button class="btn btn-info"><a href="/othlab/@item.hn" target="_blank">ผล lab อืนๆ</a></button>
+                <button class="btn btn-info"><a href="/xrayreport/@item.hn" target="_blank">ผลอ่าน x-ray</a></button>
                 <button class="btn btn-primary"><a href="/ptnote/@item.hn" target="_blank">Note Photo</a></button>
+                <button @onclick="GeneratePDF" class="btn btn-danger">Print order</button>
             </td>
         </tr>
         }
@@ -123,8 +126,8 @@
                                     <p>@detail.progressNoteItemDetail2</p>
                                     <p><strong>วันที่ @detail.progressNoteDate เวลา @detail.progressNoteTime น.</strong></p>
                                 }
-                                @* <p><strong>@GetNameFromLoginName(@progress.createUser)</strong></p> *@
-                                <p><strong>@(userNames.ContainsKey(progress.createUser) ? userNames[progress.createUser] : "")</strong></p>
+                                <p><strong>@progress.createUserName</strong></p>
+                                @* <p><strong>@(userNames.ContainsKey(progress.createUser) ? userNames[progress.createUser] : "")</strong></p> *@
                             }
                         }
                     }
@@ -313,5 +316,9 @@ private async Task ShowAlert(string message)
         items.Clear();
     }
 
+    private async Task GeneratePDF()
+    {
+        await JS.InvokeVoidAsync("generatePDF", orderDetails, orderContinueReview, progressNoteDetails, hn, an);
+    }
 
 }
