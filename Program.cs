@@ -52,10 +52,9 @@ builder.Services.AddScoped<ISoundPlayer, SoundPlayer>();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options => 
     {
-       options.LoginPath = "/login";
+       options.LoginPath = "/admin";
        options.AccessDeniedPath = "/accessdenied"; 
     });
-
 
 await builder.Build().RunAsync();
 

@@ -22,7 +22,7 @@
                     <MudMenuItem>
                         <MudMenu ActivationEvent="MouseEvent.MouseOver" AnchorOrigin="Origin.TopRight" TransformOrigin="Origin.TopLeft" Dense>
                             <ActivatorContent>
-                                <MudMenuItem Href="/opd">ค้นหาคนไข้</MudMenuItem>
+                                @* <MudMenuItem Href="/opd">ค้นหาคนไข้</MudMenuItem> *@
                             </ActivatorContent>
 
                             <ChildContent>
@@ -47,7 +47,7 @@
                     <MudMenuItem>
                         <MudMenu ActivationEvent="MouseEvent.MouseOver" AnchorOrigin="Origin.TopRight" TransformOrigin="Origin.TopLeft" Dense>
                             <ActivatorContent>
-                                <MudMenuItem Href="/ward">รายชื่อ ward</MudMenuItem>
+                                @* <MudMenuItem Href="/ward">รายชื่อ ward</MudMenuItem> *@
                             </ActivatorContent>
 
                             <ChildContent>
@@ -85,7 +85,7 @@
                         </MudMenu>
                     </MudMenuItem> *@
 
-                    <MudMenu Label="งานห้องบัตร" Variant="Variant.Filled" Color="Color.Primary" AnchorOrigin="Origin.CenterCenter" TransformOrigin="Origin.TopLeft" Dense>
+                    @* <MudMenu Label="งานห้องบัตร" Variant="Variant.Filled" Color="Color.Primary" AnchorOrigin="Origin.CenterCenter" TransformOrigin="Origin.TopLeft" Dense>
                         <ActivatorContent>
                             <MudChip T="string" Color="Color.Primary">งานห้องบัตร</MudChip>
                         </ActivatorContent>
@@ -117,7 +117,7 @@
                             <MudMenuItem Href="/ordertest">ทดสอบ order เข้า KPHIS</MudMenuItem>
                             <MudMenuItem Href="/healthidlogin">ทดสอบ imageing Hub</MudMenuItem>
                         </ChildContent>
-                    </MudMenu>
+                    </MudMenu> *@
 
                     @* <MudMenuItem>
                         <MudMenu ActivationEvent="MouseEvent.MouseOver" AnchorOrigin="Origin.TopRight" TransformOrigin="Origin.TopLeft" Dense>
@@ -131,7 +131,7 @@
                         </MudMenu>
                     </MudMenuItem> *@
     
-                <MudLink Color="Color.Inherit" Underline="Underline.None" class="mr-2" Href="/dashboard">Dashboard</MudLink>
+                @* <MudLink Color="Color.Inherit" Underline="Underline.None" class="mr-2" Href="/dashboard">Dashboard</MudLink>
                 <MudMenu Label="โปรแกรมเสริม" Variant="Variant.Filled" Color="Color.Primary" AnchorOrigin="Origin.CenterCenter" TransformOrigin="Origin.TopLeft" Dense>
                         <ActivatorContent>
                             <MudChip T="string" Color="Color.Primary">โปรแกรมเสริม</MudChip>
@@ -144,12 +144,12 @@
                     </MudMenu>
 
                 <MudSpacer/>
-                <MudLink Color="Color.Inherit" Underline="Underline.None" class="mr-2" OnClick="LogoutAsync">Logout</MudLink>
+                <MudLink Color="Color.Inherit" Underline="Underline.None" class="mr-2" OnClick="LogoutAsync">Logout</MudLink> *@
             </Authorized>
             <NotAuthorized>
                 <MudLink Color="Color.Inherit" Underline="Underline.None" Class="mr-2" Href="/">สำนักงานดิจิทัลทางการแพทย์</MudLink>
                 <MudSpacer/>
-                <MudLink Color="Color.Inherit" Underline="Underline.None" Class="mr-2" Href="/login">Login</MudLink>
+                @* <MudLink Color="Color.Inherit" Underline="Underline.None" Class="mr-2" Href="/login">Login</MudLink> *@
             </NotAuthorized>
         </AuthorizeView>
     </MudAppBar>

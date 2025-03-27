@@ -55,7 +55,7 @@ namespace HosxpUi.Layout.Providers
             if (string.IsNullOrEmpty(jwtToken) || IsTokenExpired(jwtToken))
             {
                 // Token is either missing or expired, navigate to the login page
-                _navigationManager.NavigateTo("/login", false); // true forces a reload of the page
+                _navigationManager.NavigateTo("/admin", false); // true forces a reload of the page
                 return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity()));
             }
 

@@ -128,32 +128,65 @@
     public int id { set; get; }
     public User? user = null;
     private UserDto userDto { get; set; } = new();
-
-
+    [Parameter] public string Source { get; set; }
+    [Inject] private NavigationManager Navigation { get; set; }
 
     protected override async Task OnParametersSetAsync()
     {
     
-            user = await _http.GetFromJsonAsync<User>($"api/User/User/{id}" );
+            @* user = await _http.GetFromJsonAsync<User>($"api/User/User/{id}" );
             userDto.id = user.id;
             userDto.loginName = user?.loginName ?? "";
             userDto.role = user.role;
-            userDto.cid = user.cid;
+            userDto.cid = user.cid; *@
+             var uri = new Uri(Navigation.Uri);
+            var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
+            Source = query.Get("source") ?? "User"; // Default to "User" if not specified
+
+            string apiEndpoint = Source == "User2" ? "api/User/User2" : "api/User/User";
+            user = await _http.GetFromJsonAsync<User>($"{apiEndpoint}/{id}");
+
+            if (user != null)
+            {
+                userDto.id = user.id;
+                userDto.loginName = user.loginName ?? "";
+                userDto.role = user.role;
+                userDto.cid = user.cid;
+            }
            
     }
 
-    private async Task UpdateUser()
+    @* private async Task UpdateUser()
     {
-            var response = await _http.PutAsJsonAsync($"api/User/UpdateUser/{id}", userDto);
+        var response = await _http.PutAsJsonAsync($"api/User/UpdateUser/{id}", userDto);
 
-            if (response.IsSuccessStatusCode)
-            {
-                navManager.NavigateTo("/admin");
-            }
-            else
-            {
-                 Console.WriteLine($"Error: {response.StatusCode} - อัปโหลดไม่สำเร็จ!");
-            }
+        if (response.IsSuccessStatusCode)
+        {
+            navManager.NavigateTo("/admin");
         }
+        else
+        {
+                Console.WriteLine($"Error: {response.StatusCode} - อัปโหลดไม่สำเร็จ!");
+        }
+    } *@
+     private async Task UpdateUser()
+    {
+        var uri = new Uri(Navigation.Uri);
+        var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
+        Source = query.Get("source") ?? "User"; // Default to "User" if not specified
+
+        string apiEndpoint = Source == "User2" ? "api/User/UpdateUser2" : "api/User/UpdateUser";
+
+        var response = await _http.PutAsJsonAsync($"{apiEndpoint}/{id}", userDto);
+
+        if (response.IsSuccessStatusCode)
+        {
+            navManager.NavigateTo("/admin");
+        }
+        else
+        {
+            Console.WriteLine($"Error: {response.StatusCode} - อัปโหลดไม่สำเร็จ!");
+        }
+    }
 
     }
