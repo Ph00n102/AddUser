@@ -35,7 +35,14 @@
                                     <div class="text-md-right" style="width:40px;"></div>
                                     <div class="col-md-4 text-md-right" style="width:200px;"><p><b>Role :</b></p></div>
                                     <div class="col-md-7">
-                                        <input class="form-control" @bind="userDto.role" type="text" />
+                                        @* <input class="form-control" @bind="userDto.role" type="text" /> *@
+                                        <select class="form-select" @bind="userDto.role">
+                                            <option value=''>ระบุประเภทหน้าที่</option>
+                                            <option value='Nurse'>Nurse</option>
+                                            <option value='Porter'>Porter</option>
+                                            <option value='Card'>Card</option>
+                                            <option value='Lab'>Lab</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="row md-3 py-1">
